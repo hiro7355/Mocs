@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Mocs.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DB_Name" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mocs_cell_db</Value>
+    </Setting>
+    <Setting Name="DB_User" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">postgres</Value>
+    </Setting>
+    <Setting Name="DB_Pass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">postgres</Value>
+    </Setting>
+    <Setting Name="DB_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="DB_Port" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5432</Value>
+    </Setting>
+    <Setting Name="DEBUG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ON</Value>
+    </Setting>
+    <Setting Name="ErrLogDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\Log\Error</Value>
+    </Setting>
+    <Setting Name="ErrLogOutMode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ON</Value>
+    </Setting>
+    <Setting Name="TransLogDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\Log\Trans</Value>
+    </Setting>
+    <Setting Name="LogoFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\Logo.jpg</Value>
+    </Setting>
+    <Setting Name="moniter_time" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1500</Value>
+    </Setting>
+    <Setting Name="Cell_Monitoring_Interval" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

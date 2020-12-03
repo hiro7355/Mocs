@@ -1,0 +1,11 @@
+﻿<Application x:Class="Mocs.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Mocs"
+              Startup="App_Startup"
+             >
+    <!-- StartupUri="MainWindow.xaml" -->
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
