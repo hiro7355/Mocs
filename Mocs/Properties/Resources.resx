@@ -133,15 +133,43 @@
     <value>Communication state</value>
     <comment>通信状態</comment>
   </data>
+  <data name="MLD_MUORDER_STATUS_1" xml:space="preserve">
+    <value>Running</value>
+    <comment>MU一覧の搬送状況用の名称</comment>
+  </data>
+  <data name="MLD_MUORDER_STATUS_10" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_11" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_12" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_13" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_20" xml:space="preserve">
+    <value>Waiting for permission to drive</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_21" xml:space="preserve">
+    <value>Obstacle stop</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_30" xml:space="preserve">
+    <value>Abnormal stop</value>
+  </data>
   <data name="MLD_OPE_MODE" xml:space="preserve">
     <value>Unknown,offline automatic,online automatic,manual</value>
-    <comment>mu_status.mu_stat_ope_modeをインデックスとするカンマ区切り文字列</comment>
+    <comment>MU一覧の運転モード用の名称一覧。mu_status.mu_stat_ope_modeをインデックスとするカンマ区切り文字列</comment>
   </data>
   <data name="MLH_CHARGE" xml:space="preserve">
     <value>Remaining charge</value>
   </data>
   <data name="MLH_FLOOR" xml:space="preserve">
     <value>Floor</value>
+  </data>
+  <data name="MLH_MUORDER_STATUS" xml:space="preserve">
+    <value>Transport status</value>
   </data>
   <data name="MLH_NAME" xml:space="preserve">
     <value>MU Name</value>
@@ -151,12 +179,6 @@
   </data>
   <data name="MLH_POINT_NAME" xml:space="preserve">
     <value>Point</value>
-  </data>
-  <data name="MLH_STATION" xml:space="preserve">
-    <value>Station</value>
-  </data>
-  <data name="MLH_TRANSPORT_STATUS" xml:space="preserve">
-    <value>Transport status</value>
   </data>
   <data name="MLH_X" xml:space="preserve">
     <value>x point</value>

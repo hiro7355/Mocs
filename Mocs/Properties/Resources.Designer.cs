@@ -97,6 +97,78 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Running に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_1 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Finished に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_10 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Canceled に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_11 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_12 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Pause に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_13 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Waiting for permission to drive に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_20 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Obstacle stop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_21 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Abnormal stop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_MUORDER_STATUS_30 {
+            get {
+                return ResourceManager.GetString("MLD_MUORDER_STATUS_30", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Unknown,offline automatic,online automatic,manual に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MLD_OPE_MODE {
@@ -124,6 +196,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Transport status に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_MUORDER_STATUS {
+            get {
+                return ResourceManager.GetString("MLH_MUORDER_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   MU Name に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MLH_NAME {
@@ -147,24 +228,6 @@ namespace Mocs.Properties {
         public static string MLH_POINT_NAME {
             get {
                 return ResourceManager.GetString("MLH_POINT_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Station に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string MLH_STATION {
-            get {
-                return ResourceManager.GetString("MLH_STATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Transport status に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string MLH_TRANSPORT_STATUS {
-            get {
-                return ResourceManager.GetString("MLH_TRANSPORT_STATUS", resourceCulture);
             }
         }
         

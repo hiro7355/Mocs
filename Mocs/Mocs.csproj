@@ -90,11 +90,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Converters\MuOpeModeConverter.cs" />
+    <Compile Include="Controls\Converters\MuOrderStatusConverter.cs" />
     <Compile Include="Controls\LedControl.xaml.cs">
       <DependentUpon>LedControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MuListControl.xaml.cs">
       <DependentUpon>MuListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OrderListControl.xaml.cs">
+      <DependentUpon>OrderListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SystemStatusControl.xaml.cs">
       <DependentUpon>SystemStatusControl.xaml</DependentUpon>
@@ -107,6 +111,10 @@
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
     <Page Include="Controls\MuListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OrderListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

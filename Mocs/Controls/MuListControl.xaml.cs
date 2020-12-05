@@ -28,6 +28,9 @@ namespace Mocs.Controls
         public MuListControl()
         {
             InitializeComponent();
+
+            //グリッド線をなくす
+         //   this.muList.VerticalGridLinesBrush = Brushes.Transparent;
         }
 
         protected override void Update()
@@ -72,7 +75,7 @@ namespace Mocs.Controls
                     {
                         newBrush = Brushes.Orange;
                     }
-                    else if (muorder_status == 11 || muorder_status == 30)
+                    else if (muorder_status == 12 || muorder_status == 30)
                     {
                         newBrush = Brushes.Red;
                     }

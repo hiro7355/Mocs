@@ -129,9 +129,34 @@
   <data name="LED_NETWORK" xml:space="preserve">
     <value>通信状態</value>
   </data>
+  <data name="MLD_MUORDER_STATUS_1" xml:space="preserve">
+    <value>搬送中</value>
+    <comment>MU一覧の搬送状況用の名称</comment>
+  </data>
+  <data name="MLD_MUORDER_STATUS_10" xml:space="preserve">
+    <value>正常終了</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_11" xml:space="preserve">
+    <value>キャンセル終了</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_12" xml:space="preserve">
+    <value>異常終了</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_13" xml:space="preserve">
+    <value>一時停止</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_20" xml:space="preserve">
+    <value>走行許可待ち</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_21" xml:space="preserve">
+    <value>障害物停止</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_30" xml:space="preserve">
+    <value>異常停止</value>
+  </data>
   <data name="MLD_OPE_MODE" xml:space="preserve">
     <value>不明,オフライン自動,オンライン自動,手動</value>
-    <comment>MU一覧の運転モード値に対応する名称一覧</comment>
+    <comment>MU一覧の運転モード用の名称一覧</comment>
   </data>
   <data name="MLH_CHARGE" xml:space="preserve">
     <value>充電残量</value>
@@ -139,6 +164,9 @@
   </data>
   <data name="MLH_FLOOR" xml:space="preserve">
     <value>棟、階</value>
+  </data>
+  <data name="MLH_MUORDER_STATUS" xml:space="preserve">
+    <value>搬送状態</value>
   </data>
   <data name="MLH_NAME" xml:space="preserve">
     <value>MU 名称</value>
@@ -148,12 +176,6 @@
   </data>
   <data name="MLH_POINT_NAME" xml:space="preserve">
     <value>ポイント名</value>
-  </data>
-  <data name="MLH_STATION" xml:space="preserve">
-    <value>ステーション</value>
-  </data>
-  <data name="MLH_TRANSPORT_STATUS" xml:space="preserve">
-    <value>搬送状態</value>
   </data>
   <data name="MLH_X" xml:space="preserve">
     <value>X 座標</value>

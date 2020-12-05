@@ -23,7 +23,7 @@ namespace Mocs.Models
                 ",point_x" +
                 ",point_y" +
                 ",mu_stat_battery_cap || '%' AS charge" +
-                ",CASE WHEN mu_stat_ope_mode = 2 THEN mu_stat_muorder_status ELSE 0 END AS transport_status" +
+                ",CASE WHEN mu_stat_ope_mode = 2 THEN mu_stat_muorder_status ELSE 0 END AS muorder_status" +
             " FROM mu_status" +
             " JOIN mu_master ON mu_status.mu_stat_id = mu_master.mu_id" +
             " LEFT OUTER JOIN hospital_master ON mu_status.mu_stat_hospital_id = hospital_master.hospital_id" +
