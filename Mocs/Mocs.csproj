@@ -91,6 +91,8 @@
     </ApplicationDefinition>
     <Compile Include="Controls\Converters\MuOpeModeConverter.cs" />
     <Compile Include="Controls\Converters\MuOrderStatusConverter.cs" />
+    <Compile Include="Controls\Converters\OrderToSectConverter.cs" />
+    <Compile Include="Controls\Converters\OrderToStationConverter.cs" />
     <Compile Include="Controls\LedControl.xaml.cs">
       <DependentUpon>LedControl.xaml</DependentUpon>
     </Compile>
@@ -107,6 +109,7 @@
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\SqlForMuList.cs" />
+    <Compile Include="Models\SqlForOrderList.cs" />
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />

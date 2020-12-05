@@ -24,7 +24,7 @@
                 <Controls:SystemStatusControl  x:Name="systemStatusControl" />
                 <Controls:MuListControl x:Name="muListControl" />
             </StackPanel>
-            
+            <Controls:OrderListControl x:Name="orderListControl" />
         </StackPanel>
     </DockPanel>
 </Window>

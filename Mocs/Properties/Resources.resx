@@ -155,8 +155,17 @@
   <data name="MLD_MUORDER_STATUS_21" xml:space="preserve">
     <value>Obstacle stop</value>
   </data>
-  <data name="MLD_MUORDER_STATUS_30" xml:space="preserve">
+  <data name="MLD_MUORDER_STATUS_90" xml:space="preserve">
     <value>Abnormal stop</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_AUTO" xml:space="preserve">
+    <value>Offline auto</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_MANUAL" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_NOCON" xml:space="preserve">
+    <value>Not connected</value>
   </data>
   <data name="MLD_OPE_MODE" xml:space="preserve">
     <value>Unknown,offline automatic,online automatic,manual</value>
@@ -220,8 +229,52 @@
   <data name="MSG_CELL_SYSTEM_STOPPED" xml:space="preserve">
     <value>The system has stopped (cannot be continued).</value>
   </data>
+  <data name="OLH_CART" xml:space="preserve">
+    <value>Cart number</value>
+    <comment>搬送状態　ヘッダータイトル</comment>
+  </data>
+  <data name="OLH_MU_NAME" xml:space="preserve">
+    <value>MU name</value>
+  </data>
+  <data name="OLH_MU_STATUS" xml:space="preserve">
+    <value>MU status</value>
+  </data>
+  <data name="OLH_REQ_SECT" xml:space="preserve">
+    <value>Departure department</value>
+  </data>
+  <data name="OLH_REQ_STATION" xml:space="preserve">
+    <value>Departure station</value>
+  </data>
+  <data name="OLH_RESERVE_DATE" xml:space="preserve">
+    <value>Reservation date</value>
+  </data>
+  <data name="OLH_RESERVE_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="OLH_START_DATE" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="OLH_START_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="OLH_STATUS" xml:space="preserve">
+    <value>Transport status</value>
+  </data>
+  <data name="OLH_TO_SECT" xml:space="preserve">
+    <value>Arrival department</value>
+  </data>
+  <data name="OLH_TO_STATION" xml:space="preserve">
+    <value>Arrival station</value>
+  </data>
+  <data name="OLH_TYPE" xml:space="preserve">
+    <value>Transport type</value>
+  </data>
   <data name="TITLE_MU_LIST" xml:space="preserve">
     <value>MU List</value>
+  </data>
+  <data name="TITLE_ORDER_LIST" xml:space="preserve">
+    <value>Order List</value>
+    <comment>搬送情報</comment>
   </data>
   <data name="TITLE_SYSTEM_STATUS" xml:space="preserve">
     <value>System state</value>

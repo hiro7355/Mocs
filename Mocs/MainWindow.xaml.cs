@@ -30,6 +30,7 @@ namespace Mocs
 
             this.systemStatusControl.Init(m_db);
             this.muListControl.Init(m_db);
+            this.orderListControl.Init(m_db);
         }
 
 

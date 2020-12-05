@@ -58,8 +58,17 @@ namespace Mocs.Controls.Converters
                 case 21:
                     value = Properties.Resources.MLD_MUORDER_STATUS_21;
                     break;
-                case 30:
-                    value = Properties.Resources.MLD_MUORDER_STATUS_30;
+                case 90:
+                    value = Properties.Resources.MLD_MUORDER_STATUS_90;
+                    break;
+                case 1000:      // 未接続
+                    value = Properties.Resources.MLD_MUORDER_STATUS_NOCON;
+                    break;
+                case 1001:         //  オフライン自動
+                    value = Properties.Resources.MLD_MUORDER_STATUS_AUTO;
+                    break;
+                case 1003:         //  手動
+                    value = Properties.Resources.MLD_MUORDER_STATUS_MANUAL;
                     break;
 
                 default:

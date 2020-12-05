@@ -13,16 +13,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Mocs.Models;
+
 namespace Mocs.Controls
 {
     /// <summary>
     /// OrderListControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class OrderListControl : UserControl
+    public partial class OrderListControl : TimerBaseControl
     {
         public OrderListControl()
         {
             InitializeComponent();
         }
+
+
+        protected override void Update()
+        {
+            string sql = SqlForOrderList.GetListSql();
+
+            System.Data.DataTable table = m_db.getDataTable(sql);
+
+            orderList.DataContext = table;
+        }
+
     }
 }

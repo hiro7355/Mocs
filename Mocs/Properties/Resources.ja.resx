@@ -151,8 +151,17 @@
   <data name="MLD_MUORDER_STATUS_21" xml:space="preserve">
     <value>障害物停止</value>
   </data>
-  <data name="MLD_MUORDER_STATUS_30" xml:space="preserve">
+  <data name="MLD_MUORDER_STATUS_90" xml:space="preserve">
     <value>異常停止</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_AUTO" xml:space="preserve">
+    <value>オフライン自動</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_MANUAL" xml:space="preserve">
+    <value>手動</value>
+  </data>
+  <data name="MLD_MUORDER_STATUS_NOCON" xml:space="preserve">
+    <value>未接続</value>
   </data>
   <data name="MLD_OPE_MODE" xml:space="preserve">
     <value>不明,オフライン自動,オンライン自動,手動</value>
@@ -216,8 +225,50 @@
   <data name="MSG_CELL_SYSTEM_STOPPED" xml:space="preserve">
     <value>システム停止(継続不可)しました。</value>
   </data>
+  <data name="OLH_CART" xml:space="preserve">
+    <value>カート番号</value>
+  </data>
+  <data name="OLH_MU_NAME" xml:space="preserve">
+    <value>MU 名称</value>
+  </data>
+  <data name="OLH_MU_STATUS" xml:space="preserve">
+    <value>MU 状態</value>
+  </data>
+  <data name="OLH_REQ_SECT" xml:space="preserve">
+    <value>発部署</value>
+  </data>
+  <data name="OLH_REQ_STATION" xml:space="preserve">
+    <value>発ステーション</value>
+  </data>
+  <data name="OLH_RESERVE_DATE" xml:space="preserve">
+    <value>予約日付</value>
+  </data>
+  <data name="OLH_RESERVE_TIME" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="OLH_START_DATE" xml:space="preserve">
+    <value>開始日付</value>
+  </data>
+  <data name="OLH_START_TIME" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="OLH_STATUS" xml:space="preserve">
+    <value>搬送状態</value>
+  </data>
+  <data name="OLH_TO_SECT" xml:space="preserve">
+    <value>着部署</value>
+  </data>
+  <data name="OLH_TO_STATION" xml:space="preserve">
+    <value>着ステーション</value>
+  </data>
+  <data name="OLH_TYPE" xml:space="preserve">
+    <value>搬送種別</value>
+  </data>
   <data name="TITLE_MU_LIST" xml:space="preserve">
-    <value>MU一覧</value>
+    <value>MU 一覧</value>
+  </data>
+  <data name="TITLE_ORDER_LIST" xml:space="preserve">
+    <value>搬送情報</value>
   </data>
   <data name="TITLE_SYSTEM_STATUS" xml:space="preserve">
     <value>システム状態</value>

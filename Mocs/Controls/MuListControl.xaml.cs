@@ -28,9 +28,6 @@ namespace Mocs.Controls
         public MuListControl()
         {
             InitializeComponent();
-
-            //グリッド線をなくす
-         //   this.muList.VerticalGridLinesBrush = Brushes.Transparent;
         }
 
         protected override void Update()
