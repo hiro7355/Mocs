@@ -129,6 +129,38 @@
   <data name="LED_NETWORK" xml:space="preserve">
     <value>通信状態</value>
   </data>
+  <data name="MLD_OPE_MODE" xml:space="preserve">
+    <value>不明,オフライン自動,オンライン自動,手動</value>
+    <comment>MU一覧の運転モード値に対応する名称一覧</comment>
+  </data>
+  <data name="MLH_CHARGE" xml:space="preserve">
+    <value>充電残量</value>
+    <comment>MU一覧ヘッダー</comment>
+  </data>
+  <data name="MLH_FLOOR" xml:space="preserve">
+    <value>棟、階</value>
+  </data>
+  <data name="MLH_NAME" xml:space="preserve">
+    <value>MU 名称</value>
+  </data>
+  <data name="MLH_OPE_MODE" xml:space="preserve">
+    <value>運転モード</value>
+  </data>
+  <data name="MLH_POINT_NAME" xml:space="preserve">
+    <value>ポイント名</value>
+  </data>
+  <data name="MLH_STATION" xml:space="preserve">
+    <value>ステーション</value>
+  </data>
+  <data name="MLH_TRANSPORT_STATUS" xml:space="preserve">
+    <value>搬送状態</value>
+  </data>
+  <data name="MLH_X" xml:space="preserve">
+    <value>X 座標</value>
+  </data>
+  <data name="MLH_Y" xml:space="preserve">
+    <value>Y 座標</value>
+  </data>
   <data name="MSG_CELL_CHECK_MU" xml:space="preserve">
     <value>MU の状態を確認しています。</value>
   </data>
@@ -162,7 +194,10 @@
   <data name="MSG_CELL_SYSTEM_STOPPED" xml:space="preserve">
     <value>システム停止(継続不可)しました。</value>
   </data>
-  <data name="SYSTEM_STATUS_TITLE" xml:space="preserve">
+  <data name="TITLE_MU_LIST" xml:space="preserve">
+    <value>MU一覧</value>
+  </data>
+  <data name="TITLE_SYSTEM_STATUS" xml:space="preserve">
     <value>システム状態</value>
   </data>
 </root>

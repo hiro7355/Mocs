@@ -1,4 +1,4 @@
-﻿<Window xmlns:SystemStatus="clr-namespace:Mocs.Controls.SystemStatus"  x:Class="Mocs.MainWindow"
+﻿<Window xmlns:Controls="clr-namespace:Mocs.Controls"  x:Class="Mocs.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,7 +20,11 @@
             <MenuItem Header="ヘルプ(_H)"/>
         </Menu>
         <StackPanel>
-            <SystemStatus:SystemStatusControl x:Name="systemStatusControl" />
+            <StackPanel Orientation="Horizontal">
+                <Controls:SystemStatusControl  x:Name="systemStatusControl" />
+                <Controls:MuListControl x:Name="muListControl" />
+            </StackPanel>
+            
         </StackPanel>
     </DockPanel>
 </Window>

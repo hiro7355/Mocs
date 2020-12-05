@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Mocs.Controls.SystemStatus.LedControl"
+﻿<UserControl x:Class="Mocs.Controls.LedControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Mocs.Controls.SystemStatus"
+             xmlns:local="clr-namespace:Mocs.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="120" d:DesignWidth="120"
   x:Name="parent">

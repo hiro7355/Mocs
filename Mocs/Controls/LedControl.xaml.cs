@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mocs.Utils;
 
-namespace Mocs.Controls.SystemStatus
+namespace Mocs.Controls
 {
     /// <summary>
     /// LedControl.xaml の相互作用ロジック

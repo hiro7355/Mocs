@@ -1,0 +1,36 @@
+﻿<local:TimerBaseControl x:Class="Mocs.Controls.MuListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:properties="clr-namespace:Mocs.Properties" 
+             xmlns:local="clr-namespace:Mocs.Controls"
+             xmlns:converter="clr-namespace:Mocs.Controls.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <converter:MuOpeModeConverter x:Key="opeModeConoverter"/>
+        </Grid.Resources>
+        <StackPanel>
+        <Label Content="{x:Static properties:Resources.TITLE_MU_LIST}"/>
+
+
+            <DataGrid Name="muList"  ItemsSource="{Binding}" AutoGenerateColumns="False" LoadingRow="DataGrid_LoadingRow" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_NAME}" Binding="{Binding name}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_OPE_MODE}" Binding="{Binding ope_mode, Converter={StaticResource  opeModeConoverter}}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_FLOOR}" Binding="{Binding floor}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_POINT_NAME}" Binding="{Binding point_name}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_X}" Binding="{Binding point_x}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_TRANSPORT_STATUS}" Binding="{Binding transport_status}" Width="100"/>
+
+            </DataGrid.Columns>
+            </DataGrid>
+        <TextBlock x:Name="message" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+    </StackPanel>
+    </Grid>
+</local:TimerBaseControl>

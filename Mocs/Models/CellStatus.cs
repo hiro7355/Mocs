@@ -46,7 +46,8 @@ namespace Mocs.Models
         public static void InitTable(NpgsqlConnection conn)
         {
             //  
-            string sql = "INSERT INTO cell_status VALUES (1,0,0,0,0,CURRENT_TIMESTAMP ) ON CONFLICT ON CONSTRAINT cell_status_pkey DO UPDATE SET cellstat_status = 0, cellstat_level = 0, cellstat_mu_status = 0, cellstat_mu_err=0, cellstat_stat_update_datetime=CURRENT_TIMESTAMP ; ";
+//            string sql = "INSERT INTO cell_status VALUES (1,0,0,0,0,CURRENT_TIMESTAMP ) ON CONFLICT ON CONSTRAINT cell_status_pkey DO UPDATE SET cellstat_status = 0, cellstat_level = 0, cellstat_mu_status = 0, cellstat_mu_err=0, cellstat_stat_update_datetime=CURRENT_TIMESTAMP ; ";
+            string sql = "INSERT INTO cell_status VALUES (1,0,0,0,0,CURRENT_TIMESTAMP ) ON CONFLICT ON CONSTRAINT cell_status_pkey DO NOTHING; ";
             update(conn, sql);
 
         }

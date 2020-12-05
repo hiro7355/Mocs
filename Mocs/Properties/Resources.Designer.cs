@@ -97,6 +97,96 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Unknown,offline automatic,online automatic,manual に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLD_OPE_MODE {
+            get {
+                return ResourceManager.GetString("MLD_OPE_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Remaining charge に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_CHARGE {
+            get {
+                return ResourceManager.GetString("MLH_CHARGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Floor に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_FLOOR {
+            get {
+                return ResourceManager.GetString("MLH_FLOOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MU Name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_NAME {
+            get {
+                return ResourceManager.GetString("MLH_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Operation Mode に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_OPE_MODE {
+            get {
+                return ResourceManager.GetString("MLH_OPE_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Point に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_POINT_NAME {
+            get {
+                return ResourceManager.GetString("MLH_POINT_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Station に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_STATION {
+            get {
+                return ResourceManager.GetString("MLH_STATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Transport status に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_TRANSPORT_STATUS {
+            get {
+                return ResourceManager.GetString("MLH_TRANSPORT_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   x point に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_X {
+            get {
+                return ResourceManager.GetString("MLH_X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   y point に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MLH_Y {
+            get {
+                return ResourceManager.GetString("MLH_Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Checking the status of MU. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MSG_CELL_CHECK_MU {
@@ -196,11 +286,20 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   MU List に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TITLE_MU_LIST {
+            get {
+                return ResourceManager.GetString("TITLE_MU_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   System state に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string SYSTEM_STATUS_TITLE {
+        public static string TITLE_SYSTEM_STATUS {
             get {
-                return ResourceManager.GetString("SYSTEM_STATUS_TITLE", resourceCulture);
+                return ResourceManager.GetString("TITLE_SYSTEM_STATUS", resourceCulture);
             }
         }
     }

@@ -16,50 +16,22 @@ using System.Windows.Threading;
 using Mocs.Models;
 using Mocs.Utils;
 
-namespace Mocs.Controls.SystemStatus
+namespace Mocs.Controls
 {
     /// <summary>
     /// SystemStatusControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class SystemStatusControl : UserControl
+    public partial class SystemStatusControl : TimerBaseControl
     {
-        DBAccess m_db;
-
-        DispatcherTimer m_timer;
 
         DateTime m_last_update_time;     //  前回の更新時間
-        
         public SystemStatusControl()
         {
             InitializeComponent();
         }
 
 
-        public void Init(DBAccess db)
-        {
-            this.m_db = db;
-            SetupTimer();
-        }
-
-        private void SetupTimer()
-        {
-
-            m_timer = new DispatcherTimer();
-            m_timer.Interval = new TimeSpan(0, 0, Int32.Parse(Properties.Settings.Default.Cell_Monitoring_Interval));
-
-            m_timer.Tick += new EventHandler(TimerFunc);
-            m_timer.Start();
-
-            TimerFunc(null, null);
-        }
-
-        /// <summary>
-        /// Cell監視処理
-        /// Timerにより一定間隔で呼び出される
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TimerFunc(object sender, EventArgs e)
+        protected override  void Update()
         {
             //  運転状態監視
             UpdateCell();

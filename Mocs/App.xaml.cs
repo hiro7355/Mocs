@@ -22,6 +22,10 @@ namespace Mocs
 
         void App_Startup(object sender, StartupEventArgs e)
         {
+
+            //  言語設定を変更
+            CommonUtil.SetLocale();
+
             // Application is running
             // Process command line args
             bool startMinimized = false;
@@ -48,6 +52,7 @@ namespace Mocs
             }
         }
 
+ 
         /// <summary>
         /// DBから初期情報をロード
         /// </summary>

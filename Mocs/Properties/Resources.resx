@@ -133,6 +133,37 @@
     <value>Communication state</value>
     <comment>通信状態</comment>
   </data>
+  <data name="MLD_OPE_MODE" xml:space="preserve">
+    <value>Unknown,offline automatic,online automatic,manual</value>
+    <comment>mu_status.mu_stat_ope_modeをインデックスとするカンマ区切り文字列</comment>
+  </data>
+  <data name="MLH_CHARGE" xml:space="preserve">
+    <value>Remaining charge</value>
+  </data>
+  <data name="MLH_FLOOR" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="MLH_NAME" xml:space="preserve">
+    <value>MU Name</value>
+  </data>
+  <data name="MLH_OPE_MODE" xml:space="preserve">
+    <value>Operation Mode</value>
+  </data>
+  <data name="MLH_POINT_NAME" xml:space="preserve">
+    <value>Point</value>
+  </data>
+  <data name="MLH_STATION" xml:space="preserve">
+    <value>Station</value>
+  </data>
+  <data name="MLH_TRANSPORT_STATUS" xml:space="preserve">
+    <value>Transport status</value>
+  </data>
+  <data name="MLH_X" xml:space="preserve">
+    <value>x point</value>
+  </data>
+  <data name="MLH_Y" xml:space="preserve">
+    <value>y point</value>
+  </data>
   <data name="MSG_CELL_CHECK_MU" xml:space="preserve">
     <value>Checking the status of MU.</value>
     <comment>運転状態メッセージ</comment>
@@ -167,7 +198,10 @@
   <data name="MSG_CELL_SYSTEM_STOPPED" xml:space="preserve">
     <value>The system has stopped (cannot be continued).</value>
   </data>
-  <data name="SYSTEM_STATUS_TITLE" xml:space="preserve">
+  <data name="TITLE_MU_LIST" xml:space="preserve">
+    <value>MU List</value>
+  </data>
+  <data name="TITLE_SYSTEM_STATUS" xml:space="preserve">
     <value>System state</value>
     <comment>システム状態</comment>
   </data>

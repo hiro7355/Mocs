@@ -130,5 +130,26 @@ namespace Mocs.Properties {
                 return ((string)(this["Cell_Monitoring_Interval"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("jp")]
+        public string Locale_Code {
+            get {
+                return ((string)(this["Locale_Code"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string 設定 {
+            get {
+                return ((string)(this["設定"]));
+            }
+            set {
+                this["設定"] = value;
+            }
+        }
     }
 }
