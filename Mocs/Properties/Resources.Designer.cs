@@ -61,6 +61,330 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Cart list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_CART_LIST {
+            get {
+                return ResourceManager.GetString("BT_CART_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Device に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_DEVICE {
+            get {
+                return ResourceManager.GetString("BT_DEVICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error info に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_ERROR_INFO {
+            get {
+                return ResourceManager.GetString("BT_ERROR_INFO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Floor list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_FLOOR_LIST {
+            get {
+                return ResourceManager.GetString("BT_FLOOR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   History に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_HISTORY {
+            get {
+                return ResourceManager.GetString("BT_HISTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Search Setting に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_SEARCHSETTING {
+            get {
+                return ResourceManager.GetString("BT_SEARCHSETTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Station list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_STATION_LIST {
+            get {
+                return ResourceManager.GetString("BT_STATION_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   System state に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_SYSTEM_STATUS {
+            get {
+                return ResourceManager.GetString("BT_SYSTEM_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tablet list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_TABLET_LIST {
+            get {
+                return ResourceManager.GetString("BT_TABLET_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Affiliation restrictions に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_BELONG_RESTRICT {
+            get {
+                return ResourceManager.GetString("CLH_BELONG_RESTRICT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Department name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_BELONG_SECT {
+            get {
+                return ResourceManager.GetString("CLH_BELONG_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Destination restrictions に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_DEST_RESTRICT {
+            get {
+                return ResourceManager.GetString("CLH_DEST_RESTRICT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Destination department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_DEST_SECT {
+            get {
+                return ResourceManager.GetString("CLH_DEST_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Valid/Invalid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_ENABLE {
+            get {
+                return ResourceManager.GetString("CLH_ENABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Function に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_FUNC {
+            get {
+                return ResourceManager.GetString("CLH_FUNC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Number に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_ID {
+            get {
+                return ResourceManager.GetString("CLH_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   PIN に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_KEY {
+            get {
+                return ResourceManager.GetString("CLH_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_NAME {
+            get {
+                return ResourceManager.GetString("CLH_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Type に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLH_USE {
+            get {
+                return ResourceManager.GetString("CLH_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Invalid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_ENABLE_0 {
+            get {
+                return ResourceManager.GetString("CLV_ENABLE_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Valid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_ENABLE_1 {
+            get {
+                return ResourceManager.GetString("CLV_ENABLE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Normal cart に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_FUNC_1 {
+            get {
+                return ResourceManager.GetString("CLV_FUNC_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Big cart に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_FUNC_2 {
+            get {
+                return ResourceManager.GetString("CLV_FUNC_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Not restricted に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_RESTRICT_0 {
+            get {
+                return ResourceManager.GetString("CLV_RESTRICT_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Restricted に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_RESTRICT_NOT_0 {
+            get {
+                return ResourceManager.GetString("CLV_RESTRICT_NOT_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   General に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_USE_0 {
+            get {
+                return ResourceManager.GetString("CLV_USE_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Specimen に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_USE_1 {
+            get {
+                return ResourceManager.GetString("CLV_USE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Filth に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CLV_USE_2 {
+            get {
+                return ResourceManager.GetString("CLV_USE_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   All に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string COMBO_ALL {
+            get {
+                return ResourceManager.GetString("COMBO_ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Invalid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string COMBO_INVALID {
+            get {
+                return ResourceManager.GetString("COMBO_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Valid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string COMBO_VALID {
+            get {
+                return ResourceManager.GetString("COMBO_VALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Absence に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HTH_ABSENCE {
+            get {
+                return ResourceManager.GetString("HTH_ABSENCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HTH_CANCEL {
+            get {
+                return ResourceManager.GetString("HTH_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Communication に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HTH_COM {
+            get {
+                return ResourceManager.GetString("HTH_COM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HTH_ERROR {
+            get {
+                return ResourceManager.GetString("HTH_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Order に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HTH_ORDER {
+            get {
+                return ResourceManager.GetString("HTH_ORDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Operating state に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LED_CELL {

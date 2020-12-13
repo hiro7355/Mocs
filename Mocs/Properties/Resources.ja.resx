@@ -117,6 +117,117 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BT_CART_LIST" xml:space="preserve">
+    <value>カート一覧</value>
+  </data>
+  <data name="BT_DEVICE" xml:space="preserve">
+    <value>周辺機器</value>
+  </data>
+  <data name="BT_ERROR_INFO" xml:space="preserve">
+    <value>異常情報</value>
+  </data>
+  <data name="BT_FLOOR_LIST" xml:space="preserve">
+    <value>フロア一覧</value>
+  </data>
+  <data name="BT_HISTORY" xml:space="preserve">
+    <value>履歴</value>
+  </data>
+  <data name="BT_SEARCHSETTING" xml:space="preserve">
+    <value>検索条件設定</value>
+  </data>
+  <data name="BT_STATION_LIST" xml:space="preserve">
+    <value>ステーション一覧</value>
+  </data>
+  <data name="BT_SYSTEM_STATUS" xml:space="preserve">
+    <value>システム状態</value>
+  </data>
+  <data name="BT_TABLET_LIST" xml:space="preserve">
+    <value>タブレット一覧</value>
+  </data>
+  <data name="CLH_BELONG_RESTRICT" xml:space="preserve">
+    <value>所属制限</value>
+  </data>
+  <data name="CLH_BELONG_SECT" xml:space="preserve">
+    <value>所属部署名</value>
+  </data>
+  <data name="CLH_FUNC" xml:space="preserve">
+    <value>機能</value>
+  </data>
+  <data name="CLH_NAME" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="CLH_ID" xml:space="preserve">
+    <value>番号</value>
+    <comment>カート一覧ヘッダー</comment>
+  </data>
+  <data name="CLH_USE" xml:space="preserve">
+    <value>種別</value>
+  </data>
+  <data name="CLH_KEY" xml:space="preserve">
+    <value>暗証番号</value>
+  </data>
+  <data name="CLH_DEST_RESTRICT" xml:space="preserve">
+    <value>行先制限</value>
+  </data>
+  <data name="CLH_DEST_SECT" xml:space="preserve">
+    <value>行先部署</value>
+  </data>
+  <data name="CLH_ENABLE" xml:space="preserve">
+    <value>有効/無効</value>
+  </data>
+  <data name="CLV_ENABLE_1" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="CLV_ENABLE_0" xml:space="preserve">
+    <value>無効</value>
+    <comment>カート一覧値に対応する名称</comment>
+  </data>
+  <data name="CLV_USE_0" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="CLV_USE_1" xml:space="preserve">
+    <value>検体</value>
+  </data>
+  <data name="CLV_USE_2" xml:space="preserve">
+    <value>汚物</value>
+  </data>
+  <data name="CLV_RESTRICT_0" xml:space="preserve">
+    <value>制限なし</value>
+  </data>
+  <data name="CLV_RESTRICT_NOT_0" xml:space="preserve">
+    <value>制限あり</value>
+  </data>
+  <data name="CLV_FUNC_1" xml:space="preserve">
+    <value>標準カート</value>
+  </data>
+  <data name="CLV_FUNC_2" xml:space="preserve">
+    <value>大型カート</value>
+  </data>
+  <data name="COMBO_ALL" xml:space="preserve">
+    <value>全て</value>
+  </data>
+  <data name="COMBO_INVALID" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="COMBO_VALID" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="HTH_ABSENCE" xml:space="preserve">
+    <value>不在履歴</value>
+    <comment>履歴タブのタイトル</comment>
+  </data>
+  <data name="HTH_CANCEL" xml:space="preserve">
+    <value>キャンセル履歴</value>
+  </data>
+  <data name="HTH_COM" xml:space="preserve">
+    <value>通信履歴</value>
+  </data>
+  <data name="HTH_ERROR" xml:space="preserve">
+    <value>異常履歴</value>
+  </data>
+  <data name="HTH_ORDER" xml:space="preserve">
+    <value>搬送履歴</value>
+  </data>
   <data name="LED_CELL" xml:space="preserve">
     <value>運転状態</value>
   </data>

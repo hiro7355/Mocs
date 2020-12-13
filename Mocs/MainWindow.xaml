@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:Mocs.Properties" 
         xmlns:local="clr-namespace:Mocs"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -21,8 +22,25 @@
         </Menu>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Controls:SystemStatusControl  x:Name="systemStatusControl" />
-                <Controls:MuListControl x:Name="muListControl" />
+                <StackPanel Width="50">
+                    <Button x:Name="systemStatusButton" Click="systemStatusButton_Click" Content="{x:Static properties:Resources.BT_SYSTEM_STATUS}" />
+                    <Button x:Name="errorInfoButton" Click="errorInfoButton_Click" Content="{x:Static properties:Resources.BT_ERROR_INFO}" />
+                    <Button x:Name="cartListButton" Click="cartListButton_Click" Content="{x:Static properties:Resources.BT_CART_LIST}" />
+                    <Button x:Name="floorListButton" Click="floorListButton_Click" Content="{x:Static properties:Resources.BT_FLOOR_LIST}" />
+                    <Button x:Name="stationListButton" Click="stationListButton_Click"  Content="{x:Static properties:Resources.BT_STATION_LIST}" />
+                    <Button x:Name="tabletListButton" Click="tabletListButton_Click" Content="{x:Static properties:Resources.BT_TABLET_LIST}" />
+                    <Button x:Name="deviceButton" Click="deviceButton_Click" Content="{x:Static properties:Resources.BT_DEVICE}" />
+                    
+                    <Button x:Name="historyButton" Click="historyButton_Click" Content="{x:Static properties:Resources.BT_HISTORY}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" x:Name="systemStatusPanel">
+                    <Controls:SystemStatusControl  x:Name="systemStatusControl" />
+                    <Controls:MuListControl x:Name="muListControl" />
+                    <Controls:CartListControl x:Name="cartListControl"/>
+                    <Controls:ErrorInfoControl x:Name="errorInfoControl" />
+                </StackPanel>
+                <Controls:HistoryTabControl x:Name="historyTabControl" />
             </StackPanel>
             <Controls:OrderListControl x:Name="orderListControl" />
         </StackPanel>

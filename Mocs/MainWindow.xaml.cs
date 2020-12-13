@@ -31,9 +31,109 @@ namespace Mocs
             this.systemStatusControl.Init(m_db);
             this.muListControl.Init(m_db);
             this.orderListControl.Init(m_db);
+            this.cartListControl.Init(m_db);
+
+
         }
 
+        private void ShowPannel(bool showSystemStatus, UserControl control)
+        {
 
 
+            if (showSystemStatus)
+            {
+                this.systemStatusPanel.Visibility = Visibility.Visible;
+                this.historyTabControl.Visibility = Visibility.Collapsed;
+
+                //  いったんシステム状態の隣のコントロールをすべて非表示にする
+                this.hideAllNextSystemStatusControl();
+
+                if (control != null)
+                {
+                    //  指定されたコントロールを表示する
+                    control.Visibility = Visibility.Visible;
+
+                }
+            }
+            else
+            {
+                this.systemStatusPanel.Visibility = Visibility.Collapsed;
+                this.historyTabControl.Visibility = Visibility.Visible;
+            }
+        }
+
+        /// <summary>
+        /// システム状態の隣のコントロールをすべて非表示にする
+        /// </summary>
+        private void hideAllNextSystemStatusControl()
+        {
+            this.muListControl.Visibility = Visibility.Collapsed;
+            this.errorInfoControl.Visibility = Visibility.Collapsed;
+            this.cartListControl.Visibility = Visibility.Collapsed;
+
+        }
+
+        /// <summary>
+        /// 履歴ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void historyButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(false, null);
+
+        }
+
+        /// <summary>
+        /// 異常情報ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void errorInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(true, this.errorInfoControl);
+
+        }
+
+        /// <summary>
+        /// カート一覧ボタンクリック時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cartListButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            ShowPannel(true, this.cartListControl);
+        }
+
+        private void floorListButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(true, muListControl);
+
+        }
+
+        private void stationListButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(true, muListControl);
+
+        }
+
+        private void tabletListButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(true, muListControl);
+
+        }
+
+        private void deviceButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(true, muListControl);
+
+        }
+
+        private void systemStatusButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPannel(true, muListControl);
+
+        }
     }
 }

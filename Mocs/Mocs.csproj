@@ -89,15 +89,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\AbsenceHistoryControl.xaml.cs">
+      <DependentUpon>AbsenceHistoryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CancelHistoyControl.xaml.cs">
+      <DependentUpon>CancelHistoyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CartListControl.xaml.cs">
+      <DependentUpon>CartListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ComHistoryControl.xaml.cs">
+      <DependentUpon>ComHistoryControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Converters\MuOpeModeConverter.cs" />
     <Compile Include="Controls\Converters\MuOrderStatusConverter.cs" />
     <Compile Include="Controls\Converters\OrderToSectConverter.cs" />
     <Compile Include="Controls\Converters\OrderToStationConverter.cs" />
+    <Compile Include="Controls\ErrorHistoryControl.xaml.cs">
+      <DependentUpon>ErrorHistoryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ErrorInfoControl.xaml.cs">
+      <DependentUpon>ErrorInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HistoryTabControl.xaml.cs">
+      <DependentUpon>HistoryTabControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LedControl.xaml.cs">
       <DependentUpon>LedControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MasterBaseControl.cs" />
     <Compile Include="Controls\MuListControl.xaml.cs">
       <DependentUpon>MuListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OrderHistoryControl.xaml.cs">
+      <DependentUpon>OrderHistoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\OrderListControl.xaml.cs">
       <DependentUpon>OrderListControl.xaml</DependentUpon>
@@ -108,12 +133,46 @@
     <Compile Include="Controls\TimerBaseControl.cs" />
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
+    <Compile Include="Models\SectionMaster.cs" />
+    <Compile Include="Models\SqlForCartList.cs" />
     <Compile Include="Models\SqlForMuList.cs" />
     <Compile Include="Models\SqlForOrderList.cs" />
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
+    <Page Include="Controls\AbsenceHistoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CancelHistoyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CartListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ComHistoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ErrorHistoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ErrorInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HistoryTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MuListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OrderHistoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
