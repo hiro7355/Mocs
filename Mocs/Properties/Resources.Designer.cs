@@ -340,6 +340,60 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Confirmation に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CONFIRM {
+            get {
+                return ResourceManager.GetString("CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Set {1} of {0} to {2}  に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CONFIRM_STATION_CHANGE_ENABLE {
+            get {
+                return ResourceManager.GetString("CONFIRM_STATION_CHANGE_ENABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Floor に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FLH_FLOOR {
+            get {
+                return ResourceManager.GetString("FLH_FLOOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ward に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FLH_HOSPITAL {
+            get {
+                return ResourceManager.GetString("FLH_HOSPITAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mu error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FLH_MU_ERROR {
+            get {
+                return ResourceManager.GetString("FLH_MU_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Mu order に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FLH_MU_ORDER {
+            get {
+                return ResourceManager.GetString("FLH_MU_ORDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Absence に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HTH_ABSENCE {
@@ -817,6 +871,132 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Absence setting / Transfer department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_ABSENCE_SETTING {
+            get {
+                return ResourceManager.GetString("SLH_ABSENCE_SETTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Change setting に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_CHANGE_ENABLE {
+            get {
+                return ResourceManager.GetString("SLH_CHANGE_ENABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Valid / Invalid setting に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_ENABLE {
+            get {
+                return ResourceManager.GetString("SLH_ENABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Floor に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_FLOOR {
+            get {
+                return ResourceManager.GetString("SLH_FLOOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hospital に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_HOSPITAL {
+            get {
+                return ResourceManager.GetString("SLH_HOSPITAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Section に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_SECT {
+            get {
+                return ResourceManager.GetString("SLH_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ST Type / ID に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLH_TYPE_ID {
+            get {
+                return ResourceManager.GetString("SLH_TYPE_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Invalid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLV_ENABLE_0 {
+            get {
+                return ResourceManager.GetString("SLV_ENABLE_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Valid に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLV_ENABLE_1 {
+            get {
+                return ResourceManager.GetString("SLV_ENABLE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Send に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLV_TYPE_1 {
+            get {
+                return ResourceManager.GetString("SLV_TYPE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Receive に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLV_TYPE_2 {
+            get {
+                return ResourceManager.GetString("SLV_TYPE_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Charging に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLV_TYPE_3 {
+            get {
+                return ResourceManager.GetString("SLV_TYPE_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wait に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SLV_TYPE_4 {
+            get {
+                return ResourceManager.GetString("SLV_TYPE_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Station に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string STATION {
+            get {
+                return ResourceManager.GetString("STATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   MU List に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string TITLE_MU_LIST {
@@ -840,6 +1020,51 @@ namespace Mocs.Properties {
         public static string TITLE_SYSTEM_STATUS {
             get {
                 return ResourceManager.GetString("TITLE_SYSTEM_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Floor に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TLH_FLOOR {
+            get {
+                return ResourceManager.GetString("TLH_FLOOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ward に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TLH_HOSPITAL {
+            get {
+                return ResourceManager.GetString("TLH_HOSPITAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Section に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TLH_SECT {
+            get {
+                return ResourceManager.GetString("TLH_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tablet IP に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TLH_TABLET_IP {
+            get {
+                return ResourceManager.GetString("TLH_TABLET_IP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tablet name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TLH_TABLET_NAME {
+            get {
+                return ResourceManager.GetString("TLH_TABLET_NAME", resourceCulture);
             }
         }
     }

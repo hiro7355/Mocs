@@ -384,4 +384,85 @@
   <data name="TITLE_SYSTEM_STATUS" xml:space="preserve">
     <value>システム状態</value>
   </data>
+  <data name="TLH_FLOOR" xml:space="preserve">
+    <value>フロア名称</value>
+  </data>
+  <data name="TLH_HOSPITAL" xml:space="preserve">
+    <value>棟</value>
+    <comment>タブレット一覧のヘッダー</comment>
+  </data>
+  <data name="TLH_SECT" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="TLH_TABLET_IP" xml:space="preserve">
+    <value>タブレットIPアドレス</value>
+  </data>
+  <data name="TLH_TABLET_NAME" xml:space="preserve">
+    <value>タブレット名称</value>
+  </data>
+  <data name="FLH_FLOOR" xml:space="preserve">
+    <value>フロア名称</value>
+  </data>
+  <data name="FLH_HOSPITAL" xml:space="preserve">
+    <value>棟</value>
+    <comment>フロア一覧のヘッダー</comment>
+  </data>
+  <data name="FLH_MU_ERROR" xml:space="preserve">
+    <value>異常状況</value>
+  </data>
+  <data name="FLH_MU_ORDER" xml:space="preserve">
+    <value>搬送状況</value>
+  </data>
+  <data name="SLH_ABSENCE_SETTING" xml:space="preserve">
+    <value>不在設定 / 転送部署</value>
+  </data>
+  <data name="SLH_CHANGE_ENABLE" xml:space="preserve">
+    <value>設定変更</value>
+  </data>
+  <data name="SLH_ENABLE" xml:space="preserve">
+    <value>有効・無効設定</value>
+  </data>
+  <data name="SLH_FLOOR" xml:space="preserve">
+    <value>フロア名称</value>
+  </data>
+  <data name="SLH_HOSPITAL" xml:space="preserve">
+    <value>棟</value>
+    <comment>ステーション一覧のヘッダー</comment>
+  </data>
+  <data name="SLH_SECT" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="SLH_TYPE_ID" xml:space="preserve">
+    <value>ST種別 / ID</value>
+  </data>
+  <data name="SLV_ENABLE_0" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="SLV_ENABLE_1" xml:space="preserve">
+    <value>有効</value>
+    <comment>有効・無効設定</comment>
+  </data>
+  <data name="SLV_TYPE_1" xml:space="preserve">
+    <value>送信</value>
+    <comment>ステーション種別</comment>
+  </data>
+  <data name="SLV_TYPE_2" xml:space="preserve">
+    <value>受信</value>
+  </data>
+  <data name="SLV_TYPE_3" xml:space="preserve">
+    <value>充電</value>
+  </data>
+  <data name="SLV_TYPE_4" xml:space="preserve">
+    <value>待機</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="CONFIRM_STATION_CHANGE_ENABLE" xml:space="preserve">
+    <value>{0}の{1}を{2}にします</value>
+    <comment>[0]には部署名、[1]にはステーション、[2]には有効/無効が入る</comment>
+  </data>
+  <data name="STATION" xml:space="preserve">
+    <value>ステーション</value>
+  </data>
 </root>

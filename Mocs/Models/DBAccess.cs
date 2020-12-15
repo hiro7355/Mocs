@@ -228,6 +228,26 @@ namespace Mocs
             return ds.Tables[0];
         }
 
+        public  void execute(string sql)
+        {
+            NpgsqlConnection conn = this.conn;
+
+            using (var transaction = conn.BeginTransaction())
+            {
+                var command = new NpgsqlCommand(sql, conn);
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (NpgsqlException)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
 
 
         public NpgsqlConnection Conn { get { return conn; } }

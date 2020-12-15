@@ -111,6 +111,9 @@
     <Compile Include="Controls\ErrorInfoControl.xaml.cs">
       <DependentUpon>ErrorInfoControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FloorListControl.xaml.cs">
+      <DependentUpon>FloorListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\HistoryTabControl.xaml.cs">
       <DependentUpon>HistoryTabControl.xaml</DependentUpon>
     </Compile>
@@ -127,16 +130,25 @@
     <Compile Include="Controls\OrderListControl.xaml.cs">
       <DependentUpon>OrderListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\StationListControl.xaml.cs">
+      <DependentUpon>StationListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SystemStatusControl.xaml.cs">
       <DependentUpon>SystemStatusControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabletListControl.xaml.cs">
+      <DependentUpon>TabletListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TimerBaseControl.cs" />
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\SectionMaster.cs" />
     <Compile Include="Models\SqlForCartList.cs" />
+    <Compile Include="Models\SqlForFloorList.cs" />
     <Compile Include="Models\SqlForMuList.cs" />
     <Compile Include="Models\SqlForOrderList.cs" />
+    <Compile Include="Models\SqlForStationList.cs" />
+    <Compile Include="Models\SqlForTabletList.cs" />
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
@@ -164,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\FloorListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\HistoryTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,6 +193,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\OrderListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StationListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TabletListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

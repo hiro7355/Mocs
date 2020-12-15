@@ -39,6 +39,9 @@
                     <Controls:MuListControl x:Name="muListControl" />
                     <Controls:CartListControl x:Name="cartListControl"/>
                     <Controls:ErrorInfoControl x:Name="errorInfoControl" />
+                    <Controls:TabletListControl x:Name="tabletListControl"/>
+                    <Controls:FloorListControl x:Name="floorListControl"/>
+                    <Controls:StationListControl x:Name="stationListControl"/>
                 </StackPanel>
                 <Controls:HistoryTabControl x:Name="historyTabControl" />
             </StackPanel>

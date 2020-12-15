@@ -9,9 +9,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="10, 10">
                 <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.BT_CART_LIST}" />
-                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" >
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0" >
                     <ComboBoxItem Tag="all" Content="{x:Static properties:Resources.COMBO_ALL}"></ComboBoxItem>
                     <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.COMBO_VALID}"></ComboBoxItem>
                     <ComboBoxItem Tag="0" Content="{x:Static properties:Resources.COMBO_INVALID}"></ComboBoxItem>
@@ -19,7 +19,7 @@
 
             </StackPanel>
 
-            <DataGrid Name="cartList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Margin="10, 10" Name="cartList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_ID}" Binding="{Binding id}" Width="100"/>
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_NAME}" Binding="{Binding name}" Width="100"/>

@@ -32,6 +32,9 @@ namespace Mocs
             this.muListControl.Init(m_db);
             this.orderListControl.Init(m_db);
             this.cartListControl.Init(m_db);
+            this.tabletListControl.Init(m_db);
+            this.floorListControl.Init(m_db);
+            this.stationListControl.Init(m_db);
 
 
         }
@@ -70,6 +73,9 @@ namespace Mocs
             this.muListControl.Visibility = Visibility.Collapsed;
             this.errorInfoControl.Visibility = Visibility.Collapsed;
             this.cartListControl.Visibility = Visibility.Collapsed;
+            this.tabletListControl.Visibility = Visibility.Collapsed;
+            this.floorListControl.Visibility = Visibility.Collapsed;
+            this.stationListControl.Visibility = Visibility.Collapsed;
 
         }
 
@@ -106,21 +112,36 @@ namespace Mocs
             ShowPannel(true, this.cartListControl);
         }
 
+        /// <summary>
+        /// フロア一覧ボタンクリック時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void floorListButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, muListControl);
+            ShowPannel(true, floorListControl);
 
         }
 
+        /// <summary>
+        /// ステーション一覧ボタンクリック時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void stationListButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, muListControl);
+            ShowPannel(true, stationListControl);
 
         }
 
+        /// <summary>
+        /// タブレット一覧クリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tabletListButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, muListControl);
+            ShowPannel(true, tabletListControl);
 
         }
 

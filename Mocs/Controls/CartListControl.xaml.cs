@@ -44,5 +44,14 @@ namespace Mocs.Controls
                 this.Update();
             }
         }
+
+        /*
+        private void debugUpdate()
+        {
+            System.Data.DataTable table = (System.Data.DataTable)cartList.DataContext;
+            System.Data.DataRow row = table.Rows[0];
+            row["name"] = "abc";
+        }
+        */
     }
 }

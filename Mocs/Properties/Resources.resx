@@ -393,4 +393,85 @@
     <value>System state</value>
     <comment>システム状態</comment>
   </data>
+  <data name="TLH_FLOOR" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="TLH_HOSPITAL" xml:space="preserve">
+    <value>Ward</value>
+    <comment>タブレット一覧のヘッダー</comment>
+  </data>
+  <data name="TLH_SECT" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="TLH_TABLET_IP" xml:space="preserve">
+    <value>Tablet IP</value>
+  </data>
+  <data name="TLH_TABLET_NAME" xml:space="preserve">
+    <value>Tablet name</value>
+  </data>
+  <data name="FLH_FLOOR" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="FLH_HOSPITAL" xml:space="preserve">
+    <value>Ward</value>
+    <comment>フロア一覧のヘッダー</comment>
+  </data>
+  <data name="FLH_MU_ERROR" xml:space="preserve">
+    <value>Mu error</value>
+  </data>
+  <data name="FLH_MU_ORDER" xml:space="preserve">
+    <value> Mu order</value>
+  </data>
+  <data name="SLH_ABSENCE_SETTING" xml:space="preserve">
+    <value>Absence setting / Transfer department</value>
+    <comment>ステーション一覧のヘッダー</comment>
+  </data>
+  <data name="SLH_CHANGE_ENABLE" xml:space="preserve">
+    <value>Change setting</value>
+  </data>
+  <data name="SLH_ENABLE" xml:space="preserve">
+    <value>Valid / Invalid setting</value>
+  </data>
+  <data name="SLH_FLOOR" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="SLH_HOSPITAL" xml:space="preserve">
+    <value>Hospital</value>
+  </data>
+  <data name="SLH_SECT" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="SLH_TYPE_ID" xml:space="preserve">
+    <value>ST Type / ID</value>
+  </data>
+  <data name="SLV_ENABLE_0" xml:space="preserve">
+    <value>Invalid</value>
+  </data>
+  <data name="SLV_ENABLE_1" xml:space="preserve">
+    <value>Valid</value>
+    <comment>有効・無効設定</comment>
+  </data>
+  <data name="SLV_TYPE_1" xml:space="preserve">
+    <value>Send</value>
+    <comment>ステーション種別</comment>
+  </data>
+  <data name="SLV_TYPE_2" xml:space="preserve">
+    <value>Receive</value>
+  </data>
+  <data name="SLV_TYPE_3" xml:space="preserve">
+    <value>Charging</value>
+  </data>
+  <data name="SLV_TYPE_4" xml:space="preserve">
+    <value>Wait</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="CONFIRM_STATION_CHANGE_ENABLE" xml:space="preserve">
+    <value>Set {1} of {0} to {2} </value>
+    <comment>[0]には部署名、[1]にはステーション、[2]には有効/無効が入る</comment>
+  </data>
+  <data name="STATION" xml:space="preserve">
+    <value>Station</value>
+  </data>
 </root>
