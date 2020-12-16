@@ -464,12 +464,24 @@
   <data name="SLV_TYPE_4" xml:space="preserve">
     <value>Wait</value>
   </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="CONFIRM" xml:space="preserve">
     <value>Confirmation</value>
   </data>
   <data name="CONFIRM_STATION_CHANGE_ENABLE" xml:space="preserve">
     <value>Set {1} of {0} to {2} </value>
     <comment>[0]には部署名、[1]にはステーション、[2]には有効/無効が入る</comment>
+  </data>
+  <data name="ERROR_PASSWORD" xml:space="preserve">
+    <value>Invalid password</value>
+  </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LOGINWINDOW_TITLE" xml:space="preserve">
+    <value>Input password for login</value>
   </data>
   <data name="STATION" xml:space="preserve">
     <value>Station</value>

@@ -6,7 +6,7 @@
         xmlns:properties="clr-namespace:Mocs.Properties" 
         xmlns:local="clr-namespace:Mocs"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="ファイル(_F)">

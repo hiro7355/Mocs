@@ -140,6 +140,9 @@
       <DependentUpon>TabletListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TimerBaseControl.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\SectionMaster.cs" />
@@ -201,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TabletListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

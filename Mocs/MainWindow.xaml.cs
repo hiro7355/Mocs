@@ -156,5 +156,19 @@ namespace Mocs
             ShowPannel(true, muListControl);
 
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            //ログイン画面の表示
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Owner = GetWindow(this);
+            bool? result = loginWindow.ShowDialog();
+            if (result == false)
+            {
+                this.Close();
+            }
+            this.Show();
+        }
     }
 }

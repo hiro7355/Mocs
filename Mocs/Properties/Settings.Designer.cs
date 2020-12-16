@@ -140,15 +140,12 @@ namespace Mocs.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string 設定 {
+        [global::System.Configuration.DefaultSettingValueAttribute("mocs")]
+        public string Login_Password {
             get {
-                return ((string)(this["設定"]));
-            }
-            set {
-                this["設定"] = value;
+                return ((string)(this["Login_Password"]));
             }
         }
     }

@@ -85,35 +85,23 @@ namespace Mocs
                 {   //DBエラー
                     MessageBox.Show("DB接続エラー");
                     return false;
+
                 }
 
                 /*
                 //ログイン画面の表示
-                LoginDialog dialog = new LoginDialog();
-                dialog.LoginDialog_Load(mocs_cell_db.system_screen, mocs_cell_db.sys_main_tbl.login_name, mocs_cell_db.sys_main_tbl.login_pass);
-
-                if (dialog.ShowDialog() == DialogResult.Cancel)
+                LoginWindow loginWindow = new LoginWindow();
+                bool? result = loginWindow.ShowDialog();
+                if (result == false)
                 {
                     return false;
                 }
-                this.is_login = true;
                 */
 
 
                 //  ステータステーブルを初期化
                 CellStatus.InitTable(this.mocs_cell_db.Conn);
 
-                /*
-                //  ステータス検出のタイマースタート
-                this.timer.Interval = Mocs.Properties.Settings.Default.moniter_time;
-
-                if (!this.timer.Enabled)
-                {
-                    //  タイマーはまだスタートしていない
-                    //  タイマースタート
-                    this.timer.Start();
-                }
-                */
             }
             catch (Exception ex)
             {

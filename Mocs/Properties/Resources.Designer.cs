@@ -142,6 +142,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CANCEL {
+            get {
+                return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Affiliation restrictions に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CLH_BELONG_RESTRICT {
@@ -358,6 +367,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Invalid password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_PASSWORD {
+            get {
+                return ResourceManager.GetString("ERROR_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Floor に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string FLH_FLOOR {
@@ -471,6 +489,24 @@ namespace Mocs.Properties {
         public static string LED_NETWORK {
             get {
                 return ResourceManager.GetString("LED_NETWORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Login に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LOGIN {
+            get {
+                return ResourceManager.GetString("LOGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Input password for login に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LOGINWINDOW_TITLE {
+            get {
+                return ResourceManager.GetString("LOGINWINDOW_TITLE", resourceCulture);
             }
         }
         

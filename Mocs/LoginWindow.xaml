@@ -1,0 +1,23 @@
+﻿<Window x:Class="Mocs.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:properties="clr-namespace:Mocs.Properties" 
+        xmlns:local="clr-namespace:Mocs"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="200" Width="400">
+    <Grid>
+        <StackPanel>
+            <Label Content="{x:Static properties:Resources.LOGINWINDOW_TITLE}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <TextBox  x:Name="textPassword" />
+            <StackPanel Orientation="Horizontal">
+
+                <Button x:Name="buttonLogin" Content="{x:Static properties:Resources.LOGIN}" Click="buttonLogin_Click" Width="75"/>
+                <Button x:Name="buttonCancel" Content="{x:Static properties:Resources.CANCEL}" Click="buttonCancel_Click"  Width="75"/>
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
