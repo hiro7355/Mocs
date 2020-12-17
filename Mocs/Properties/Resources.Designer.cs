@@ -79,11 +79,29 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Earthquake abnormal recovery に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_EARTHQUAKE_ABNORMAL_RECOVERY {
+            get {
+                return ResourceManager.GetString("BT_EARTHQUAKE_ABNORMAL_RECOVERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Error info に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_ERROR_INFO {
             get {
                 return ResourceManager.GetString("BT_ERROR_INFO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Fire abnormal recoery に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_FIRE_ABNORMAL_RECOVERY {
+            get {
+                return ResourceManager.GetString("BT_FIRE_ABNORMAL_RECOVERY", resourceCulture);
             }
         }
         
@@ -106,6 +124,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Power failure recovery に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_POWER_FAILURE_RECOVERY {
+            get {
+                return ResourceManager.GetString("BT_POWER_FAILURE_RECOVERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Run に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_RUN {
+            get {
+                return ResourceManager.GetString("BT_RUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Search Setting に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_SEARCHSETTING {
@@ -120,6 +156,24 @@ namespace Mocs.Properties {
         public static string BT_STATION_LIST {
             get {
                 return ResourceManager.GetString("BT_STATION_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Stop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_STOP {
+            get {
+                return ResourceManager.GetString("BT_STOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Stop Buzzer に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_STOP_BUZZER {
+            get {
+                return ResourceManager.GetString("BT_STOP_BUZZER", resourceCulture);
             }
         }
         
@@ -367,6 +421,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   DB Access error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DB_ACCESS_ERROR {
+            get {
+                return ResourceManager.GetString("DB_ACCESS_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   DB Access OK に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DB_ACCESS_OK {
+            get {
+                return ResourceManager.GetString("DB_ACCESS_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Invalid password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ERROR_PASSWORD {
@@ -408,6 +480,15 @@ namespace Mocs.Properties {
         public static string FLH_MU_ORDER {
             get {
                 return ResourceManager.GetString("FLH_MU_ORDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MM/dd/yyyy HH:mm:ss に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FORMAT_DATETIME {
+            get {
+                return ResourceManager.GetString("FORMAT_DATETIME", resourceCulture);
             }
         }
         
@@ -507,6 +588,51 @@ namespace Mocs.Properties {
         public static string LOGINWINDOW_TITLE {
             get {
                 return ResourceManager.GetString("LOGINWINDOW_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Close(_X) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MENU_CLOSE {
+            get {
+                return ResourceManager.GetString("MENU_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   File(_F) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MENU_FILE {
+            get {
+                return ResourceManager.GetString("MENU_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Help(_H) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MENU_HELP {
+            get {
+                return ResourceManager.GetString("MENU_HELP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Master(_M) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MENU_MASTER {
+            get {
+                return ResourceManager.GetString("MENU_MASTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   System(_S) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MENU_SYSTEM {
+            get {
+                return ResourceManager.GetString("MENU_SYSTEM", resourceCulture);
             }
         }
         
@@ -763,6 +889,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Control operation is in progress (power outage). に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_CELL_POWER_OUTAGE {
+            get {
+                return ResourceManager.GetString("MSG_CELL_POWER_OUTAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   It is in normal operation. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MSG_CELL_RUNNING {
@@ -786,6 +921,69 @@ namespace Mocs.Properties {
         public static string MSG_CELL_SYSTEM_STOPPED {
             get {
                 return ResourceManager.GetString("MSG_CELL_SYSTEM_STOPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MU Recovered に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_MU_RECOVER {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_MU_RECOVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Offline normal (with offline MU, no abnormal MU) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_MU_STATUS_1 {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_MU_STATUS_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Offline error (with offline MU, with error MU) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_MU_STATUS_2 {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_MU_STATUS_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Online normal (no offline MU, no abnormal MU) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_MU_STATUS_3 {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_MU_STATUS_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Online error (without offline MU, with error MU) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_MU_STATUS_4 {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_MU_STATUS_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MU Error Level:{0} Code:{1} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_NO_ERRORCODE_SETTING {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_NO_ERRORCODE_SETTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wifi not connected に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_ERROR_NO_WIFI {
+            get {
+                return ResourceManager.GetString("MSG_ERROR_NO_WIFI", resourceCulture);
             }
         }
         

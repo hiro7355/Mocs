@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Mocs.Utils;
 using Npgsql;
-
+using System.Data;
 
 namespace Mocs.Models
 {
@@ -32,11 +32,21 @@ namespace Mocs.Models
         public static T GetFirst<T>(NpgsqlConnection conn, string sql) where T : BaseModel, new()
         {
             T model = null;
+            NpgsqlDataReader dr = null;
             string errorMessage = null;
-                        NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+
+            NpgsqlCommand cmd = null;
             try
             {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+
+                }
+                cmd = new NpgsqlCommand(sql, conn);
+
+                dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     dr.Read();
@@ -58,16 +68,23 @@ namespace Mocs.Models
                 errorMessage = ex.Message.ToString();
                 CiLog cErrlog = new CiLog();    // ログ出力クラス
                 cErrlog.WriteLog(ex.Message.ToString(), ex.StackTrace, System.Diagnostics.EventLogEntryType.Error);
+                CommonUtil.SetLastDBError(ex.HResult);
             }
             finally
             {
-                cmd.Dispose();
-                dr.Close();
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                if (dr != null)
+                {
+                    dr.Close();
+                }
             }
             if (errorMessage != null)
             {
                 conn.Close();
-                throw new Exception(errorMessage);
+//                throw new Exception(errorMessage);
             }
             return model;
 

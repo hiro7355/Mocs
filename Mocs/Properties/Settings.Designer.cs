@@ -133,19 +133,43 @@ namespace Mocs.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jp")]
-        public string Locale_Code {
+        [global::System.Configuration.DefaultSettingValueAttribute("mocs")]
+        public string Login_Password {
             get {
-                return ((string)(this["Locale_Code"]));
+                return ((string)(this["Login_Password"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mocs")]
-        public string Login_Password {
+        [global::System.Configuration.DefaultSettingValueAttribute("japanese")]
+        public string Language {
             get {
-                return ((string)(this["Login_Password"]));
+                return ((string)(this["Language"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public string mu_errorinfo_code_1_2 {
+            get {
+                return ((string)(this["mu_errorinfo_code_1_2"]));
+            }
+            set {
+                this["mu_errorinfo_code_1_2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("22")]
+        public string mu_errorinfo_code_2_2 {
+            get {
+                return ((string)(this["mu_errorinfo_code_2_2"]));
+            }
+            set {
+                this["mu_errorinfo_code_2_2"] = value;
             }
         }
     }

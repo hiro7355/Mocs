@@ -30,7 +30,8 @@
 
             </DataGrid.Columns>
             </DataGrid>
-        <TextBlock x:Name="message" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ListBox x:Name="messageList" />
+            
 
     </StackPanel>
     </Grid>

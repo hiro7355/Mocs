@@ -145,6 +145,9 @@
     </Compile>
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
+    <Compile Include="Models\MuErrorInfoMaster.cs" />
+    <Compile Include="Models\MuMaster.cs" />
+    <Compile Include="Models\MuStatus.cs" />
     <Compile Include="Models\SectionMaster.cs" />
     <Compile Include="Models\SqlForCartList.cs" />
     <Compile Include="Models\SqlForFloorList.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
+    <Compile Include="Utils\DateTimeUtil.cs" />
     <Page Include="Controls\AbsenceHistoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

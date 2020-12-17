@@ -170,5 +170,38 @@ namespace Mocs
             }
             this.Show();
         }
+
+
+        /// <summary>
+        /// クローズメニュークリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
+        }
+
+        /// <summary>
+        /// ヘルプメニュークリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuHelp_Click(object sender, RoutedEventArgs e)
+        {
+            // ダイアログのインスタンスを生成
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+
+            // ファイルの種類を設定
+            dialog.Filter = "PDFファイル (*.pdf)|*.pdf";
+
+            // ダイアログを表示する
+            if (dialog.ShowDialog() == true)
+            {
+                // pdfを開く
+                System.Diagnostics.Process.Start(dialog.FileName);
+            }
+        }
     }
 }

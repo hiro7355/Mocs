@@ -104,7 +104,6 @@ namespace Mocs
         }
 
 
-
         /// <summary>
         /// 最初のDB読み込み
         /// </summary>

@@ -13,7 +13,7 @@
             <TextBox  x:Name="textPassword" />
             <StackPanel Orientation="Horizontal">
 
-                <Button x:Name="buttonLogin" Content="{x:Static properties:Resources.LOGIN}" Click="buttonLogin_Click" Width="75"/>
+                <Button x:Name="buttonLogin" Content="{x:Static properties:Resources.LOGIN}" Click="buttonLogin_Click" Width="75" IsDefault="True"/>
                 <Button x:Name="buttonCancel" Content="{x:Static properties:Resources.CANCEL}" Click="buttonCancel_Click"  Width="75"/>
             </StackPanel>
 

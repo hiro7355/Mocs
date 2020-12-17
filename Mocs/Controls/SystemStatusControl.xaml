@@ -11,10 +11,29 @@
         <Label Content="{x:Static properties:Resources.TITLE_SYSTEM_STATUS}"/>
         <StackPanel Orientation="Horizontal">
             <local:LedControl x:Name="cell" DataContext="{x:Static properties:Resources.LED_CELL}" Foreground="Green" />
-            <local:LedControl x:Name="network" DataContext="{x:Static properties:Resources.LED_NETWORK}" Foreground="Yellow" />
-            <local:LedControl x:Name="error" DataContext="{x:Static properties:Resources.LED_ERROR}" Foreground="Red" />
+            <local:LedControl x:Name="network" DataContext="{x:Static properties:Resources.LED_NETWORK}" Foreground="Green" />
+            <local:LedControl x:Name="error" DataContext="{x:Static properties:Resources.LED_ERROR}" Foreground="Green" />
             <local:LedControl x:Name="device" DataContext="{x:Static properties:Resources.LED_DEVICE}" Foreground="Green" />
         </StackPanel>
+        <DataGrid Name="messageGrid"
+              AutoGenerateColumns="False"
+              HeadersVisibility="None">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="message"
+                                Binding="{Binding message}"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <ListBox x:Name="messageList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding message}"  Background="{Binding brush}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <TextBlock x:Name="message" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </StackPanel>
 </local:TimerBaseControl>

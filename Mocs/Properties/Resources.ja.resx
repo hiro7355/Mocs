@@ -477,4 +477,70 @@
   <data name="STATION" xml:space="preserve">
     <value>ステーション</value>
   </data>
+  <data name="BT_EARTHQUAKE_ABNORMAL_RECOVERY" xml:space="preserve">
+    <value>地震異常復帰</value>
+  </data>
+  <data name="BT_FIRE_ABNORMAL_RECOVERY" xml:space="preserve">
+    <value>火災異常復帰</value>
+  </data>
+  <data name="BT_POWER_FAILURE_RECOVERY" xml:space="preserve">
+    <value>停電異常復帰</value>
+  </data>
+  <data name="BT_RUN" xml:space="preserve">
+    <value>運転</value>
+  </data>
+  <data name="BT_STOP" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="BT_STOP_BUZZER" xml:space="preserve">
+    <value>ブザー停止</value>
+  </data>
+  <data name="DB_ACCESS_ERROR" xml:space="preserve">
+    <value>DB アクセスエラーが発生しました、</value>
+  </data>
+  <data name="DB_ACCESS_OK" xml:space="preserve">
+    <value>DB アクセスに正常です。</value>
+  </data>
+  <data name="FORMAT_DATETIME" xml:space="preserve">
+    <value>yyyy/MM/dd HH:mm:ss</value>
+  </data>
+  <data name="MENU_CLOSE" xml:space="preserve">
+    <value>終了(_X)</value>
+  </data>
+  <data name="MENU_FILE" xml:space="preserve">
+    <value>ファイル(_F)</value>
+  </data>
+  <data name="MENU_HELP" xml:space="preserve">
+    <value>ヘルプ(_H)</value>
+  </data>
+  <data name="MENU_MASTER" xml:space="preserve">
+    <value>マスタ更新(_M)</value>
+  </data>
+  <data name="MENU_SYSTEM" xml:space="preserve">
+    <value>システム管理(_S)</value>
+  </data>
+  <data name="MSG_CELL_POWER_OUTAGE" xml:space="preserve">
+    <value>管制運転中(停電)です。</value>
+  </data>
+  <data name="MSG_ERROR_MU_RECOVER" xml:space="preserve">
+    <value>MUが正常に復帰しました。</value>
+  </data>
+  <data name="MSG_ERROR_MU_STATUS_1" xml:space="preserve">
+    <value>オフライン正常(オフラインMUあり、異常MUなし)</value>
+  </data>
+  <data name="MSG_ERROR_MU_STATUS_2" xml:space="preserve">
+    <value>オフライン異常(オフラインMUあり、異常MUあり)</value>
+  </data>
+  <data name="MSG_ERROR_MU_STATUS_3" xml:space="preserve">
+    <value>オンライン正常(オフラインMUなし、異常MUなし)</value>
+  </data>
+  <data name="MSG_ERROR_MU_STATUS_4" xml:space="preserve">
+    <value>オンライン異常(オフラインMUなし、異常MUあり)</value>
+  </data>
+  <data name="MSG_ERROR_NO_ERRORCODE_SETTING" xml:space="preserve">
+    <value>MU Error Level:{0} Code:{1}</value>
+  </data>
+  <data name="MSG_ERROR_NO_WIFI" xml:space="preserve">
+    <value>Wifi未接続です。</value>
+  </data>
 </root>

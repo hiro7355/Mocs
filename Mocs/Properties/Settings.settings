@@ -38,11 +38,17 @@
     <Setting Name="Cell_Monitoring_Interval" Type="System.String" Scope="Application">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="Locale_Code" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">jp</Value>
-    </Setting>
     <Setting Name="Login_Password" Type="System.String" Scope="Application">
       <Value Profile="(Default)">mocs</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">japanese</Value>
+    </Setting>
+    <Setting Name="mu_errorinfo_code_1_2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="mu_errorinfo_code_2_2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">22</Value>
     </Setting>
   </Settings>
 </SettingsFile>
