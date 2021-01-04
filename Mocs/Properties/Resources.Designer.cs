@@ -205,6 +205,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Cell stopped に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CELL_STOPPED {
+            get {
+                return ResourceManager.GetString("CELL_STOPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Check CELL に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CHECK_CELL {
+            get {
+                return ResourceManager.GetString("CHECK_CELL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Affiliation restrictions に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CLH_BELONG_RESTRICT {
@@ -403,6 +421,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Communication に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string COMMU {
+            get {
+                return ResourceManager.GetString("COMMU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Confirmation に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CONFIRM {
@@ -417,6 +444,24 @@ namespace Mocs.Properties {
         public static string CONFIRM_STATION_CHANGE_ENABLE {
             get {
                 return ResourceManager.GetString("CONFIRM_STATION_CHANGE_ENABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Coping に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string COPING {
+            get {
+                return ResourceManager.GetString("COPING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Datetime に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DATETIME {
+            get {
+                return ResourceManager.GetString("DATETIME", resourceCulture);
             }
         }
         
@@ -988,6 +1033,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Occurence date time に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OCCURENCE_DATETIME {
+            get {
+                return ResourceManager.GetString("OCCURENCE_DATETIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cart number に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OLH_CART {
@@ -1105,6 +1159,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Passing point に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string PASSING_POINT {
+            get {
+                return ResourceManager.GetString("PASSING_POINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Absence setting / Transfer department に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string SLH_ABSENCE_SETTING {
@@ -1218,6 +1281,24 @@ namespace Mocs.Properties {
         public static string SLV_TYPE_4 {
             get {
                 return ResourceManager.GetString("SLV_TYPE_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Socket error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SOCKET_ERROR {
+            get {
+                return ResourceManager.GetString("SOCKET_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Start CELL に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string START_CELL {
+            get {
+                return ResourceManager.GetString("START_CELL", resourceCulture);
             }
         }
         

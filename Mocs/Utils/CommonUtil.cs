@@ -182,5 +182,23 @@ namespace Mocs.Utils
 
             return message;
         }
+
+        /// <summary>
+        /// リストにタイトルと値の行を追加
+        /// タイトルと値の行は、inde0にタイトル、index1に値が設定された配列（list）
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="title"></param>
+        /// <param name="value"></param>
+        public static void addTitleValueToList(List<List<string>> list, string title, string value)
+        {
+            List<string> keyValueRow = new List<string>();
+            keyValueRow.Add(title);
+            keyValueRow.Add(value);
+
+            list.Add(keyValueRow);
+        }
     }
+
+
 }

@@ -20,18 +20,7 @@ using Npgsql;
 
 namespace Mocs.Controls
 {
-    internal class MessageInfo
-    {
-        public Brush brush { get; set; }
-        public string message { get; set; }
-
-        public MessageInfo(Brush brush, string message)
-        {
-            this.brush = brush;
-            this.message = message;
-        }
-    }
-
+ 
     /// <summary>
     /// SystemStatusControl.xaml の相互作用ロジック
     /// </summary>
@@ -251,6 +240,8 @@ namespace Mocs.Controls
             //  DBエラーリセット
             CommonUtil.SetLastDBError(0);
 
+            m_errorInfo.ResetCellAndCommuInfo();
+
             int status = cellStatus.cellstat_status;
             int level = cellStatus.cellstat_level;
             DateTime update_time = cellStatus.cellstat_stat_update_datetime;
@@ -261,7 +252,11 @@ namespace Mocs.Controls
             {
                 //  CELLが起動していません
                 this.UpdateLedAndMessage(this.cell, "White", "White", Properties.Resources.MSG_CELL_NOT_RUNNING, type);
-            } 
+
+                //  異常情報用にCELLエラー情報を設定
+                m_errorInfo.UpdateCellError();
+
+            }
             else if (status == 1)
             {
                 if (level == 1)
@@ -275,6 +270,9 @@ namespace Mocs.Controls
                     {
                         //  CELLの動作が停止しています
                         this.UpdateLedAndMessage(this.cell, "Red", "Red", Properties.Resources.MSG_CELL_STOPPED, type);
+
+                        //  異常情報用にCELLエラー情報を設定
+                        m_errorInfo.UpdateCellError();
                     }
 
                 } 

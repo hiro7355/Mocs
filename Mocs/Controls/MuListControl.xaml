@@ -30,9 +30,15 @@
 
             </DataGrid.Columns>
             </DataGrid>
-            <ListBox x:Name="messageList" />
-            
+            <ListBox x:Name="messageList" Width="800" Height="300">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding message}"  Background="{Binding brush}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-    </StackPanel>
+
+        </StackPanel>
     </Grid>
 </local:TimerBaseControl>

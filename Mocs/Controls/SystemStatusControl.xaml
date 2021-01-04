@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Mocs.Controls"
              xmlns:properties="clr-namespace:Mocs.Properties" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="400">
     <StackPanel>
         <Label Content="{x:Static properties:Resources.TITLE_SYSTEM_STATUS}"/>
         <StackPanel Orientation="Horizontal">
@@ -15,25 +15,12 @@
             <local:LedControl x:Name="error" DataContext="{x:Static properties:Resources.LED_ERROR}" Foreground="Green" />
             <local:LedControl x:Name="device" DataContext="{x:Static properties:Resources.LED_DEVICE}" Foreground="Green" />
         </StackPanel>
-        <DataGrid Name="messageGrid"
-              AutoGenerateColumns="False"
-              HeadersVisibility="None">
-
-            <DataGrid.Columns>
-
-                <DataGridTextColumn Header="message"
-                                Binding="{Binding message}"></DataGridTextColumn>
-
-            </DataGrid.Columns>
-
-        </DataGrid>
-        <ListBox x:Name="messageList">
+        <ListBox x:Name="messageList" Width="400" Height="300">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding message}"  Background="{Binding brush}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock x:Name="message" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </StackPanel>
 </local:TimerBaseControl>

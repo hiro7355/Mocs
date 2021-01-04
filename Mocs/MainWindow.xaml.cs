@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Mocs.Models;
 namespace Mocs
 {
 
@@ -28,9 +28,13 @@ namespace Mocs
             m_db = db;
             InitializeComponent();
 
-            this.systemStatusControl.Init(m_db);
-            this.muListControl.Init(m_db);
-            this.orderListControl.Init(m_db);
+
+            ErrorInfo errorInfo = new ErrorInfo();
+
+            this.systemStatusControl.Init(m_db, errorInfo);
+            this.muListControl.Init(m_db, errorInfo);
+            this.errorInfoControl.Init(m_db, errorInfo);
+            this.orderListControl.Init(m_db, errorInfo);
             this.cartListControl.Init(m_db);
             this.tabletListControl.Init(m_db);
             this.floorListControl.Init(m_db);

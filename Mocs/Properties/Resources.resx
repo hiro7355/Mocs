@@ -552,4 +552,31 @@
   <data name="MSG_ERROR_NO_WIFI" xml:space="preserve">
     <value>Wifi not connected</value>
   </data>
+  <data name="CELL_STOPPED" xml:space="preserve">
+    <value>Cell stopped</value>
+  </data>
+  <data name="CHECK_CELL" xml:space="preserve">
+    <value>Check CELL</value>
+  </data>
+  <data name="COMMU" xml:space="preserve">
+    <value>Communication</value>
+  </data>
+  <data name="COPING" xml:space="preserve">
+    <value>Coping</value>
+  </data>
+  <data name="DATETIME" xml:space="preserve">
+    <value>Datetime</value>
+  </data>
+  <data name="OCCURENCE_DATETIME" xml:space="preserve">
+    <value>Occurence date time</value>
+  </data>
+  <data name="PASSING_POINT" xml:space="preserve">
+    <value>Passing point</value>
+  </data>
+  <data name="SOCKET_ERROR" xml:space="preserve">
+    <value>Socket error</value>
+  </data>
+  <data name="START_CELL" xml:space="preserve">
+    <value>Start CELL</value>
+  </data>
 </root>

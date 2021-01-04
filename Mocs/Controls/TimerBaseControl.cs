@@ -26,13 +26,15 @@ namespace Mocs.Controls
     abstract public  class TimerBaseControl : UserControl
     {
         protected DBAccess m_db;
+        protected ErrorInfo m_errorInfo;
 
         private DispatcherTimer m_timer;
 
 
-        public void Init(DBAccess db)
+        public void Init(DBAccess db, ErrorInfo errorInfo)
         {
             this.m_db = db;
+            this.m_errorInfo = errorInfo;
             SetupTimer();
         }
 

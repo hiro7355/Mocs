@@ -140,11 +140,16 @@
       <DependentUpon>TabletListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TimerBaseControl.cs" />
+    <Compile Include="Controls\TreeItemOfMuErrorControl.xaml.cs">
+      <DependentUpon>TreeItemOfMuErrorControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
+    <Compile Include="Models\ErrorInfo.cs" />
+    <Compile Include="Models\MessageInfo.cs" />
     <Compile Include="Models\MuErrorInfoMaster.cs" />
     <Compile Include="Models\MuMaster.cs" />
     <Compile Include="Models\MuStatus.cs" />
@@ -158,6 +163,7 @@
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
+    <Compile Include="Utils\ControlUtil.cs" />
     <Compile Include="Utils\DateTimeUtil.cs" />
     <Page Include="Controls\AbsenceHistoryControl.xaml">
       <SubType>Designer</SubType>
@@ -208,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TabletListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TreeItemOfMuErrorControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
