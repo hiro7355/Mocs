@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mocs.Models;
 
 namespace Mocs.Controls
 {
     /// <summary>
     /// CancelHistoyControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class CancelHistoyControl : UserControl
+    public partial class CancelHistoyControl : HistoryBaseControl
     {
         public CancelHistoyControl()
         {
@@ -27,6 +28,14 @@ namespace Mocs.Controls
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        protected override void Update()
+        {
+            string sql = SqlForCancelHistory.GetListSql();
+
+            System.Data.DataTable table = m_db.getDataTable(sql);
+
+            cancelHistory.DataContext = table;
         }
 
     }

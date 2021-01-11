@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Mocs.Controls.ComHistoryControl"
+﻿<local:HistoryBaseControl x:Class="Mocs.Controls.ComHistoryControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,18 +15,22 @@
 
             </StackPanel>
 
-            <DataGrid Name="orderHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Name="comHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_NAME}" Binding="{Binding name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_FLOOR}" Binding="{Binding floor}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_POINT_NAME}" Binding="{Binding point_name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_X}" Binding="{Binding point_x}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DATE}" Binding="{Binding date}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_TIME}" Binding="{Binding time}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_TYPE}" Binding="{Binding type}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_NAME}" Binding="{Binding name}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_IP}" Binding="{Binding ip}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_PORT}" Binding="{Binding port}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_COM}" Binding="{Binding com}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_SEND_RECEIVE}" Binding="{Binding send_receive}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_MESSAGE}" Binding="{Binding message}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DETAIL}" Binding="{Binding detail}" Width="100"/>
 
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
 
     </Grid>
-</UserControl>
+</local:HistoryBaseControl>

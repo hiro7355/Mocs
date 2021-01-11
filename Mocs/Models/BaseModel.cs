@@ -21,6 +21,11 @@ namespace Mocs.Models
         public abstract void LoadProp(NpgsqlDataReader dr);
 
 
+        public static string GetNamesSql(string name_field, string table_name, string id_field, string ids)
+        {
+            return "SELECT array_to_string(array_agg(" + name_field + "), ',') AS value FROM " + table_name + " WHERE " + id_field + " IN (" + ids + ")";
+        }
+
 
         /// <summary>
         /// テーブルから一行読み込んで、modelクラスのインスタンスにロード
@@ -164,6 +169,78 @@ namespace Mocs.Models
             }
 
         }
+
+        /// <summary>
+        /// 先頭行のvalueフィールドの値を取得
+        /// </summary>
+        /// <typeparam name="T">valueフィールドの型</typeparam>
+        /// <param name="conn"></param>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static T GetFirstValue<T>(NpgsqlConnection conn, string sql, string fieldName = "value")
+        {
+            T result = default(T);  //  null
+            NpgsqlDataReader dr = null;
+            string errorMessage = null;
+
+
+            NpgsqlCommand cmd = null;
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+
+                }
+                cmd = new NpgsqlCommand(sql, conn);
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    int index = dr.GetOrdinal(fieldName);
+                    if (dr.IsDBNull(index))
+                    {
+
+                    } 
+                    else
+                    {
+
+                        result = (T)dr[index];
+                    }
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {   //DBアクセスエラー
+                // エラーログ出力
+                errorMessage = ex.Message.ToString();
+                CiLog cErrlog = new CiLog();    // ログ出力クラス
+                cErrlog.WriteLog(ex.Message.ToString(), ex.StackTrace, System.Diagnostics.EventLogEntryType.Error);
+                CommonUtil.SetLastDBError(ex.HResult);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                if (dr != null)
+                {
+                    dr.Close();
+                }
+            }
+            if (errorMessage != null)
+            {
+                conn.Close();
+                //                throw new Exception(errorMessage);
+            }
+            return result;
+
+        }
+
 
 
 

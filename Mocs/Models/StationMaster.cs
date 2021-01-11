@@ -33,6 +33,30 @@ namespace Mocs.Models
     {
         public int station_id;  // ステーションID    integer
         public string station_name;     //    ステーション名称 varchar
+
+
+        /// <summary>
+        /// IDから名前を取得するSQL文を取得
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="id_field_name"></param>
+        /// <returns></returns>
+        internal static string SelectNameSql(string localeCode, string id_field_name)
+        {
+            return "SELECT station_name_" + localeCode + " FROM station_master WHERE station_id=" + id_field_name;
+        }
+        /// <summary>
+        /// 複数行の名前をカンマ区切りで取得するSQL。取得する行のidは配列で指定
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="ids">カンマ区切りのid一覧</param>
+        /// <returns></returns>
+        internal static string SelectNamesSql(string localeCode, string ids)
+        {
+            return BaseModel.GetNamesSql("station_name_" + localeCode, "station_master", "station_id", ids);
+        }
+
+
         public string station_kind1;    //  ステーション種別1   varchar
         public string station_kind2;    //   ステーション種別2 varchar
         public int point_master_id1;    //	"ポイント識別コード（正方向、何もしない）"	integer

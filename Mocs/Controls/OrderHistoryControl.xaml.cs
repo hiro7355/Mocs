@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mocs.Models;
 
 namespace Mocs.Controls
 {
     /// <summary>
     /// OrderHistoryControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class OrderHistoryControl : UserControl
+    public partial class OrderHistoryControl : HistoryBaseControl
     {
         public OrderHistoryControl()
         {
@@ -29,5 +30,17 @@ namespace Mocs.Controls
         {
 
         }
+
+
+
+        protected override void Update()
+        {
+            string sql = SqlForOrderHistory.GetListSql();
+
+            System.Data.DataTable table = m_db.getDataTable(sql);
+
+            orderHistory.DataContext = table;
+        }
+
     }
 }

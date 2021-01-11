@@ -66,7 +66,6 @@ namespace Mocs.Controls
             //  アイテムを追加
             AddTreeViewItem(parentItem, titleValues);
 
-
             ShowTreeViewItem(parentItem);
         }
 
@@ -77,6 +76,7 @@ namespace Mocs.Controls
             {
                 parentItem.IsExpanded = true;
                 parentItem.Visibility = Visibility.Visible;
+
             }
             else
             {

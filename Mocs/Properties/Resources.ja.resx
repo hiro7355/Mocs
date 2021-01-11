@@ -571,4 +571,190 @@
   <data name="START_CELL" xml:space="preserve">
     <value>CELLを起動してください。</value>
   </data>
+  <data name="OHH_CART_ID" xml:space="preserve">
+    <value>カート ID</value>
+  </data>
+  <data name="OHH_MU" xml:space="preserve">
+    <value>MU</value>
+  </data>
+  <data name="OHH_REQ_SECT" xml:space="preserve">
+    <value>発部署</value>
+  </data>
+  <data name="OHH_REQ_STATION" xml:space="preserve">
+    <value>発ST</value>
+  </data>
+  <data name="OHH_RESERVE_DATE" xml:space="preserve">
+    <value>予約日</value>
+  </data>
+  <data name="OHH_RESERVE_TIME" xml:space="preserve">
+    <value>予約時間</value>
+  </data>
+  <data name="OHH_RESULT_DATE" xml:space="preserve">
+    <value>完了日</value>
+  </data>
+  <data name="OHH_RESULT_TIME" xml:space="preserve">
+    <value>完了時間</value>
+  </data>
+  <data name="OHH_START_DATE" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="OHH_START_TIME" xml:space="preserve">
+    <value>開始時間</value>
+  </data>
+  <data name="OHH_STATUS" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="OHH_TO_SECT" xml:space="preserve">
+    <value>着部署</value>
+  </data>
+  <data name="OHH_TO_STATION" xml:space="preserve">
+    <value>着 ST</value>
+  </data>
+  <data name="EHH_CART_ID" xml:space="preserve">
+    <value>カートID</value>
+  </data>
+  <data name="EHH_CODE" xml:space="preserve">
+    <value>異常コード</value>
+  </data>
+  <data name="EHH_DATE" xml:space="preserve">
+    <value>発生日</value>
+  </data>
+  <data name="EHH_DETAIL" xml:space="preserve">
+    <value>詳細ボタン</value>
+  </data>
+  <data name="EHH_MESSAGE" xml:space="preserve">
+    <value>異常内容</value>
+  </data>
+  <data name="EHH_NAME" xml:space="preserve">
+    <value>機種名称</value>
+  </data>
+  <data name="EHH_REQ_SECT" xml:space="preserve">
+    <value>発部署</value>
+  </data>
+  <data name="EHH_REQ_STATION" xml:space="preserve">
+    <value>発ステーション</value>
+  </data>
+  <data name="EHH_TIME" xml:space="preserve">
+    <value>発生時間</value>
+  </data>
+  <data name="EHH_TO_SECT" xml:space="preserve">
+    <value>着部署</value>
+  </data>
+  <data name="EHH_TO_STATION" xml:space="preserve">
+    <value>着ステーション</value>
+  </data>
+  <data name="EHH_TYPE" xml:space="preserve">
+    <value>種別</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_0" xml:space="preserve">
+    <value>予約</value>
+  </data>
+  <data name="CANCELHH_CART_ID" xml:space="preserve">
+    <value>カートID</value>
+  </data>
+  <data name="CANCELHH_MU" xml:space="preserve">
+    <value>MU</value>
+  </data>
+  <data name="CANCELHH_REQ_SECT" xml:space="preserve">
+    <value>発部署</value>
+  </data>
+  <data name="CANCELHH_REQ_STATION" xml:space="preserve">
+    <value>発ST</value>
+  </data>
+  <data name="CANCELHH_RESERVE_DATE" xml:space="preserve">
+    <value>予約日</value>
+  </data>
+  <data name="CANCELHH_RESERVE_TIME" xml:space="preserve">
+    <value>予約時間</value>
+  </data>
+  <data name="CANCELHH_RESULT_DATE" xml:space="preserve">
+    <value>完了日</value>
+  </data>
+  <data name="CANCELHH_RESULT_TIME" xml:space="preserve">
+    <value>完了時間</value>
+  </data>
+  <data name="CANCELHH_START_DATE" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="CANCELHH_START_TIME" xml:space="preserve">
+    <value>開始時間</value>
+  </data>
+  <data name="CANCELHH_STATUS" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="CANCELHH_TO_SECT" xml:space="preserve">
+    <value>着部署</value>
+  </data>
+  <data name="CANCELHH_TO_STATION" xml:space="preserve">
+    <value>着 ST</value>
+  </data>
+  <data name="COMHH_COM" xml:space="preserve">
+    <value>通信</value>
+  </data>
+  <data name="COMHH_DATE" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="COMHH_DETAIL" xml:space="preserve">
+    <value>電文詳細ボタン</value>
+  </data>
+  <data name="COMHH_IP" xml:space="preserve">
+    <value>IP アドレス</value>
+  </data>
+  <data name="COMHH_MESSAGE" xml:space="preserve">
+    <value>電文内容</value>
+  </data>
+  <data name="COMHH_NAME" xml:space="preserve">
+    <value>機器名称</value>
+  </data>
+  <data name="COMHH_PORT" xml:space="preserve">
+    <value>ポート番号</value>
+  </data>
+  <data name="COMHH_SEND_RECEIVE" xml:space="preserve">
+    <value>送受信</value>
+  </data>
+  <data name="COMHH_TIME" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="COMHH_TYPE" xml:space="preserve">
+    <value>種別</value>
+  </data>
+  <data name="COM_TYPE1" xml:space="preserve">
+    <value>ステータス電文</value>
+  </data>
+  <data name="COM_TYPE2" xml:space="preserve">
+    <value>搬送電文</value>
+  </data>
+  <data name="COM_TYPE3" xml:space="preserve">
+    <value>制御電文</value>
+  </data>
+  <data name="MONITOR" xml:space="preserve">
+    <value>監視モニター</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS0" xml:space="preserve">
+    <value>キャンセル予約</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS1" xml:space="preserve">
+    <value>キャンセル中</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS10" xml:space="preserve">
+    <value>キャンセル完了</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS100" xml:space="preserve">
+    <value>キャンセル異常終了</value>
+  </data>
+  <data name="RECEIVE" xml:space="preserve">
+    <value>受信</value>
+  </data>
+  <data name="SEND" xml:space="preserve">
+    <value>送信</value>
+  </data>
+  <data name="TABLET" xml:space="preserve">
+    <value>タブレット</value>
+  </data>
+  <data name="TABLET_TYPE0" xml:space="preserve">
+    <value>運用</value>
+  </data>
+  <data name="TABLET_TYPE1" xml:space="preserve">
+    <value>保守</value>
+  </data>
 </root>

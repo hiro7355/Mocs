@@ -17,9 +17,6 @@
             <TabItem Header="{x:Static properties:Resources.HTH_COM}">
                 <local:ComHistoryControl x:Name="comHistory" />
             </TabItem>
-            <TabItem Header="{x:Static properties:Resources.HTH_ABSENCE}">
-                <local:AbsenceHistoryControl x:Name="absenceHistory" />
-            </TabItem>
             <TabItem Header="{x:Static properties:Resources.HTH_CANCEL}">
                 <local:CancelHistoyControl x:Name="cancelHistory" />
             </TabItem>

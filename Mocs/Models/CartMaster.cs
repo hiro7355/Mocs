@@ -12,6 +12,19 @@ namespace Mocs.Models
     /// </summary>
     public class CartMaster : BaseModel
     {
+        /// <summary>
+        /// IDから名前を取得するSQL文を取得
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="id_field_name"></param>
+        /// <returns></returns>
+        internal static string SelectNameSql(string localeCode, string id_field_name)
+        {
+            return "SELECT cart_name_" + localeCode + " FROM cart_master WHERE cart_id=" + id_field_name;
+        }
+
+
+
         public int cart_id;         //  カート識別子  integer
         public string cart_name;    //  カート名称 varchar
         public Int16 cart_active;   //  カート有効/無効 smallint

@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mocs.Models;
 
 namespace Mocs.Controls
 {
     /// <summary>
     /// ComHistoryControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class ComHistoryControl : UserControl
+    public partial class ComHistoryControl : HistoryBaseControl
     {
         public ComHistoryControl()
         {
@@ -28,6 +29,16 @@ namespace Mocs.Controls
         {
 
         }
+
+        protected override void Update()
+        {
+            string sql = SqlForComHistory.GetListSql();
+
+            System.Data.DataTable table = m_db.getDataTable(sql);
+
+            comHistory.DataContext = table;
+        }
+
 
     }
 }

@@ -579,4 +579,190 @@
   <data name="START_CELL" xml:space="preserve">
     <value>Start CELL</value>
   </data>
+  <data name="OHH_CART_ID" xml:space="preserve">
+    <value>Cart ID</value>
+  </data>
+  <data name="OHH_MU" xml:space="preserve">
+    <value>MU</value>
+  </data>
+  <data name="OHH_REQ_SECT" xml:space="preserve">
+    <value>Departure department</value>
+  </data>
+  <data name="OHH_REQ_STATION" xml:space="preserve">
+    <value>Departure station</value>
+  </data>
+  <data name="OHH_RESERVE_DATE" xml:space="preserve">
+    <value>Reserve date</value>
+  </data>
+  <data name="OHH_RESERVE_TIME" xml:space="preserve">
+    <value>Reserve time</value>
+  </data>
+  <data name="OHH_RESULT_DATE" xml:space="preserve">
+    <value>Result date</value>
+  </data>
+  <data name="OHH_RESULT_TIME" xml:space="preserve">
+    <value>Result time</value>
+  </data>
+  <data name="OHH_START_DATE" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="OHH_START_TIME" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="OHH_STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="OHH_TO_SECT" xml:space="preserve">
+    <value>Arrival department</value>
+  </data>
+  <data name="OHH_TO_STATION" xml:space="preserve">
+    <value>Arrival station</value>
+  </data>
+  <data name="EHH_CART_ID" xml:space="preserve">
+    <value>Cart ID</value>
+  </data>
+  <data name="EHH_CODE" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="EHH_DATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="EHH_DETAIL" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="EHH_MESSAGE" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="EHH_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="EHH_REQ_SECT" xml:space="preserve">
+    <value>Departure department</value>
+  </data>
+  <data name="EHH_REQ_STATION" xml:space="preserve">
+    <value>Departure station</value>
+  </data>
+  <data name="EHH_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="EHH_TO_SECT" xml:space="preserve">
+    <value>Arrival department</value>
+  </data>
+  <data name="EHH_TO_STATION" xml:space="preserve">
+    <value>Arrival station</value>
+  </data>
+  <data name="EHH_TYPE" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_0" xml:space="preserve">
+    <value>Reserve</value>
+  </data>
+  <data name="COMHH_COM" xml:space="preserve">
+    <value>Communication</value>
+  </data>
+  <data name="COMHH_DATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="COMHH_DETAIL" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="COMHH_IP" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="COMHH_MESSAGE" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="COMHH_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="COMHH_PORT" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="COMHH_SEND_RECEIVE" xml:space="preserve">
+    <value>Send Receive</value>
+  </data>
+  <data name="COMHH_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="COMHH_TYPE" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="CANCELHH_CART_ID" xml:space="preserve">
+    <value>Cart ID</value>
+  </data>
+  <data name="CANCELHH_MU" xml:space="preserve">
+    <value>MU</value>
+  </data>
+  <data name="CANCELHH_REQ_SECT" xml:space="preserve">
+    <value>Departure department</value>
+  </data>
+  <data name="CANCELHH_REQ_STATION" xml:space="preserve">
+    <value>Departure station</value>
+  </data>
+  <data name="CANCELHH_RESERVE_DATE" xml:space="preserve">
+    <value>Reserve date</value>
+  </data>
+  <data name="CANCELHH_RESERVE_TIME" xml:space="preserve">
+    <value>Reserve time</value>
+  </data>
+  <data name="CANCELHH_RESULT_DATE" xml:space="preserve">
+    <value>Result date</value>
+  </data>
+  <data name="CANCELHH_RESULT_TIME" xml:space="preserve">
+    <value>Result time</value>
+  </data>
+  <data name="CANCELHH_START_DATE" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="CANCELHH_START_TIME" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="CANCELHH_STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="CANCELHH_TO_SECT" xml:space="preserve">
+    <value>Arrival department</value>
+  </data>
+  <data name="CANCELHH_TO_STATION" xml:space="preserve">
+    <value>Arrival station</value>
+  </data>
+  <data name="COM_TYPE1" xml:space="preserve">
+    <value>Status telegram</value>
+  </data>
+  <data name="COM_TYPE2" xml:space="preserve">
+    <value>Transport telegram</value>
+  </data>
+  <data name="COM_TYPE3" xml:space="preserve">
+    <value>Control telegram</value>
+  </data>
+  <data name="MONITOR" xml:space="preserve">
+    <value>Monitor</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS0" xml:space="preserve">
+    <value>Cancel reserved</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS1" xml:space="preserve">
+    <value>Cancel started</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS10" xml:space="preserve">
+    <value>Cencel finished</value>
+  </data>
+  <data name="ORDER_CANCEL_STATUS100" xml:space="preserve">
+    <value>Cencel errored</value>
+  </data>
+  <data name="RECEIVE" xml:space="preserve">
+    <value>Receive</value>
+  </data>
+  <data name="SEND" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="TABLET" xml:space="preserve">
+    <value>Tablet</value>
+  </data>
+  <data name="TABLET_TYPE0" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="TABLET_TYPE1" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
 </root>

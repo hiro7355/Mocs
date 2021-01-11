@@ -8,9 +8,27 @@ namespace Mocs.Models
 {
     class SectionMaster
     {
-        public static string SelectNameSql(string localeCode, string section_id_field_name)
+        /// <summary>
+        /// 名前を取得するSQL
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="section_id_field_name"></param>
+        /// <returns></returns>
+        internal static string SelectNameSql(string localeCode, string section_id_field_name)
         {
             return "SELECT section_name_" + localeCode + " FROM section_master WHERE section_id=" + section_id_field_name;
+        }
+
+
+        /// <summary>
+        /// 複数行の名前をカンマ区切りで取得するSQL。取得する行のidは配列で指定
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="ids">カンマ区切りのid一覧</param>
+        /// <returns></returns>
+        internal static string SelectNamesSql(string localeCode, string ids)
+        {
+            return BaseModel.GetNamesSql("section_name_" + localeCode, "section_master", "section_id", ids);
         }
     }
 }

@@ -20,9 +20,23 @@ namespace Mocs.Controls
     /// </summary>
     public partial class HistoryTabControl : UserControl
     {
+        DBAccess m_db;
         public HistoryTabControl()
         {
             InitializeComponent();
+
+
+        }
+
+        internal void Init(DBAccess db)
+        {
+            m_db = db;
+
+            orderHistory.Init(m_db);
+            errorHistory.Init(m_db);
+            comHistory.Init(m_db);
+            cancelHistory.Init(m_db);
+
         }
     }
 }

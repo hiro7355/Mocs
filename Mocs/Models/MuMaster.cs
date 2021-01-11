@@ -9,6 +9,17 @@ namespace Mocs.Models
 {
     public class MuMaster : BaseModel
     {
+        /// <summary>
+        /// IDから名前を取得するSQL文を取得
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="id_field_name"></param>
+        /// <returns></returns>
+        internal static string SelectNameSql(string localeCode, string id_field_name)
+        {
+            return "SELECT mu_name_" + localeCode + " FROM mu_master WHERE mu_id=" + id_field_name;
+        }
+
         public int mu_id;   // MU識別子
         public string mu_name;  //  mu_name_en MU名称(英語) mu_name_jp MU名称(日本語) mu_name_cn MU名称(中国語)
 

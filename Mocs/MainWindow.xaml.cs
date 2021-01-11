@@ -15,13 +15,22 @@ using System.Windows.Shapes;
 using Mocs.Models;
 namespace Mocs
 {
-
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         DBAccess m_db;
+
+        /// <summary>
+        /// converterからDBへアクセスできるようにするため
+        /// </summary>
+        /// <returns></returns>
+        public DBAccess GetDBAccess()
+        {
+            return m_db;
+        }
 
         public MainWindow(DBAccess db)
         {
@@ -39,6 +48,7 @@ namespace Mocs
             this.tabletListControl.Init(m_db);
             this.floorListControl.Init(m_db);
             this.stationListControl.Init(m_db);
+            this.historyTabControl.Init(m_db);
 
 
         }

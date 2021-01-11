@@ -97,6 +97,7 @@ namespace Mocs.Controls
                     }
                 }
 
+
                 if (do_update)
                 {
                     MuMaster muMaster = BaseModel.GetFirst<MuMaster>(m_db.Conn, MuMaster.GetSql(locale_code, mu_id));

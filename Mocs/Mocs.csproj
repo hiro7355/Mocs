@@ -101,6 +101,9 @@
     <Compile Include="Controls\ComHistoryControl.xaml.cs">
       <DependentUpon>ComHistoryControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Converters\BaseConverter.cs" />
+    <Compile Include="Controls\Converters\IdsToSectionNamesConverter.cs" />
+    <Compile Include="Controls\Converters\IdsToStationNamesConverter.cs" />
     <Compile Include="Controls\Converters\MuOpeModeConverter.cs" />
     <Compile Include="Controls\Converters\MuOrderStatusConverter.cs" />
     <Compile Include="Controls\Converters\OrderToSectConverter.cs" />
@@ -114,6 +117,7 @@
     <Compile Include="Controls\FloorListControl.xaml.cs">
       <DependentUpon>FloorListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\HistoryBaseControl.cs" />
     <Compile Include="Controls\HistoryTabControl.xaml.cs">
       <DependentUpon>HistoryTabControl.xaml</DependentUpon>
     </Compile>
@@ -154,9 +158,13 @@
     <Compile Include="Models\MuMaster.cs" />
     <Compile Include="Models\MuStatus.cs" />
     <Compile Include="Models\SectionMaster.cs" />
+    <Compile Include="Models\SqlForCancelHistory.cs" />
     <Compile Include="Models\SqlForCartList.cs" />
+    <Compile Include="Models\SqlForComHistory.cs" />
+    <Compile Include="Models\SqlForErrorHistory.cs" />
     <Compile Include="Models\SqlForFloorList.cs" />
     <Compile Include="Models\SqlForMuList.cs" />
+    <Compile Include="Models\SqlForOrderHistory.cs" />
     <Compile Include="Models\SqlForOrderList.cs" />
     <Compile Include="Models\SqlForStationList.cs" />
     <Compile Include="Models\SqlForTabletList.cs" />
