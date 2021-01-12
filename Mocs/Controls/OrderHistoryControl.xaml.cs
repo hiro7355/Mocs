@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mocs.Models;
+using Mocs.SearchDialogs;
 
 namespace Mocs.Controls
 {
@@ -21,21 +22,23 @@ namespace Mocs.Controls
     /// </summary>
     public partial class OrderHistoryControl : HistoryBaseControl
     {
+
         public OrderHistoryControl()
         {
             InitializeComponent();
+            this.CreateSearchDialog<OrderHistory>();
         }
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
+            this.DoSearch();
 
         }
 
 
-
-        protected override void Update()
+        protected override void Update(string conditionSql)
         {
-            string sql = SqlForOrderHistory.GetListSql();
+            string sql = SqlForOrderHistory.GetListSql(conditionSql);
 
             System.Data.DataTable table = m_db.getDataTable(sql);
 

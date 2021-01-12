@@ -53,6 +53,13 @@ namespace Mocs
 
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            historyTabControl.Dispose();
+
+        }
+
+
         private void ShowPannel(bool showSystemStatus, UserControl control)
         {
 

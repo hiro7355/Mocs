@@ -168,6 +168,10 @@
     <Compile Include="Models\SqlForOrderList.cs" />
     <Compile Include="Models\SqlForStationList.cs" />
     <Compile Include="Models\SqlForTabletList.cs" />
+    <Compile Include="SearchDialogs\BaseSearchDialog.cs" />
+    <Compile Include="SearchDialogs\OrderHistory.xaml.cs">
+      <DependentUpon>OrderHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
@@ -250,6 +254,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SystemStatusControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchDialogs\OrderHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

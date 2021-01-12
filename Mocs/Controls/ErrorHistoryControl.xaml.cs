@@ -30,7 +30,7 @@ namespace Mocs.Controls
 
         }
 
-        protected override void Update()
+        protected override void Update(string conditionSql)
         {
             string sql = SqlForErrorHistory.GetListSql();
 

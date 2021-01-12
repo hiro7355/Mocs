@@ -19,6 +19,16 @@ namespace Mocs.Models
             return "SELECT section_name_" + localeCode + " FROM section_master WHERE section_id=" + section_id_field_name;
         }
 
+        /// <summary>
+        /// コンボボックス用にidと名前を取得するSQL
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <returns></returns>
+        internal static string SelectIdAndNameSql(string localeCode)
+        {
+            return "SELECT section_id AS id, section_name_" + localeCode + " AS name FROM section_master";
+        }
+
 
         /// <summary>
         /// 複数行の名前をカンマ区切りで取得するSQL。取得する行のidは配列で指定

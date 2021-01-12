@@ -40,5 +40,15 @@ namespace Mocs.Models
             this.cart_key = this.getValue<string>(dr, "cart_key");
             this.cart_func = this.getValue<Int16>(dr, "cart_func");
         }
+
+        /// <summary>
+        /// コンボボックス用にidと名前を取得するSQL
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <returns></returns>
+        internal static string SelectIdAndNameSql(string localeCode)
+        {
+            return "SELECT cart_id AS id, cart_name_" + localeCode + " AS name FROM cart_master";
+        }
     }
 }

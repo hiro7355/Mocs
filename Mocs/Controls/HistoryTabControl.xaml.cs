@@ -18,7 +18,7 @@ namespace Mocs.Controls
     /// <summary>
     /// HistoryTabControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class HistoryTabControl : UserControl
+    public partial class HistoryTabControl : UserControl, IDisposable
     {
         DBAccess m_db;
         public HistoryTabControl()
@@ -26,6 +26,14 @@ namespace Mocs.Controls
             InitializeComponent();
 
 
+        }
+
+        public void Dispose()
+        {
+            orderHistory.Dispose();
+            errorHistory.Dispose();
+            comHistory.Dispose();
+            cancelHistory.Dispose();
         }
 
         internal void Init(DBAccess db)

@@ -13,8 +13,7 @@ namespace Mocs.Controls.Converters
     {
         protected DBAccess GetDBAccess()
         {
-            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-            return mainWindow.GetDBAccess();
+            return DBAccess.GetDBAccess();
         }
 
 

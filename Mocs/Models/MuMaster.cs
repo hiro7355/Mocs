@@ -33,6 +33,15 @@ namespace Mocs.Models
             return sql;
         }
 
+        /// <summary>
+        /// コンボボックス用にidと名前を取得するSQL
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <returns></returns>
+        internal static string SelectIdAndNameSql(string localeCode)
+        {
+            return "SELECT mu_id AS id, mu_name_" + localeCode + " AS name FROM mu_master";
+        }
 
         public override void LoadProp(NpgsqlDataReader dr)
         {

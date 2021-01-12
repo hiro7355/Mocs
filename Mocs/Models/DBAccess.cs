@@ -9,12 +9,21 @@ using Mocs.Models;
 using Mocs.Utils;
 using System.Data;
 
+
+using System.Windows;
+
 namespace Mocs
 {
 
     public class DBAccess
     {
-    	private NpgsqlConnection conn = new NpgsqlConnection();
+        public static DBAccess GetDBAccess()
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            return mainWindow.GetDBAccess();
+        }
+
+        private NpgsqlConnection conn = new NpgsqlConnection();
 
         private CiLog cErrlog = new CiLog();    // ログ出力クラス
 
