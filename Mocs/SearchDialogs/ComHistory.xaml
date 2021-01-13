@@ -1,0 +1,51 @@
+﻿<local:BaseSearchDialog x:Class="Mocs.SearchDialogs.ComHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:Mocs.Properties" 
+        xmlns:local="clr-namespace:Mocs.SearchDialogs"
+        mc:Ignorable="d"
+        Title="ComHistory" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+            <Label Margin="0,10,0,10" HorizontalAlignment="Center" Content="{x:Static properties:Resources.SEARCH_SETTING}"></Label>
+            <CheckBox x:Name="checkStartEnd" Content="{x:Static properties:Resources.SEARCH_START_END}" Checked="checkStartEnd_Checked" Unchecked="checkStartEnd_Unchecked"></CheckBox>
+            <StackPanel x:Name="stackStartEnd" Margin="20,0,0,0" Orientation="Horizontal">
+                <Label x:Name="labelStart"  Content="{x:Static properties:Resources.START_DATE}" VerticalAlignment="Center"/>
+                <DatePicker x:Name="dateStart"  VerticalAlignment="Center" />
+                <Label x:Name="labelEnd"  Content="{x:Static properties:Resources.END_DATE}"  VerticalAlignment="Center"/>
+                <DatePicker x:Name="dateEnd"  VerticalAlignment="Center"/>
+
+
+            </StackPanel>
+            <CheckBox x:Name="checkEquip" Content="{x:Static properties:Resources.EQUIPMENT_NAME}" Checked="checkEquip_Checked" Unchecked="checkEquip_Unchecked"></CheckBox>
+            <StackPanel x:Name="stackEquip" Margin="20,0,0,0" Orientation="Horizontal">
+                <ComboBox x:Name="comboEquip" IsReadOnly="True"  ItemsSource="{Binding}" SelectedValuePath="name" SelectedIndex="0" Width="100" Margin="20,0" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock><Run Text="{Binding name, Mode=OneWay}" />
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel x:Name="stackSendReceive" Margin="20,0,0,0" Orientation="Horizontal">
+                <RadioButton x:Name="radioAll" IsChecked="True"
+                 Content="{x:Static properties:Resources.ALL}" />
+                <RadioButton x:Name="radioSend"
+                 Content="{x:Static properties:Resources.SEND}" />
+                <RadioButton x:Name="radioReceive"
+                 Content="{x:Static properties:Resources.RECEIVE}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button x:Name="cancelButton" Margin="5" Content="{x:Static properties:Resources.CANCEL}" Click="cancelButton_Click"></Button>
+                <Button x:Name="okButton" Margin="5" Content="{x:Static properties:Resources.SEARCH_OK}" Click="okButton_Click"></Button>
+                <Button x:Name="allButton" Margin="5" Content="{x:Static properties:Resources.SEARCH_ALL}" Click="allButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</local:BaseSearchDialog>

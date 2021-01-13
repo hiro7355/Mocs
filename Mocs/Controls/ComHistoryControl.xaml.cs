@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mocs.Models;
+using Mocs.SearchDialogs;
 
 namespace Mocs.Controls
 {
@@ -24,15 +25,24 @@ namespace Mocs.Controls
         public ComHistoryControl()
         {
             InitializeComponent();
+            //  検索ダイアログを生成
+            this.CreateSearchDialog<ComHistory>();
         }
+
+        /// <summary>
+        /// 検索ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DoSearch();
         }
 
-        protected override void Update(string conditionSql)
+
+        protected override void Update(string conditionSql, int unionType)
         {
-            string sql = SqlForComHistory.GetListSql();
+            string sql = SqlForComHistory.GetListSql(conditionSql, unionType);
 
             System.Data.DataTable table = m_db.getDataTable(sql);
 

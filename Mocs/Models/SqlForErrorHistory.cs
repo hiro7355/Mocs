@@ -9,15 +9,34 @@ namespace Mocs.Models
 {
     class SqlForErrorHistory
     {
-        public static string GetListSql()
+        public static string GetListSql(string conditionSql, int unionType)
         {
             string localeCode = CommonUtil.GetAppLocaleCode();
 
-            string sql =
-                GetCellErrorSql() +
-                " UNION " +
-                GetMuErrorSql(localeCode)
-                ;
+            List<string> values = new List<string>();
+            switch(unionType)
+            {
+                case 1: //  CELLのとき
+                    values.Add(GetCellErrorSql());
+                    break;
+                case 2: //  MUのとき
+                    values.Add(GetMuErrorSql(localeCode));
+                    break;
+                default:
+                    values.Add(GetCellErrorSql());
+                    values.Add(GetMuErrorSql(localeCode));
+                    break;
+            }
+            string unionSql = string.Join(" UNION ", values);
+
+            string sql = "SELECT * FROM (" +
+                unionSql +
+                ") AS TMP ";
+            if (conditionSql != null && conditionSql.Length > 0)
+            {
+                sql += " WHERE " + conditionSql;
+            }
+
             return sql;
 
         }
@@ -86,5 +105,28 @@ namespace Mocs.Models
             return sql;
 
         }
+
+        /// <summary>
+        /// 指定日以降の条件
+        /// </summary>
+        /// <param name="selectedDate"></param>
+        /// <returns></returns>
+        internal static string GetStartSql(DateTime selectedDate)
+        {
+            return "date >= " + DateTimeUtil.FormatDBDate(selectedDate);
+        }
+
+        /// <summary>
+        /// 指定日以前の条件
+        /// </summary>
+        /// <param name="selectedDate"></param>
+        /// <returns></returns>
+        internal static string GetEndSql(DateTime selectedDate)
+        {
+            // 指定日の翌日より前
+            return "date < " + DateTimeUtil.FormatNextDBDate(selectedDate);
+        }
+
+
     }
 }

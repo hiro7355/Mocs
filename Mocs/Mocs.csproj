@@ -154,6 +154,7 @@
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\ErrorInfo.cs" />
     <Compile Include="Models\MessageInfo.cs" />
+    <Compile Include="Models\MonitorMaster.cs" />
     <Compile Include="Models\MuErrorInfoMaster.cs" />
     <Compile Include="Models\MuMaster.cs" />
     <Compile Include="Models\MuStatus.cs" />
@@ -168,7 +169,17 @@
     <Compile Include="Models\SqlForOrderList.cs" />
     <Compile Include="Models\SqlForStationList.cs" />
     <Compile Include="Models\SqlForTabletList.cs" />
+    <Compile Include="Models\TabletMaster.cs" />
     <Compile Include="SearchDialogs\BaseSearchDialog.cs" />
+    <Compile Include="SearchDialogs\CancelHistory.xaml.cs">
+      <DependentUpon>CancelHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchDialogs\ComHistory.xaml.cs">
+      <DependentUpon>ComHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchDialogs\ErrorHistory.xaml.cs">
+      <DependentUpon>ErrorHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchDialogs\OrderHistory.xaml.cs">
       <DependentUpon>OrderHistory.xaml</DependentUpon>
     </Compile>
@@ -254,6 +265,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SystemStatusControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchDialogs\CancelHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchDialogs\ComHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchDialogs\ErrorHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

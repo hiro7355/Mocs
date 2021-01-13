@@ -649,6 +649,9 @@
   <data name="ORDER_RESULT_STATUS_0" xml:space="preserve">
     <value>予約</value>
   </data>
+  <data name="AUTO_DOOR" xml:space="preserve">
+    <value>オートドア</value>
+  </data>
   <data name="CANCELHH_CART_ID" xml:space="preserve">
     <value>カートID</value>
   </data>
@@ -687,6 +690,12 @@
   </data>
   <data name="CANCELHH_TO_STATION" xml:space="preserve">
     <value>着 ST</value>
+  </data>
+  <data name="CELL" xml:space="preserve">
+    <value>CELL</value>
+  </data>
+  <data name="CHARGER" xml:space="preserve">
+    <value>充電器</value>
   </data>
   <data name="COMHH_COM" xml:space="preserve">
     <value>通信</value>
@@ -727,8 +736,14 @@
   <data name="COM_TYPE3" xml:space="preserve">
     <value>制御電文</value>
   </data>
+  <data name="ELEVATORE" xml:space="preserve">
+    <value>エレベータ</value>
+  </data>
   <data name="MONITOR" xml:space="preserve">
     <value>監視モニター</value>
+  </data>
+  <data name="MU" xml:space="preserve">
+    <value>MU</value>
   </data>
   <data name="ORDER_CANCEL_STATUS0" xml:space="preserve">
     <value>キャンセル予約</value>
@@ -756,5 +771,53 @@
   </data>
   <data name="TABLET_TYPE1" xml:space="preserve">
     <value>保守</value>
+  </data>
+  <data name="ALL" xml:space="preserve">
+    <value>全て</value>
+  </data>
+  <data name="CART" xml:space="preserve">
+    <value>カート</value>
+  </data>
+  <data name="CART_NAME" xml:space="preserve">
+    <value>カート名</value>
+  </data>
+  <data name="END_DATE" xml:space="preserve">
+    <value>終了日</value>
+  </data>
+  <data name="EQUIPMENT_NAME" xml:space="preserve">
+    <value>機器名称</value>
+  </data>
+  <data name="MU_NAME" xml:space="preserve">
+    <value>MU名称</value>
+  </data>
+  <data name="REQ_SECT" xml:space="preserve">
+    <value>発部署</value>
+  </data>
+  <data name="SEARCH_ALL" xml:space="preserve">
+    <value>全表示</value>
+  </data>
+  <data name="SEARCH_OK" xml:space="preserve">
+    <value>決定</value>
+  </data>
+  <data name="SEARCH_SETTING" xml:space="preserve">
+    <value>検索条件設定</value>
+  </data>
+  <data name="SEARCH_START_END" xml:space="preserve">
+    <value>検索期間</value>
+  </data>
+  <data name="SECT_NAME" xml:space="preserve">
+    <value>部署名</value>
+  </data>
+  <data name="SEND_RECEIVE" xml:space="preserve">
+    <value>送信／受信</value>
+  </data>
+  <data name="START_DATE" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="TO_SECT" xml:space="preserve">
+    <value>着部署</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>種別</value>
   </data>
 </root>

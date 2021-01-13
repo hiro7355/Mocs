@@ -61,6 +61,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   All に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALL {
+            get {
+                return ResourceManager.GetString("ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Auto door に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string AUTO_DOOR {
+            get {
+                return ResourceManager.GetString("AUTO_DOOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cart list に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_CART_LIST {
@@ -322,11 +340,47 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Cart に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CART {
+            get {
+                return ResourceManager.GetString("CART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cart name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CART_NAME {
+            get {
+                return ResourceManager.GetString("CART_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   CELL に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CELL {
+            get {
+                return ResourceManager.GetString("CELL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cell stopped に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CELL_STOPPED {
             get {
                 return ResourceManager.GetString("CELL_STOPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Charger に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CHARGER {
+            get {
+                return ResourceManager.GetString("CHARGER", resourceCulture);
             }
         }
         
@@ -822,6 +876,33 @@ namespace Mocs.Properties {
         public static string EHH_TYPE {
             get {
                 return ResourceManager.GetString("EHH_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Elevator に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ELEVATORE {
+            get {
+                return ResourceManager.GetString("ELEVATORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   End date に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string END_DATE {
+            get {
+                return ResourceManager.GetString("END_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Equipment name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string EQUIPMENT_NAME {
+            get {
+                return ResourceManager.GetString("EQUIPMENT_NAME", resourceCulture);
             }
         }
         
@@ -1384,6 +1465,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   MU に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MU {
+            get {
+                return ResourceManager.GetString("MU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MU name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MU_NAME {
+            get {
+                return ResourceManager.GetString("MU_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Occurence date time に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OCCURENCE_DATETIME {
@@ -1690,11 +1789,74 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Departure department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string REQ_SECT {
+            get {
+                return ResourceManager.GetString("REQ_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   All に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SEARCH_ALL {
+            get {
+                return ResourceManager.GetString("SEARCH_ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OK に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SEARCH_OK {
+            get {
+                return ResourceManager.GetString("SEARCH_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Search setting に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SEARCH_SETTING {
+            get {
+                return ResourceManager.GetString("SEARCH_SETTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Search period に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SEARCH_START_END {
+            get {
+                return ResourceManager.GetString("SEARCH_START_END", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Department name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SECT_NAME {
+            get {
+                return ResourceManager.GetString("SECT_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Send に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string SEND {
             get {
                 return ResourceManager.GetString("SEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Send/Receive に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SEND_RECEIVE {
+            get {
+                return ResourceManager.GetString("SEND_RECEIVE", resourceCulture);
             }
         }
         
@@ -1834,6 +1996,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Start date に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string START_DATE {
+            get {
+                return ResourceManager.GetString("START_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Station に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string STATION {
@@ -1938,6 +2109,24 @@ namespace Mocs.Properties {
         public static string TLH_TABLET_NAME {
             get {
                 return ResourceManager.GetString("TLH_TABLET_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Arrival department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TO_SECT {
+            get {
+                return ResourceManager.GetString("TO_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Type に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
             }
         }
     }

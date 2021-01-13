@@ -26,17 +26,23 @@ namespace Mocs.Controls
         public OrderHistoryControl()
         {
             InitializeComponent();
+
+            //  検索ダイアログを生成
             this.CreateSearchDialog<OrderHistory>();
         }
 
+        /// <summary>
+        /// 検索ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
             this.DoSearch();
-
         }
 
 
-        protected override void Update(string conditionSql)
+        protected override void Update(string conditionSql, int unionType)
         {
             string sql = SqlForOrderHistory.GetListSql(conditionSql);
 

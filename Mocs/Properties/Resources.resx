@@ -687,6 +687,9 @@
   <data name="COMHH_TYPE" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="AUTO_DOOR" xml:space="preserve">
+    <value>Auto door</value>
+  </data>
   <data name="CANCELHH_CART_ID" xml:space="preserve">
     <value>Cart ID</value>
   </data>
@@ -726,6 +729,12 @@
   <data name="CANCELHH_TO_STATION" xml:space="preserve">
     <value>Arrival station</value>
   </data>
+  <data name="CELL" xml:space="preserve">
+    <value>CELL</value>
+  </data>
+  <data name="CHARGER" xml:space="preserve">
+    <value>Charger</value>
+  </data>
   <data name="COM_TYPE1" xml:space="preserve">
     <value>Status telegram</value>
   </data>
@@ -735,8 +744,14 @@
   <data name="COM_TYPE3" xml:space="preserve">
     <value>Control telegram</value>
   </data>
+  <data name="ELEVATORE" xml:space="preserve">
+    <value>Elevator</value>
+  </data>
   <data name="MONITOR" xml:space="preserve">
     <value>Monitor</value>
+  </data>
+  <data name="MU" xml:space="preserve">
+    <value>MU</value>
   </data>
   <data name="ORDER_CANCEL_STATUS0" xml:space="preserve">
     <value>Cancel reserved</value>
@@ -764,5 +779,53 @@
   </data>
   <data name="TABLET_TYPE1" xml:space="preserve">
     <value>Maintenance</value>
+  </data>
+  <data name="ALL" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="CART" xml:space="preserve">
+    <value>Cart</value>
+  </data>
+  <data name="CART_NAME" xml:space="preserve">
+    <value>Cart name</value>
+  </data>
+  <data name="END_DATE" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="EQUIPMENT_NAME" xml:space="preserve">
+    <value>Equipment name</value>
+  </data>
+  <data name="MU_NAME" xml:space="preserve">
+    <value>MU name</value>
+  </data>
+  <data name="REQ_SECT" xml:space="preserve">
+    <value>Departure department</value>
+  </data>
+  <data name="SEARCH_ALL" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="SEARCH_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="SEARCH_SETTING" xml:space="preserve">
+    <value>Search setting</value>
+  </data>
+  <data name="SEARCH_START_END" xml:space="preserve">
+    <value>Search period</value>
+  </data>
+  <data name="SECT_NAME" xml:space="preserve">
+    <value>Department name</value>
+  </data>
+  <data name="SEND_RECEIVE" xml:space="preserve">
+    <value>Send/Receive</value>
+  </data>
+  <data name="START_DATE" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="TO_SECT" xml:space="preserve">
+    <value>Arrival department</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Type</value>
   </data>
 </root>

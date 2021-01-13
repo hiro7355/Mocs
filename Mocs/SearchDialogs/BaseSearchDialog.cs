@@ -73,7 +73,21 @@ namespace Mocs.SearchDialogs
             this.Close();
         }
 
+        /// <summary>
+        /// where以下のsql文
+        /// </summary>
+        /// <returns></returns>
         abstract public string GetConditionSql();
+        
+        /// <summary>
+        /// unionするとき、どれをunionするのかの情報
+        /// 0はすべてunion
+        /// </summary>
+        /// <returns></returns>
+        public virtual int GetUnionType()
+        {
+            return 0;
+        }
 
         protected DBAccess GetDBAccess()
         {

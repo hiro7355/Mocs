@@ -32,7 +32,7 @@ namespace Mocs.Controls
         public void Init(DBAccess db)
         {
             this.m_db = db;
-            this.Update(null);
+            this.Update(null, 0);
         }
 
 
@@ -50,26 +50,29 @@ namespace Mocs.Controls
 
 
                 string conditionSql = null;
+                int unionType = 0;
                 if (m_search.GetResult() == 1)
                 {
                     //  決定のとき条件を取得
                     conditionSql = m_search.GetConditionSql();
+                    unionType = m_search.GetUnionType();
                 }
 
 
                 //  検索結果を表示
-                this.Update(conditionSql);
+                this.Update(conditionSql, unionType);
             }
 
 
         }
 
-
         /// <summary>
         /// 派生クラスで実装すること
         /// init時に呼び出される
         /// </summary>
-        abstract protected void Update(string conditionSql);
+        /// <param name="conditionSql">where以下のsql文</param>
+        /// <param name="unionType">unionする場合、どれをunionするか。0はすべてunion</param>
+        abstract protected void Update(string conditionSql, int unionType);
 
     }
 }
