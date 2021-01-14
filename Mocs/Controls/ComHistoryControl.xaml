@@ -6,27 +6,26 @@
              xmlns:properties="clr-namespace:Mocs.Properties" 
              xmlns:local="clr-namespace:Mocs.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.HTH_COM}" />
-                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click" />
-
+            <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
+                <TextBlock Text="{x:Static properties:Resources.HTH_COM}" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
+                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click"  Margin="5,0" />
             </StackPanel>
 
-            <DataGrid Name="comHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Width="1840" Height="520" Name="comHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DATE}" Binding="{Binding date}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_TIME}" Binding="{Binding time}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_TYPE}" Binding="{Binding type}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_NAME}" Binding="{Binding name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_IP}" Binding="{Binding ip}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_PORT}" Binding="{Binding port}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_COM}" Binding="{Binding com}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_SEND_RECEIVE}" Binding="{Binding send_receive}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_MESSAGE}" Binding="{Binding message}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DETAIL}" Binding="{Binding detail}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DATE}" Binding="{Binding date}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_TIME}" Binding="{Binding time}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_TYPE}" Binding="{Binding type}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_NAME}" Binding="{Binding name}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_IP}" Binding="{Binding ip}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_PORT}" Binding="{Binding port}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_COM}" Binding="{Binding com}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_SEND_RECEIVE}" Binding="{Binding send_receive}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_MESSAGE}" Binding="{Binding message}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DETAIL}" Binding="{Binding detail}" />
 
                 </DataGrid.Columns>
             </DataGrid>

@@ -6,12 +6,12 @@
              xmlns:properties="clr-namespace:Mocs.Properties" 
              xmlns:local="clr-namespace:Mocs.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1260">
     <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10, 10">
-                <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.BT_CART_LIST}" />
-                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0" >
+        <StackPanel Background="LightGray">
+            <StackPanel Orientation="Horizontal" Margin="10,0" Height="25" >
+                <TextBlock Text="{x:Static properties:Resources.CART_LIST}"  TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center"  />
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0"  VerticalAlignment="Center" >
                     <ComboBoxItem Tag="all" Content="{x:Static properties:Resources.COMBO_ALL}"></ComboBoxItem>
                     <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.COMBO_VALID}"></ComboBoxItem>
                     <ComboBoxItem Tag="0" Content="{x:Static properties:Resources.COMBO_INVALID}"></ComboBoxItem>
@@ -19,18 +19,18 @@
 
             </StackPanel>
 
-            <DataGrid Margin="10, 10" Name="cartList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid  Margin="5" Width="1250" Height="565" Name="cartList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_ID}" Binding="{Binding id}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_NAME}" Binding="{Binding name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_USE}" Binding="{Binding use}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_ENABLE}" Binding="{Binding enable}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_BELONG_SECT}" Binding="{Binding belong_sect}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_BELONG_RESTRICT}" Binding="{Binding belong_restrict}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_SECT}" Binding="{Binding dest_sect}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_RESTRICT}" Binding="{Binding dest_restrict}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_FUNC}" Binding="{Binding func}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_KEY}" Binding="{Binding key}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_ID}" Binding="{Binding id}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_NAME}" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_USE}" Binding="{Binding use}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_ENABLE}" Binding="{Binding enable}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_BELONG_SECT}" Binding="{Binding belong_sect}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_BELONG_RESTRICT}" Binding="{Binding belong_restrict}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_SECT}" Binding="{Binding dest_sect}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_RESTRICT}" Binding="{Binding dest_restrict}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_FUNC}" Binding="{Binding func}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_KEY}" Binding="{Binding key}" />
 
                 </DataGrid.Columns>
             </DataGrid>

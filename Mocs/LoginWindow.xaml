@@ -6,15 +6,15 @@
              xmlns:properties="clr-namespace:Mocs.Properties" 
         xmlns:local="clr-namespace:Mocs"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="200" Width="400">
+        Title="{x:Static properties:Resources.LOGIN_TITLE}" Height="150" Width="300" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="10">
             <Label Content="{x:Static properties:Resources.LOGINWINDOW_TITLE}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-            <TextBox  x:Name="textPassword" />
-            <StackPanel Orientation="Horizontal">
+            <PasswordBox  x:Name="textPassword" Focusable="True" TabIndex="0" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
 
-                <Button x:Name="buttonLogin" Content="{x:Static properties:Resources.LOGIN}" Click="buttonLogin_Click" Width="75" IsDefault="True"/>
-                <Button x:Name="buttonCancel" Content="{x:Static properties:Resources.CANCEL}" Click="buttonCancel_Click"  Width="75"/>
+                <Button x:Name="buttonLogin" Content="{x:Static properties:Resources.LOGIN}" Click="buttonLogin_Click" Width="100" IsDefault="True" Margin="5,0"/>
+                <Button x:Name="buttonCancel" Content="{x:Static properties:Resources.CANCEL}" Click="buttonCancel_Click"  Width="100" Margin="5,0"/>
             </StackPanel>
 
         </StackPanel>

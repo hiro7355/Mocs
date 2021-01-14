@@ -6,11 +6,11 @@
              xmlns:properties="clr-namespace:Mocs.Properties" 
              xmlns:local="clr-namespace:Mocs.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1260">
     <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10, 10">
-                <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.BT_FLOOR_LIST}" />
+        <StackPanel Background="LightGray">
+            <StackPanel Orientation="Horizontal" Margin="10,0" Height="25">
+                <TextBlock Text="{x:Static properties:Resources.FLOOR_LIST}"  TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center"  />
                 <ComboBox x:Name="selectBox" IsReadOnly="True"  ItemsSource="{Binding}" SelectedValuePath="hospital_id" SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -22,12 +22,12 @@
 
             </StackPanel>
 
-            <DataGrid Margin="10, 10" Name="floorList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Margin="5" Width="1250" Height="565" Name="floorList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_HOSPITAL}" Binding="{Binding hospital}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_FLOOR}" Binding="{Binding floor}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ORDER}" Binding="{Binding mu_order}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ERROR}" Binding="{Binding m_error}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_HOSPITAL}" Binding="{Binding hospital}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_FLOOR}" Binding="{Binding floor}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ORDER}" Binding="{Binding mu_order}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ERROR}" Binding="{Binding m_error}" />
                     <DataGridTextColumn  Width="100"/>
 
                 </DataGrid.Columns>

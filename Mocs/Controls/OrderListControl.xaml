@@ -7,32 +7,41 @@
              xmlns:local="clr-namespace:Mocs.Controls"
              xmlns:converter="clr-namespace:Mocs.Controls.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="1920">
     <Grid>
         <Grid.Resources>
             <converter:OrderToSectConverter x:Key="orderToSectConverter"/>
             <converter:OrderToStationConverter x:Key="orderToStationConverter"/>
             <converter:MuOrderStatusConverter x:Key="muorderStatusConoverter"/>
         </Grid.Resources>
-        <StackPanel>
-            <Label Content="{x:Static properties:Resources.TITLE_ORDER_LIST}"/>
+        <StackPanel Background="LightGray">
+            <StackPanel Orientation="Horizontal" Margin="5,0" Height="25">
 
+                <TextBlock Text="{x:Static properties:Resources.TITLE_ORDER_LIST}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0"  VerticalAlignment="Center" >
+                    <ComboBoxItem Tag="all" Content="{x:Static properties:Resources.ALL}"></ComboBoxItem>
+                    <ComboBoxItem Tag="0" Content="{x:Static properties:Resources.RESERVE}"></ComboBoxItem>
+                    <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.IN_ORDER}"></ComboBoxItem>
+                    <ComboBoxItem Tag="100" Content="{x:Static properties:Resources.ERROR}"></ComboBoxItem>
+                </ComboBox>
 
-            <DataGrid Name="orderList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            </StackPanel>
+
+            <DataGrid Name="orderList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Width="1910" Height="330" Margin="5" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_STATUS}" Binding="{Binding order_status}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_RESERVE_DATE}" Binding="{Binding reserve_date}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_RESERVE_TIME}" Binding="{Binding reserve_time}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_CART}" Binding="{Binding order_cart_id}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TYPE}" Binding="{Binding order_round_flg}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_SECT}" Binding="{Binding req_sect}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_STATION}" Binding="{Binding req_station}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  orderToSectConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_STATION}" Binding="{Binding to_sect, Converter={StaticResource  orderToStationConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_DATE}" Binding="{Binding start_datetime}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_TIME}" Binding="{Binding start_datetime}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_NAME}" Binding="{Binding mu_name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_STATUS}" Binding="{Binding order_status}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_RESERVE_DATE}" Binding="{Binding reserve_date}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_RESERVE_TIME}" Binding="{Binding reserve_time}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_CART}" Binding="{Binding order_cart_id}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TYPE}" Binding="{Binding order_round_flg}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_SECT}" Binding="{Binding req_sect}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_STATION}" Binding="{Binding req_station}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  orderToSectConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_STATION}" Binding="{Binding to_sect, Converter={StaticResource  orderToStationConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_DATE}" Binding="{Binding start_datetime}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_TIME}" Binding="{Binding start_datetime}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_NAME}" Binding="{Binding mu_name}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" />
 
                 </DataGrid.Columns>
             </DataGrid>

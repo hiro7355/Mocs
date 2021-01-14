@@ -26,7 +26,7 @@ namespace Mocs
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (Mocs.Properties.Settings.Default.Login_Password == textPassword.Text)
+            if (Mocs.Properties.Settings.Default.Login_Password == textPassword.Password)
             {
                 this.DialogResult = true;
             } 

@@ -7,30 +7,32 @@
              xmlns:local="clr-namespace:Mocs.Controls"
              xmlns:converter="clr-namespace:Mocs.Controls.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1260">
     <Grid>
         <Grid.Resources>
             <converter:MuOpeModeConverter x:Key="opeModeConoverter"/>
             <converter:MuOrderStatusConverter x:Key="muorderStatusConoverter"/>
         </Grid.Resources>
-        <StackPanel>
-        <Label Content="{x:Static properties:Resources.TITLE_MU_LIST}"/>
+        <StackPanel Background="LightGray">
+            <StackPanel Orientation="Horizontal" Margin="10,0" Height="25">
+                <TextBlock Text="{x:Static properties:Resources.TITLE_MU_LIST}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold"  VerticalAlignment="Center"  />
+            </StackPanel>
 
 
-            <DataGrid Name="muList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" LoadingRow="DataGrid_LoadingRow" GridLinesVisibility="Horizontal" >
+            <DataGrid Margin="5" Width="1250" Height="395" Name="muList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" LoadingRow="DataGrid_LoadingRow" GridLinesVisibility="Horizontal" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_NAME}" Binding="{Binding name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_OPE_MODE}" Binding="{Binding ope_mode, Converter={StaticResource  opeModeConoverter}}" Width="100"/>
-                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_FLOOR}" Binding="{Binding floor}" Width="100"/>
-                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_POINT_NAME}" Binding="{Binding point_name}" Width="100"/>
-                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_X}" Binding="{Binding point_x}" Width="100"/>
-                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" Width="100"/>
-                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_MUORDER_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_NAME}" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_OPE_MODE}" Binding="{Binding ope_mode, Converter={StaticResource  opeModeConoverter}}"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_FLOOR}" Binding="{Binding floor}"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_POINT_NAME}" Binding="{Binding point_name}" />
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_X}" Binding="{Binding point_x}" />
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" />
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_MUORDER_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" />
 
             </DataGrid.Columns>
             </DataGrid>
-            <ListBox x:Name="messageList" Width="800" Height="300">
+            <ListBox x:Name="messageList"  Width="1250" Height="160" Margin="5">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding message}"  Background="{Binding brush}"/>

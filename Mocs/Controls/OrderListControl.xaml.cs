@@ -30,12 +30,23 @@ namespace Mocs.Controls
 
         protected override void Update()
         {
-            string sql = SqlForOrderList.GetListSql();
+            ComboBoxItem item = (ComboBoxItem)this.selectBox.SelectedItem;
+            string orderStatus = item != null ? item.Tag.ToString() : "all";
+
+            string sql = SqlForOrderList.GetListSql(orderStatus);
 
             System.Data.DataTable table = m_db.getDataTable(sql);
 
             orderList.DataContext = table;
         }
 
+        private void selectBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.m_db != null)
+            {
+                this.Update();
+            }
+
+        }
     }
 }

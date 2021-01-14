@@ -37,6 +37,10 @@ namespace Mocs
             m_db = db;
             InitializeComponent();
 
+        }
+
+        public void InitWithDB()
+        {
 
             ErrorInfo errorInfo = new ErrorInfo();
 
@@ -180,6 +184,7 @@ namespace Mocs
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            /*
             this.Hide();
             //ログイン画面の表示
             LoginWindow loginWindow = new LoginWindow();
@@ -190,6 +195,7 @@ namespace Mocs
                 this.Close();
             }
             this.Show();
+            */
         }
 
 

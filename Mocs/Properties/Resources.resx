@@ -118,17 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BT_CART_LIST" xml:space="preserve">
-    <value>Cart list</value>
+    <value>Cart 
+list</value>
     <comment>ボタンタイトル</comment>
   </data>
   <data name="BT_DEVICE" xml:space="preserve">
     <value>Device</value>
   </data>
   <data name="BT_ERROR_INFO" xml:space="preserve">
-    <value>Error info</value>
+    <value>Error 
+info</value>
   </data>
   <data name="BT_FLOOR_LIST" xml:space="preserve">
-    <value>Floor list</value>
+    <value>Floor 
+list</value>
   </data>
   <data name="BT_HISTORY" xml:space="preserve">
     <value>History</value>
@@ -137,13 +140,16 @@
     <value>Search Setting</value>
   </data>
   <data name="BT_STATION_LIST" xml:space="preserve">
-    <value>Station list</value>
+    <value>Station 
+list</value>
   </data>
   <data name="BT_SYSTEM_STATUS" xml:space="preserve">
-    <value>System state</value>
+    <value>System 
+state</value>
   </data>
   <data name="BT_TABLET_LIST" xml:space="preserve">
-    <value>Tablet list</value>
+    <value>Tablet 
+list</value>
   </data>
   <data name="CLH_BELONG_RESTRICT" xml:space="preserve">
     <value>Affiliation restrictions</value>
@@ -795,6 +801,12 @@
   <data name="EQUIPMENT_NAME" xml:space="preserve">
     <value>Equipment name</value>
   </data>
+  <data name="LOGIN_TITLE" xml:space="preserve">
+    <value>MoCS Monitor - Login</value>
+  </data>
+  <data name="MAIN_TITLE" xml:space="preserve">
+    <value>MoCS Monitor</value>
+  </data>
   <data name="MU_NAME" xml:space="preserve">
     <value>MU name</value>
   </data>
@@ -827,5 +839,32 @@
   </data>
   <data name="TYPE" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="CART_LIST" xml:space="preserve">
+    <value>Cart list</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ERROR_INFO" xml:space="preserve">
+    <value>Error info</value>
+  </data>
+  <data name="FLOOR_LIST" xml:space="preserve">
+    <value>Floor list</value>
+  </data>
+  <data name="HISTORY" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="IN_ORDER" xml:space="preserve">
+    <value>In order</value>
+  </data>
+  <data name="RESERVE" xml:space="preserve">
+    <value>Reserve</value>
+  </data>
+  <data name="STATION_LIST" xml:space="preserve">
+    <value>Station list</value>
+  </data>
+  <data name="TABLET_LIST" xml:space="preserve">
+    <value>Tablet list</value>
   </data>
 </root>

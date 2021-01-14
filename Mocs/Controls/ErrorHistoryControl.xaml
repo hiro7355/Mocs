@@ -7,34 +7,33 @@
              xmlns:local="clr-namespace:Mocs.Controls"
              xmlns:converter="clr-namespace:Mocs.Controls.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <Grid.Resources>
             <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
             <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
         </Grid.Resources>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.HTH_ERROR}" />
-                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click" />
-
+            <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
+                <TextBlock Text="{x:Static properties:Resources.HTH_ERROR}" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
+                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click"  Margin="5,0" />
             </StackPanel>
 
-            <DataGrid Name="errorHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Width="1840" Height="520" Name="errorHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
                     
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_DATE}" Binding="{Binding date}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TIME}" Binding="{Binding time}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TYPE}" Binding="{Binding type}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_NAME}" Binding="{Binding name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_SECT}" Binding="{Binding req_sect}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_STATION}" Binding="{Binding rec_station}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CART_ID}" Binding="{Binding cart_id}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CODE}" Binding="{Binding code}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_MESSAGE}" Binding="{Binding message}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_DETAIL}" Binding="{Binding detail}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_DATE}" Binding="{Binding date}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TIME}" Binding="{Binding time}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TYPE}" Binding="{Binding type}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_NAME}" Binding="{Binding name}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_SECT}" Binding="{Binding req_sect}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_STATION}" Binding="{Binding rec_station}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CART_ID}" Binding="{Binding cart_id}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CODE}" Binding="{Binding code}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_MESSAGE}" Binding="{Binding message}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_DETAIL}" Binding="{Binding detail}" />
 
                 </DataGrid.Columns>
             </DataGrid>

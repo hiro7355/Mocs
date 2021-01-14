@@ -37,17 +37,33 @@ namespace Mocs
                 }
             }
 
+
             if (Load_db())
             {
-                // Create main application window, starting minimized if specified
+                //  メイン画面の生成（ログイン画面生成前に行う必要がある）
                 MainWindow mainWindow = new MainWindow(this.mocs_cell_db);
-                if (startMinimized)
-                {
-                    mainWindow.WindowState = WindowState.Minimized;
-                }
-                mainWindow.Show();
 
-            } else {
+                //ログイン画面の表示
+                LoginWindow loginWindow = new LoginWindow();
+                
+                if (loginWindow.ShowDialog() == true)
+                {
+                    if (startMinimized)
+                    {
+                        mainWindow.WindowState = WindowState.Minimized;
+                    }
+                    mainWindow.InitWithDB();
+
+                    //  メイン画面の表示
+                    mainWindow.Show();
+                } 
+                else
+                {
+                    this.Shutdown();
+                }
+            }
+            else
+            {
                 this.Shutdown();
             }
         }

@@ -79,7 +79,8 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   Cart list に類似しているローカライズされた文字列を検索します。
+        ///   Cart 
+        ///list に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_CART_LIST {
             get {
@@ -106,7 +107,8 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   Error info に類似しているローカライズされた文字列を検索します。
+        ///   Error 
+        ///info に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_ERROR_INFO {
             get {
@@ -124,7 +126,8 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   Floor list に類似しているローカライズされた文字列を検索します。
+        ///   Floor 
+        ///list に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_FLOOR_LIST {
             get {
@@ -169,7 +172,8 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   Station list に類似しているローカライズされた文字列を検索します。
+        ///   Station 
+        ///list に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_STATION_LIST {
             get {
@@ -196,7 +200,8 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   System state に類似しているローカライズされた文字列を検索します。
+        ///   System 
+        ///state に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_SYSTEM_STATUS {
             get {
@@ -205,7 +210,8 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   Tablet list に類似しているローカライズされた文字列を検索します。
+        ///   Tablet 
+        ///list に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_TABLET_LIST {
             get {
@@ -345,6 +351,15 @@ namespace Mocs.Properties {
         public static string CART {
             get {
                 return ResourceManager.GetString("CART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cart list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CART_LIST {
+            get {
+                return ResourceManager.GetString("CART_LIST", resourceCulture);
             }
         }
         
@@ -907,6 +922,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR {
+            get {
+                return ResourceManager.GetString("ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error info に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_INFO {
+            get {
+                return ResourceManager.GetString("ERROR_INFO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Invalid password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ERROR_PASSWORD {
@@ -952,11 +985,29 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Floor list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FLOOR_LIST {
+            get {
+                return ResourceManager.GetString("FLOOR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   MM/dd/yyyy HH:mm:ss に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string FORMAT_DATETIME {
             get {
                 return ResourceManager.GetString("FORMAT_DATETIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   History に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HISTORY {
+            get {
+                return ResourceManager.GetString("HISTORY", resourceCulture);
             }
         }
         
@@ -1006,6 +1057,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   In order に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string IN_ORDER {
+            get {
+                return ResourceManager.GetString("IN_ORDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Operating state に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LED_CELL {
@@ -1051,11 +1111,29 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   MoCS Monitor - Login に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LOGIN_TITLE {
+            get {
+                return ResourceManager.GetString("LOGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Input password for login に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LOGINWINDOW_TITLE {
             get {
                 return ResourceManager.GetString("LOGINWINDOW_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MoCS Monitor に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MAIN_TITLE {
+            get {
+                return ResourceManager.GetString("MAIN_TITLE", resourceCulture);
             }
         }
         
@@ -1798,6 +1876,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Reserve に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string RESERVE {
+            get {
+                return ResourceManager.GetString("RESERVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   All に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string SEARCH_ALL {
@@ -2014,11 +2101,29 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Station list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string STATION_LIST {
+            get {
+                return ResourceManager.GetString("STATION_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Tablet に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string TABLET {
             get {
                 return ResourceManager.GetString("TABLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tablet list に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TABLET_LIST {
+            get {
+                return ResourceManager.GetString("TABLET_LIST", resourceCulture);
             }
         }
         

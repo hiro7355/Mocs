@@ -7,35 +7,34 @@
              xmlns:local="clr-namespace:Mocs.Controls"
              xmlns:converter="clr-namespace:Mocs.Controls.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <Grid.Resources>
             <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
             <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
         </Grid.Resources>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.HTH_ORDER}" />
-                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click" />
-                
+        <StackPanel >
+            <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
+                <TextBlock Text="{x:Static properties:Resources.HTH_ORDER}" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
+                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click" Margin="5,0" />
             </StackPanel>
 
-            <DataGrid Name="orderHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Width="1840" Height="520" Name="orderHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
                     
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESERVE_DATE}" Binding="{Binding reserve_date}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESERVE_TIME}" Binding="{Binding reserve_time}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_START_DATE}" Binding="{Binding start_date}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_START_TIME}" Binding="{Binding start_time}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESULT_DATE}" Binding="{Binding result_date}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESULT_TIME}" Binding="{Binding result_time}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_REQ_SECT}" Binding="{Binding req_sect}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_REQ_STATION}" Binding="{Binding req_station}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_CART_ID}" Binding="{Binding cart_id}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_MU}" Binding="{Binding mu_id}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_STATUS}" Binding="{Binding status}" Width="100"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESERVE_DATE}" Binding="{Binding reserve_date}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESERVE_TIME}" Binding="{Binding reserve_time}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_START_DATE}" Binding="{Binding start_date}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_START_TIME}" Binding="{Binding start_time}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESULT_DATE}" Binding="{Binding result_date}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_RESULT_TIME}" Binding="{Binding result_time}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_REQ_SECT}" Binding="{Binding req_sect}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_REQ_STATION}" Binding="{Binding req_station}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_CART_ID}" Binding="{Binding cart_id}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_MU}" Binding="{Binding mu_id}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_STATUS}" Binding="{Binding status}" />
 
                 </DataGrid.Columns>
             </DataGrid>

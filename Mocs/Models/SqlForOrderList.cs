@@ -9,7 +9,7 @@ namespace Mocs.Models
 {
     class SqlForOrderList
     {
-        public static string GetListSql()
+        public static string GetListSql(string orderStatus)
         {
             string localeCode = CommonUtil.GetAppLocaleCode();
 
@@ -35,6 +35,11 @@ namespace Mocs.Models
             " LEFT OUTER JOIN cart_master ON order_reserve.order_cart_id = cart_master.cart_id" +
             " LEFT OUTER JOIN mu_status ON order_reserve.order_cart_id = mu_status.mu_stat_cart_id" +
             " WHERE order_mu_id IS NOT NULL";
+            if (orderStatus != "all")
+            {
+                sql += " AND order_status=" + orderStatus;
+            }
+
 
             return sql;
 

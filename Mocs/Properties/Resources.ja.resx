@@ -118,16 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BT_CART_LIST" xml:space="preserve">
-    <value>カート一覧</value>
+    <value>ｶｰﾄ
+一覧</value>
   </data>
   <data name="BT_DEVICE" xml:space="preserve">
-    <value>周辺機器</value>
+    <value>周辺
+機器</value>
   </data>
   <data name="BT_ERROR_INFO" xml:space="preserve">
-    <value>異常情報</value>
+    <value>異常
+情報</value>
   </data>
   <data name="BT_FLOOR_LIST" xml:space="preserve">
-    <value>フロア一覧</value>
+    <value>ﾌﾛｱ
+一覧</value>
   </data>
   <data name="BT_HISTORY" xml:space="preserve">
     <value>履歴</value>
@@ -136,13 +140,16 @@
     <value>検索条件設定</value>
   </data>
   <data name="BT_STATION_LIST" xml:space="preserve">
-    <value>ステーション一覧</value>
+    <value>ｽﾃｰｼｮﾝ
+一覧</value>
   </data>
   <data name="BT_SYSTEM_STATUS" xml:space="preserve">
-    <value>システム状態</value>
+    <value>ｼｽﾃﾑ
+状態</value>
   </data>
   <data name="BT_TABLET_LIST" xml:space="preserve">
-    <value>タブレット一覧</value>
+    <value>ﾀﾌﾞﾚｯﾄ
+一覧</value>
   </data>
   <data name="CLH_BELONG_RESTRICT" xml:space="preserve">
     <value>所属制限</value>
@@ -787,6 +794,12 @@
   <data name="EQUIPMENT_NAME" xml:space="preserve">
     <value>機器名称</value>
   </data>
+  <data name="LOGIN_TITLE" xml:space="preserve">
+    <value>MoCS 監視モニター - ログイン</value>
+  </data>
+  <data name="MAIN_TITLE" xml:space="preserve">
+    <value>MoCS 監視モニター</value>
+  </data>
   <data name="MU_NAME" xml:space="preserve">
     <value>MU名称</value>
   </data>
@@ -819,5 +832,32 @@
   </data>
   <data name="TYPE" xml:space="preserve">
     <value>種別</value>
+  </data>
+  <data name="CART_LIST" xml:space="preserve">
+    <value>カート一覧</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>異常</value>
+  </data>
+  <data name="ERROR_INFO" xml:space="preserve">
+    <value>異常情報</value>
+  </data>
+  <data name="FLOOR_LIST" xml:space="preserve">
+    <value>フロア一覧</value>
+  </data>
+  <data name="HISTORY" xml:space="preserve">
+    <value>履歴</value>
+  </data>
+  <data name="IN_ORDER" xml:space="preserve">
+    <value>搬送中</value>
+  </data>
+  <data name="RESERVE" xml:space="preserve">
+    <value>予約</value>
+  </data>
+  <data name="STATION_LIST" xml:space="preserve">
+    <value>ステーション一覧</value>
+  </data>
+  <data name="TABLET_LIST" xml:space="preserve">
+    <value>タブレット一覧</value>
   </data>
 </root>
