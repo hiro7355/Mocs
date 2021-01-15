@@ -17,13 +17,13 @@ namespace Mocs.Models
             switch(unionType)
             {
                 case 1: //  CELLのとき
-                    values.Add(GetCellErrorSql());
+                    values.Add(GetCellErrorSql(localeCode));
                     break;
                 case 2: //  MUのとき
                     values.Add(GetMuErrorSql(localeCode));
                     break;
                 default:
-                    values.Add(GetCellErrorSql());
+                    values.Add(GetCellErrorSql(localeCode));
                     values.Add(GetMuErrorSql(localeCode));
                     break;
             }
@@ -32,16 +32,19 @@ namespace Mocs.Models
             string sql = "SELECT * FROM (" +
                 unionSql +
                 ") AS TMP ";
-            if (conditionSql != null && conditionSql.Length > 0)
+            if (conditionSql == null || conditionSql.Length == 0)
             {
-                sql += " WHERE " + conditionSql;
+                conditionSql = "date = " + DateTimeUtil.FormatDBDate(DateTime.Now);
             }
+            sql += " WHERE " + conditionSql;
+            sql += " ORDER BY date, time";
+
 
             return sql;
 
         }
 
-        private static string GetCellErrorSql()
+        private static string GetCellErrorSql(string localeCode)
         {
             string sql =
                 "SELECT" +
@@ -55,8 +58,8 @@ namespace Mocs.Models
                  ", '' AS to_station" +
                  ", '' AS cart_id" +
                  ", cellerr_log_code AS code" +
-                 ", (SELECT cell_errinfo_msg_jp FROM cell_error_info_master WHERE cell_errinfo_code = cellerr_log_code) AS message" +
-                   ", cellerr_log_code AS detail" +
+                 ", (SELECT cell_errinfo_msg_" + localeCode + " FROM cell_error_info_master WHERE cell_errinfo_code = cellerr_log_code) AS message" +
+                 ", (SELECT cell_errinfo_msgdetail_" + localeCode + " FROM cell_error_info_master WHERE cell_errinfo_code = cellerr_log_code) AS detail" +
                 " FROM cell_error_log";
             return sql;
         }
@@ -89,8 +92,8 @@ namespace Mocs.Models
     ", order_log_stop_to_points AS to_station" +
     ", CAST(mu_log_cart_id AS text) AS cart_id" +
  ", mu_log_errcode AS code" +
- ", (SELECT mu_errinfo_msg_jp FROM mu_error_info_master WHERE mu_errinfo_code = mu_log_errcode) AS message" +
-   ", mu_log_errcode AS detail" +
+ ", (SELECT mu_errinfo_msg_" + localeCode + " FROM mu_error_info_master WHERE mu_errinfo_code = mu_log_errcode) AS message" +
+ ", (SELECT mu_errinfo_msgdetail_" + localeCode + " FROM mu_error_info_master WHERE mu_errinfo_code = mu_log_errcode) AS detail" +
 " FROM mu_status_log" +
 " LEFT JOIN mu_master ON mu_id=mu_log_mu_id" +
 " LEFT JOIN order_status_log ON order_log_id=mu_log_order_id" +

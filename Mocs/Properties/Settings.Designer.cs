@@ -172,5 +172,53 @@ namespace Mocs.Properties {
                 this["mu_errorinfo_code_2_2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\MonitorLog")]
+        public string LogDirectory {
+            get {
+                return ((string)(this["LogDirectory"]));
+            }
+            set {
+                this["LogDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ON")]
+        public string LogOutMode {
+            get {
+                return ((string)(this["LogOutMode"]));
+            }
+            set {
+                this["LogOutMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30000")]
+        public int SimProcMonTabComPortNoBase {
+            get {
+                return ((int)(this["SimProcMonTabComPortNoBase"]));
+            }
+            set {
+                this["SimProcMonTabComPortNoBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseSimProcCom {
+            get {
+                return ((bool)(this["UseSimProcCom"]));
+            }
+            set {
+                this["UseSimProcCom"] = value;
+            }
+        }
     }
 }

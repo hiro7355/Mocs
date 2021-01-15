@@ -867,4 +867,7 @@ list</value>
   <data name="TABLET_LIST" xml:space="preserve">
     <value>Tablet list</value>
   </data>
+  <data name="DETAIL" xml:space="preserve">
+    <value>Detail</value>
+  </data>
 </root>

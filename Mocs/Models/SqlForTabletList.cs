@@ -19,7 +19,7 @@ namespace Mocs.Models
                     ",floor_name_" + localeCode + " AS floor" +
                     ", section_name_" + localeCode + " AS sect" +
                     ", tablet_name_" + localeCode + " AS tablet_name" +
-                    ", tablet_ip AS tablet_ip" +
+                    ", host(tablet_ip) AS tablet_ip" +
                 " FROM tablet_master" +
                 " LEFT JOIN section_master ON tablet_master.tablet_sect = section_master.section_id" +
                 " LEFT JOIN floor_master ON section_master.section_floor_id = floor_master.floor_id" +

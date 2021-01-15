@@ -49,6 +49,18 @@ namespace Mocs.Controls
             comHistory.DataContext = table;
         }
 
+        /// <summary>
+        /// 詳細ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Detail_Click(object sender, RoutedEventArgs e)
+        {
+
+            string message = (string)((Button)sender).Tag;
+            MessageBox.Show(message, Properties.Resources.DETAIL);
+
+        }
 
     }
 }

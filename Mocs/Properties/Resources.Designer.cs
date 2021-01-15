@@ -787,6 +787,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Detail に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DETAIL {
+            get {
+                return ResourceManager.GetString("DETAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cart ID に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string EHH_CART_ID {

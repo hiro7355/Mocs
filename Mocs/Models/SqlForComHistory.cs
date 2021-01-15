@@ -22,10 +22,13 @@ namespace Mocs.Models
             string sql = "SELECT * FROM (" +
                 unionSql +
                 ") AS TMP ";
-            if (conditionSql != null && conditionSql.Length > 0)
+
+            if (conditionSql == null || conditionSql.Length == 0)
             {
-                sql += " WHERE " + conditionSql;
+                conditionSql = "date = " + DateTimeUtil.FormatDBDate(DateTime.Now);
             }
+            sql += " WHERE " + conditionSql;
+            sql += " ORDER BY date, time";
 
             return sql;
 
@@ -56,7 +59,7 @@ namespace Mocs.Models
     ", CASE mu_com_dir WHEN 1 THEN '" + Properties.Resources.SEND + "' WHEN 2 THEN '" + Properties.Resources.RECEIVE + "' ELSE '' END AS send_receive" +
     ", mu_com_dir AS dir" +         //  送受信検索用
     ", substring(mu_com_data from 1 for 40) AS message" +
-   ", 0 AS detail" +
+   ", mu_com_data AS detail" +
 " FROM mu_com_log" +
 " LEFT JOIN mu_master ON mu_id=mu_com_id" 
  ;
@@ -100,7 +103,7 @@ namespace Mocs.Models
     ", CASE tabmon_com_dir WHEN 1 THEN '" + Properties.Resources.SEND + "' WHEN 2 THEN '" + Properties.Resources.RECEIVE + "' ELSE '' END AS send_receive" +
     ", tabmon_com_dir AS dir" +         //  送受信検索用
     ", substring(tabmon_com_data from 1 for 40) AS message" +
-   ", 0 AS detail" +
+   ", tabmon_com_data AS detail" +
 " FROM tabmon_com_log" +
 " LEFT JOIN tablet_master ON tablet_id=tabmon_com_id" +
 " WHERE" +
@@ -124,7 +127,7 @@ namespace Mocs.Models
     ", CASE tabmon_com_dir WHEN 1 THEN '" + Properties.Resources.SEND + "' WHEN 2 THEN '" + Properties.Resources.RECEIVE + "' ELSE '' END AS send_receive" +
     ", tabmon_com_dir AS dir" +         //  送受信検索用
     ", substring(tabmon_com_data from 1 for 40) AS message" +
-   ", 0 AS detail" +
+   ", tabmon_com_data AS detail" +
 " FROM tabmon_com_log" +
 " LEFT JOIN monitor_master ON mon_id=tabmon_com_id" +
 " WHERE" +

@@ -33,8 +33,13 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CART_ID}" Binding="{Binding cart_id}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CODE}" Binding="{Binding code}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_MESSAGE}" Binding="{Binding message}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_DETAIL}" Binding="{Binding detail}" />
-
+                    <DataGridTemplateColumn Header="{x:Static properties:Resources.EHH_DETAIL}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{x:Static properties:Resources.DETAIL}" Click="Detail_Click" Tag="{Binding detail}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

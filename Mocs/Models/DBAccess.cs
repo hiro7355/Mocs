@@ -23,6 +23,21 @@ namespace Mocs
             return mainWindow.GetDBAccess();
         }
 
+        /// <summary>
+        /// 当日条件のSQL文
+        /// </summary>
+        /// <param name="dateTimeFieldName"></param>
+        /// <returns></returns>
+        public static string GetTodayConditionSql(string dateTimeFieldName)
+        {
+            return ToDateSql(dateTimeFieldName) + " = " + DateTimeUtil.FormatDBDate(DateTime.Now);
+        }
+        private static string ToDateSql(string datetimeFieldName)
+        {
+            return "to_char(" + datetimeFieldName  + ", 'YYYY-MM-DD')";
+        }
+        
+
         private NpgsqlConnection conn = new NpgsqlConnection();
 
         private CiLog cErrlog = new CiLog();    // ログ出力クラス

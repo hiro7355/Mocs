@@ -38,10 +38,12 @@ namespace Mocs.Models
 " WHERE order_cancel_log_status=0"
 
 ;
-            if (conditionSql != null && conditionSql.Length > 0)
+            if (conditionSql == null || conditionSql.Length == 0)
             {
-                sql += " AND " + conditionSql;
+                conditionSql = DBAccess.GetTodayConditionSql("order_cancel_log_reserve_datetime");
             }
+            sql += " AND " + conditionSql;
+            sql += " ORDER BY order_cancel_log_reserve_datetime";
 
             return sql;
 

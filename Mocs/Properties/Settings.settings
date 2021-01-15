@@ -50,5 +50,17 @@
     <Setting Name="mu_errorinfo_code_2_2" Type="System.String" Scope="User">
       <Value Profile="(Default)">22</Value>
     </Setting>
+    <Setting Name="LogDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\MonitorLog</Value>
+    </Setting>
+    <Setting Name="LogOutMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ON</Value>
+    </Setting>
+    <Setting Name="SimProcMonTabComPortNoBase" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30000</Value>
+    </Setting>
+    <Setting Name="UseSimProcCom" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

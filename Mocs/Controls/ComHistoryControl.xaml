@@ -25,7 +25,13 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_COM}" Binding="{Binding com}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_SEND_RECEIVE}" Binding="{Binding send_receive}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_MESSAGE}" Binding="{Binding message}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.COMHH_DETAIL}" Binding="{Binding detail}" />
+                    <DataGridTemplateColumn Header="{x:Static properties:Resources.COMHH_DETAIL}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{x:Static properties:Resources.DETAIL}" Click="Detail_Click" Tag="{Binding detail}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
                 </DataGrid.Columns>
             </DataGrid>

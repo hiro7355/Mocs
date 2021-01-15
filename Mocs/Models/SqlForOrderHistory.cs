@@ -31,10 +31,13 @@ namespace Mocs.Models
     ", order_result_mu_id AS mu_id" +
     ", CASE WHEN order_result_status = 0 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_0 + "' ELSE CAST(order_result_status AS text) END AS status" +
 " FROM order_result_log";
-            if (conditionSql != null && conditionSql.Length > 0)
+
+            if (conditionSql == null || conditionSql.Length == 0)
             {
-                sql += " WHERE " + conditionSql;
+                conditionSql = DBAccess.GetTodayConditionSql("order_result_reserve_datetime");
             }
+            sql += " WHERE " + conditionSql;
+            sql += " ORDER BY order_result_reserve_datetime";
 
             return sql;
 

@@ -860,4 +860,7 @@
   <data name="TABLET_LIST" xml:space="preserve">
     <value>タブレット一覧</value>
   </data>
+  <data name="DETAIL" xml:space="preserve">
+    <value>詳細</value>
+  </data>
 </root>

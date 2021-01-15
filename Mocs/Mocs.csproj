@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -89,6 +90,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CellMonTabNet\CellMonTabCom.cs" />
+    <Compile Include="CellMonTabNet\CellMonTabMessage.cs" />
+    <Compile Include="CellMonTabNet\CellMonTabMessageCtrl.cs" />
     <Compile Include="Controls\AbsenceHistoryControl.xaml.cs">
       <DependentUpon>AbsenceHistoryControl.xaml</DependentUpon>
     </Compile>
@@ -150,6 +154,8 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Log\MoCsLog.cs" />
+    <Compile Include="MocsSystem\ResultCode.cs" />
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\ErrorInfo.cs" />
@@ -183,11 +189,15 @@
     <Compile Include="SearchDialogs\OrderHistory.xaml.cs">
       <DependentUpon>OrderHistory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SurveyMonitor.cs" />
     <Compile Include="Utils\CiLog.cs" />
     <Compile Include="Utils\ColorUtil.cs" />
     <Compile Include="Utils\CommonUtil.cs" />
     <Compile Include="Utils\ControlUtil.cs" />
     <Compile Include="Utils\DateTimeUtil.cs" />
+    <Compile Include="Utils\Net\Crc16.cs" />
+    <Compile Include="Utils\Net\Crc32.cs" />
+    <Compile Include="Utils\Net\NetUtils.cs" />
     <Page Include="Controls\AbsenceHistoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
