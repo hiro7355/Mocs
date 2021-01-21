@@ -27,7 +27,7 @@ namespace Mocs.CellMonTabNet
 		/// <summary>
 		/// パケットフッター
 		/// </summary>
-		private const string c_PacketFooter = "EXT";
+		private const string c_PacketFooter = "ETX";
 
 		/// <summary>
 		/// パケットシーケンス番号サイズ
@@ -58,7 +58,7 @@ namespace Mocs.CellMonTabNet
 		/// 受信データ一時保存バッファサイズ
 		/// </summary>
 		private const int c_RecvDataBufSize = 1024;
-		
+
 
 		#endregion
 
@@ -214,7 +214,7 @@ namespace Mocs.CellMonTabNet
 
 				this._udpClientSend = new UdpClient(sendPortNo);
 				this._udpClientRecv = new UdpClient(recvPortNo);
-				
+
 				Initialize();
 			}
 			catch (Exception ex)

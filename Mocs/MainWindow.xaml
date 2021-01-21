@@ -22,14 +22,14 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal" Margin="60,5">
-                    <Button x:Name="runButton" Content="{x:Static properties:Resources.BT_RUN}" Width="100" />
-                        <Button x:Name="stopBtton" Content="{x:Static properties:Resources.BT_STOP}" Width="100" />
-                        <Button x:Name="stopBuzzerButton" Content="{x:Static properties:Resources.BT_STOP_BUZZER}" Width="100" />
+                    <Button x:Name="runButton" Content="{x:Static properties:Resources.BT_RUN}" Width="100" Click="runButton_Click"  />
+                        <Button x:Name="stopBtton" Content="{x:Static properties:Resources.BT_STOP}" Width="100" Click="stopBtton_Click" />
+                        <Button x:Name="stopBuzzerButton" Content="{x:Static properties:Resources.BT_STOP_BUZZER}" Width="100" Click="stopBuzzerButton_Click" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="248,5, 0 ,5">
-                        <Button x:Name="earthquakeButton" Content="{x:Static properties:Resources.BT_EARTHQUAKE_ABNORMAL_RECOVERY}"  Width="120"/>
-                        <Button x:Name="fireButton" Content="{x:Static properties:Resources.BT_FIRE_ABNORMAL_RECOVERY}"   Width="120"/>
-                        <Button x:Name="powerButton" Content="{x:Static properties:Resources.BT_POWER_FAILURE_RECOVERY}"   Width="120"/>
+                        <Button x:Name="earthquakeButton" Content="{x:Static properties:Resources.BT_EARTHQUAKE_ABNORMAL_RECOVERY}"  Width="120" Click="earthquakeButton_Click"/>
+                        <Button x:Name="fireButton" Content="{x:Static properties:Resources.BT_FIRE_ABNORMAL_RECOVERY}"   Width="120" Click="fireButton_Click"/>
+                        <Button x:Name="powerButton" Content="{x:Static properties:Resources.BT_POWER_FAILURE_RECOVERY}"   Width="120" Click="powerButton_Click"/>
                     </StackPanel>
                 </StackPanel>
                 

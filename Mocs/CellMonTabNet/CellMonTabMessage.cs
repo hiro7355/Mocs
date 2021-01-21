@@ -564,24 +564,24 @@ namespace Mocs.CellMonTabNet
 		/// <summary>
 		/// Cell運転操作種別のメッセージ内文字列
 		/// </summary>
-		const string msgTypeNone = "none";				// なし
-		const string msgTypeStart = "start";			// 起動
-		const string msgTypeCycleStop = "cyclestop";	// サイクル停止
-		const string msgTypeStop = "stop";				// 停止
+		const string msgTypeNone = "none";              // なし
+		const string msgTypeStart = "start";            // 起動
+		const string msgTypeCycleStop = "cyclestop";    // サイクル停止
+		const string msgTypeStop = "stop";              // 停止
 		const string msgTypeRecovery = "recovery";      // 管制運転復帰
-		const string msgTypeUnknown = "unknown";		// 不明
+		const string msgTypeUnknown = "unknown";        // 不明
 
 		#endregion
 
 		#region 型定義
 		public enum eType
 		{
-			None = 0,		// なし
-			Start,			// 起動
-			CycleStop,		// サイクル停止
-			Stop,			// 停止
+			None = 0,       // なし
+			Start,          // 起動
+			CycleStop,      // サイクル停止
+			Stop,           // 停止
 			Recovery,       // 管制運転復帰
-			Unknown,		// 不明
+			Unknown,        // 不明
 		}
 		#endregion
 
@@ -608,19 +608,19 @@ namespace Mocs.CellMonTabNet
 			switch (message)
 			{
 				case msgTypeNone:
-					type = CellOperationType.eType.None;			// なし
+					type = CellOperationType.eType.None;            // なし
 					break;
 				case msgTypeStart:
-					type = CellOperationType.eType.None;			// 起動
+					type = CellOperationType.eType.Start;           // 起動
 					break;
 				case msgTypeCycleStop:
-					type = CellOperationType.eType.CycleStop;		// サイクル停止
+					type = CellOperationType.eType.CycleStop;       // サイクル停止
 					break;
 				case msgTypeStop:
-					type = CellOperationType.eType.Stop;			// 停止
+					type = CellOperationType.eType.Stop;            // 停止
 					break;
 				case msgTypeRecovery:
-					type = CellOperationType.eType.Recovery;		// 管制運転復帰
+					type = CellOperationType.eType.Recovery;        // 管制運転復帰
 					break;
 				default:
 					type = CellOperationType.eType.Unknown;
@@ -642,22 +642,22 @@ namespace Mocs.CellMonTabNet
 			switch (type)
 			{
 				case CellOperationType.eType.None:
-					message = msgTypeNone;				// なし
+					message = msgTypeNone;              // なし
 					break;
 				case CellOperationType.eType.Start:
-					message = msgTypeStart;				// 起動
+					message = msgTypeStart;             // 起動
 					break;
 				case CellOperationType.eType.CycleStop:
-					message = msgTypeCycleStop;			// サイクル停止
+					message = msgTypeCycleStop;         // サイクル停止
 					break;
 				case CellOperationType.eType.Stop:
-					message = msgTypeStop;				// 停止
+					message = msgTypeStop;              // 停止
 					break;
 				case CellOperationType.eType.Recovery:
-					message = msgTypeRecovery;			// 管制運転復帰
+					message = msgTypeRecovery;          // 管制運転復帰
 					break;
 				default:
-					message = msgTypeUnknown;			// 不明状態
+					message = msgTypeUnknown;           // 不明状態
 					throw new Exception("invalid parameter");
 			}
 
@@ -1057,7 +1057,7 @@ namespace Mocs.CellMonTabNet
 			try
 			{
 				this.Message = "";
-				foreach(var tab in this.tabList)
+				foreach (var tab in this.tabList)
 				{
 					this.Message = tab + Delim;
 				}
@@ -1101,7 +1101,7 @@ namespace Mocs.CellMonTabNet
 
 						// 更新テーブル展開
 						int tabCount = parseMsg.Count() - 2;
-						if (tabCount  > 0)
+						if (tabCount > 0)
 						{
 							for (int cnt = 0; cnt < tabCount; cnt++)
 							{

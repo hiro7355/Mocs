@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Mocs.Models
 {
@@ -12,6 +13,79 @@ namespace Mocs.Models
     /// </summary>
     public class SysMainTbl : BaseModel
     {
+        public Int16 sys_id;    // システムID  smallint
+        public string login_name;   //   システムログイン名 varchar
+        public string login_pass;   // システムログインパス  varchar
+        public string system_name_en;   //  システム名称(英語)  varchar
+        public string system_name_jp;   //  システム名称(日本語) varchar
+        public string system_name_cn;   //  システム名称(中国語) varchar
+        public string hospital_name_en;   //    病院名(英語) varchar
+        public string hospital_name_jp;   //    病院名(日本語)    varchar
+        public string hospital_name_cn;   //    病院名(中国語)    varchar
+        public ValueTuple<IPAddress, int> cell_ip; //  Cell IPアドレス cidr
+        public int mu_port1; //    MU通信ポート番号(主）	integer
+        public int mu_port2; //    MU通信ポート番号(副）	integer
+        public Int16 mu_mon_period; //   MU通信接続監視間隔 smallint
+        public Int16 mu_kalive_time1; // MU通信Keep-Alive監視時間(正ｿｹｯﾄ）	smallint
+        public Int16 mu_kalive_time2; // MU通信Keep-Alive監視時間(副ｿｹｯﾄ）	smallint
+        public Int16 mu_comlog_flg; //   MU通信ログ出力有効/無効フラグ smallint
+        public int tab_port; // タブレット、監視モニター通信受付ポート(Cell側) integer
+        public int tab_term_port; // タブレット、監視モニター通信受付ポート(タブレット、監視モニター側)  integer
+        public Int16 tab_comlog_flg; //  タブレット、監視モニター通信ログ出力有効/無効フラグ smallint
+        public Int16 proc_after_order; // オーダー完了後処理設定 smallint
+        public int order_inspect_resume_timeout; //    監査搬送再開待ちタイムオーバー integer
+        public int order_stop_resume_timeout; // 経由地搬送再開待ちタイムオーバー    integer
+        public int routelog_flg; //    ルートシナリオログ有効・無効 smallint
+        public Int16 io_ctrl_type; // I/O制御方式 smallint
+        public ValueTuple<IPAddress, int> io_ctrl_ip; // I/O制御通信IPアドレス cidr
+        public int io_ctrl_port; // I/O制御通信ポート番号 integer
+        public string mu_config_ver; // MU動作設定ファイル版数    varchar
+        public string mu_config_filename; //  MU動作設定ファイル名 varchar
+        public string slam_data_ver; // SLAMデータファイル版数   varchar
+        public string slam_data_filename; //  SLAMデータファイル名 varchar
+        /// <summary>
+        /// メンバー変数にテーブル行の値を読み込むメソッド
+        /// ベースクラスのGetFirst / GetRows から呼び出される
+        /// </summary>
+        /// <param name="dr"></param>
+        public override void LoadProp(NpgsqlDataReader dr)
+        {
+
+        this.sys_id = this.getValue<Int16>(dr, "sys_id");    // システムID  smallint
+            this.login_name = this.getValue<string>(dr, "login_name");   //   システムログイン名 varchar
+            this.login_pass = this.getValue<string>(dr, "login_pass");   // システムログインパス  varchar
+            this.system_name_en = this.getValue<string>(dr, "system_name_en");   //  システム名称(英語)  varchar
+            this.system_name_jp = this.getValue<string>(dr, "system_name_jp");   //  システム名称(日本語) varchar
+            this.system_name_cn = this.getValue<string>(dr, "system_name_cn");   //  システム名称(中国語) varchar
+            this.hospital_name_en = this.getValue<string>(dr, "hospital_name_en");   //    病院名(英語) varchar
+            this.hospital_name_jp = this.getValue<string>(dr, "hospital_name_jp");   //    病院名(日本語)    varchar
+            this.hospital_name_cn = this.getValue<string>(dr, "hospital_name_cn");   //    病院名(中国語)    varchar
+            this.cell_ip = this.getValue <ValueTuple<IPAddress, int>>(dr, "cell_ip"); //  Cell IPアドレス cidr
+            this.mu_port1 = this.getValue<int>(dr, "mu_port1"); //    MU通信ポート番号(主）	integer
+            this.mu_port2 = this.getValue<int>(dr, "mu_port2"); //    MU通信ポート番号(副）	integer
+            this.mu_mon_period = this.getValue<Int16>(dr, "mu_mon_period"); //   MU通信接続監視間隔 smallint
+            this.mu_kalive_time1 = this.getValue<Int16>(dr, "mu_kalive_time1"); // MU通信Keep-Alive監視時間(正ｿｹｯﾄ）	smallint
+            this.mu_kalive_time2 = this.getValue<Int16>(dr, "mu_kalive_time2"); // MU通信Keep-Alive監視時間(副ｿｹｯﾄ）	smallint
+            this.mu_comlog_flg = this.getValue<Int16>(dr, "mu_comlog_flg"); //   MU通信ログ出力有効/無効フラグ smallint
+            this.tab_port = this.getValue<int>(dr, "tab_port"); // タブレット、監視モニター通信受付ポート(Cell側) integer
+            this.tab_term_port = this.getValue<int>(dr, "tab_term_port"); // タブレット、監視モニター通信受付ポート(タブレット、監視モニター側)  integer
+            this.tab_comlog_flg = this.getValue<Int16>(dr, "tab_comlog_flg"); //  タブレット、監視モニター通信ログ出力有効/無効フラグ smallint
+            this.proc_after_order = this.getValue<Int16>(dr, "proc_after_order"); // オーダー完了後処理設定 smallint
+            this.order_inspect_resume_timeout = this.getValue<int>(dr, "order_inspect_resume_timeout"); //    監査搬送再開待ちタイムオーバー integer
+            this.order_stop_resume_timeout = this.getValue<int>(dr, "order_stop_resume_timeout"); // 経由地搬送再開待ちタイムオーバー    integer
+            this.routelog_flg = this.getValue<int>(dr, "routelog_flg"); //    ルートシナリオログ有効・無効 smallint
+            this.io_ctrl_type = this.getValue<Int16>(dr, "io_ctrl_type"); // I/O制御方式 smallint
+            this.io_ctrl_ip = this.getValue<ValueTuple<IPAddress, int>>(dr, "io_ctrl_ip"); // I/O制御通信IPアドレス cidr
+            this.io_ctrl_port = this.getValue<int>(dr, "io_ctrl_port"); // I/O制御通信ポート番号 integer
+            this.mu_config_ver = this.getValue<string>(dr, "mu_config_ver"); // MU動作設定ファイル版数    varchar
+            this.mu_config_filename = this.getValue<string>(dr, "mu_config_filename"); //  MU動作設定ファイル名 varchar
+            this.slam_data_ver = this.getValue<string>(dr, "slam_data_ver"); // SLAMデータファイル版数   varchar
+            this.slam_data_filename = this.getValue<string>(dr, "slam_data_filename"); //  SLAMデータファイル名 varchar
+
+        }
+
+
+        /*
         public string language_type;//言語タイプ -- JN:日本語  EN:英語  CH:北京語  CK:広東語
         public string login_name;   //   システムログイン名
         public string login_pass;   //  システムログインパス
@@ -61,6 +135,7 @@ namespace Mocs.Models
             this.routelog_flg = this.getValue<Int16>(dr, "routelog_flg");      //  ルートシナリオログ有効・無効 smallint
 
         }
+        */
 
     }
 }

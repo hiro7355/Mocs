@@ -39,7 +39,7 @@ namespace Mocs.Models
         public int robot_id;                        //  搬送ロボット識別子   integer
         public string robot_name;                   //   搬送ロボット名称 varchar
         public Int16 robot_active;                  //  搬送ロボット有効/無効 smallint
-        public ValueTuple<IPAddress,int> robot_ipqaddr1;  //  搬送ロボットIPｱﾄﾞﾚｽ1  cidr
+        public ValueTuple<IPAddress,int> robot_ipqaddr1;  //  搬送ロボットIPｱﾄﾞﾚｽ1  robot_ipqaddr1
         public ValueTuple<IPAddress, int>robot_ipqaddr2;  //  搬送ロボットIPｱﾄﾞﾚｽ2 cidr
         public string robot_data1;                  //  搬送ロボット定義データ1 varchar
         public string robot_data2;                  //  搬送ロボット定義データ2    varchar

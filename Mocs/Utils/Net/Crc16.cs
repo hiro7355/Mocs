@@ -21,7 +21,7 @@ namespace Mocs.Utilities.Net
 		/// <returns>CRC</returns>
 		public static UInt16 GetCrc(byte[] bytes, int length)
 		{
-			int crc = 0xffff;		// 初期値
+			int crc = 0xffff;       // 初期値
 
 			crc = ~crc;
 			for (ushort i = 0; i < length; ++i)

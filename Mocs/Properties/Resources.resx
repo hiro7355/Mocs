@@ -870,4 +870,13 @@ list</value>
   <data name="DETAIL" xml:space="preserve">
     <value>Detail</value>
   </data>
+  <data name="ERROR_RECOVER" xml:space="preserve">
+    <value>Failed to recover</value>
+  </data>
+  <data name="ERROR_RUN" xml:space="preserve">
+    <value>Failed to start </value>
+  </data>
+  <data name="ERROR_STOP" xml:space="preserve">
+    <value>Failed to stop</value>
+  </data>
 </root>

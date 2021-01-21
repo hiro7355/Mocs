@@ -863,4 +863,13 @@
   <data name="DETAIL" xml:space="preserve">
     <value>詳細</value>
   </data>
+  <data name="ERROR_RECOVER" xml:space="preserve">
+    <value>復帰に失敗しました。</value>
+  </data>
+  <data name="ERROR_RUN" xml:space="preserve">
+    <value>起動に失敗しました。</value>
+  </data>
+  <data name="ERROR_STOP" xml:space="preserve">
+    <value>停止に失敗しました。</value>
+  </data>
 </root>

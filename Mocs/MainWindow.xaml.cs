@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mocs.Models;
+using Mocs.CellMonTabNet;
+using System.Threading;
+
 namespace Mocs
 {
     /// <summary>
@@ -22,6 +25,14 @@ namespace Mocs
     {
         
         DBAccess m_db;
+
+        SurveyMonitor m_monitor = new SurveyMonitor();
+
+        // 監視モニタ制御スレッド
+        private Thread threadMonCtrlLoop;
+        private int _MonCtrlPeriod = 500;
+        private bool bMonCtrlContinue = true;
+
 
         /// <summary>
         /// converterからDBへアクセスできるようにするため
@@ -35,7 +46,27 @@ namespace Mocs
         public MainWindow(DBAccess db)
         {
             m_db = db;
+
+            SysMainTbl sys_main_tbl = m_db.sys_main_tbl;
+
+            m_monitor.CellIpAddress = sys_main_tbl.cell_ip.Item1.ToString();
+            m_monitor.CellPortNo = (ushort)sys_main_tbl.tab_port;
+
+            m_monitor.Id = 1;
+            m_monitor.Name = "monitor";
+            m_monitor.MonitorIpAddress = "127.0.0.1";
+            m_monitor.MonitorPortNo = (ushort)sys_main_tbl.tab_term_port;
+
+
             InitializeComponent();
+
+
+            //  CELL運転などを行うスレッド開始
+            this.startThread();
+
+
+
+
 
         }
 
@@ -229,6 +260,120 @@ namespace Mocs
                 // pdfを開く
                 System.Diagnostics.Process.Start(dialog.FileName);
             }
+        }
+
+        /// <summary>
+        /// 運転ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void runButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Start))
+            {
+                MessageBox.Show(Properties.Resources.ERROR_RUN);
+            }
+
+        }
+
+        /// <summary>
+        /// 停止ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void stopBtton_Click(object sender, RoutedEventArgs e)
+        {
+            if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Stop))
+            {
+                MessageBox.Show(Properties.Resources.ERROR_STOP);
+            }
+
+        }
+
+        /// <summary>
+        /// ブザー通知
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void stopBuzzerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 地震異常復帰
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void earthquakeButton_Click(object sender, RoutedEventArgs e)
+        {
+            doRecover();
+        }
+
+        /// <summary>
+        /// 火災異常復帰
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fireButton_Click(object sender, RoutedEventArgs e)
+        {
+            doRecover();
+
+        }
+
+        /// <summary>
+        /// 停電異常復帰
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void powerButton_Click(object sender, RoutedEventArgs e)
+        {
+            doRecover();
+        }
+
+        private void doRecover()
+        {
+            if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Recovery))
+            {
+                MessageBox.Show(Properties.Resources.ERROR_RECOVER);
+            }
+
+        }
+
+
+        private void startThread()
+        {
+            try
+            {
+                threadMonCtrlLoop = new Thread(threadFuncMonCtrlLoop);
+                threadMonCtrlLoop.IsBackground = true;
+                threadMonCtrlLoop.Start(this._MonCtrlPeriod);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+        /// <summary>
+        /// 監視モニタ制御スレッド
+        /// </summary>
+        /// <param name="objSimPeriod"></param>
+        private void threadFuncMonCtrlLoop(object objMonCtrlPeriod)
+        {
+            int simCount = 0;
+            int simPeriod = (int)objMonCtrlPeriod;
+
+            while (bMonCtrlContinue)
+            {
+                m_monitor.execCtrlProc();
+
+                Console.WriteLine("ctrl count:{0}", simCount);
+                simCount++;
+                Thread.Sleep(simPeriod);
+            }
+
         }
     }
 }

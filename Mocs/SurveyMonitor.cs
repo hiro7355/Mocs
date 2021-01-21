@@ -8,8 +8,8 @@ using Mocs.CellMonTabNet;
 
 namespace Mocs
 {
-    class SurveyMonitor
-    {
+	public class SurveyMonitor
+	{
 		/// <summary>
 		/// Cell運転操作要求
 		/// </summary>
@@ -1000,7 +1000,5 @@ namespace Mocs
 
 			}
 		}
-
-
 	}
 }

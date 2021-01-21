@@ -58,7 +58,7 @@ namespace Mocs.Utilities.Net
 				byte[] InValue = new byte[12];
 
 				for (int I = 0; I < 12; I++)
-				InValue[I] = KeepAliveValues.Bytes[I];
+					InValue[I] = KeepAliveValues.Bytes[I];
 
 				Result = Socket.IOControl(IOControlCode.KeepAliveValues, InValue, null);
 			}

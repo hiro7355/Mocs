@@ -958,6 +958,33 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Failed to recover に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_RECOVER {
+            get {
+                return ResourceManager.GetString("ERROR_RECOVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to start  に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_RUN {
+            get {
+                return ResourceManager.GetString("ERROR_RUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to stop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_STOP {
+            get {
+                return ResourceManager.GetString("ERROR_STOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Floor に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string FLH_FLOOR {
