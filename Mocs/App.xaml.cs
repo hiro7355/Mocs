@@ -16,7 +16,6 @@ namespace Mocs
     /// </summary>
     public partial class App : Application
     {
-        private bool is_login;      //  ログインしたかどうか
         public DBAccess mocs_cell_db;
         private CiLog cErrlog = new CiLog();    // ログ出力クラス
 
@@ -77,7 +76,6 @@ namespace Mocs
             int ret = 0;
             try
             {
-                this.is_login = false;
 
                 //設定ファイルの有無チェック
                 string configfile = System.Reflection.Assembly.GetExecutingAssembly().Location + ".config";

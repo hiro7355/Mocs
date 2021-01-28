@@ -370,7 +370,7 @@ namespace Mocs
                 threadMonCtrlLoop.Start(this._MonCtrlPeriod);
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }
