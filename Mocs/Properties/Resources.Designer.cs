@@ -61,6 +61,26 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap alert {
+            get {
+                object obj = ResourceManager.GetObject("alert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap alert_d {
+            get {
+                object obj = ResourceManager.GetObject("alert_d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   All に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ALL {
@@ -796,6 +816,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Done に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DONE {
+            get {
+                return ResourceManager.GetString("DONE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cart ID に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string EHH_CART_ID {
@@ -940,6 +969,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   In Progress Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_IN_PROGRESS {
+            get {
+                return ResourceManager.GetString("ERROR_IN_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Error info に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ERROR_INFO {
@@ -1030,11 +1068,29 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   MM/dd/yyyy に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FORMAT_DATE {
+            get {
+                return ResourceManager.GetString("FORMAT_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   MM/dd/yyyy HH:mm:ss に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string FORMAT_DATETIME {
             get {
                 return ResourceManager.GetString("FORMAT_DATETIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   HH:mm:ss に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FORMAT_TIME {
+            get {
+                return ResourceManager.GetString("FORMAT_TIME", resourceCulture);
             }
         }
         
@@ -1732,6 +1788,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Passing time に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OLH_DATETIME {
+            get {
+                return ResourceManager.GetString("OLH_DATETIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Current Floor に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OLH_FLOOR {
+            get {
+                return ResourceManager.GetString("OLH_FLOOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   MU name に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OLH_MU_NAME {
@@ -1746,6 +1820,15 @@ namespace Mocs.Properties {
         public static string OLH_MU_STATUS {
             get {
                 return ResourceManager.GetString("OLH_MU_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Passing point に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OLH_POINT {
+            get {
+                return ResourceManager.GetString("OLH_POINT", resourceCulture);
             }
         }
         
@@ -2146,6 +2229,35 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap stop {
+            get {
+                object obj = ResourceManager.GetObject("stop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Stop(Cancel) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string STOP_CANCEL {
+            get {
+                return ResourceManager.GetString("STOP_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap stop_d {
+            get {
+                object obj = ResourceManager.GetObject("stop_d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Tablet に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string TABLET {
@@ -2178,6 +2290,15 @@ namespace Mocs.Properties {
         public static string TABLET_TYPE1 {
             get {
                 return ResourceManager.GetString("TABLET_TYPE1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Device に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TITLE_DEVICE {
+            get {
+                return ResourceManager.GetString("TITLE_DEVICE", resourceCulture);
             }
         }
         

@@ -220,5 +220,17 @@ namespace Mocs.Properties {
                 this["UseSimProcCom"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("buzzer.wav")]
+        public string BuzzerFilePath {
+            get {
+                return ((string)(this["BuzzerFilePath"]));
+            }
+            set {
+                this["BuzzerFilePath"] = value;
+            }
+        }
     }
 }

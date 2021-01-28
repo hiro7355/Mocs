@@ -13,6 +13,7 @@ namespace Mocs.Models
     /// </summary>
     public class HospitalMasterDictionary : Dictionary<int, HospitalMaster>
     {
+
         public HospitalMasterDictionary(NpgsqlConnection conn, string sql = "select * from hospital_master")
         {
             this.Load(conn, sql);
@@ -36,7 +37,20 @@ namespace Mocs.Models
     public class HospitalMaster : BaseModel
     {
 
+
+        /// <summary>
+        /// 名前を取得するSQL
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="section_id_field_name"></param>
+        /// <returns></returns>
+        internal static string SelectNameSql(string localeCode, string id_field_name)
+        {
+            return "SELECT hospital_name_" + localeCode + " FROM hospital_master WHERE hospital_id=" + id_field_name;
+        }
+
         public Int16 hospital_id;   //  病棟ID    smallint
+
         public string hospital_name;    //  病棟名称（南館、新館等）	varchar
         public Int16 hospital_ugfloor;  //  病棟地下フロア数（地下階) Max5 smallint
         public Int16 hospital_upfloor;  //  病棟地上フロア数    smallint

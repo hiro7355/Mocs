@@ -872,4 +872,31 @@
   <data name="ERROR_STOP" xml:space="preserve">
     <value>停止に失敗しました。</value>
   </data>
+  <data name="DONE" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="ERROR_IN_PROGRESS" xml:space="preserve">
+    <value>すでにCELLへのリクエスト処理中のためリクエストに失敗しました</value>
+  </data>
+  <data name="FORMAT_DATE" xml:space="preserve">
+    <value>yyyy/MM/dd</value>
+  </data>
+  <data name="FORMAT_TIME" xml:space="preserve">
+    <value>HH:mm:ss</value>
+  </data>
+  <data name="OLH_DATETIME" xml:space="preserve">
+    <value>通過時刻</value>
+  </data>
+  <data name="OLH_FLOOR" xml:space="preserve">
+    <value>現在フロア</value>
+  </data>
+  <data name="OLH_POINT" xml:space="preserve">
+    <value>通過ポイント</value>
+  </data>
+  <data name="STOP_CANCEL" xml:space="preserve">
+    <value>中断（キャンセル）</value>
+  </data>
+  <data name="TITLE_DEVICE" xml:space="preserve">
+    <value>周辺機器</value>
+  </data>
 </root>

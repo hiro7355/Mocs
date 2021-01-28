@@ -10,9 +10,14 @@
              d:DesignHeight="350" d:DesignWidth="1920">
     <Grid>
         <Grid.Resources>
-            <converter:OrderToSectConverter x:Key="orderToSectConverter"/>
-            <converter:OrderToStationConverter x:Key="orderToStationConverter"/>
+            <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
+            <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
             <converter:MuOrderStatusConverter x:Key="muorderStatusConoverter"/>
+            <converter:DatetimeConverter x:Key="datetimeConverter"/>
+            <converter:DateConverter x:Key="dateConverter"/>
+            <converter:TimeConverter x:Key="timeConverter"/>
+            <converter:FloorConverter x:Key="floorConverter"/>
+            <converter:PointConverter x:Key="pointConverter"/>
         </Grid.Resources>
         <StackPanel Background="LightGray">
             <StackPanel Orientation="Horizontal" Margin="5,0" Height="25">
@@ -27,7 +32,7 @@
 
             </StackPanel>
 
-            <DataGrid Name="orderList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Width="1910" Height="330" Margin="5" >
+            <DataGrid Name="orderList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Width="1910" Height="330" Margin="5"  AlternatingRowBackground="LightGray" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_STATUS}" Binding="{Binding order_status}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_RESERVE_DATE}" Binding="{Binding reserve_date}" />
@@ -36,13 +41,15 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TYPE}" Binding="{Binding order_round_flg}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_SECT}" Binding="{Binding req_sect}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_STATION}" Binding="{Binding req_station}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  orderToSectConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_STATION}" Binding="{Binding to_sect, Converter={StaticResource  orderToStationConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_DATE}" Binding="{Binding start_datetime}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_TIME}" Binding="{Binding start_datetime}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_DATE}" Binding="{Binding start_datetime, Converter={StaticResource  dateConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_TIME}" Binding="{Binding start_datetime, Converter={StaticResource  timeConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_NAME}" Binding="{Binding mu_name}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" />
-
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_DATETIME}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  datetimeConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_FLOOR}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  floorConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_POINT}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  pointConverter}}" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

@@ -20,11 +20,11 @@ namespace Mocs.Models
 
             string sql =
 "SELECT" +
-    " to_char(order_cancel_log_reserve_datetime, 'YYYY-MM-DD') as reserve_date" +
+    " to_char(order_cancel_log_reserve_datetime, '" + Properties.Resources.FORMAT_DATE + "') as reserve_date" +
     ",to_char(order_cancel_log_reserve_datetime, 'HH24:MI:SS') as reserve_time" +
-    ",to_char(" + start_datetime_sql + ", 'YYYY-MM-DD') as start_date" +
+    ",to_char(" + start_datetime_sql + ", '" + Properties.Resources.FORMAT_DATE + "') as start_date" +
     ", to_char(" + start_datetime_sql + ", 'HH24:MI:SS') as start_time" +
-    ", to_char(" + result_datetime_sql + ", 'YYYY-MM-DD') as result_date" +
+    ", to_char(" + result_datetime_sql + ", '" + Properties.Resources.FORMAT_DATE + "') as result_date" +
     ", to_char(" + result_datetime_sql + ", 'HH24:MI:SS') as result_time" +
     ", (" + SectionMaster.SelectNameSql(localeCode, "order_log_from_sect") + ") AS req_sect" +
     ", (" + StationMaster.SelectNameSql(localeCode, "order_log_from_pt") + ") AS req_station" +

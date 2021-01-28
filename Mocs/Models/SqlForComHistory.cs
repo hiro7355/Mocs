@@ -49,7 +49,7 @@ namespace Mocs.Models
         {
             string sql =
     "SELECT" +
- " to_char(mu_com_datetime, 'YYYY-MM-DD') AS date" +
+ " to_char(mu_com_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
  ", to_char(mu_com_datetime, 'HH24:MI:SS') AS time" +
  ", 'MU' AS type" +
  ", mu_name_" + localeCode + " AS name" +
@@ -93,7 +93,7 @@ namespace Mocs.Models
         {
             string sql =
     "SELECT" +
- " to_char(tabmon_com_datetime, 'YYYY-MM-DD') AS date" +
+ " to_char(tabmon_com_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
  ", to_char(tabmon_com_datetime, 'HH24:MI:SS') AS time" +
  ", '" + Properties.Resources.TABLET+ "' AS type" +
  ", tablet_name_" + localeCode + " AS name" +
@@ -117,7 +117,7 @@ namespace Mocs.Models
         {
             string sql =
     "SELECT" +
- " to_char(tabmon_com_datetime, 'YYYY-MM-DD') AS date" +
+ " to_char(tabmon_com_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
  ", to_char(tabmon_com_datetime, 'HH24:MI:SS') AS time" +
  ", '" + Properties.Resources.MONITOR + "' AS type" +
  ", mon_name_" + localeCode + " AS name" +

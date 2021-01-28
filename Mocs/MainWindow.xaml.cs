@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Mocs.Models;
 using Mocs.CellMonTabNet;
 using System.Threading;
+using System.Media;
+using System.IO;
 
 namespace Mocs
 {
@@ -25,6 +27,8 @@ namespace Mocs
     {
         
         DBAccess m_db;
+
+        SoundPlayer m_wavePlayer;
 
         SurveyMonitor m_monitor = new SurveyMonitor();
 
@@ -65,7 +69,8 @@ namespace Mocs
             this.startThread();
 
 
-
+            //  異常復帰のボタンを無効に
+            UpdateCellStatus(0);
 
 
         }
@@ -84,6 +89,7 @@ namespace Mocs
             this.floorListControl.Init(m_db);
             this.stationListControl.Init(m_db);
             this.historyTabControl.Init(m_db);
+            this.deviceControl.Init(m_db, errorInfo);
 
 
         }
@@ -132,6 +138,7 @@ namespace Mocs
             this.tabletListControl.Visibility = Visibility.Collapsed;
             this.floorListControl.Visibility = Visibility.Collapsed;
             this.stationListControl.Visibility = Visibility.Collapsed;
+            this.deviceControl.Visibility = Visibility.Collapsed;
 
         }
 
@@ -201,12 +208,22 @@ namespace Mocs
 
         }
 
+        /// <summary>
+        /// 周辺機器ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deviceButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, muListControl);
+            ShowPannel(true, deviceControl);
 
         }
 
+        /// <summary>
+        /// システム状態ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void systemStatusButton_Click(object sender, RoutedEventArgs e)
         {
             ShowPannel(true, muListControl);
@@ -271,7 +288,8 @@ namespace Mocs
         {
             if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Start))
             {
-                MessageBox.Show(Properties.Resources.ERROR_RUN);
+//                MessageBox.Show(Properties.Resources.ERROR_RUN);
+                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
             }
 
         }
@@ -285,7 +303,8 @@ namespace Mocs
         {
             if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Stop))
             {
-                MessageBox.Show(Properties.Resources.ERROR_STOP);
+//                MessageBox.Show(Properties.Resources.ERROR_STOP);
+                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
             }
 
         }
@@ -297,7 +316,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void stopBuzzerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            StopSound();
         }
 
         /// <summary>
@@ -335,7 +354,8 @@ namespace Mocs
         {
             if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Recovery))
             {
-                MessageBox.Show(Properties.Resources.ERROR_RECOVER);
+//                MessageBox.Show(Properties.Resources.ERROR_RECOVER);
+                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
             }
 
         }
@@ -375,5 +395,135 @@ namespace Mocs
             }
 
         }
+
+
+        /// <summary>
+        /// CELLのステータス通知
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void systemStatusControl_OnCellStatus(object sender, EventArgs e)
+        {
+            int level = this.systemStatusControl.GetLastCellStatusLevel();
+
+            UpdateCellStatus(level);
+
+        }
+
+        private void UpdateCellStatus(int level)
+        {
+            //  ボタンをいったんディセーブルに
+            EarthquakeButtonEnabled(false);
+            FireButtonEnabled(false);
+            PowerButtonEnabled(false);
+            StopBuzzerButtonEnabled(false);
+
+            if (level > 1)
+            {
+                //  異常発生しているときは、ブザーを鳴らす
+                PlaySound(Properties.Settings.Default.BuzzerFilePath);
+
+                //  ブザー停止ボタンを有効に
+                StopBuzzerButtonEnabled(true);
+
+                if (level == 2)
+                {
+                    //  管制運転中（火災）です
+                    FireButtonEnabled(true);
+                }
+                else if (level == 3)
+                {
+                    //  管制運転中（地震）です
+                    EarthquakeButtonEnabled(true);
+
+                }
+                else if (level == 4)
+                {
+                    //  管制運転中（停電）です
+                    PowerButtonEnabled(true);
+                }
+
+            }
+
+        }
+
+        private void PlaySound(string buzzerFilePath)
+        {
+            try
+            {
+                if (File.Exists(buzzerFilePath))
+                {
+
+                    if (m_wavePlayer == null)
+                    {
+                        m_wavePlayer = new SoundPlayer(buzzerFilePath);
+                    }
+                    if (m_wavePlayer != null)
+                    {
+                        m_wavePlayer.PlayLooping(); // ループ再生
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void StopSound()
+        {
+            if (m_wavePlayer != null)
+            {
+                m_wavePlayer.Stop();
+
+                m_wavePlayer = null;
+
+                //  ブザー停止ボタンを無効に
+                StopBuzzerButtonEnabled(false);
+
+            }
+        }
+
+        private bool isSoundPlaying()
+        {
+            return m_wavePlayer != null ? true : false;
+        }
+
+
+        /// <summary>
+        /// ブザー停止ボタンの有効無効設定
+        /// </summary>
+        /// <param name="enabled"></param>
+        private void StopBuzzerButtonEnabled(bool enabled)
+        {
+            stopBuzzerButton.IsEnabled = enabled;
+            stopBuzzerImage.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
+            stopBuzzerImage_d.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void EarthquakeButtonEnabled(bool enabled)
+        {
+            earthquakeButton.IsEnabled = enabled;
+            earthquakeImage.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
+            earthquakeImage_d.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void FireButtonEnabled(bool enabled)
+        {
+            fireButton.IsEnabled = enabled;
+            fireImage.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
+            fireImage_d.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void PowerButtonEnabled(bool enabled)
+        {
+            powerButton.IsEnabled = enabled;
+            powerImage.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
+            powerImage_d.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
+        }
+
     }
 }

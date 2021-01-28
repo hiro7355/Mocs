@@ -47,6 +47,7 @@
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -106,12 +107,20 @@
       <DependentUpon>ComHistoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Converters\BaseConverter.cs" />
+    <Compile Include="Controls\Converters\DateConverter.cs" />
+    <Compile Include="Controls\Converters\DatetimeConverter.cs" />
+    <Compile Include="Controls\Converters\FloorConverter.cs" />
     <Compile Include="Controls\Converters\IdsToSectionNamesConverter.cs" />
     <Compile Include="Controls\Converters\IdsToStationNamesConverter.cs" />
     <Compile Include="Controls\Converters\MuOpeModeConverter.cs" />
     <Compile Include="Controls\Converters\MuOrderStatusConverter.cs" />
     <Compile Include="Controls\Converters\OrderToSectConverter.cs" />
     <Compile Include="Controls\Converters\OrderToStationConverter.cs" />
+    <Compile Include="Controls\Converters\PointConverter.cs" />
+    <Compile Include="Controls\Converters\TimeConverter.cs" />
+    <Compile Include="Controls\DeviceControl.xaml.cs">
+      <DependentUpon>DeviceControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ErrorHistoryControl.xaml.cs">
       <DependentUpon>ErrorHistoryControl.xaml</DependentUpon>
     </Compile>
@@ -159,6 +168,7 @@
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\ErrorInfo.cs" />
+    <Compile Include="Models\FloorMaster.cs" />
     <Compile Include="Models\MessageInfo.cs" />
     <Compile Include="Models\MonitorMaster.cs" />
     <Compile Include="Models\MuErrorInfoMaster.cs" />
@@ -211,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ComHistoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DeviceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -351,6 +365,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\stop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\alert.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\stop_d.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\alert_d.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

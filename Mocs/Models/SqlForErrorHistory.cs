@@ -48,7 +48,7 @@ namespace Mocs.Models
         {
             string sql =
                 "SELECT" +
-                " to_char(cellerr_log_datetime, 'YYYY-MM-DD') AS date" +
+                " to_char(cellerr_log_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
                  ", to_char(cellerr_log_datetime, 'HH24:MI:SS') AS time" +
                  ", 'CELL' AS type" +
                  ", 'CELL001' AS name" +
@@ -82,7 +82,7 @@ namespace Mocs.Models
       //      string order_sql = "(SELECT {0} FROM order_status_log WHERE order_log_id=mu_log_order_id LIMIT 1)";
             string sql =
     "SELECT" +
- " to_char(mu_log_datetime, 'YYYY-MM-DD') AS date" +
+ " to_char(mu_log_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
  ", to_char(mu_log_datetime, 'HH24:MI:SS') AS time" +
  ", 'MU' AS type" +
  ", mu_name_" + localeCode + " AS name" +

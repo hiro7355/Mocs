@@ -7,6 +7,14 @@
         xmlns:local="clr-namespace:Mocs"
         mc:Ignorable="d"
         Title="{x:Static properties:Resources.MAIN_TITLE}" Height="1080" Width="1920" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="ImageStop" UriSource="./Resources/stop.png" />
+            <BitmapImage x:Key="ImageAlert" UriSource="./Resources/alert.png" />
+            <BitmapImage x:Key="ImageStop_d" UriSource="./Resources/stop_d.png" />
+            <BitmapImage x:Key="ImageAlert_d" UriSource="./Resources/alert_d.png" />
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="{x:Static properties:Resources.MENU_FILE}">
@@ -22,14 +30,38 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal" Margin="60,5">
-                    <Button x:Name="runButton" Content="{x:Static properties:Resources.BT_RUN}" Width="100" Click="runButton_Click"  />
-                        <Button x:Name="stopBtton" Content="{x:Static properties:Resources.BT_STOP}" Width="100" Click="stopBtton_Click" />
-                        <Button x:Name="stopBuzzerButton" Content="{x:Static properties:Resources.BT_STOP_BUZZER}" Width="100" Click="stopBuzzerButton_Click" />
+                    <Button x:Name="runButton" Content="{x:Static properties:Resources.BT_RUN}" Width="120" Click="runButton_Click" Background="LightGreen"  />
+                        <Button x:Name="stopBtton" Content="{x:Static properties:Resources.BT_STOP}" Width="120" Click="stopBtton_Click" />
+                        <Button x:Name="stopBuzzerButton"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Click="stopBuzzerButton_Click" Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Margin="4,2">
+                                <Image x:Name="stopBuzzerImage" Source="{StaticResource ImageStop}" VerticalAlignment="Center" />
+                                <Image x:Name="stopBuzzerImage_d" Source="{StaticResource ImageStop_d}" VerticalAlignment="Center"  Visibility="Collapsed"/>
+                                <Label Content="{x:Static properties:Resources.BT_STOP_BUZZER}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="248,5, 0 ,5">
-                        <Button x:Name="earthquakeButton" Content="{x:Static properties:Resources.BT_EARTHQUAKE_ABNORMAL_RECOVERY}"  Width="120" Click="earthquakeButton_Click"/>
-                        <Button x:Name="fireButton" Content="{x:Static properties:Resources.BT_FIRE_ABNORMAL_RECOVERY}"   Width="120" Click="fireButton_Click"/>
-                        <Button x:Name="powerButton" Content="{x:Static properties:Resources.BT_POWER_FAILURE_RECOVERY}"   Width="120" Click="powerButton_Click"/>
+                        <Button x:Name="earthquakeButton"  Width="140" Click="earthquakeButton_Click" Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Margin="4,2">
+                                <Image x:Name="earthquakeImage" Source="{StaticResource ImageAlert}" VerticalAlignment="Center" />
+                                <Image x:Name="earthquakeImage_d" Source="{StaticResource ImageAlert_d}" VerticalAlignment="Center"  Visibility="Collapsed"/>
+                                <Label Content="{x:Static properties:Resources.BT_EARTHQUAKE_ABNORMAL_RECOVERY}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="fireButton"  Width="140" Click="fireButton_Click" Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Margin="4,2">
+                                <Image  x:Name="fireImage" Source="{StaticResource ImageAlert}" VerticalAlignment="Center" />
+                                <Image  x:Name="fireImage_d" Source="{StaticResource ImageAlert_d}" VerticalAlignment="Center" Visibility="Collapsed" />
+                                <Label Content="{x:Static properties:Resources.BT_FIRE_ABNORMAL_RECOVERY}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="powerButton" Width="140" Click="powerButton_Click" Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Margin="4,2">
+                                <Image x:Name="powerImage" Source="{StaticResource ImageAlert}" VerticalAlignment="Center" />
+                                <Image x:Name="powerImage_d" Source="{StaticResource ImageAlert_d}" VerticalAlignment="Center" Visibility="Collapsed" />
+                                <Label Content="{x:Static properties:Resources.BT_POWER_FAILURE_RECOVERY}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
                 
@@ -48,13 +80,14 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" x:Name="systemStatusPanel">
-                    <Controls:SystemStatusControl  x:Name="systemStatusControl" />
+                    <Controls:SystemStatusControl  x:Name="systemStatusControl" OnCellStatus="systemStatusControl_OnCellStatus" />
                     <Controls:MuListControl x:Name="muListControl" />
                     <Controls:CartListControl x:Name="cartListControl"/>
                     <Controls:ErrorInfoControl x:Name="errorInfoControl" />
                     <Controls:TabletListControl x:Name="tabletListControl"/>
                     <Controls:FloorListControl x:Name="floorListControl"/>
                     <Controls:StationListControl x:Name="stationListControl"/>
+                    <Controls:DeviceControl x:Name="deviceControl"/>
                 </StackPanel>
                 <Controls:HistoryTabControl x:Name="historyTabControl" />
             </StackPanel>

@@ -26,6 +26,16 @@ namespace Mocs.Controls
     /// </summary>
     public partial class SystemStatusControl : TimerBaseControl
     {
+        // イベントを定義
+        public event EventHandler OnCellStatus;
+
+        private int m_last_level;
+
+        public int GetLastCellStatusLevel()
+        {
+            return m_last_level;
+        }
+
         bool m_is_db_error;     //  DBエラーが発生したかどうか。リカバリーしたかどうかの判別に利用
 
         ObservableCollection<MessageInfo> m_messageList;
@@ -33,6 +43,7 @@ namespace Mocs.Controls
         Dictionary<int, string> m_mu_id_to_message_for_error; //  mu_idとmessageのディクショナリ（異常状態監視でmuごとにメッセージを表示するときに状態変化があったかどうか判断するのに利用）
 
         DateTime m_last_update_time;     //  前回の更新時間
+
         public SystemStatusControl()
         {
             InitializeComponent();
@@ -265,14 +276,20 @@ namespace Mocs.Controls
                     {
                         //  通常運転中です
                         this.UpdateLedAndMessage(this.cell, "Green", "White", Properties.Resources.MSG_CELL_RUNNING, type);
+
                     }
                     else
                     {
+
+
                         //  CELLの動作が停止しています
                         this.UpdateLedAndMessage(this.cell, "Red", "Red", Properties.Resources.MSG_CELL_STOPPED, type);
 
                         //  異常情報用にCELLエラー情報を設定
                         m_errorInfo.UpdateCellError();
+
+                        //  親にエラーが通知されるように
+                        level = 100;
                     }
 
                 } 
@@ -297,6 +314,10 @@ namespace Mocs.Controls
                     //  システム停止（継続不可）しました。
                     this.UpdateLedAndMessage(this.cell, "Red", "Red", Properties.Resources.MSG_CELL_SYSTEM_STOPPED, type);
                 } 
+
+                m_last_level = level;
+                //  CELLが起動しているときは、レベルを親に通知
+                OnCellStatus(this, EventArgs.Empty);
             }
 
             //  mu状態のメッセージ表示
