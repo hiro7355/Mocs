@@ -647,25 +647,53 @@ namespace Mocs
 						// 送信失敗
 						this._operationNotifyCtrl.operationMsg = null;
 						this._operationNotifyCtrl.notifyStatus = OperationNotifyCtrl.eStatus.Error;
+
 					}
 					else if (this._operationNotifyCtrl.ResError != CellMonTabMsgError.eCmdError.None)
 					{
 						// 異常応答
 						this._operationNotifyCtrl.operationMsg = null;
 						this._operationNotifyCtrl.notifyStatus = OperationNotifyCtrl.eStatus.Error;
+
 					}
 					else if (this._operationNotifyCtrl.operationMsg.SendStatus == CellMonTabMessage.eSendStatus.RecvRes)
 					{
 						// 応答受信
 						this._operationNotifyCtrl.operationMsg = null;
 						this._operationNotifyCtrl.notifyStatus = OperationNotifyCtrl.eStatus.Complete;
+
+
 					}
 					break;
 				case OperationNotifyCtrl.eStatus.Complete:
+
+					if (this._operationNotifyCtrl.opeType == CellOperationType.eType.Start)
+                    {
+						//  CELLとの接続が確立しました　と表示されるようにステータスを設定
+						Mocs.Utils.CommonUtil.SetLastSocketConnectionStatus(1);
+                    } 
+					else
+                    {
+						//  ソケット通信エラー（正常）を設定
+						Mocs.Utils.CommonUtil.SetLastSocketError(0);
+					}
+
 					// Cell運転操作要求完了
 					this._operationNotifyCtrl = null;
 					break;
 				case OperationNotifyCtrl.eStatus.Error:
+
+					if (this._operationNotifyCtrl.opeType == CellOperationType.eType.Start)
+					{
+						//  CELLとの接続ができません。　と表示されるようにステータスを設定
+						Mocs.Utils.CommonUtil.SetLastSocketConnectionStatus(-1);
+					}
+					else
+					{
+						//  ソケット通信エラーを設定
+						Mocs.Utils.CommonUtil.SetLastSocketError((int)this._operationNotifyCtrl.notifyStatus);
+					}
+
 					// Cell運転操作要求異常
 					this._operationNotifyCtrl = null;
 					break;

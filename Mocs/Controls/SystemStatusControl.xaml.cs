@@ -36,7 +36,9 @@ namespace Mocs.Controls
             return m_last_level;
         }
 
-        bool m_is_db_error;     //  DBエラーが発生したかどうか。リカバリーしたかどうかの判別に利用
+        bool m_is_db_error;                  //  DBエラーが発生したかどうか。リカバリーしたかどうかの判別に利用
+        bool m_is_socket_error;              //  ソケット通信エラーが発生したかどうか。リカバリーしたかどうかの判別に利用
+        bool m_is_show_socket_connection;   // 　ソケット通信でCELLとの接続が確立したときにメッセージ表示した場合にセットされる。表示を上書きしないようにするため。
 
         ObservableCollection<MessageInfo> m_messageList;
 
@@ -215,18 +217,62 @@ namespace Mocs.Controls
         /// </summary>
         private void UpdateNetwork()
         {
+            //  DBアクセス
             int lastError = CommonUtil.GetLastDBError();
             if (lastError != 0)
             {
                 this.UpdateLedAndMessage(this.network, "Red", "Red", Properties.Resources.DB_ACCESS_ERROR + " " + CommonUtil.DBErrorCodeFormat(lastError));
                 m_is_db_error = true;
-            } else
+            } 
+            else
             {
                 if (m_is_db_error)
                 {
                     //  エラーから復帰したとき
                     this.UpdateLedAndMessage(this.network, "Green", "White", Properties.Resources.DB_ACCESS_OK);
                     m_is_db_error = false;
+
+                }
+            }
+
+            //  Socket通信コネクション接続状態 (0:未接続、1:接続成功、-1:接続失敗)
+            int status = CommonUtil.GetLastSocketConnectionStatus();
+            if (status != 0)
+            {
+                if (status == -1)
+                {
+
+                    this.UpdateLedAndMessage(this.network, "Red", "Red", Properties.Resources.CELL_SOCKET_CONNECTION_ERROR);
+                    this.m_is_show_socket_connection = false;
+                }
+                else
+                {
+                    if (m_is_show_socket_connection == false)
+                    {
+                        //  エラーから復帰したとき。または一度も接続表示していないとき
+                        this.UpdateLedAndMessage(this.network, "Green", "White", Properties.Resources.CELL_SOCKET_CONNECTION_SUCCESS);
+                        m_is_show_socket_connection = true;
+
+                    }
+                }
+                //  ステータス表示したので情報リセット
+                CommonUtil.SetLastSocketConnectionStatus(0);
+            }
+
+            //  SOCKET通信データ通信
+            lastError = CommonUtil.GetLastSocketError();
+            if (lastError != 0)
+            {
+                this.UpdateLedAndMessage(this.network, "Red", "Red",String.Format(Properties.Resources.CELL_SOCKET_ERROR, lastError));
+                m_is_socket_error = true;
+            }
+            else
+            {
+                if (m_is_socket_error)
+                {
+                    //  エラーから復帰したとき
+                    this.UpdateLedAndMessage(this.network, "Green", "White", Properties.Resources.CELL_SOCKET_OK);
+                    m_is_socket_error = false;
 
                 }
             }

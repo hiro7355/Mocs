@@ -402,6 +402,43 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   I cannot connect to CELL.
+        ///Please check the communication environment with CELL. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CELL_SOCKET_CONNECTION_ERROR {
+            get {
+                return ResourceManager.GetString("CELL_SOCKET_CONNECTION_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   A connection with CELL has been established に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CELL_SOCKET_CONNECTION_SUCCESS {
+            get {
+                return ResourceManager.GetString("CELL_SOCKET_CONNECTION_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Communication with CELL is normal に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CELL_SOCKET_ERROR {
+            get {
+                return ResourceManager.GetString("CELL_SOCKET_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   An error occurred while communicating with CELL. Error {0} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CELL_SOCKET_OK {
+            get {
+                return ResourceManager.GetString("CELL_SOCKET_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cell stopped に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CELL_STOPPED {

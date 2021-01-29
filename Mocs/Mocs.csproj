@@ -34,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -313,23 +314,9 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CartMaster.cs" />
     <Compile Include="Models\CellStatusTbl.cs" />
-    <Compile Include="Models\FuncMessage.cs" />
-    <Compile Include="Models\HospitalFloorMaster.cs" />
     <Compile Include="Models\HospitalMaster.cs" />
-    <Compile Include="Models\MainRobotmessage.cs" />
-    <Compile Include="Models\MenuScreen.cs" />
-    <Compile Include="Models\MovingMessage.cs" />
-    <Compile Include="Models\OrderReserve.cs" />
-    <Compile Include="Models\PointMaster.cs" />
-    <Compile Include="Models\RobotMaster.cs" />
-    <Compile Include="Models\RobotMessageTbl.cs" />
-    <Compile Include="Models\RobotStatus.cs" />
-    <Compile Include="Models\RobotWifiLog.cs" />
     <Compile Include="Models\StationMaster.cs" />
-    <Compile Include="Models\SubmenuScreen.cs" />
     <Compile Include="Models\SysMainTbl.cs" />
-    <Compile Include="Models\SystemScreen.cs" />
-    <Compile Include="Models\SystemstatMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

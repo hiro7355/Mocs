@@ -899,4 +899,17 @@
   <data name="TITLE_DEVICE" xml:space="preserve">
     <value>周辺機器</value>
   </data>
+  <data name="CELL_SOCKET_CONNECTION_ERROR" xml:space="preserve">
+    <value>CELL との接続ができません。
+CELL と の通信環境を確認してください。</value>
+  </data>
+  <data name="CELL_SOCKET_CONNECTION_SUCCESS" xml:space="preserve">
+    <value>CELL との接続が確立しました。</value>
+  </data>
+  <data name="CELL_SOCKET_ERROR" xml:space="preserve">
+    <value>CELL との通信でエラーが発生しまし た。Error:CELL通信 {0}</value>
+  </data>
+  <data name="CELL_SOCKET_OK" xml:space="preserve">
+    <value>CELL との通信は正常です。</value>
+  </data>
 </root>

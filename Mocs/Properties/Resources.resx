@@ -919,4 +919,17 @@ list</value>
   <data name="TITLE_DEVICE" xml:space="preserve">
     <value>Device</value>
   </data>
+  <data name="CELL_SOCKET_CONNECTION_ERROR" xml:space="preserve">
+    <value>I cannot connect to CELL.
+Please check the communication environment with CELL.</value>
+  </data>
+  <data name="CELL_SOCKET_CONNECTION_SUCCESS" xml:space="preserve">
+    <value>A connection with CELL has been established</value>
+  </data>
+  <data name="CELL_SOCKET_ERROR" xml:space="preserve">
+    <value>Communication with CELL is normal</value>
+  </data>
+  <data name="CELL_SOCKET_OK" xml:space="preserve">
+    <value>An error occurred while communicating with CELL. Error {0}</value>
+  </data>
 </root>

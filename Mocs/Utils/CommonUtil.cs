@@ -13,15 +13,41 @@ namespace Mocs.Utils
 {
     public class CommonUtil
     {
-        private static int LastDBError;
+        private static int m_LastDBError = 0;
+        private static int m_LastSocketError = 0;
+        private static int m_LastSocketConnectionStatus = 0;
         public static int GetLastDBError()
         {
-            return LastDBError;
+            return m_LastDBError;
         }
 
         internal static void SetLastDBError(int hResult)
         {
-            LastDBError = hResult;
+            m_LastDBError = hResult;
+        }
+
+        public static int GetLastSocketError()
+        {
+            return m_LastSocketError;
+        }
+
+        internal static void SetLastSocketError(int hResult)
+        {
+            m_LastSocketError = hResult;
+        }
+
+        public static int GetLastSocketConnectionStatus()
+        {
+            return m_LastSocketConnectionStatus;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="status">0:未接続、1:接続成功、-1:接続失敗</param>
+        internal static void SetLastSocketConnectionStatus(int status)
+        {
+            m_LastSocketConnectionStatus = status;
         }
 
 
