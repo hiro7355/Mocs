@@ -52,9 +52,6 @@ namespace Mocs.Controls
             this.UpdateCombo();
 
 
-//            ComboBoxItem item = (ComboBoxItem)this.selectBox.SelectedItem;
-  //          string hospital_id = item != null ? item.Tag.ToString() : "all";
-
             string hospital_id = this.selectBox.SelectedValue != null ? this.selectBox.SelectedValue.ToString() : "0";
             string sql = SqlForFloorList.GetListSql(hospital_id);
 

@@ -932,4 +932,16 @@ Please check the communication environment with CELL.</value>
   <data name="CELL_SOCKET_OK" xml:space="preserve">
     <value>An error occurred while communicating with CELL. Error {0}</value>
   </data>
+  <data name="ERROR_SETTING_FILE" xml:space="preserve">
+    <value>No Setting file ({0})</value>
+  </data>
+  <data name="ERRPR_CONNECT_DB" xml:space="preserve">
+    <value>DB connection error</value>
+  </data>
+  <data name="ERRPR_SETTING_FILE_DBPORT" xml:space="preserve">
+    <value>Setting file error : DB_Port={0}</value>
+  </data>
+  <data name="FILE_DIALOG_FILTER_PDF" xml:space="preserve">
+    <value>PDF file (*.pdf)|*.pdf</value>
+  </data>
 </root>

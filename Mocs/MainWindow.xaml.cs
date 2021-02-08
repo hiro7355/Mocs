@@ -269,7 +269,7 @@ namespace Mocs
             var dialog = new Microsoft.Win32.OpenFileDialog();
 
             // ファイルの種類を設定
-            dialog.Filter = "PDFファイル (*.pdf)|*.pdf";
+            dialog.Filter = Mocs.Properties.Resources.FILE_DIALOG_FILTER_PDF;
 
             // ダイアログを表示する
             if (dialog.ShowDialog() == true)

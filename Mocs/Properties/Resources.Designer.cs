@@ -1051,11 +1051,47 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   No Setting file ({0}) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_SETTING_FILE {
+            get {
+                return ResourceManager.GetString("ERROR_SETTING_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Failed to stop に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ERROR_STOP {
             get {
                 return ResourceManager.GetString("ERROR_STOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   DB connection error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERRPR_CONNECT_DB {
+            get {
+                return ResourceManager.GetString("ERRPR_CONNECT_DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Setting file error : DB_Port={0} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERRPR_SETTING_FILE_DBPORT {
+            get {
+                return ResourceManager.GetString("ERRPR_SETTING_FILE_DBPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   PDF file (*.pdf)|*.pdf に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FILE_DIALOG_FILTER_PDF {
+            get {
+                return ResourceManager.GetString("FILE_DIALOG_FILTER_PDF", resourceCulture);
             }
         }
         

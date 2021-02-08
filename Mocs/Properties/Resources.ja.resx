@@ -912,4 +912,16 @@ CELL と の通信環境を確認してください。</value>
   <data name="CELL_SOCKET_OK" xml:space="preserve">
     <value>CELL との通信は正常です。</value>
   </data>
+  <data name="ERROR_SETTING_FILE" xml:space="preserve">
+    <value>設定ファイル({0})が見つかりません</value>
+  </data>
+  <data name="ERRPR_CONNECT_DB" xml:space="preserve">
+    <value>DB接続エラー</value>
+  </data>
+  <data name="ERRPR_SETTING_FILE_DBPORT" xml:space="preserve">
+    <value>設定ファイルエラー：DB_Port={0}</value>
+  </data>
+  <data name="FILE_DIALOG_FILTER_PDF" xml:space="preserve">
+    <value>PDFファイル (*.pdf)|*.pdf</value>
+  </data>
 </root>
