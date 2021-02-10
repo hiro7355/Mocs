@@ -9,14 +9,15 @@ namespace Mocs.Models
 {
     class SqlForOrderList
     {
-        public static string GetListSql(string orderStatus)
+        public static string GetListSql(string orderStatus, int[] excludeOrderIds)
         {
             string localeCode = CommonUtil.GetAppLocaleCode();
 
             
             string sql =
             "SELECT" +
-                " (CASE order_status WHEN 0 THEN '" + Properties.Resources.RESERVE + "' WHEN 1 THEN '" + Properties.Resources.IN_ORDER + "' WHEN 10 THEN '" + Properties.Resources.DONE + "' WHEN 20 THEN '" + Properties.Resources.STOP_CANCEL + "' WHEN 100 THEN '" + Properties.Resources.ERROR + "' END) AS order_status" +
+                " order_id, false AS is_checked" +
+                ",(CASE order_status WHEN 0 THEN '" + Properties.Resources.RESERVE + "' WHEN 1 THEN '" + Properties.Resources.IN_ORDER + "' WHEN 10 THEN '" + Properties.Resources.DONE + "' WHEN 20 THEN '" + Properties.Resources.STOP_CANCEL + "' WHEN 100 THEN '" + Properties.Resources.ERROR + "' END) AS order_status" +
                  ", to_char(order_reserve_datetime, '" + Properties.Resources.FORMAT_DATE + "') as reserve_date" +
                  ",to_char(order_reserve_datetime, 'HH24:MI:SS') as reserve_time" +
                  ",order_cart_id" +
@@ -40,6 +41,10 @@ namespace Mocs.Models
             if (orderStatus != "all")
             {
                 sql += " AND order_status=" + orderStatus;
+            }
+            if (excludeOrderIds.Length > 0)
+            {
+                sql += " AND order_id not in (" + string.Join(", ", excludeOrderIds) + ")";
             }
 
 

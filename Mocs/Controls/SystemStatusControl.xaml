@@ -11,15 +11,15 @@
             <TextBlock Text="{x:Static properties:Resources.TITLE_SYSTEM_STATUS}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold"  VerticalAlignment="Center"  />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0, 10">
-            <local:LedControl x:Name="cell" DataContext="{x:Static properties:Resources.LED_CELL}" Foreground="Green"  Margin="5,0"/>
-            <local:LedControl x:Name="network" DataContext="{x:Static properties:Resources.LED_NETWORK}" Foreground="Green"  Margin="5,0" />
-            <local:LedControl x:Name="error" DataContext="{x:Static properties:Resources.LED_ERROR}" Foreground="Green" Margin="5,0" />
-            <local:LedControl x:Name="device" DataContext="{x:Static properties:Resources.LED_DEVICE}" Foreground="Green" Margin="5,0" />
+            <local:LedControl x:Name="cell" DataContext="{x:Static properties:Resources.LED_CELL}" Foreground="LightGray"  Margin="5,0"/>
+            <local:LedControl x:Name="network" DataContext="{x:Static properties:Resources.LED_NETWORK}" Foreground="LightGray"  Margin="5,0" />
+            <local:LedControl x:Name="error" DataContext="{x:Static properties:Resources.LED_ERROR}" Foreground="LightGray" Margin="5,0" />
+            <local:LedControl x:Name="device" DataContext="{x:Static properties:Resources.LED_DEVICE}" Foreground="LightGray" Margin="5,0" />
         </StackPanel>
-        <ListBox x:Name="messageList" Width="590" Height="420" Margin="5,0">
+        <ListBox x:Name="messageList" Width="590" Height="450" Margin="5,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding message}"  Background="{Binding brush}"/>
+                    <TextBlock Text="{Binding message}"  Foreground="{Binding brush}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

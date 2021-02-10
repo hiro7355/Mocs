@@ -20,7 +20,7 @@
             <converter:PointConverter x:Key="pointConverter"/>
         </Grid.Resources>
         <StackPanel Background="LightGray">
-            <StackPanel Orientation="Horizontal" Margin="5,0" Height="25">
+            <DockPanel Margin="5,0" Height="25">
 
                 <TextBlock Text="{x:Static properties:Resources.TITLE_ORDER_LIST}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
                 <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0"  VerticalAlignment="Center" >
@@ -29,8 +29,12 @@
                     <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.IN_ORDER}"></ComboBoxItem>
                     <ComboBoxItem Tag="100" Content="{x:Static properties:Resources.ERROR}"></ComboBoxItem>
                 </ComboBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="5,0" HorizontalAlignment="Right"  Content="{x:Static properties:Resources.BT_MAP}"></Button>
+                    <Button x:Name="deleteButton" Margin="5,0" HorizontalAlignment="Right"  Content="{x:Static properties:Resources.BT_DELETE}" Click="deleteButton_Click"></Button>
+                </StackPanel>
 
-            </StackPanel>
+            </DockPanel>
 
             <DataGrid Name="orderList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Width="1910" Height="330" Margin="5"  AlternatingRowBackground="LightGray" >
                 <DataGrid.Columns>
@@ -50,6 +54,14 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_DATETIME}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  datetimeConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_FLOOR}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  floorConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_POINT}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  pointConverter}}" />
+                    <DataGridTemplateColumn IsReadOnly="True" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding is_checked, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                                
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

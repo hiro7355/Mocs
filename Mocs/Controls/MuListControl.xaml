@@ -14,10 +14,10 @@
             <converter:MuOrderStatusConverter x:Key="muorderStatusConoverter"/>
         </Grid.Resources>
         <StackPanel Background="LightGray">
-            <StackPanel Orientation="Horizontal" Margin="10,0" Height="25">
+            <DockPanel  Margin="10,0">
                 <TextBlock Text="{x:Static properties:Resources.TITLE_MU_LIST}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold"  VerticalAlignment="Center"  />
-            </StackPanel>
-
+                <Button Margin="20, 0, 0, 0" HorizontalAlignment="Left"  Content="{x:Static properties:Resources.BT_MAP}"></Button>
+            </DockPanel>
 
             <DataGrid Margin="5" Width="1250" Height="395" Name="muList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" LoadingRow="DataGrid_LoadingRow" GridLinesVisibility="Horizontal" >
             <DataGrid.Columns>
@@ -28,14 +28,21 @@
                 <DataGridTextColumn Header="{x:Static properties:Resources.MLH_X}" Binding="{Binding point_x}" />
                 <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" />
                 <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_MUORDER_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" />
-
-            </DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static properties:Resources.MLH_MUORDER_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" />
+                <DataGridTemplateColumn IsReadOnly="True" Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
             </DataGrid>
             <ListBox x:Name="messageList"  Width="1250" Height="160" Margin="5">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding message}"  Background="{Binding brush}"/>
+                        <TextBlock Text="{Binding message}"  Foreground="{Binding brush}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

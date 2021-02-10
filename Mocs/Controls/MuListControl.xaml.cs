@@ -190,7 +190,8 @@ namespace Mocs.Controls
                     newBrush = Brushes.White;
                 }
 
-                row.Background = newBrush;
+//                row.Background = newBrush;
+                row.Foreground = newBrush;
 
             }
         }

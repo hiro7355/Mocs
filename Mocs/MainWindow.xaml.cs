@@ -42,7 +42,7 @@ namespace Mocs
         /// converterからDBへアクセスできるようにするため
         /// </summary>
         /// <returns></returns>
-        public DBAccess GetDBAccess()
+        public DBAccess GetDBAccess()   
         {
             return m_db;
         }
@@ -101,9 +101,10 @@ namespace Mocs
         }
 
 
-        private void ShowPannel(bool showSystemStatus, UserControl control)
+        private void ShowPannel(bool showSystemStatus, UserControl control, Button button)
         {
-
+            //  対応するボタンを無効状態にする
+            UpdateButtonStatus(button);
 
             if (showSystemStatus)
             {
@@ -149,7 +150,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void historyButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(false, null);
+            ShowPannel(false, null, (Button)sender);
 
         }
 
@@ -160,7 +161,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void errorInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, this.errorInfoControl);
+            ShowPannel(true, this.errorInfoControl, (Button)sender);
 
         }
 
@@ -172,7 +173,7 @@ namespace Mocs
         private void cartListButton_Click(object sender, RoutedEventArgs e)
         {
 
-            ShowPannel(true, this.cartListControl);
+            ShowPannel(true, this.cartListControl, (Button)sender);
         }
 
         /// <summary>
@@ -182,7 +183,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void floorListButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, floorListControl);
+            ShowPannel(true, floorListControl, (Button)sender);
 
         }
 
@@ -193,7 +194,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void stationListButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, stationListControl);
+            ShowPannel(true, stationListControl, (Button)sender);
 
         }
 
@@ -204,7 +205,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void tabletListButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, tabletListControl);
+            ShowPannel(true, tabletListControl, (Button)sender);
 
         }
 
@@ -215,7 +216,7 @@ namespace Mocs
         /// <param name="e"></param>
         private void deviceButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, deviceControl);
+            ShowPannel(true, deviceControl, (Button)sender);
 
         }
 
@@ -226,24 +227,37 @@ namespace Mocs
         /// <param name="e"></param>
         private void systemStatusButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowPannel(true, muListControl);
+            ShowPannel(true, muListControl, (Button)sender);
+
+        }
+
+        /// <summary>
+        /// 左側のボタンの有効無効設定
+        /// </summary>
+        /// <param name="desableButton"></param>
+        private void UpdateButtonStatus(Button desableButton)
+        {
+            //  いったんすべて有効にする
+            this.systemStatusButton.IsEnabled = true;
+            this.errorInfoButton.IsEnabled = true;
+            this.cartListButton.IsEnabled = true;
+            this.floorListButton.IsEnabled = true;
+            this.stationListButton.IsEnabled = true;
+            this.tabletListButton.IsEnabled = true;
+            this.deviceButton.IsEnabled = true;
+            this.historyButton.IsEnabled = true;
+
+            //  指定されたボタンを無効にする
+            desableButton.IsEnabled = false;
+
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /*
-            this.Hide();
-            //ログイン画面の表示
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Owner = GetWindow(this);
-            bool? result = loginWindow.ShowDialog();
-            if (result == false)
-            {
-                this.Close();
-            }
-            this.Show();
-            */
+
+            //  システム状態を表示
+            ShowPannel(true, muListControl, this.systemStatusButton);
         }
 
 

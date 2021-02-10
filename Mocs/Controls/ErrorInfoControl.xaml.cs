@@ -94,7 +94,8 @@ namespace Mocs.Controls
 
                 TreeViewItem childItem = new TreeViewItem();
                 childItem.Header = errorInfoStack;
-                childItem.Background = ColorUtil.brushFromColorName("Red");
+//                childItem.Background = ColorUtil.brushFromColorName("Red");
+                childItem.Foreground = ColorUtil.brushFromColorName("Red");
 
                 parentItem.Items.Add(childItem);
 

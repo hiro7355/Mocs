@@ -50,6 +50,15 @@ namespace Mocs.Controls
             TimerFunc(null, null);
         }
 
+        public void StopTimer()
+        {
+            if (m_timer != null)
+            {
+                m_timer.Stop();
+                m_timer = null;
+            }
+        }
+
         /// <summary>
         /// Cell監視処理
         /// Timerにより一定間隔で呼び出される

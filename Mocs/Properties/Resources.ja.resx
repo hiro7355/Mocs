@@ -924,4 +924,13 @@ CELL と の通信環境を確認してください。</value>
   <data name="FILE_DIALOG_FILTER_PDF" xml:space="preserve">
     <value>PDFファイル (*.pdf)|*.pdf</value>
   </data>
+  <data name="BT_DELETE" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="BT_MAP" xml:space="preserve">
+    <value>map</value>
+  </data>
+  <data name="MSG_DELETE_ORDER" xml:space="preserve">
+    <value>選択された搬送情報を削除します。よろしいですか？</value>
+  </data>
 </root>

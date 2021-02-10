@@ -109,6 +109,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   delete に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_DELETE {
+            get {
+                return ResourceManager.GetString("BT_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Device に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BT_DEVICE {
@@ -161,6 +170,15 @@ namespace Mocs.Properties {
         public static string BT_HISTORY {
             get {
                 return ResourceManager.GetString("BT_HISTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   map に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BT_MAP {
+            get {
+                return ResourceManager.GetString("BT_MAP", resourceCulture);
             }
         }
         
@@ -1294,6 +1312,16 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap Logo {
+            get {
+                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   MoCS Monitor に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MAIN_TITLE {
@@ -1641,6 +1669,15 @@ namespace Mocs.Properties {
         public static string MSG_CELL_SYSTEM_STOPPED {
             get {
                 return ResourceManager.GetString("MSG_CELL_SYSTEM_STOPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Deletes the selected transport information. Is it OK? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_DELETE_ORDER {
+            get {
+                return ResourceManager.GetString("MSG_DELETE_ORDER", resourceCulture);
             }
         }
         
