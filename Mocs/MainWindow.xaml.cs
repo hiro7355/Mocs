@@ -30,12 +30,22 @@ namespace Mocs
 
         SoundPlayer m_wavePlayer;
 
+        MessageInfo m_lastMessageInfo;
+
         SurveyMonitor m_monitor = new SurveyMonitor();
 
         // 監視モニタ制御スレッド
         private Thread threadMonCtrlLoop;
         private int _MonCtrlPeriod = 500;
         private bool bMonCtrlContinue = true;
+        private Brush m_systemStatusButtonBackground;
+        private Brush m_red;
+        private Brush m_white;
+        private Brush m_gray;
+        private Brush m_green;
+        private Brush m_black;
+        private Brush m_yellow;
+        private Brush m_light_gray;
 
 
         /// <summary>
@@ -62,15 +72,31 @@ namespace Mocs
             m_monitor.MonitorPortNo = (ushort)sys_main_tbl.tab_term_port;
 
 
+
+
             InitializeComponent();
+
+            //  ボタン背景色を保存
+            m_systemStatusButtonBackground = systemStatusButton.Background;
+            m_red = Utils.ColorUtil.brushFromColorName("Red");
+            m_white = Utils.ColorUtil.brushFromColorName("White");
+            m_gray = Utils.ColorUtil.brushFromColorName("Gray");
+            m_green = Utils.ColorUtil.brushFromColorName("Green");
+            m_black = Utils.ColorUtil.brushFromColorName("Black");
+            m_yellow = Utils.ColorUtil.brushFromColorName("Yellow");
+            m_light_gray = Utils.ColorUtil.brushFromColorName("LightGray");
+
 
 
             //  CELL運転などを行うスレッド開始
             this.startThread();
 
 
-            //  異常復帰のボタンを無効に
-            UpdateCellStatus(0);
+            //  システムボタンをいったん無効に
+            InitSystemButton();
+
+            //  最後のメッセージ情報を取得（ここではnullがかえる）
+            m_lastMessageInfo = this.systemStatusControl.GetLastMessageInfo();;
 
 
         }
@@ -126,6 +152,10 @@ namespace Mocs
                 this.systemStatusPanel.Visibility = Visibility.Collapsed;
                 this.historyTabControl.Visibility = Visibility.Visible;
             }
+
+            //  システム状態ボタンの背景を更新
+            UpdateSystemControlButton();
+
         }
 
         /// <summary>
@@ -279,6 +309,18 @@ namespace Mocs
         /// <param name="e"></param>
         private void menuHelp_Click(object sender, RoutedEventArgs e)
         {
+            string pdfPath = Properties.Settings.Default.help;
+            if (System.IO.File.Exists(pdfPath))
+            {
+                // pdfを開く
+                System.Diagnostics.Process.Start(pdfPath);
+            } else
+            {
+                MessageBox.Show(string.Format(Properties.Resources.ERROR_NOT_EXISTS_FILE, pdfPath));
+            }
+
+
+            /*
             // ダイアログのインスタンスを生成
             var dialog = new Microsoft.Win32.OpenFileDialog();
 
@@ -291,6 +333,7 @@ namespace Mocs
                 // pdfを開く
                 System.Diagnostics.Process.Start(dialog.FileName);
             }
+            */
         }
 
         /// <summary>
@@ -300,10 +343,19 @@ namespace Mocs
         /// <param name="e"></param>
         private void runButton_Click(object sender, RoutedEventArgs e)
         {
-            if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Start))
+            if (IsRunButtonEnabled())
             {
-//                MessageBox.Show(Properties.Resources.ERROR_RUN);
-                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
+
+                //  CELLの起動リクエスト
+                if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Start))
+                {
+                   MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
+                } 
+                else
+                {
+                    //  起動ボタンの背景を灰色にする
+                    UpdateButtonColor(runButton, null, m_gray);
+                }
             }
 
         }
@@ -313,12 +365,23 @@ namespace Mocs
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void stopBtton_Click(object sender, RoutedEventArgs e)
+        private void stopButton_Click(object sender, RoutedEventArgs e)
         {
-            if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Stop))
+            if (IsStopButtonEnabled())
             {
-//                MessageBox.Show(Properties.Resources.ERROR_STOP);
-                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
+                //  停止ボタンが有効のとき
+
+                //  CELLの停止リクエスト
+                if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Stop))
+                {
+                    //                MessageBox.Show(Properties.Resources.ERROR_STOP);
+                    MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
+                } 
+                else
+                {
+                    //  起動ボタンの背景を灰色にする
+                    UpdateButtonColor(stopButton, null, m_gray);
+                }
             }
 
         }
@@ -330,7 +393,10 @@ namespace Mocs
         /// <param name="e"></param>
         private void stopBuzzerButton_Click(object sender, RoutedEventArgs e)
         {
-            StopSound();
+            if (IsStopButtonEnabled())
+            {
+                StopSound();
+            }
         }
 
         /// <summary>
@@ -340,7 +406,11 @@ namespace Mocs
         /// <param name="e"></param>
         private void earthquakeButton_Click(object sender, RoutedEventArgs e)
         {
-            doRecover();
+            if (IsEarthquakeButtonEnabled())
+            {
+                //  ボタンが有効なとき復帰処理
+                doRecover();
+            }
         }
 
         /// <summary>
@@ -350,7 +420,11 @@ namespace Mocs
         /// <param name="e"></param>
         private void fireButton_Click(object sender, RoutedEventArgs e)
         {
-            doRecover();
+            if (IsFireButtonEnabled())
+            {
+                //  ボタンが有効なとき復帰処理
+                doRecover();
+            }
 
         }
 
@@ -361,7 +435,11 @@ namespace Mocs
         /// <param name="e"></param>
         private void powerButton_Click(object sender, RoutedEventArgs e)
         {
-            doRecover();
+            if (IsPowerButtonEnabled())
+            {
+                //  ボタンが有効なとき復帰処理
+                doRecover();
+            }
         }
 
         private void doRecover()
@@ -413,55 +491,355 @@ namespace Mocs
 
         /// <summary>
         /// CELLのステータス通知
+        /// CELL状態をDBから読み込むのタイミングで定期的に呼び出される
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void systemStatusControl_OnCellStatus(object sender, EventArgs e)
         {
-            int level = this.systemStatusControl.GetLastCellStatusLevel();
+            //  ボタンをいったん無効にする
+            InitSystemButton();
 
-            UpdateCellStatus(level);
-
+            //  システムコントロールボタンの背景を設定
+            UpdateSystemButton();
         }
 
-        private void UpdateCellStatus(int level)
+
+        /// <summary>
+        /// ステータスとレベルによって、
+        /// システムボタンの状態を変更
+        /// </summary>
+        private void UpdateSystemButton()
         {
-            //  ボタンをいったんディセーブルに
-            EarthquakeButtonEnabled(false);
-            FireButtonEnabled(false);
-            PowerButtonEnabled(false);
-            StopBuzzerButtonEnabled(false);
+            int status = this.systemStatusControl.GetLastStatus();
+            int level = this.systemStatusControl.GetLastLevel();
 
-            if (level > 1)
+            if (status == 1)
             {
-                //  異常発生しているときは、ブザーを鳴らす
-                PlaySound(Properties.Settings.Default.BuzzerFilePath);
 
-                //  ブザー停止ボタンを有効に
-                StopBuzzerButtonEnabled(true);
+                if (level == 1)
+                {
+                    //  CELLは起動中
 
-                if (level == 2)
-                {
-                    //  管制運転中（火災）です
-                    FireButtonEnabled(true);
-                }
-                else if (level == 3)
-                {
-                    //  管制運転中（地震）です
-                    EarthquakeButtonEnabled(true);
+                    //  運転ボタンを無効にする
+                    SetRunButtonEnabled(false);
+
+                    //  停止ボタンを有効にする
+                    SetStopButtonEnabled(true);
+
+
 
                 }
-                else if (level == 4)
+                else if (level == 10)
                 {
-                    //  管制運転中（停電）です
-                    PowerButtonEnabled(true);
+                    //  CELLは正常に停止中
+
+                    //  運転ボタンを有効にする
+                    SetRunButtonEnabled(true);
+                    //  停止ボタンを無効にする
+                    SetStopButtonEnabled(false);
                 }
+
+                if (level > 1)
+                {
+                    //  異常発生しているとき
+
+                    //  エラー情報を取得
+                    MessageInfo messageInfo = this.systemStatusControl.GetLastMessageInfo(); ;
+
+
+                    if (messageInfo != null && !messageInfo.isSame(m_lastMessageInfo))
+                    {
+                        //  前回と違うエラーのとき
+
+                        if (Properties.Settings.Default.rmelody == "ON")
+                        {
+                            //  設定が有効のときは、ブザーを鳴らす
+                            PlaySound(Properties.Settings.Default.rmelody_file, Mocs.Utils.CommonUtil.parseInt(Properties.Settings.Default.tmelody_time, 10));
+
+                            //  ブザー停止ボタンを有効に
+                            SetStopBuzzerButtonEnabled(true);
+                        }
+
+                    }
+
+                    if (level == 2)
+                    {
+                        //  管制運転中（火災）です
+                        SetFireButtonEnabled(true);
+                    }
+                    else if (level == 3)
+                    {
+                        //  管制運転中（地震）です
+                        SetEarthquakeButtonEnabled(true);
+
+                    }
+                    else if (level == 4)
+                    {
+                        //  管制運転中（停電）です
+                        SetPowerButtonEnabled(true);
+                    }
+
+
+                    //  エラー情報を更新
+                    m_lastMessageInfo = messageInfo;
+
+                }
+
 
             }
 
+            //  システム状態ボタンの背景を更新
+            UpdateSystemControlButton();
+
         }
 
-        private void PlaySound(string buzzerFilePath)
+        /// <summary>
+        /// システム状態ボタンの背景を更新
+        /// </summary>
+        private void UpdateSystemControlButton()
+        {
+
+            int level = this.systemStatusControl.GetLastLevel();
+            //  CELL停止中かエラーが発生しているときで、システムコントロールが非表示のときはボタンを赤にする
+            bool isCellStopped = this.systemStatusControl.IsCellStopped();
+            Brush brush = ((isCellStopped || (level > 1)) && !systemStatusControl.IsVisible) ? m_red : m_systemStatusButtonBackground;
+            systemStatusButton.Background = brush;
+        }
+
+        /// <summary>
+        /// 　運転ボタン有効：ボタン緑色・文字白
+        /// 運転ボタン無効：ボタン灰色・文字黒
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetRunButtonEnabled(bool isEnable)
+        {
+            if (isEnable)
+            {
+                //  有効のとき
+                UpdateButtonColor(this.runButton, m_white, m_green);
+            } 
+            else
+            {
+                //  無効のとき
+                UpdateButtonColor(this.runButton, m_black, m_gray);
+            }
+        }
+
+        /// <summary>
+        /// 　停止ボタン有効：ボタン黄色・文字白
+        ///  停止ボタン無効：ボタン灰色・文字黒
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetStopButtonEnabled(bool isEnable)
+        {
+            if (isEnable)
+            {
+                //  有効のとき
+                UpdateButtonColor(this.stopButton, m_white, m_yellow);
+            }
+            else
+            {
+                //  無効のとき
+                UpdateButtonColor(this.stopButton, m_black, m_gray);
+            }
+        }
+        private bool IsRunButtonEnabled()
+        {
+            return IsButtonEnabled(runButton);
+        }
+
+        private bool IsStopButtonEnabled()
+        {
+            return IsButtonEnabled(stopButton);
+        }
+
+
+        /// <summary>
+        /// ブザー停止ボタン有効：ボタン赤色・文字白
+        /// ブザー停止ボタン無効：ボタン灰色・文字黒＆禁止マーク
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetStopBuzzerButtonEnabled(bool isEnable)
+        {
+            //  いったん、ボタンのイメージを消す
+            stopBuzzerImage.Visibility = Visibility.Collapsed;
+            stopBuzzerImage_d.Visibility = Visibility.Collapsed;
+
+            if (isEnable)
+            {
+                //  有効のとき
+                UpdateButtonColor(this.stopBuzzerButton, m_white, m_red);
+            }
+            else
+            {
+                //  無効のとき
+                UpdateButtonColor(this.stopBuzzerButton, m_black, m_gray);
+
+                stopBuzzerImage_d.Visibility = Visibility.Visible;
+            }
+        }
+
+        /// <summary>
+        /// ブザー停止ブタンが有効かどうか
+        /// </summary>
+        /// <returns></returns>
+        private bool IsStopBuzzerButtonEnabled()
+        {
+            return IsButtonEnabled(stopBuzzerButton);
+        }
+
+
+        /// <summary>
+        /// 地震異常復帰ボタン有効：注記マーク赤色＆ボタン灰色・文字黒
+        /// 地震異常復帰ボタン無効：注記マーク黒色＆ボタン灰色・文字薄灰色
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetEarthquakeButtonEnabled(bool isEnable)
+        {
+            SetErrorButtonEnabled(isEnable, earthquakeButton, earthquakeImage, earthquakeImage_d);
+        }
+        /// <summary>
+        /// 地震異常ボタンが有効かどうか
+        /// </summary>
+        /// <returns></returns>
+        private bool IsEarthquakeButtonEnabled()
+        {
+            return IsButtonEnabledForErrorButton(earthquakeButton);
+        }
+
+        /// <summary>
+        /// 火災異常ボタンの有効無効設定
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetFireButtonEnabled(bool isEnable)
+        {
+            SetErrorButtonEnabled(isEnable, fireButton, fireImage, fireImage_d);
+        }
+        /// <summary>
+        /// 火災異常ボタンが有効かどうか
+        /// </summary>
+        /// <returns></returns>
+        private bool IsFireButtonEnabled()
+        {
+            return IsButtonEnabledForErrorButton(fireButton);
+        }
+
+        /// <summary>
+        /// 電源異常ボタンの有効無効設定
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetPowerButtonEnabled(bool isEnable)
+        {
+            SetErrorButtonEnabled(isEnable, powerButton, powerImage, powerImage_d);
+        }
+        /// <summary>
+        /// 電源異常ボタンが有効かどうか
+        /// </summary>
+        /// <returns></returns>
+        private bool IsPowerButtonEnabled()
+        {
+            return IsButtonEnabledForErrorButton(powerButton);
+        }
+
+
+
+        /// <summary>
+        /// 異常ボタンの有効無効設定
+        /// 地震異常復帰ボタン有効：注記マーク赤色＆ボタン灰色・文字黒
+        /// 地震異常復帰ボタン無効：注記マーク黒色＆ボタン灰色・文字薄灰色
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void SetErrorButtonEnabled(bool isEnable, Button button, Image validImage, Image invalidImage)
+        {
+            //  いったん、ボタンのイメージを消す
+            validImage.Visibility = Visibility.Collapsed;
+            invalidImage.Visibility = Visibility.Collapsed;
+
+            if (isEnable)
+            {
+                //  有効のとき
+                UpdateButtonColor(button, m_black, m_gray);
+                validImage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                //  無効のとき
+                UpdateButtonColor(button, m_light_gray, m_gray);
+                invalidImage.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        /// <summary>
+        /// ボタンカラーの設定
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="fore"></param>
+        /// <param name="back"></param>
+        private void UpdateButtonColor(Button button, Brush fore, Brush back)
+        {
+            if (back != null)
+            {
+                button.Background = back;
+            }
+            if (fore != null)
+            {
+                button.Foreground = fore;
+
+            }
+        }
+
+
+        /// <summary>
+        /// ボタンの有効無効を識別
+        /// 背景色が灰色のとき無効と判断する
+        /// </summary>
+        /// <param name="button"></param>
+        /// <returns></returns>
+        private bool IsButtonEnabled(Button button)
+        {
+            return button.Background == m_gray ? false : true;
+        }
+
+        /// <summary>
+        /// 異常ボタンの有効無効を識別
+        /// 異常ボタンは背景色がつねに灰色なので、文字色で無効かどうか判断する
+        /// </summary>
+        /// <param name="button"></param>
+        /// <returns></returns>
+        private bool IsButtonEnabledForErrorButton(Button button)
+        {
+            return button.Foreground == m_light_gray ? false : true;
+        }
+
+
+
+        /// <summary>
+        /// システムボタンを無効にする
+        /// 起動時と定期チェック時に呼び出される
+        /// </summary>
+        private void InitSystemButton()
+        {
+            //  異常復帰ボタンを無効にする
+            SetEarthquakeButtonEnabled(false);
+            SetFireButtonEnabled(false);
+            SetPowerButtonEnabled(false);
+            SetStopBuzzerButtonEnabled(false);
+
+
+            //  運転ボタンを無効にする
+            SetRunButtonEnabled(false);
+            //  停止ボタンを無効にする
+            SetStopButtonEnabled(false);
+
+        }
+
+
+        /// <summary>
+        /// ブザーを鳴らす
+        /// </summary>
+        /// <param name="buzzerFilePath">サウンドファイルパス</param>
+        /// <param name="buzzerSec">継続秒数</param>
+        private void PlaySound(string buzzerFilePath, int buzzerSec)
         {
             try
             {
@@ -476,6 +854,12 @@ namespace Mocs
                     {
                         m_wavePlayer.PlayLooping(); // ループ再生
 
+                        //  指定された秒数の後、再生停止するためタイマーを開始
+                        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+                        dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+                        dispatcherTimer.Interval = new TimeSpan(0, 0, buzzerSec);
+                        dispatcherTimer.Start();
+
                     }
                 }
 
@@ -487,6 +871,13 @@ namespace Mocs
             }
         }
 
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            ((System.Windows.Threading.DispatcherTimer)sender).Stop();
+            StopSound();
+        }
+
+            
         private void StopSound()
         {
             if (m_wavePlayer != null)
@@ -496,7 +887,7 @@ namespace Mocs
                 m_wavePlayer = null;
 
                 //  ブザー停止ボタンを無効に
-                StopBuzzerButtonEnabled(false);
+                SetStopBuzzerButtonEnabled(false);
 
             }
         }
@@ -506,6 +897,7 @@ namespace Mocs
             return m_wavePlayer != null ? true : false;
         }
 
+        /*
 
         /// <summary>
         /// ブザー停止ボタンの有効無効設定
@@ -538,6 +930,7 @@ namespace Mocs
             powerImage.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
             powerImage_d.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
         }
+        */
 
     }
 }

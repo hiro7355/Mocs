@@ -30,24 +30,26 @@ namespace Mocs.Controls
 
         private DispatcherTimer m_timer;
 
-
+        private bool m_isFirstUpdate;
         public void Init(DBAccess db, ErrorInfo errorInfo)
         {
             this.m_db = db;
             this.m_errorInfo = errorInfo;
-            SetupTimer();
+
+            m_isFirstUpdate = true;
+            //  初回は１秒後に実行
+            SetupTimer(1);
         }
 
-        private void SetupTimer()
+        private void SetupTimer(int sec)
         {
 
             m_timer = new DispatcherTimer();
-            m_timer.Interval = new TimeSpan(0, 0, Int32.Parse(Properties.Settings.Default.Cell_Monitoring_Interval));
+            m_timer.Interval = new TimeSpan(0, 0, sec);
 
             m_timer.Tick += new EventHandler(TimerFunc);
             m_timer.Start();
 
-            TimerFunc(null, null);
         }
 
         public void StopTimer()
@@ -67,6 +69,20 @@ namespace Mocs.Controls
         /// <param name="e"></param>
         private void TimerFunc(object sender, EventArgs e)
         {
+            if (m_isFirstUpdate)
+            {
+                //  初回実行のとき
+
+
+                m_isFirstUpdate = false;
+
+                //  タイマーを再設定
+                StopTimer();
+                //  ２回目からは設定ファイルにしたがって一定間隔で処理する
+                SetupTimer(Int32.Parse(Properties.Settings.Default.Cell_Interval));
+
+            }
+
             Update();
         }
 

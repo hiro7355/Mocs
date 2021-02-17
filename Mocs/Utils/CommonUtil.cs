@@ -8,6 +8,7 @@ using System.Threading;
 using Mocs.Models;
 using Npgsql;
 using System.Reflection;
+using System.Windows;
 
 namespace Mocs.Utils
 {
@@ -226,6 +227,18 @@ namespace Mocs.Utils
         }
 
 
+        public static int parseInt(string number, int defaultValue)
+        {
+            int result = defaultValue;
+            Int32.TryParse(number, out result);
+            return result;
+        }
+
+
+        public static MessageBoxResult showErrorMessage(string message)
+        {
+            return MessageBox.Show(message, Mocs.Properties.Resources.MSGBOX_TITLE_ERROR, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
     }
 
 

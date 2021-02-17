@@ -125,18 +125,18 @@ namespace Mocs.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public string Cell_Monitoring_Interval {
+        public string Cell_Interval {
             get {
-                return ((string)(this["Cell_Monitoring_Interval"]));
+                return ((string)(this["Cell_Interval"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("mocs")]
-        public string Login_Password {
+        public string PW {
             get {
-                return ((string)(this["Login_Password"]));
+                return ((string)(this["PW"]));
             }
         }
         
@@ -223,13 +223,49 @@ namespace Mocs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("buzzer.wav")]
-        public string BuzzerFilePath {
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\buzzer.wav")]
+        public string rmelody_file {
             get {
-                return ((string)(this["BuzzerFilePath"]));
+                return ((string)(this["rmelody_file"]));
             }
             set {
-                this["BuzzerFilePath"] = value;
+                this["rmelody_file"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ON")]
+        public string rmelody {
+            get {
+                return ((string)(this["rmelody"]));
+            }
+            set {
+                this["rmelody"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public string tmelody_time {
+            get {
+                return ((string)(this["tmelody_time"]));
+            }
+            set {
+                this["tmelody_time"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\help.pdf")]
+        public string help {
+            get {
+                return ((string)(this["help"]));
+            }
+            set {
+                this["help"] = value;
             }
         }
     }

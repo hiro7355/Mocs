@@ -11,7 +11,7 @@
         <StackPanel Background="LightGray">
             <StackPanel Orientation="Horizontal" Margin="10,0" Height="25">
                 <TextBlock Text="{x:Static properties:Resources.FLOOR_LIST}"  TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center"  />
-                <ComboBox x:Name="selectBox" IsReadOnly="True"  ItemsSource="{Binding}" SelectedValuePath="hospital_id" SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0" >
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  ItemsSource="{Binding}" SelectedValuePath="hospital_id" SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0"  VerticalAlignment="Center">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock><Run Text="{Binding hospital_name, Mode=OneWay}" />

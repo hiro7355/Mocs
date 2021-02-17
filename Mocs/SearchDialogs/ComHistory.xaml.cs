@@ -32,7 +32,10 @@ namespace Mocs.SearchDialogs
             //  初期有効無効表示
             SetStartEndEnabled(false);
             SetEquipEnabled(false);
-            
+
+            //  検索範囲日付を初期化
+            this.dateStart.SelectedDate = DateTime.Today;
+            this.dateEnd.SelectedDate = DateTime.Today;
 
         }
 

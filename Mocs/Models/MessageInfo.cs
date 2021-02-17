@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Mocs.Utils;
 
 namespace Mocs.Models
 {
@@ -12,10 +13,31 @@ namespace Mocs.Models
         public Brush brush { get; set; }
         public string message { get; set; }
 
-        public MessageInfo(Brush brush, string message)
+        private string m_raw_message;
+        private string m_type;
+
+        public MessageInfo(Brush brush, string raw_message, string type)
         {
             this.brush = brush;
-            this.message = message;
+            m_raw_message = raw_message;
+            m_type = type;
+
+
+            this.message = CommonUtil.MessageFormat(raw_message, type);
+        }
+
+
+        /// <summary>
+        /// 同じエラーかチェック
+        /// </summary>
+        /// <param name="info"></param>
+        public bool isSame(MessageInfo info)
+        {
+            if (info == null)
+            {
+                return false;
+            }
+            return (this.m_raw_message == info.m_raw_message && this.m_type == info.m_type) ? true : false;
         }
     }
 }

@@ -9,10 +9,10 @@
              d:DesignHeight="600" d:DesignWidth="1260">
     <Grid>
         <StackPanel Background="LightGray">
-            <StackPanel Orientation="Horizontal" Margin="10,0">
+            <StackPanel Orientation="Horizontal" Margin="10,0" Height="25">
                 <TextBlock Text="{x:Static properties:Resources.ERROR_INFO}"  TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center"  />
             </StackPanel>
-            <TreeView Margin="5" Width="1250" Height="570" >
+            <TreeView Margin="5" Width="1250" Height="565" >
                 <TreeViewItem Header="MOCS" IsExpanded="True">
                     <TreeViewItem Header="CELL"  x:Name="cellTreeViewItem">
                     </TreeViewItem>

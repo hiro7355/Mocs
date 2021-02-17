@@ -125,7 +125,7 @@ namespace Mocs.Controls
         }
         private void addMessage(String bgColorName, String message, String type)
         {
-            m_messageList.Insert(0, new MessageInfo(ColorUtil.brushFromColorName(bgColorName), CommonUtil.MessageFormat(message, type)));
+            m_messageList.Insert(0, new MessageInfo(ColorUtil.brushFromColorName(bgColorName), message, type));
         }
 
 

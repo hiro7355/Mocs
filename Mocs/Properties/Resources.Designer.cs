@@ -1042,6 +1042,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   {0} file is not existed に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ERROR_NOT_EXISTS_FILE {
+            get {
+                return ResourceManager.GetString("ERROR_NOT_EXISTS_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Invalid password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ERROR_PASSWORD {
@@ -1087,7 +1096,7 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
-        ///   DB connection error に類似しているローカライズされた文字列を検索します。
+        ///   DB login error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ERRPR_CONNECT_DB {
             get {
@@ -1308,16 +1317,6 @@ namespace Mocs.Properties {
         public static string LOGINWINDOW_TITLE {
             get {
                 return ResourceManager.GetString("LOGINWINDOW_TITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        public static System.Drawing.Bitmap Logo {
-            get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1673,6 +1672,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Cell is successfully stopped に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY {
+            get {
+                return ResourceManager.GetString("MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Deletes the selected transport information. Is it OK? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MSG_DELETE_ORDER {
@@ -1741,6 +1749,15 @@ namespace Mocs.Properties {
         public static string MSG_ERROR_NO_WIFI {
             get {
                 return ResourceManager.GetString("MSG_ERROR_NO_WIFI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MSGBOX_TITLE_ERROR {
+            get {
+                return ResourceManager.GetString("MSGBOX_TITLE_ERROR", resourceCulture);
             }
         }
         
@@ -2083,6 +2100,15 @@ namespace Mocs.Properties {
         public static string PASSING_POINT {
             get {
                 return ResourceManager.GetString("PASSING_POINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string PASSWORD {
+            get {
+                return ResourceManager.GetString("PASSWORD", resourceCulture);
             }
         }
         

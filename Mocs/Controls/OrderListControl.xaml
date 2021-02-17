@@ -30,8 +30,6 @@
                     <ComboBoxItem Tag="100" Content="{x:Static properties:Resources.ERROR}"></ComboBoxItem>
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Margin="5,0" HorizontalAlignment="Right"  Content="{x:Static properties:Resources.BT_MAP}"></Button>
-                    <Button x:Name="deleteButton" Margin="5,0" HorizontalAlignment="Right"  Content="{x:Static properties:Resources.BT_DELETE}" Click="deleteButton_Click"></Button>
                 </StackPanel>
 
             </DockPanel>
@@ -54,8 +52,14 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_DATETIME}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  datetimeConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_FLOOR}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  floorConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_POINT}" Binding="{Binding datetime_hospital_floor_point, Converter={StaticResource  pointConverter}}" />
-                    <DataGridTemplateColumn IsReadOnly="True" Header="">
-                            <DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn IsReadOnly="True">
+                        <DataGridTemplateColumn.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="{x:Static properties:Resources.BT_MAP}"></Button>
+                                <Button x:Name="deleteButton"  Content="{x:Static properties:Resources.BT_DELETE}" Click="deleteButton_Click"></Button>
+                            </StackPanel>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox IsChecked="{Binding is_checked, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </DataTemplate>

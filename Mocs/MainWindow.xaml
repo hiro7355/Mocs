@@ -6,6 +6,7 @@
         xmlns:properties="clr-namespace:Mocs.Properties" 
         xmlns:local="clr-namespace:Mocs"
         mc:Ignorable="d"
+        FontFamily="Meiryo UI"
         Title="{x:Static properties:Resources.MAIN_TITLE}" Height="1080" Width="1920" Loaded="Window_Loaded">
     <Window.Resources>
         <ResourceDictionary>
@@ -30,8 +31,8 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal" Margin="60,5">
-                    <Button x:Name="runButton" Content="{x:Static properties:Resources.BT_RUN}" Width="120" Click="runButton_Click" Background="LightGreen"  />
-                        <Button x:Name="stopBtton" Content="{x:Static properties:Resources.BT_STOP}" Width="120" Click="stopBtton_Click" />
+                    <Button x:Name="runButton" Content="{x:Static properties:Resources.BT_RUN}" Width="120" Click="runButton_Click"  />
+                        <Button x:Name="stopButton" Content="{x:Static properties:Resources.BT_STOP}" Width="120" Click="stopButton_Click" />
                         <Button x:Name="stopBuzzerButton"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Click="stopBuzzerButton_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal" Margin="4,2">
                                 <Image x:Name="stopBuzzerImage" Source="{StaticResource ImageStop}" VerticalAlignment="Center" />
@@ -79,9 +80,9 @@
                     <Button x:Name="historyButton" Click="historyButton_Click" Content="{x:Static properties:Resources.BT_HISTORY}"  Height="50"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" x:Name="systemStatusPanel">
+                <StackPanel Orientation="Horizontal" x:Name="systemStatusPanel" VerticalAlignment="Top">
                     <Controls:SystemStatusControl  x:Name="systemStatusControl" OnCellStatus="systemStatusControl_OnCellStatus" />
-                    <Controls:MuListControl x:Name="muListControl" />
+                    <Controls:MuListControl x:Name="muListControl"  />
                     <Controls:CartListControl x:Name="cartListControl"/>
                     <Controls:ErrorInfoControl x:Name="errorInfoControl" />
                     <Controls:TabletListControl x:Name="tabletListControl"/>

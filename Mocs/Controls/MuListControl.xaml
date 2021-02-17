@@ -14,10 +14,9 @@
             <converter:MuOrderStatusConverter x:Key="muorderStatusConoverter"/>
         </Grid.Resources>
         <StackPanel Background="LightGray">
-            <DockPanel  Margin="10,0">
+            <StackPanel Orientation="Horizontal" Margin="10,0" Height="25">
                 <TextBlock Text="{x:Static properties:Resources.TITLE_MU_LIST}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold"  VerticalAlignment="Center"  />
-                <Button Margin="20, 0, 0, 0" HorizontalAlignment="Left"  Content="{x:Static properties:Resources.BT_MAP}"></Button>
-            </DockPanel>
+            </StackPanel>
 
             <DataGrid Margin="5" Width="1250" Height="395" Name="muList" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" LoadingRow="DataGrid_LoadingRow" GridLinesVisibility="Horizontal" >
             <DataGrid.Columns>
@@ -29,7 +28,12 @@
                 <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" />
                 <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" />
                 <DataGridTextColumn Header="{x:Static properties:Resources.MLH_MUORDER_STATUS}" Binding="{Binding muorder_status, Converter={StaticResource  muorderStatusConoverter}}" />
-                <DataGridTemplateColumn IsReadOnly="True" Header="">
+                <DataGridTemplateColumn IsReadOnly="True">
+                        <DataGridTemplateColumn.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="{x:Static properties:Resources.BT_MAP}"></Button>
+                            </StackPanel>
+                        </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox

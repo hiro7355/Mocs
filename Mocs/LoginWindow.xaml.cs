@@ -22,17 +22,25 @@ namespace Mocs
         public LoginWindow()
         {
             InitializeComponent();
+
+            //  ロゴ画像を設定ファイルに指定されているパスから読み込む
+            string logoFilePath = Mocs.Properties.Settings.Default.LogoFile;
+            if (System.IO.File.Exists(logoFilePath))
+            {
+                logoFilePath = System.IO.Path.GetFullPath(logoFilePath);
+                this.logo.Source = new BitmapImage(new Uri(logoFilePath));
+            }
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (Mocs.Properties.Settings.Default.Login_Password == textPassword.Password)
+            if (Mocs.Properties.Settings.Default.PW == textPassword.Password)
             {
                 this.DialogResult = true;
             } 
             else
             {
-                MessageBox.Show(Mocs.Properties.Resources.ERROR_PASSWORD);
+                Mocs.Utils.CommonUtil.showErrorMessage(Mocs.Properties.Resources.ERROR_PASSWORD);
 
             }
 

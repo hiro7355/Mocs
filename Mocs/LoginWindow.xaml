@@ -6,12 +6,16 @@
              xmlns:properties="clr-namespace:Mocs.Properties" 
         xmlns:local="clr-namespace:Mocs"
         mc:Ignorable="d"
+        FontFamily="Meiryo UI"
         Title="{x:Static properties:Resources.LOGIN_TITLE}" Height="300" Width="600 " ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Margin="10">
-            <Image Source="./Resources/Logo.jpg"></Image>
+            <Image x:Name="logo"></Image>
             <Label Content="{x:Static properties:Resources.LOGINWINDOW_TITLE}" HorizontalAlignment="Center"  VerticalAlignment="Top"  Margin="0,20"/>
-            <PasswordBox  x:Name="textPassword" Focusable="True" TabIndex="0" HorizontalAlignment="Center" Width="200"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="{x:Static properties:Resources.PASSWORD}" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="10,0"/>
+                <PasswordBox  x:Name="textPassword" Focusable="True" TabIndex="0"  Width="200"/>
+            </StackPanel> 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
 
                 <Button x:Name="buttonLogin" Content="{x:Static properties:Resources.LOGIN}" Click="buttonLogin_Click" Width="100" IsDefault="True" Margin="10,0"/>

@@ -81,13 +81,14 @@ namespace Mocs
                 string configfile = System.Reflection.Assembly.GetExecutingAssembly().Location + ".config";
                 if (System.IO.File.Exists(configfile) == false)
                 {
-                    MessageBox.Show(string.Format(Mocs.Properties.Resources.ERROR_SETTING_FILE, configfile));
+                    CommonUtil.showErrorMessage(string.Format(Mocs.Properties.Resources.ERROR_SETTING_FILE, configfile));
                     return false;
                 }
                 int portno = Mocs.Properties.Settings.Default.DB_Port;
                 if ((portno > 65535) || (portno < 0))
                 {   //設定ファイルエラー
-                    MessageBox.Show(string.Format(Mocs.Properties.Resources.ERRPR_SETTING_FILE_DBPORT, portno.ToString()));
+                    CommonUtil.showErrorMessage(string.Format(Mocs.Properties.Resources.ERRPR_SETTING_FILE_DBPORT, portno.ToString()));
+
                     return false;
                 }
                 StringBuilder sb = new StringBuilder(128);
@@ -97,7 +98,7 @@ namespace Mocs
                 mocs_cell_db = new DBAccess(sb.ToString());
                 if ((ret = mocs_cell_db.InitialRead()) > 0)
                 {   //DBエラー
-                    MessageBox.Show(Mocs.Properties.Resources.ERRPR_CONNECT_DB);
+                    CommonUtil.showErrorMessage(Mocs.Properties.Resources.ERRPR_CONNECT_DB);
                     return false;
 
                 }
@@ -117,5 +118,7 @@ namespace Mocs
             }
             return true;
         }
+
+        
     }
 }

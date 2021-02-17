@@ -40,6 +40,11 @@ namespace Mocs.SearchDialogs
             SetMuEnabled(false);
             SetCartEnabled(false);
 
+            //  検索範囲日付を初期化
+            this.dateStart.SelectedDate = DateTime.Today;
+            this.dateEnd.SelectedDate = DateTime.Today;
+
+
         }
 
 

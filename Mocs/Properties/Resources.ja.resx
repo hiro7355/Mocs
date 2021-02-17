@@ -473,13 +473,13 @@
     <comment>[0]には部署名、[1]にはステーション、[2]には有効/無効が入る</comment>
   </data>
   <data name="ERROR_PASSWORD" xml:space="preserve">
-    <value>パスワードが違います</value>
+    <value>ログイン出来ません。パスワードを確認して下さい。</value>
   </data>
   <data name="LOGIN" xml:space="preserve">
     <value>ログイン</value>
   </data>
   <data name="LOGINWINDOW_TITLE" xml:space="preserve">
-    <value>パスワードを入力してログインしてください</value>
+    <value>MoCS 監視モニター - ログイン</value>
   </data>
   <data name="STATION" xml:space="preserve">
     <value>ステーション</value>
@@ -795,7 +795,7 @@
     <value>機器名称</value>
   </data>
   <data name="LOGIN_TITLE" xml:space="preserve">
-    <value>MoCS 監視モニター - ログイン</value>
+    <value>ログイン</value>
   </data>
   <data name="MAIN_TITLE" xml:space="preserve">
     <value>MoCS 監視モニター</value>
@@ -916,7 +916,7 @@ CELL と の通信環境を確認してください。</value>
     <value>設定ファイル({0})が見つかりません</value>
   </data>
   <data name="ERRPR_CONNECT_DB" xml:space="preserve">
-    <value>DB接続エラー</value>
+    <value>DB login error</value>
   </data>
   <data name="ERRPR_SETTING_FILE_DBPORT" xml:space="preserve">
     <value>設定ファイルエラー：DB_Port={0}</value>
@@ -932,5 +932,17 @@ CELL と の通信環境を確認してください。</value>
   </data>
   <data name="MSG_DELETE_ORDER" xml:space="preserve">
     <value>選択された搬送情報を削除します。よろしいですか？</value>
+  </data>
+  <data name="ERROR_NOT_EXISTS_FILE" xml:space="preserve">
+    <value>{0}ファイルは存在しません</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="MSGBOX_TITLE_ERROR" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY" xml:space="preserve">
+    <value>CELLが正常に停止しています</value>
   </data>
 </root>

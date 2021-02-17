@@ -936,16 +936,13 @@ Please check the communication environment with CELL.</value>
     <value>No Setting file ({0})</value>
   </data>
   <data name="ERRPR_CONNECT_DB" xml:space="preserve">
-    <value>DB connection error</value>
+    <value>DB login error</value>
   </data>
   <data name="ERRPR_SETTING_FILE_DBPORT" xml:space="preserve">
     <value>Setting file error : DB_Port={0}</value>
   </data>
   <data name="FILE_DIALOG_FILTER_PDF" xml:space="preserve">
     <value>PDF file (*.pdf)|*.pdf</value>
-  </data>
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BT_DELETE" xml:space="preserve">
     <value>delete</value>
@@ -955,5 +952,17 @@ Please check the communication environment with CELL.</value>
   </data>
   <data name="MSG_DELETE_ORDER" xml:space="preserve">
     <value>Deletes the selected transport information. Is it OK?</value>
+  </data>
+  <data name="ERROR_NOT_EXISTS_FILE" xml:space="preserve">
+    <value>{0} file is not existed</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="MSGBOX_TITLE_ERROR" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY" xml:space="preserve">
+    <value>Cell is successfully stopped</value>
   </data>
 </root>
