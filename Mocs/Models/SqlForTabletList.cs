@@ -24,7 +24,7 @@ namespace Mocs.Models
                 " LEFT JOIN section_master ON tablet_master.tablet_sect = section_master.section_id" +
                 " LEFT JOIN floor_master ON section_master.section_floor_id = floor_master.floor_id" +
                 " LEFT JOIN hospital_master ON floor_master.floor_hospital_id = hospital_master.hospital_id" +
-                " ORDER BY hospital_master.hospital_id, floor_master.floor_id, section_master.section_id";
+                " ORDER BY hospital_master.hospital_id, floor_master.floor_floors_number, section_master.section_id, tablet_master.tablet_id";
             return sql;
 
         }

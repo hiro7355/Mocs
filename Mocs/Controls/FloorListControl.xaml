@@ -1,4 +1,4 @@
-﻿<local:MasterBaseControl x:Class="Mocs.Controls.FloorListControl"
+﻿<local:TimerBaseControl x:Class="Mocs.Controls.FloorListControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -27,7 +27,14 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.FLH_HOSPITAL}" Binding="{Binding hospital}"/>
                     <DataGridTextColumn Header="{x:Static properties:Resources.FLH_FLOOR}" Binding="{Binding floor}"/>
                     <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ORDER}" Binding="{Binding mu_order}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ERROR}" Binding="{Binding m_error}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.FLH_MU_ERROR}" Binding="{Binding mu_error}">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+
                     <DataGridTextColumn  Width="100"/>
 
                 </DataGrid.Columns>
@@ -35,5 +42,5 @@
         </StackPanel>
 
     </Grid>
-</local:MasterBaseControl>
+</local:TimerBaseControl>
 

@@ -84,7 +84,10 @@ namespace Mocs
             m_green = Utils.ColorUtil.brushFromColorName("Green");
             m_black = Utils.ColorUtil.brushFromColorName("Black");
             m_yellow = Utils.ColorUtil.brushFromColorName("Yellow");
-            m_light_gray = Utils.ColorUtil.brushFromColorName("LightGray");
+
+            m_light_gray = Utils.ColorUtil.brushFromColorName("LightGray"); 
+//            m_light_gray = Utils.ColorUtil.brushFromRgb(0xd1, 0xd1, 0xd1);
+
 
 
 
@@ -112,7 +115,7 @@ namespace Mocs
             this.orderListControl.Init(m_db, errorInfo);
             this.cartListControl.Init(m_db);
             this.tabletListControl.Init(m_db);
-            this.floorListControl.Init(m_db);
+            this.floorListControl.Init(m_db, errorInfo);
             this.stationListControl.Init(m_db);
             this.historyTabControl.Init(m_db);
             this.deviceControl.Init(m_db, errorInfo);
@@ -481,7 +484,7 @@ namespace Mocs
             {
                 m_monitor.execCtrlProc();
 
-                Console.WriteLine("ctrl count:{0}", simCount);
+//                Console.WriteLine("ctrl count:{0}", simCount);
                 simCount++;
                 Thread.Sleep(simPeriod);
             }
@@ -538,7 +541,7 @@ namespace Mocs
                     SetStopButtonEnabled(false);
                 }
 
-                if (level > 1)
+                if (level == 2 || level == 3 || level == 4)
                 {
                     //  異常発生しているとき
 
@@ -660,22 +663,7 @@ namespace Mocs
         /// <param name="isEnable"></param>
         private void SetStopBuzzerButtonEnabled(bool isEnable)
         {
-            //  いったん、ボタンのイメージを消す
-            stopBuzzerImage.Visibility = Visibility.Collapsed;
-            stopBuzzerImage_d.Visibility = Visibility.Collapsed;
-
-            if (isEnable)
-            {
-                //  有効のとき
-                UpdateButtonColor(this.stopBuzzerButton, m_white, m_red);
-            }
-            else
-            {
-                //  無効のとき
-                UpdateButtonColor(this.stopBuzzerButton, m_black, m_gray);
-
-                stopBuzzerImage_d.Visibility = Visibility.Visible;
-            }
+            SetImageButtonEnabled(isEnable, stopBuzzerButton, stopBuzzerText, stopBuzzerImage, stopBuzzerImage_d, m_white, m_red, m_black, m_gray);
         }
 
         /// <summary>
@@ -695,7 +683,7 @@ namespace Mocs
         /// <param name="isEnable"></param>
         private void SetEarthquakeButtonEnabled(bool isEnable)
         {
-            SetErrorButtonEnabled(isEnable, earthquakeButton, earthquakeImage, earthquakeImage_d);
+            SetErrorButtonEnabled(isEnable, earthquakeButton, eathquakeText, earthquakeImage, earthquakeImage_d);
         }
         /// <summary>
         /// 地震異常ボタンが有効かどうか
@@ -712,7 +700,7 @@ namespace Mocs
         /// <param name="isEnable"></param>
         private void SetFireButtonEnabled(bool isEnable)
         {
-            SetErrorButtonEnabled(isEnable, fireButton, fireImage, fireImage_d);
+            SetErrorButtonEnabled(isEnable, fireButton, fireText, fireImage, fireImage_d);
         }
         /// <summary>
         /// 火災異常ボタンが有効かどうか
@@ -729,7 +717,7 @@ namespace Mocs
         /// <param name="isEnable"></param>
         private void SetPowerButtonEnabled(bool isEnable)
         {
-            SetErrorButtonEnabled(isEnable, powerButton, powerImage, powerImage_d);
+            SetErrorButtonEnabled(isEnable, powerButton, powerText, powerImage, powerImage_d);
         }
         /// <summary>
         /// 電源異常ボタンが有効かどうか
@@ -748,25 +736,61 @@ namespace Mocs
         /// 地震異常復帰ボタン無効：注記マーク黒色＆ボタン灰色・文字薄灰色
         /// </summary>
         /// <param name="isEnable"></param>
-        private void SetErrorButtonEnabled(bool isEnable, Button button, Image validImage, Image invalidImage)
+        private void SetErrorButtonEnabled(bool isEnable, Button button, Label text,  Image validImage, Image invalidImage)
+        {
+            SetImageButtonEnabled(isEnable, button, text, validImage, invalidImage, m_black, m_gray, m_light_gray, m_gray);
+        }
+
+
+        /// <summary>
+        /// イメージつきボタンの色設定
+        /// </summary>
+        /// <param name="isEnable"></param>
+        /// <param name="button"></param>
+        /// <param name="text"></param>
+        /// <param name="validImage"></param>
+        /// <param name="invalidImage"></param>
+        /// <param name="validFore"></param>
+        /// <param name="validBack"></param>
+        /// <param name="invalidFore"></param>
+        /// <param name="invalidBack"></param>
+        private void SetImageButtonEnabled(bool isEnable, Button button, Label text, Image validImage, Image invalidImage, Brush validFore, Brush validBack, Brush invalidFore, Brush invalidBack)
         {
             //  いったん、ボタンのイメージを消す
             validImage.Visibility = Visibility.Collapsed;
             invalidImage.Visibility = Visibility.Collapsed;
 
+            Brush fore, back;
+
             if (isEnable)
             {
                 //  有効のとき
-                UpdateButtonColor(button, m_black, m_gray);
+                fore = validFore;
+                back = validBack;
+
                 validImage.Visibility = Visibility.Visible;
             }
             else
             {
                 //  無効のとき
-                UpdateButtonColor(button, m_light_gray, m_gray);
+                fore = invalidFore;
+                back = invalidBack;
+
                 invalidImage.Visibility = Visibility.Visible;
             }
+
+            if (fore != null)
+            {
+                text.Foreground = fore;
+                button.Foreground = fore;       //  異常ボタンのときは有効、無効のチェックにつかう
+            }
+            if (back != null)
+            {
+                button.Background = back;
+            }
+
         }
+
 
 
         /// <summary>

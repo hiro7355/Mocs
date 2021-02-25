@@ -48,7 +48,7 @@ namespace Mocs.Models
         /// <returns></returns>
         internal static string SelectIdAndNameSql(string localeCode)
         {
-            return "SELECT cart_id AS id, cart_name_" + localeCode + " AS name FROM cart_master";
+            return "SELECT cart_id AS id, cart_name_" + localeCode + " AS name FROM cart_master ORDER BY cart_id";
         }
     }
 }

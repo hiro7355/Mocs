@@ -24,6 +24,12 @@ namespace Mocs.SearchDialogs
             return m_result;
         }
 
+        //  上書きされる
+        protected virtual  void InitCondition()
+        {
+
+        }
+
         /// <summary>
         /// キャンセル
         /// </summary>
@@ -47,6 +53,7 @@ namespace Mocs.SearchDialogs
         /// </summary>
         protected void DoAll()
         {
+            this.InitCondition();
             m_result = 2;
             this.DialogResult = true;
         }

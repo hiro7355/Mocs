@@ -29,16 +29,26 @@ namespace Mocs.SearchDialogs
             //  コンボボックスの初期化
             InitCombo(SqlForComHistory.SelectNameSql(localeCode), this.comboEquip);
 
+            //  検索条件を初期化
+            InitCondition();
+
+        }
+
+        protected override void InitCondition()
+        {
+
+            //  日付は初期状態でチェックON
+            this.checkStartEnd.IsChecked = true;
             //  初期有効無効表示
-            SetStartEndEnabled(false);
+            SetStartEndEnabled(true);
             SetEquipEnabled(false);
 
             //  検索範囲日付を初期化
             this.dateStart.SelectedDate = DateTime.Today;
             this.dateEnd.SelectedDate = DateTime.Today;
 
+            this.checkEquip.IsChecked = false;
         }
-
 
         /// <summary>
         /// キャンセル

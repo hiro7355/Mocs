@@ -24,16 +24,26 @@ namespace Mocs.SearchDialogs
         {
             InitializeComponent();
 
+            //  検索条件を初期化
+            InitCondition();
+
+
+        }
+        protected override void InitCondition()
+        {
+            //  日付は初期状態でチェックON
+            this.checkStartEnd.IsChecked = true;
             //  初期有効無効表示
-            SetStartEndEnabled(false);
+            SetStartEndEnabled(true);
             SetTypeEnabled(false);
 
             //  検索範囲日付を初期化
             this.dateStart.SelectedDate = DateTime.Today;
             this.dateEnd.SelectedDate = DateTime.Today;
 
-
+            this.checkType.IsChecked = false;
         }
+
 
         /// <summary>
         /// キャンセル

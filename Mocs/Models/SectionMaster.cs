@@ -26,7 +26,7 @@ namespace Mocs.Models
         /// <returns></returns>
         internal static string SelectIdAndNameSql(string localeCode)
         {
-            return "SELECT section_id AS id, section_name_" + localeCode + " AS name FROM section_master";
+            return "SELECT section_id AS id, section_name_" + localeCode + " AS name FROM section_master ORDER BY section_id";
         }
 
 

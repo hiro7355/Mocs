@@ -30,20 +30,35 @@ namespace Mocs.SearchDialogs
             //  コンボボックスの初期化
             InitCombo(SectionMaster.SelectIdAndNameSql(localeCode), this.comboReqSect);
             InitCombo(SectionMaster.SelectIdAndNameSql(localeCode), this.comboToSect);
-            InitCombo(MuMaster.SelectIdAndNameSql(localeCode), this.comboMu);
+            InitCombo(MuMaster.SelectIdAndNameSql(localeCode) + " ORDER BY mu_id", this.comboMu);
             InitCombo(CartMaster.SelectIdAndNameSql(localeCode), this.comboCart);
 
+            //  検索条件を初期化
+            InitCondition();
+
+        }
+
+        protected override void InitCondition()
+        {
+            //  日付は初期状態でチェックON
+            this.checkStartEnd.IsChecked = true;
             //  初期有効無効表示
-            SetStartEndEnabled(false);
+            SetStartEndEnabled(true);
             SetReqSectEnabled(false);
             SetToSectEnabled(false);
             SetMuEnabled(false);
             SetCartEnabled(false);
 
+
             //  検索範囲日付を初期化
             this.dateStart.SelectedDate = DateTime.Today;
             this.dateEnd.SelectedDate = DateTime.Today;
 
+
+            this.checkReqSect.IsChecked = false;
+            this.checkToSect.IsChecked = false;
+            this.checkMu.IsChecked = false;
+            this.checkCart.IsChecked = false;
 
         }
 
@@ -75,6 +90,7 @@ namespace Mocs.SearchDialogs
         /// <param name="e"></param>
         private void allButton_Click(object sender, RoutedEventArgs e)
         {
+
             this.DoAll();
         }
 

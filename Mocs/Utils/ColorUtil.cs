@@ -19,6 +19,15 @@ namespace Mocs.Utils
             return new SolidColorBrush(colorFromName(name));
         }
 
+        public static SolidColorBrush brushFromRgb(byte r, byte g, byte b)
+        {
+            byte a = 255;
+            Color color = Color.FromArgb(a, r, g, b);
+
+            return new SolidColorBrush(color);
+        }
+
+
         /// <summary>
         /// 色の名前からカラーを生成
         /// </summary>

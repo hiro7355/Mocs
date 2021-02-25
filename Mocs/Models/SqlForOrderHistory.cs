@@ -29,15 +29,15 @@ namespace Mocs.Models
     //    ", (" + MuMaster.SelectNameSql(localeCode, "order_result_mu_id") + ") AS mu_name" +
     ", order_result_cart_id AS cart_id" +
     ", order_result_mu_id AS mu_id" +
-    ", CASE WHEN order_result_status = 0 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_0 + "' ELSE CAST(order_result_status AS text) END AS status" +
+    ", CASE order_result_status WHEN 0 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_0 + "' WHEN 1 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_1 + "' WHEN 10 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_10 + "' WHEN 20  THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_20 + "' WHEN 100 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_100 + "' ELSE CAST(order_result_status AS text) END AS status" +
 " FROM order_result_log";
 
             if (conditionSql == null || conditionSql.Length == 0)
             {
-                conditionSql = DBAccess.GetTodayConditionSql("order_result_reserve_datetime");
+                conditionSql = DBAccess.GetTodayConditionSql("order_result_datetime");
             }
             sql += " WHERE " + conditionSql;
-            sql += " ORDER BY order_result_reserve_datetime";
+            sql += " ORDER BY order_result_datetime DESC, order_result_start_datetime DESC, order_result_reserve_datetime DESC";
 
             return sql;
 
@@ -50,7 +50,7 @@ namespace Mocs.Models
         /// <returns></returns>
         internal static string GetStartSql(DateTime selectedDate)
         {
-            return "order_result_reserve_datetime >= " + DateTimeUtil.FormatDBDate(selectedDate); 
+            return "order_result_datetime >= " + DateTimeUtil.FormatDBDate(selectedDate); 
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Mocs.Models
         internal static string GetEndSql(DateTime selectedDate)
         {
             // 指定日の翌日より前
-            return "order_result_reserve_datetime < " + DateTimeUtil.FormatNextDBDate(selectedDate);
+            return "order_result_datetime < " + DateTimeUtil.FormatNextDBDate(selectedDate);
         }
 
         /// <summary>

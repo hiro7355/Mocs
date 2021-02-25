@@ -29,7 +29,24 @@ namespace Mocs.Controls.Converters
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return CommonUtil.GetValueFromCSV(Properties.Resources.MLD_OPE_MODE, (short)value);
+
+            int stat_com;
+            int ope_mode;
+            CommonUtil.GetValue1_2((string)value, out stat_com, out ope_mode);
+
+
+            if (stat_com == 0)
+            {
+                return Properties.Resources.MLD_MUORDER_STATUS_NOCON;
+            }
+            else if(stat_com == 1)
+            {
+                return CommonUtil.GetValueFromCSV(Properties.Resources.MLD_OPE_MODE, ope_mode);
+
+            } else
+            {
+                return "";
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

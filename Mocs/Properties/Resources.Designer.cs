@@ -61,6 +61,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Absence に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ABSENCE {
+            get {
+                return ResourceManager.GetString("ABSENCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
         public static System.Drawing.Bitmap alert {
@@ -1780,6 +1789,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   not connected に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NOT_CONNECTED {
+            get {
+                return ResourceManager.GetString("NOT_CONNECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Occurence date time に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OCCURENCE_DATETIME {
@@ -2091,6 +2109,42 @@ namespace Mocs.Properties {
         public static string ORDER_RESULT_STATUS_0 {
             get {
                 return ResourceManager.GetString("ORDER_RESULT_STATUS_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ordering に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ORDER_RESULT_STATUS_1 {
+            get {
+                return ResourceManager.GetString("ORDER_RESULT_STATUS_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Finish に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ORDER_RESULT_STATUS_10 {
+            get {
+                return ResourceManager.GetString("ORDER_RESULT_STATUS_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ORDER_RESULT_STATUS_100 {
+            get {
+                return ResourceManager.GetString("ORDER_RESULT_STATUS_100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ORDER_RESULT_STATUS_20 {
+            get {
+                return ResourceManager.GetString("ORDER_RESULT_STATUS_20", resourceCulture);
             }
         }
         

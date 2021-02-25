@@ -965,4 +965,22 @@ Please check the communication environment with CELL.</value>
   <data name="MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY" xml:space="preserve">
     <value>Cell is successfully stopped</value>
   </data>
+  <data name="ABSENCE" xml:space="preserve">
+    <value>Absence</value>
+  </data>
+  <data name="NOT_CONNECTED" xml:space="preserve">
+    <value>not connected</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_1" xml:space="preserve">
+    <value>Ordering</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_10" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_100" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_20" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

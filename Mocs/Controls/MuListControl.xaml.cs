@@ -60,7 +60,7 @@ namespace Mocs.Controls
                 if (mu_status.mu_stat_com == 0)
                 {
                     //  Wifi未接続
-                    error_message = Properties.Resources.MSG_ERROR_NO_WIFI;
+                    error_message = Properties.Resources.NOT_CONNECTED;
 
                 }
                 else if (mu_status.mu_stat_errlevel != 0 || mu_status.mu_stat_errcode != 0)
@@ -105,7 +105,7 @@ namespace Mocs.Controls
                     if (muMaster != null)
                     {
                         //  メッセージを追加
-                        this.addMessage(is_success ? "White" : "Red", error_message, muMaster.mu_name);
+                        this.addMessage(is_success ? "Black" : "Red", error_message, muMaster.mu_name);
 
 
                         string message = is_success ? null : error_message;
@@ -152,18 +152,22 @@ namespace Mocs.Controls
 
                 Object[] values = rView.Row.ItemArray;
 
-                int ope_mode = Int16.Parse(values[1].ToString());
+
+                int stat_com;
+                int ope_mode;
+                CommonUtil.GetValue1_2(values[1].ToString(), out stat_com, out ope_mode);
+
                 int muorder_status = Int16.Parse(values[7].ToString());
 
                 if (ope_mode == 0 || ope_mode == 1)
                 {
-                    newBrush = Brushes.White;
+                    newBrush = Brushes.Black;
                 }
                 else if (ope_mode == 2)
                 {
                     if (muorder_status == 0 || muorder_status == 10 || muorder_status == 11)
                     {
-                        newBrush = Brushes.White;
+                        newBrush = Brushes.Black;
                     }
                     else if (muorder_status == 1)
                     {
@@ -186,8 +190,8 @@ namespace Mocs.Controls
 
                 if (newBrush == null)
                 {
-                    //  上記にあてはまらないときは白にする
-                    newBrush = Brushes.White;
+                    //  上記にあてはまらないときは黒にする
+                    newBrush = Brushes.Black;
                 }
 
 //                row.Background = newBrush;

@@ -315,7 +315,6 @@
   <ItemGroup>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CartMaster.cs" />
-    <Compile Include="Models\CellStatusTbl.cs" />
     <Compile Include="Models\HospitalMaster.cs" />
     <Compile Include="Models\StationMaster.cs" />
     <Compile Include="Models\SysMainTbl.cs" />

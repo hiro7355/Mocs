@@ -23,7 +23,7 @@ namespace Mocs.Models
 
         public static string GetNamesSql(string name_field, string table_name, string id_field, string ids)
         {
-            return "SELECT array_to_string(array_agg(" + name_field + "), ',') AS value FROM " + table_name + " WHERE " + id_field + " IN (" + ids + ")";
+            return "SELECT array_to_string(array_agg(" + name_field + " ORDER BY " + id_field + "), ',') AS value FROM " + table_name + " WHERE " + id_field + " IN (" + ids + ")";
         }
 
 
@@ -39,6 +39,8 @@ namespace Mocs.Models
             T model = null;
             NpgsqlDataReader dr = null;
             string errorMessage = null;
+            //  DBエラーリセット
+            CommonUtil.SetLastDBError(0);
 
 
             NpgsqlCommand cmd = null;
@@ -106,12 +108,23 @@ namespace Mocs.Models
         public static T[] GetRows<T>(NpgsqlConnection conn, string sql, int count = int.MaxValue) where T : BaseModel, new()
         {
             List<T> Models = new List<T>();
+            //  DBエラーリセット
+            CommonUtil.SetLastDBError(0);
 
             string errorMessage = null;
-            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader dr = null;
+
             try
             {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+
+                }
+                cmd = new NpgsqlCommand(sql, conn);
+                dr = cmd.ExecuteReader();
                 for (int i = 0; dr.Read() && (i < count); i++) {
                     T model = new T();
                     model.LoadProp(dr);
@@ -124,16 +137,23 @@ namespace Mocs.Models
                 errorMessage = ex.Message.ToString();
                 CiLog cErrlog = new CiLog();    // ログ出力クラス
                 cErrlog.WriteLog(ex.Message.ToString(), ex.StackTrace, System.Diagnostics.EventLogEntryType.Error);
+                CommonUtil.SetLastDBError(ex.HResult);
             }
             finally
             {
-                cmd.Dispose();
-                dr.Close();
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                if (dr != null)
+                {
+                    dr.Close();
+                }
             }
             if (errorMessage != null)
             {
                 conn.Close();
-                throw new Exception(errorMessage);
+//                throw new Exception(errorMessage);
             }
             return Models.ToArray();
 
@@ -182,6 +202,8 @@ namespace Mocs.Models
             T result = default(T);  //  null
             NpgsqlDataReader dr = null;
             string errorMessage = null;
+            //  DBエラーリセット
+            CommonUtil.SetLastDBError(0);
 
 
             NpgsqlCommand cmd = null;
@@ -258,7 +280,7 @@ namespace Mocs.Models
                 catch (NpgsqlException)
                 {
                     transaction.Rollback();
-                    throw;
+                    throw;  
                 }
             }
         }

@@ -148,7 +148,7 @@ namespace Mocs.Utils
         {
             if (type != null)
             {
-                type = " " + type + ":";
+                type = " " + type + ",";
             } 
             else
             {
@@ -238,6 +238,21 @@ namespace Mocs.Utils
         public static MessageBoxResult showErrorMessage(string message)
         {
             return MessageBox.Show(message, Mocs.Properties.Resources.MSGBOX_TITLE_ERROR, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+
+        /// <summary>
+        /// カンマ区切り文字列の最初の値と次の値をint値にして取得
+        /// </summary>
+        /// <param name="value">カンマ区切り文字列</param>
+        /// <param name="stat_com"></param>
+        /// <param name="ope_mode"></param>
+        public static void GetValue1_2(string value, out int value1, out int value2)
+        {
+            string[] values = value.Split(',');
+
+            value1 = Int32.Parse(values[0]);
+            value2 = Int32.Parse(values[1]);
         }
     }
 

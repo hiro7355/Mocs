@@ -20,7 +20,7 @@ namespace Mocs.Controls
     /// <summary>
     /// FloorListControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class FloorListControl : MasterBaseControl
+    public partial class FloorListControl : TimerBaseControl        //  起動時に一回だけの更新にする場合は、MasterBaseControlの派生にすること
     {
         public FloorListControl()
         {

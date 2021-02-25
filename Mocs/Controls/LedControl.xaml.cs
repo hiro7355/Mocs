@@ -21,12 +21,22 @@ namespace Mocs.Controls
     /// </summary>
     public partial class LedControl : UserControl
     {
-        public string LastMessage1 { get; set; }     //  LEDの最後のメッセージ(運転状況のCELLメッセージで使用）
-        public string LastMessage2 { get; set; }     //  LEDの最後のメッセージ（運転状況のMUメッセージで使用）
+        private string[] m_messages;
+
+        public string GetLastMessage(int index)
+        {
+            return m_messages[index];
+        }
+        public void SetLastMessage(int index, string message)
+        {
+            m_messages[index] = message;
+        }
 
         public LedControl()
         {
             InitializeComponent();
+
+            m_messages = new string[10];
 
         }
 

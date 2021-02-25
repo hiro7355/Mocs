@@ -299,7 +299,7 @@
     <value>MU 名称</value>
   </data>
   <data name="MLH_OPE_MODE" xml:space="preserve">
-    <value>運転モード</value>
+    <value>状態</value>
   </data>
   <data name="MLH_POINT_NAME" xml:space="preserve">
     <value>ポイント名</value>
@@ -341,7 +341,7 @@
     <value>CELL の動作が停止しています。</value>
   </data>
   <data name="MSG_CELL_SYSTEM_STOPPED" xml:space="preserve">
-    <value>システム停止(継続不可)しました。</value>
+    <value>CELLがダウンしています。</value>
   </data>
   <data name="OLH_CART" xml:space="preserve">
     <value>カート番号</value>
@@ -548,7 +548,8 @@
     <value>MU Error Level:{0} Code:{1}</value>
   </data>
   <data name="MSG_ERROR_NO_WIFI" xml:space="preserve">
-    <value>Wifi未接続です。</value>
+    <value>オフライン状態です。</value>
+    <comment>WiFi未接続状態です</comment>
   </data>
   <data name="CELL_STOPPED" xml:space="preserve">
     <value>CELLが起動していません</value>
@@ -900,11 +901,10 @@
     <value>周辺機器</value>
   </data>
   <data name="CELL_SOCKET_CONNECTION_ERROR" xml:space="preserve">
-    <value>CELL との接続ができません。
-CELL と の通信環境を確認してください。</value>
+    <value>CELL との接続ができません。CELL との通信環境を確認してください。</value>
   </data>
   <data name="CELL_SOCKET_CONNECTION_SUCCESS" xml:space="preserve">
-    <value>CELL との接続が確立しました。</value>
+    <value>CELLへの接続正常です。</value>
   </data>
   <data name="CELL_SOCKET_ERROR" xml:space="preserve">
     <value>CELL との通信でエラーが発生しまし た。Error:CELL通信 {0}</value>
@@ -943,6 +943,24 @@ CELL と の通信環境を確認してください。</value>
     <value>エラー</value>
   </data>
   <data name="MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY" xml:space="preserve">
-    <value>CELLが正常に停止しています</value>
+    <value>通常停止中です</value>
+  </data>
+  <data name="ABSENCE" xml:space="preserve">
+    <value>不在</value>
+  </data>
+  <data name="NOT_CONNECTED" xml:space="preserve">
+    <value>未接続</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_1" xml:space="preserve">
+    <value>搬送中</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_10" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_100" xml:space="preserve">
+    <value>異常終了</value>
+  </data>
+  <data name="ORDER_RESULT_STATUS_20" xml:space="preserve">
+    <value>キャンセル</value>
   </data>
 </root>
