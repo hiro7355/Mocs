@@ -25,10 +25,10 @@ namespace Mocs.Models
     ", (" + StationMaster.SelectNameSql(localeCode, "order_result_from_pt") + ") AS req_station" +
     ", CASE WHEN order_result_round_flg = 1 OR order_result_forward_list is NULL THEN order_result_stop_to_sects ELSE order_result_forward_list END AS to_sect" +
     ", order_result_stop_to_points AS to_station" +
-    //    ", (" + CartMaster.SelectNameSql(localeCode, "order_result_cart_id") + ") AS cart_name" +
-    //    ", (" + MuMaster.SelectNameSql(localeCode, "order_result_mu_id") + ") AS mu_name" +
-    ", order_result_cart_id AS cart_id" +
-    ", order_result_mu_id AS mu_id" +
+    ", (" + CartMaster.SelectNameSql(localeCode, "order_result_cart_id") + ") AS cart_id" +
+    ", (" + MuMaster.SelectNameSql(localeCode, "order_result_mu_id") + ") AS mu_id" +
+//    ", order_result_cart_id AS cart_id" +
+//    ", order_result_mu_id AS mu_id" +
     ", CASE order_result_status WHEN 0 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_0 + "' WHEN 1 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_1 + "' WHEN 10 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_10 + "' WHEN 20  THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_20 + "' WHEN 100 THEN '" + Mocs.Properties.Resources.ORDER_RESULT_STATUS_100 + "' ELSE CAST(order_result_status AS text) END AS status" +
 " FROM order_result_log";
 

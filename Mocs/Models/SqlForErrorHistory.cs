@@ -9,22 +9,25 @@ namespace Mocs.Models
 {
     class SqlForErrorHistory
     {
-        public static string GetListSql(string conditionSql, int unionType)
+        public static string GetListSql(string conditionSql, int unionType, string cellName)
         {
             string localeCode = CommonUtil.GetAppLocaleCode();
 
             List<string> values = new List<string>();
             switch(unionType)
             {
+                case 0:  // すべてのとき
+                    values.Add(GetCellErrorSql(localeCode, cellName));
+                    values.Add(GetMuErrorSql(localeCode));
+                    break;
                 case 1: //  CELLのとき
-                    values.Add(GetCellErrorSql(localeCode));
+                    values.Add(GetCellErrorSql(localeCode, cellName));
                     break;
                 case 2: //  MUのとき
                     values.Add(GetMuErrorSql(localeCode));
                     break;
                 default:
-                    values.Add(GetCellErrorSql(localeCode));
-                    values.Add(GetMuErrorSql(localeCode));
+                    values.Add(GetEmptyErrorSql(localeCode));
                     break;
             }
             string unionSql = string.Join(" UNION ", values);
@@ -37,21 +40,25 @@ namespace Mocs.Models
                 conditionSql = "date = " + DateTimeUtil.FormatDBDate(DateTime.Now);
             }
             sql += " WHERE " + conditionSql;
-            sql += " ORDER BY date, time";
+            sql += " ORDER BY date DESC, time DESC, type";
 
 
             return sql;
 
         }
 
-        private static string GetCellErrorSql(string localeCode)
+        private static string GetEmptyErrorSql(string localeCode)
+        {
+            return GetCellErrorSql(localeCode, "CELL") + " WHERE cellerr_log_index=0";        // 空の行になるように
+        }
+        private static string GetCellErrorSql(string localeCode, string cellName)
         {
             string sql =
                 "SELECT" +
-                " to_char(cellerr_log_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
+                " to_char(cellerr_log_datetime, 'yyyy-MM-dd') AS date" +
                  ", to_char(cellerr_log_datetime, 'HH24:MI:SS') AS time" +
-                 ", 'CELL' AS type" +
-                 ", 'CELL001' AS name" +
+                 ", CAST('CELL' AS text) AS type" +
+                 ", '" + cellName + "' AS name" +
                  ", '' AS req_sect" +
                  ", '' AS req_station" +
                  ", '' AS to_sect" +
@@ -82,21 +89,26 @@ namespace Mocs.Models
       //      string order_sql = "(SELECT {0} FROM order_status_log WHERE order_log_id=mu_log_order_id LIMIT 1)";
             string sql =
     "SELECT" +
- " to_char(mu_log_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
+ " to_char(mu_log_datetime, 'yyyy-MM-dd') AS date" +
  ", to_char(mu_log_datetime, 'HH24:MI:SS') AS time" +
- ", 'MU' AS type" +
+ ", CAST('MU' AS text) AS type" +
  ", mu_name_" + localeCode + " AS name" +
-    ", (" + SectionMaster.SelectNameSql(localeCode, "order_log_from_sect") + ") AS req_sect" +
-    ", (" + StationMaster.SelectNameSql(localeCode, "order_log_from_pt") + ") AS req_station" +
-    ", CASE WHEN order_log_round_flg = 1 OR order_log_forward_list is NULL THEN order_log_stop_to_sects ELSE order_log_forward_list END AS to_sect" +
-    ", order_log_stop_to_points AS to_station" +
-    ", CAST(mu_log_cart_id AS text) AS cart_id" +
+    ", CAST(mu_log_order_id AS text) AS req_sect" +
+    ", CAST(mu_log_order_id AS text) AS req_station" +
+    ", CAST(mu_log_order_id AS text) AS to_sect" +
+    ", CAST(mu_log_order_id AS text) AS to_station" +
+//    ", (" + SectionMaster.SelectNameSql(localeCode, "order_log_from_sect") + ") AS req_sect" +
+//    ", (" + StationMaster.SelectNameSql(localeCode, "order_log_from_pt") + ") AS req_station" +
+//    ", CASE WHEN order_log_round_flg = 1 OR order_log_forward_list is NULL THEN order_log_stop_to_sects ELSE order_log_forward_list END AS to_sect" +
+//    ", order_log_stop_to_points AS to_station" +
+//    ", CAST(mu_log_cart_id AS text) AS cart_id" +
+    ", (" + CartMaster.SelectNameSql(localeCode, "mu_log_cart_id") + ") AS cart_id" +
  ", mu_log_errcode AS code" +
  ", (SELECT mu_errinfo_msg_" + localeCode + " FROM mu_error_info_master WHERE mu_errinfo_code = mu_log_errcode) AS message" +
  ", (SELECT mu_errinfo_msgdetail_" + localeCode + " FROM mu_error_info_master WHERE mu_errinfo_code = mu_log_errcode) AS detail" +
 " FROM mu_status_log" +
 " LEFT JOIN mu_master ON mu_id=mu_log_mu_id" +
-" LEFT JOIN order_status_log ON order_log_id=mu_log_order_id" +
+//" LEFT JOIN order_status_log ON order_log_id=mu_log_order_id" +       これだと複数行になってしまう
 " WHERE" +
 " mu_log_order_status = 1" +
  " AND mu_log_enable = 1" +

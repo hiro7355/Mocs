@@ -11,6 +11,13 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
                 <TextBlock Text="{x:Static properties:Resources.HTH_COM}" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="1" Width="100" Margin="20,0"  VerticalAlignment="Center" >
+                    <ComboBoxItem Tag="0" Content="{x:Static properties:Resources.ALL}"></ComboBoxItem>
+                    <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.MU}"></ComboBoxItem>
+                    <ComboBoxItem Tag="2" Content="{x:Static properties:Resources.TABLET}"></ComboBoxItem>
+                    <ComboBoxItem Tag="3" Content="{x:Static properties:Resources.MONITOR}"></ComboBoxItem>
+                </ComboBox>
+
                 <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click"  Margin="5,0" />
             </StackPanel>
 

@@ -10,8 +10,12 @@
              d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <Grid.Resources>
-            <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
-            <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
+            <converter:OrderIdToReqSectConverter x:Key="orderIdToReqSectConverter"/>
+            <converter:OrderIdToReqStationConverter x:Key="orderIdToReqStationConverter"/>
+            <converter:OrderIdToToSectConverter x:Key="orderIdToToSectConverter"/>
+            <converter:OrderIdToToStationConverter x:Key="orderIdToToStationConverter"/>
+
+
         </Grid.Resources>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
@@ -26,10 +30,10 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TIME}" Binding="{Binding time}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TYPE}" Binding="{Binding type}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_NAME}" Binding="{Binding name}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_SECT}" Binding="{Binding req_sect}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_STATION}" Binding="{Binding rec_station}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_SECT}" Binding="{Binding req_sect, Converter={StaticResource  orderIdToReqSectConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_REQ_STATION}" Binding="{Binding req_station, Converter={StaticResource  orderIdToReqStationConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  orderIdToToSectConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.EHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  orderIdToToStationConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CART_ID}" Binding="{Binding cart_id}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_CODE}" Binding="{Binding code}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.EHH_MESSAGE}" Binding="{Binding message}" />

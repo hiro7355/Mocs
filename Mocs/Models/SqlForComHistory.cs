@@ -9,14 +9,31 @@ namespace Mocs.Models
 {
     class SqlForComHistory
     {
-        public static string GetListSql(string conditionSql, int unionType)
+        public static string GetListSql(string conditionSql, int unionType, string comboValue)
         {
             string localeCode = CommonUtil.GetAppLocaleCode();
 
+            unionType = comboValue == null ? 0 : Int32.Parse(comboValue);
+
             List<string> values = new List<string>();
-            values.Add(GetTabletComSql(localeCode));
-            values.Add(GetMonitorComSql(localeCode));
-            values.Add(GetMuComSql(localeCode));
+            switch (unionType)
+            {
+                case 0:
+                    values.Add(GetTabletComSql(localeCode));
+                    values.Add(GetMonitorComSql(localeCode));
+                    values.Add(GetMuComSql(localeCode));
+                    break;
+                case 1: // mu
+                    values.Add(GetMuComSql(localeCode));
+                    break;
+                case 2: // タブレット
+                    values.Add(GetTabletComSql(localeCode));
+                    break;
+                case 3: // 監視モニタ
+                    values.Add(GetMonitorComSql(localeCode));
+                    break;
+            }
+
             string unionSql = string.Join(" UNION ", values);
 
             string sql = "SELECT * FROM (" +
@@ -28,7 +45,7 @@ namespace Mocs.Models
                 conditionSql = "date = " + DateTimeUtil.FormatDBDate(DateTime.Now);
             }
             sql += " WHERE " + conditionSql;
-            sql += " ORDER BY date, time";
+            sql += " ORDER BY date DESC, time DESC, type";
 
             return sql;
 
@@ -37,21 +54,26 @@ namespace Mocs.Models
         internal static string SelectNameSql(string localeCode)
         {
             List<string> values = new List<string>();
-            values.Add(MuMaster.SelectIdAndNameSql(localeCode));        //  MU名一覧
-            values.Add(TabletMaster.SelectIdAndNameSql(localeCode));        //  タブレット名一覧
-            values.Add(MonitorMaster.SelectIdAndNameSql(localeCode));        //  監視モニタ名一覧
+            values.Add(MuMaster.SelectIdAndNameSql(localeCode, 1));        //  MU名一覧
+            values.Add(TabletMaster.SelectIdAndNameSql(localeCode, 2));        //  タブレット名一覧
+            values.Add(MonitorMaster.SelectIdAndNameSql(localeCode, 3));        //  監視モニタ名一覧
             string unionSql = string.Join(" UNION ", values);
 
-            return unionSql;
+            string sql = "SELECT * FROM (" +
+                unionSql +
+                ") AS TMP ";
+            sql += " ORDER BY option, id";
+
+            return sql;
         }
 
         private static string GetMuComSql(string localeCode)
         {
             string sql =
     "SELECT" +
- " to_char(mu_com_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
+ " to_char(mu_com_datetime, 'yyyy-MM-dd') AS date" +
  ", to_char(mu_com_datetime, 'HH24:MI:SS') AS time" +
- ", 'MU' AS type" +
+ ", CAST('MU' AS text) AS type" +
  ", mu_name_" + localeCode + " AS name" +
  ", mu_com_ipaddr AS ip" +
  ", CAST(mu_com_port AS text) AS port" +
@@ -61,8 +83,7 @@ namespace Mocs.Models
     ", substring(mu_com_data from 1 for 40) AS message" +
    ", mu_com_data AS detail" +
 " FROM mu_com_log" +
-" LEFT JOIN mu_master ON mu_id=mu_com_id" 
- ;
+" LEFT JOIN mu_master ON mu_id=mu_com_id"  ;
             return sql;
 
         }
@@ -93,9 +114,9 @@ namespace Mocs.Models
         {
             string sql =
     "SELECT" +
- " to_char(tabmon_com_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
+ " to_char(tabmon_com_datetime, 'yyyy-MM-dd') AS date" +
  ", to_char(tabmon_com_datetime, 'HH24:MI:SS') AS time" +
- ", '" + Properties.Resources.TABLET+ "' AS type" +
+ ", CAST('" + Properties.Resources.TABLET+ "' AS text) AS type" +
  ", tablet_name_" + localeCode + " AS name" +
  ", host(tablet_ip) AS ip" +
  ", '' AS port" +
@@ -117,9 +138,9 @@ namespace Mocs.Models
         {
             string sql =
     "SELECT" +
- " to_char(tabmon_com_datetime, '" + Properties.Resources.FORMAT_DATE + "') AS date" +
+ " to_char(tabmon_com_datetime, 'yyyy-MM-dd') AS date" +
  ", to_char(tabmon_com_datetime, 'HH24:MI:SS') AS time" +
- ", '" + Properties.Resources.MONITOR + "' AS type" +
+ ", CAST('" + Properties.Resources.MONITOR + "' AS text) AS type" +
  ", mon_name_" + localeCode + " AS name" +
  ", host(mon_ip) AS ip" +
  ", '' AS port" +

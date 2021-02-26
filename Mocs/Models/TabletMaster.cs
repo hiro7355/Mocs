@@ -19,9 +19,15 @@ namespace Mocs.Models
         /// </summary>
         /// <param name="localeCode"></param>
         /// <returns></returns>
-        internal static string SelectIdAndNameSql(string localeCode)
+        internal static string SelectIdAndNameSql(string localeCode, int option = 0)
         {
-            return "SELECT tablet_id AS id, tablet_name_" + localeCode + " AS name FROM tablet_master";
+            string option_sql = "";
+            if (option != 0)
+            {
+                option_sql = "," + option + " AS option";
+            }
+
+            return "SELECT tablet_id AS id, tablet_name_" + localeCode + " AS name" + option_sql + " FROM tablet_master";
         }
 
     }

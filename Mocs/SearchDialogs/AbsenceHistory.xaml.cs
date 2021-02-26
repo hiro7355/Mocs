@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mocs.Utils;
 using Mocs.Models;
@@ -17,39 +18,40 @@ using Mocs.Models;
 namespace Mocs.SearchDialogs
 {
     /// <summary>
-    /// ComHistory.xaml の相互作用ロジック
+    /// AbsenceHistory.xaml の相互作用ロジック
     /// </summary>
-    public partial class ComHistory : BaseSearchDialog
+    public partial class AbsenceHistory : BaseSearchDialog
     {
-        public ComHistory()
+
+        public AbsenceHistory()
         {
             InitializeComponent();
             string localeCode = CommonUtil.GetAppLocaleCode();
 
             //  コンボボックスの初期化
-            InitCombo(SqlForComHistory.SelectNameSql(localeCode), this.comboEquip);
+            InitCombo(SectionMaster.SelectIdAndNameSql(localeCode), this.comboReqSect);
 
             //  検索条件を初期化
             InitCondition();
+
 
         }
 
         protected override void InitCondition()
         {
-
             //  日付は初期状態でチェックON
             this.checkStartEnd.IsChecked = true;
             //  初期有効無効表示
             SetStartEndEnabled(true);
-            SetEquipEnabled(false);
+            SetReqSectEnabled(false);
 
             //  検索範囲日付を初期化
             this.dateStart.SelectedDate = DateTime.Today;
             this.dateEnd.SelectedDate = DateTime.Today;
 
-            this.checkEquip.IsChecked = false;
-            this.radioAll.IsChecked = true;
+            this.checkReqSect.IsChecked = false;
         }
+
 
         /// <summary>
         /// キャンセル
@@ -96,35 +98,21 @@ namespace Mocs.SearchDialogs
             {
                 if (this.dateStart.SelectedDate != null)
                 {
-                    string sql = SqlForComHistory.GetStartSql((DateTime)this.dateStart.SelectedDate);
+                    string sql = SqlForAbsenceHistory.GetStartSql((DateTime)this.dateStart.SelectedDate);
                     values.Add(sql);
                 }
                 if (this.dateEnd.SelectedDate != null)
                 {
-                    string sql = SqlForComHistory.GetEndSql((DateTime)this.dateEnd.SelectedDate);
+                    string sql = SqlForAbsenceHistory.GetEndSql((DateTime)this.dateEnd.SelectedDate);
                     values.Add(sql);
                 }
             }
 
-            //  機器名称
-            if (this.checkEquip.IsChecked == true)
+            //  発部署
+            if (this.checkReqSect.IsChecked == true)
             {
-                string sql = SqlForComHistory.GetNameSql((string)this.comboEquip.SelectedValue);
+                string sql = SqlForAbsenceHistory.GetSectSql((int)this.comboReqSect.SelectedValue);
                 values.Add(sql);
-            }
-
-            //  送受信
-            if (this.radioSend.IsChecked == true)
-            {
-                string sql = SqlForComHistory.GetDirSql(1);
-                values.Add(sql);
-
-            }
-            if (this.radioReceive.IsChecked == true)
-            {
-                string sql = SqlForComHistory.GetDirSql(2);
-                values.Add(sql);
-
             }
 
 
@@ -136,12 +124,10 @@ namespace Mocs.SearchDialogs
         {
             SetStackEnabled(enabled, this.stackStartEnd);
         }
-
-        private void SetEquipEnabled(bool enabled)
+        private void SetReqSectEnabled(bool enabled)
         {
-            SetStackEnabled(enabled, this.stackEquip);
+            SetStackEnabled(enabled, this.stackReqSect);
         }
-
         private void checkStartEnd_Checked(object sender, RoutedEventArgs e)
         {
             SetStartEndEnabled(true);
@@ -154,15 +140,17 @@ namespace Mocs.SearchDialogs
 
         }
 
-        private void checkEquip_Checked(object sender, RoutedEventArgs e)
+        private void checkReqSect_Checked(object sender, RoutedEventArgs e)
         {
-            SetEquipEnabled(true);
-        }
-
-        private void checkEquip_Unchecked(object sender, RoutedEventArgs e)
-        {
-            SetEquipEnabled(false);
+            SetReqSectEnabled(true);
 
         }
+
+        private void checkReqSect_Unchecked(object sender, RoutedEventArgs e)
+        {
+            SetReqSectEnabled(false);
+
+        }
+
     }
 }

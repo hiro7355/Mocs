@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Mocs.Models;
 using Mocs.SearchDialogs;
+using Mocs.Utils;
 
 namespace Mocs.Controls
 {
@@ -41,9 +42,11 @@ namespace Mocs.Controls
             this.DoSearch();
         }
 
-        protected override void Update(string conditionSql, int unionType)
+        protected override void Update(string conditionSql, int unionType, string comboValue)
         {
-            string sql = SqlForErrorHistory.GetListSql(conditionSql, unionType);
+            string cellName = CommonUtil.GetCellName(m_db.Conn);
+
+            string sql = SqlForErrorHistory.GetListSql(conditionSql, unionType, cellName);
 
             System.Data.DataTable table = m_db.getDataTable(sql);
 

@@ -38,7 +38,12 @@ namespace Mocs.Controls
             this.DoSearch();
         }
 
-        protected override void Update(string conditionSql, int unionType)
+        /// <summary>
+        /// 一覧更新
+        /// </summary>
+        /// <param name="conditionSql"></param>
+        /// <param name="unionType"></param>
+        protected override void Update(string conditionSql, int unionType, string comboValue)
         {
             string sql = SqlForCancelHistory.GetListSql(conditionSql);
 

@@ -40,9 +40,9 @@ namespace Mocs.Controls
         }
 
 
-        protected override void Update(string conditionSql, int unionType)
+        protected override void Update(string conditionSql, int unionType, string comboValue)
         {
-            string sql = SqlForComHistory.GetListSql(conditionSql, unionType);
+            string sql = SqlForComHistory.GetListSql(conditionSql, unionType, comboValue);
 
             System.Data.DataTable table = m_db.getDataTable(sql);
 
@@ -59,6 +59,21 @@ namespace Mocs.Controls
 
             string message = (string)((Button)sender).Tag;
             MessageBox.Show(message, Properties.Resources.DETAIL);
+
+        }
+
+        /// <summary>
+        /// コンボの選択変更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void selectBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem item = (ComboBoxItem)this.selectBox.SelectedItem;
+            string value = item != null ? item.Tag.ToString() : "all";
+
+            //  Updateが呼び出される
+            this.DoSearchForCombo(value);
 
         }
 

@@ -42,7 +42,7 @@ namespace Mocs.Controls
         }
 
 
-        protected override void Update(string conditionSql, int unionType)
+        protected override void Update(string conditionSql, int unionType, string comboValue)
         {
             string sql = SqlForOrderHistory.GetListSql(conditionSql);
 

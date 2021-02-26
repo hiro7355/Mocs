@@ -5,9 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:properties="clr-namespace:Mocs.Properties" 
              xmlns:local="clr-namespace:Mocs.Controls"
+             xmlns:converter="clr-namespace:Mocs.Controls.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1260">
     <Grid>
+        <Grid.Resources>
+            <converter:DestSectConverter x:Key="destSectConverter"/>
+        </Grid.Resources>
+
         <StackPanel Background="LightGray">
             <StackPanel Orientation="Horizontal" Margin="10,0" Height="25" >
                 <TextBlock Text="{x:Static properties:Resources.CART_LIST}"  TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center"  />
@@ -27,7 +32,7 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_ENABLE}" Binding="{Binding enable}"/>
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_BELONG_SECT}" Binding="{Binding belong_sect}"/>
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_BELONG_RESTRICT}" Binding="{Binding belong_restrict}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_SECT}" Binding="{Binding dest_sect}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_SECT}" Binding="{Binding dest_sect, Converter={StaticResource  destSectConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_DEST_RESTRICT}" Binding="{Binding dest_restrict}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_FUNC}" Binding="{Binding func}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.CLH_KEY}" Binding="{Binding key}" />

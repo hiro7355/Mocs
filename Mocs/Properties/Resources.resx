@@ -983,4 +983,40 @@ Please check the communication environment with CELL.</value>
   <data name="ORDER_RESULT_STATUS_20" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="PATROL" xml:space="preserve">
+    <value>Patrol</value>
+  </data>
+  <data name="ALH_ABSENCE" xml:space="preserve">
+    <value>Absence</value>
+  </data>
+  <data name="ALH_DATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ALH_FORWARD_SECT" xml:space="preserve">
+    <value>Forward department</value>
+  </data>
+  <data name="ALH_SECT" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="ALH_TIME" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="ALV_ABSENCE_0" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ALV_ABSENCE_1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ATH_ABSENCE" xml:space="preserve">
+    <value>Absence</value>
+  </data>
+  <data name="SECT" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="ABSENCE_0" xml:space="preserve">
+    <value>Absence No</value>
+  </data>
+  <data name="ABSENCE_1" xml:space="preserve">
+    <value>Absence Yes</value>
+  </data>
 </root>

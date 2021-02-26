@@ -10,8 +10,13 @@
              d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <Grid.Resources>
-            <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
-            <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
+            <converter:OrderIdToReqSectConverter x:Key="orderIdToReqSectConverter"/>
+            <converter:OrderIdToReqStationConverter x:Key="orderIdToReqStationConverter"/>
+            <converter:OrderIdToToSectConverter x:Key="orderIdToToSectConverter"/>
+            <converter:OrderIdToToStationConverter x:Key="orderIdToToStationConverter"/>
+            <converter:OrderIdToCartConverter x:Key="orderIdToCartConverter"/>
+            <converter:OrderIdToMuConverter x:Key="orderIdToMuConverter"/>
+
         </Grid.Resources>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
@@ -27,12 +32,12 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_START_TIME}" Binding="{Binding start_time}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_RESULT_DATE}" Binding="{Binding result_date}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_RESULT_TIME}" Binding="{Binding result_time}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_REQ_SECT}" Binding="{Binding req_sect}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_REQ_STATION}" Binding="{Binding req_station}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_CART_ID}" Binding="{Binding cart_id}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_MU}" Binding="{Binding mu_id}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_REQ_SECT}" Binding="{Binding req_sect, Converter={StaticResource  orderIdToReqSectConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_REQ_STATION}" Binding="{Binding req_station, Converter={StaticResource  orderIdToReqStationConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  orderIdToToSectConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  orderIdToToStationConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_CART_ID}" Binding="{Binding cart_id, Converter={StaticResource  orderIdToCartConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_MU}" Binding="{Binding mu_id, Converter={StaticResource  orderIdToMuConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.CANCELHH_STATUS}" Binding="{Binding status}" />
 
                 </DataGrid.Columns>

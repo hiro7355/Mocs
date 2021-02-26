@@ -15,6 +15,11 @@ namespace Mocs.Controls
         protected DBAccess m_db;
 
         protected BaseSearchDialog m_search;
+
+        private string m_comboValue;
+
+
+        protected string m_condition_of_combo;  //  コンボで設定される条件
         public void Dispose()
         {
             if (m_search != null)
@@ -32,7 +37,7 @@ namespace Mocs.Controls
         public void Init(DBAccess db)
         {
             this.m_db = db;
-            this.Update(null, 0);
+            this.Update(null, 0, m_comboValue);
         }
 
 
@@ -60,9 +65,30 @@ namespace Mocs.Controls
 
 
                 //  検索結果を表示
-                this.Update(conditionSql, unionType);
+                this.Update(conditionSql, unionType, m_comboValue);
             }
 
+
+        }
+
+        /// <summary>
+        /// コンボボックスの変更により再検索するとき
+        /// 検索ダイアログは表示しないが、検索ダイアログから検索条件を取得する
+        /// </summary>
+        protected void DoSearchForCombo(string comboValue)
+        {
+            m_comboValue = comboValue;
+            if (m_search != null)
+            {
+
+                string conditionSql = m_search.GetConditionSql();
+                int unionType = m_search.GetUnionType();
+
+
+                //  検索結果を表示
+                this.Update(conditionSql, unionType, comboValue);
+
+            }
 
         }
 
@@ -72,7 +98,7 @@ namespace Mocs.Controls
         /// </summary>
         /// <param name="conditionSql">where以下のsql文</param>
         /// <param name="unionType">unionする場合、どれをunionするか。0はすべてunion</param>
-        abstract protected void Update(string conditionSql, int unionType);
+        abstract protected void Update(string conditionSql, int unionType, string comboValue);
 
     }
 }

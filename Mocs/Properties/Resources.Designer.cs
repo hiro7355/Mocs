@@ -70,6 +70,24 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Absence No に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ABSENCE_0 {
+            get {
+                return ResourceManager.GetString("ABSENCE_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Absence Yes に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ABSENCE_1 {
+            get {
+                return ResourceManager.GetString("ABSENCE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
         public static System.Drawing.Bitmap alert {
@@ -90,11 +108,83 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Absence に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALH_ABSENCE {
+            get {
+                return ResourceManager.GetString("ALH_ABSENCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Date に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALH_DATE {
+            get {
+                return ResourceManager.GetString("ALH_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Forward department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALH_FORWARD_SECT {
+            get {
+                return ResourceManager.GetString("ALH_FORWARD_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALH_SECT {
+            get {
+                return ResourceManager.GetString("ALH_SECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Time に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALH_TIME {
+            get {
+                return ResourceManager.GetString("ALH_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   All に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ALL {
             get {
                 return ResourceManager.GetString("ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   No に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALV_ABSENCE_0 {
+            get {
+                return ResourceManager.GetString("ALV_ABSENCE_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yes に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ALV_ABSENCE_1 {
+            get {
+                return ResourceManager.GetString("ALV_ABSENCE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Absence に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ATH_ABSENCE {
+            get {
+                return ResourceManager.GetString("ATH_ABSENCE", resourceCulture);
             }
         }
         
@@ -2167,6 +2257,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Patrol に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string PATROL {
+            get {
+                return ResourceManager.GetString("PATROL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Receive に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string RECEIVE {
@@ -2226,6 +2325,15 @@ namespace Mocs.Properties {
         public static string SEARCH_START_END {
             get {
                 return ResourceManager.GetString("SEARCH_START_END", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Department に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SECT {
+            get {
+                return ResourceManager.GetString("SECT", resourceCulture);
             }
         }
         

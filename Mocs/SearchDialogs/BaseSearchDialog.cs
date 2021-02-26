@@ -13,7 +13,6 @@ namespace Mocs.SearchDialogs
         private int m_result;       //  0:キャンセル、1:決定、2:全て
         protected DBAccess m_db;
 
-
         public BaseSearchDialog()
         {
             m_db = DBAccess.GetDBAccess();

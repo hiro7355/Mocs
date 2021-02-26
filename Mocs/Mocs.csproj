@@ -112,13 +112,18 @@
     <Compile Include="Controls\Converters\BaseConverter.cs" />
     <Compile Include="Controls\Converters\DateConverter.cs" />
     <Compile Include="Controls\Converters\DatetimeConverter.cs" />
+    <Compile Include="Controls\Converters\DestSectConverter.cs" />
     <Compile Include="Controls\Converters\FloorConverter.cs" />
     <Compile Include="Controls\Converters\IdsToSectionNamesConverter.cs" />
     <Compile Include="Controls\Converters\IdsToStationNamesConverter.cs" />
     <Compile Include="Controls\Converters\MuOpeModeConverter.cs" />
     <Compile Include="Controls\Converters\MuOrderStatusConverter.cs" />
-    <Compile Include="Controls\Converters\OrderToSectConverter.cs" />
-    <Compile Include="Controls\Converters\OrderToStationConverter.cs" />
+    <Compile Include="Controls\Converters\OrderIdToCartConverter.cs" />
+    <Compile Include="Controls\Converters\OrderIdToMuConverter.cs" />
+    <Compile Include="Controls\Converters\OrderIdToReqSectConverter.cs" />
+    <Compile Include="Controls\Converters\OrderIdToReqStationConverter.cs" />
+    <Compile Include="Controls\Converters\OrderIdToToSectConverter.cs" />
+    <Compile Include="Controls\Converters\OrderIdToToStationConverter.cs" />
     <Compile Include="Controls\Converters\PointConverter.cs" />
     <Compile Include="Controls\Converters\TimeConverter.cs" />
     <Compile Include="Controls\DeviceControl.xaml.cs">
@@ -170,6 +175,7 @@
     <Compile Include="MocsSystem\ResultCode.cs" />
     <Compile Include="Models\CellStatus.cs" />
     <Compile Include="Models\DBAccess.cs" />
+    <Compile Include="Models\DestMaster.cs" />
     <Compile Include="Models\ErrorInfo.cs" />
     <Compile Include="Models\FloorMaster.cs" />
     <Compile Include="Models\MessageInfo.cs" />
@@ -177,7 +183,9 @@
     <Compile Include="Models\MuErrorInfoMaster.cs" />
     <Compile Include="Models\MuMaster.cs" />
     <Compile Include="Models\MuStatus.cs" />
+    <Compile Include="Models\OrderStatusLog.cs" />
     <Compile Include="Models\SectionMaster.cs" />
+    <Compile Include="Models\SqlForAbsenceHistory.cs" />
     <Compile Include="Models\SqlForCancelHistory.cs" />
     <Compile Include="Models\SqlForCartList.cs" />
     <Compile Include="Models\SqlForComHistory.cs" />
@@ -189,6 +197,9 @@
     <Compile Include="Models\SqlForStationList.cs" />
     <Compile Include="Models\SqlForTabletList.cs" />
     <Compile Include="Models\TabletMaster.cs" />
+    <Compile Include="SearchDialogs\AbsenceHistory.xaml.cs">
+      <DependentUpon>AbsenceHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchDialogs\BaseSearchDialog.cs" />
     <Compile Include="SearchDialogs\CancelHistory.xaml.cs">
       <DependentUpon>CancelHistory.xaml</DependentUpon>
@@ -292,6 +303,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SystemStatusControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchDialogs\AbsenceHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

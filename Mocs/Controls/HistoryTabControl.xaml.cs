@@ -34,6 +34,7 @@ namespace Mocs.Controls
             errorHistory.Dispose();
             comHistory.Dispose();
             cancelHistory.Dispose();
+            absenceHistory.Dispose();
         }
 
         internal void Init(DBAccess db)
@@ -44,6 +45,7 @@ namespace Mocs.Controls
             errorHistory.Init(m_db);
             comHistory.Init(m_db);
             cancelHistory.Init(m_db);
+            absenceHistory.Init(m_db);
 
         }
     }

@@ -17,6 +17,8 @@ namespace Mocs.Utils
         private static int m_LastDBError = 0;
         private static int m_LastSocketError = 0;
         private static int m_LastSocketConnectionStatus = 0;
+
+        private static string m_cell_name = "";      //  CELL + cell_statusのcellstat_id
         public static int GetLastDBError()
         {
             return m_LastDBError;
@@ -40,6 +42,28 @@ namespace Mocs.Utils
         public static int GetLastSocketConnectionStatus()
         {
             return m_LastSocketConnectionStatus;
+        }
+
+        /// <summary>
+        /// CELL名称を取得
+        /// CELL + cell_statusのcellstat_id（３桁）
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <returns></returns>
+        public static string GetCellName(NpgsqlConnection conn)
+        {
+            if (m_cell_name == "")
+            {
+                //  cell_statusの読み込み。
+                CellStatus cellStatus = CellStatus.GetFirst(conn);
+                if (cellStatus != null)
+                {
+                    m_cell_name = "CELL" + String.Format("{0:D3}", cellStatus.cellstat_id);
+                }
+
+            }
+            return m_cell_name;
+
         }
 
         /// <summary>

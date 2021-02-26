@@ -38,9 +38,14 @@ namespace Mocs.Models
         /// </summary>
         /// <param name="localeCode"></param>
         /// <returns></returns>
-        internal static string SelectIdAndNameSql(string localeCode)
+        internal static string SelectIdAndNameSql(string localeCode, int option = 0)
         {
-            return "SELECT mu_id AS id, mu_name_" + localeCode + " AS name FROM mu_master";
+            string option_sql = "";
+            if (option != 0)
+            {
+                option_sql = "," + option + " AS option";
+            }
+            return "SELECT mu_id AS id, mu_name_" + localeCode + " AS name" + option_sql + " FROM mu_master";
         }
 
         public override void LoadProp(NpgsqlDataReader dr)

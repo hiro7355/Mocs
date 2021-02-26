@@ -29,9 +29,12 @@ namespace Mocs.Controls.Converters
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value is string)
+            {
+                string localeCode = CommonUtil.GetAppLocaleCode();
+                value = GetValue<string>(StationMaster.SelectNamesSql(localeCode, (string)value), "value");
 
-            string localeCode = CommonUtil.GetAppLocaleCode();
-            value = GetValue<string>(StationMaster.SelectNamesSql(localeCode, (string)value), "value");
+            }
 
             return value;
         }

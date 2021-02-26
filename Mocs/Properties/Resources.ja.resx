@@ -199,16 +199,16 @@
     <value>汚物</value>
   </data>
   <data name="CLV_RESTRICT_0" xml:space="preserve">
-    <value>制限なし</value>
+    <value />
   </data>
   <data name="CLV_RESTRICT_NOT_0" xml:space="preserve">
-    <value>制限あり</value>
+    <value>有</value>
   </data>
   <data name="CLV_FUNC_1" xml:space="preserve">
-    <value>標準カート</value>
+    <value>標準</value>
   </data>
   <data name="CLV_FUNC_2" xml:space="preserve">
-    <value>大型カート</value>
+    <value>大型</value>
   </data>
   <data name="COMBO_ALL" xml:space="preserve">
     <value>全て</value>
@@ -296,7 +296,7 @@
     <value>搬送状態</value>
   </data>
   <data name="MLH_NAME" xml:space="preserve">
-    <value>MU 名称</value>
+    <value>MU名称</value>
   </data>
   <data name="MLH_OPE_MODE" xml:space="preserve">
     <value>状態</value>
@@ -305,13 +305,13 @@
     <value>ポイント名</value>
   </data>
   <data name="MLH_X" xml:space="preserve">
-    <value>X 座標</value>
+    <value>X座標</value>
   </data>
   <data name="MLH_Y" xml:space="preserve">
-    <value>Y 座標</value>
+    <value>Y座標</value>
   </data>
   <data name="MSG_CELL_CHECK_MU" xml:space="preserve">
-    <value>MU の状態を確認しています。</value>
+    <value>MUの状態を確認しています。</value>
   </data>
   <data name="MSG_CELL_EARTHQUAKE" xml:space="preserve">
     <value>管制運転中(地震)です。</value>
@@ -320,13 +320,13 @@
     <value>管制運転中(火災)です。</value>
   </data>
   <data name="MSG_CELL_MU_ERROR" xml:space="preserve">
-    <value>MU で異常が発生しています。MU 一覧の表示を確認して下さい。</value>
+    <value>MUで異常が発生しています。MU一覧の表示を確認して下さい。</value>
   </data>
   <data name="MSG_CELL_MU_OFF" xml:space="preserve">
-    <value>オフライン MU があります。MU 一覧の表示を確認して下さい。</value>
+    <value>オフラインMUがあります。MU一覧の表示を確認して下さい。</value>
   </data>
   <data name="MSG_CELL_MU_OFF_ERROR" xml:space="preserve">
-    <value>オフライン MU と異常の MU がありま す。MU 一覧の表示を確認して下さ い。</value>
+    <value>オフラインMUと異常のMU がありま す。MU一覧の表示を確認して下さ い。</value>
   </data>
   <data name="MSG_CELL_MU_OK" xml:space="preserve">
     <value>MU 全てオンライン正常です。</value>
@@ -347,10 +347,10 @@
     <value>カート番号</value>
   </data>
   <data name="OLH_MU_NAME" xml:space="preserve">
-    <value>MU 名称</value>
+    <value>MU名称</value>
   </data>
   <data name="OLH_MU_STATUS" xml:space="preserve">
-    <value>MU 状態</value>
+    <value>MU状態</value>
   </data>
   <data name="OLH_REQ_SECT" xml:space="preserve">
     <value>発部署</value>
@@ -383,7 +383,7 @@
     <value>搬送種別</value>
   </data>
   <data name="TITLE_MU_LIST" xml:space="preserve">
-    <value>MU 一覧</value>
+    <value>MU一覧</value>
   </data>
   <data name="TITLE_ORDER_LIST" xml:space="preserve">
     <value>搬送情報</value>
@@ -574,16 +574,16 @@
     <value>通過ポイント</value>
   </data>
   <data name="SOCKET_ERROR" xml:space="preserve">
-    <value>Socket 通信エラー</value>
+    <value>Socket通信エラー</value>
   </data>
   <data name="START_CELL" xml:space="preserve">
     <value>CELLを起動してください。</value>
   </data>
   <data name="OHH_CART_ID" xml:space="preserve">
-    <value>カート ID</value>
+    <value>カート名</value>
   </data>
   <data name="OHH_MU" xml:space="preserve">
-    <value>MU</value>
+    <value>MU名称</value>
   </data>
   <data name="OHH_REQ_SECT" xml:space="preserve">
     <value>発部署</value>
@@ -616,10 +616,10 @@
     <value>着部署</value>
   </data>
   <data name="OHH_TO_STATION" xml:space="preserve">
-    <value>着 ST</value>
+    <value>着ST</value>
   </data>
   <data name="EHH_CART_ID" xml:space="preserve">
-    <value>カートID</value>
+    <value>カート名</value>
   </data>
   <data name="EHH_CODE" xml:space="preserve">
     <value>異常コード</value>
@@ -661,10 +661,10 @@
     <value>オートドア</value>
   </data>
   <data name="CANCELHH_CART_ID" xml:space="preserve">
-    <value>カートID</value>
+    <value>カート名</value>
   </data>
   <data name="CANCELHH_MU" xml:space="preserve">
-    <value>MU</value>
+    <value>MU名称</value>
   </data>
   <data name="CANCELHH_REQ_SECT" xml:space="preserve">
     <value>発部署</value>
@@ -697,7 +697,7 @@
     <value>着部署</value>
   </data>
   <data name="CANCELHH_TO_STATION" xml:space="preserve">
-    <value>着 ST</value>
+    <value>着ST</value>
   </data>
   <data name="CELL" xml:space="preserve">
     <value>CELL</value>
@@ -901,16 +901,16 @@
     <value>周辺機器</value>
   </data>
   <data name="CELL_SOCKET_CONNECTION_ERROR" xml:space="preserve">
-    <value>CELL との接続ができません。CELL との通信環境を確認してください。</value>
+    <value>CELLとの接続ができません。CELLとの通信環境を確認してください。</value>
   </data>
   <data name="CELL_SOCKET_CONNECTION_SUCCESS" xml:space="preserve">
     <value>CELLへの接続正常です。</value>
   </data>
   <data name="CELL_SOCKET_ERROR" xml:space="preserve">
-    <value>CELL との通信でエラーが発生しまし た。Error:CELL通信 {0}</value>
+    <value>CELLとの通信でエラーが発生しまし た。Error:CELL通信 {0}</value>
   </data>
   <data name="CELL_SOCKET_OK" xml:space="preserve">
-    <value>CELL との通信は正常です。</value>
+    <value>CELLとの通信は正常です。</value>
   </data>
   <data name="ERROR_SETTING_FILE" xml:space="preserve">
     <value>設定ファイル({0})が見つかりません</value>
@@ -962,5 +962,41 @@
   </data>
   <data name="ORDER_RESULT_STATUS_20" xml:space="preserve">
     <value>キャンセル</value>
+  </data>
+  <data name="PATROL" xml:space="preserve">
+    <value>巡回</value>
+  </data>
+  <data name="ALH_ABSENCE" xml:space="preserve">
+    <value>不在設定</value>
+  </data>
+  <data name="ALH_DATE" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="ALH_FORWARD_SECT" xml:space="preserve">
+    <value>転送部署</value>
+  </data>
+  <data name="ALH_SECT" xml:space="preserve">
+    <value>部署名</value>
+  </data>
+  <data name="ALH_TIME" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ALV_ABSENCE_0" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="ALV_ABSENCE_1" xml:space="preserve">
+    <value>有</value>
+  </data>
+  <data name="ATH_ABSENCE" xml:space="preserve">
+    <value>不在履歴</value>
+  </data>
+  <data name="SECT" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="ABSENCE_0" xml:space="preserve">
+    <value>不在なし</value>
+  </data>
+  <data name="ABSENCE_1" xml:space="preserve">
+    <value>不在有り</value>
   </data>
 </root>

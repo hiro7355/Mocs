@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Mocs.Controls.AbsenceHistoryControl"
+﻿<local:HistoryBaseControl x:Class="Mocs.Controls.AbsenceHistoryControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,27 +6,33 @@
              xmlns:properties="clr-namespace:Mocs.Properties" 
              xmlns:local="clr-namespace:Mocs.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock TextDecorations="Underline" Text="{x:Static properties:Resources.HTH_CANCEL}" />
-                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click" />
+            <StackPanel Orientation="Horizontal" Margin="10,5" Height="25">
+                <TextBlock Text="{x:Static properties:Resources.HTH_ABSENCE}" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0"  VerticalAlignment="Center" >
+                    <ComboBoxItem Tag="all" Content="{x:Static properties:Resources.ALL}"></ComboBoxItem>
+                    <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.ABSENCE_1}"></ComboBoxItem>
+                    <ComboBoxItem Tag="0" Content="{x:Static properties:Resources.ABSENCE_0}"></ComboBoxItem>
+                </ComboBox>
 
+                <Button x:Name="searchButton" Content="{x:Static properties:Resources.BT_SEARCHSETTING}" Click="searchButton_Click"  Margin="5,0" />
             </StackPanel>
 
-            <DataGrid Name="orderHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
+            <DataGrid Name="absenceHistory" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_NAME}" Binding="{Binding name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_FLOOR}" Binding="{Binding floor}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_POINT_NAME}" Binding="{Binding point_name}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_X}" Binding="{Binding point_x}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_Y}" Binding="{Binding point_y}" Width="100"/>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.MLH_CHARGE}" Binding="{Binding charge}" Width="100"/>
+
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ALH_DATE}" Binding="{Binding date}"/>
+
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ALH_TIME}" Binding="{Binding time}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ALH_SECT}" Binding="{Binding sect}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ALH_ABSENCE}" Binding="{Binding absence}"/>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ALH_FORWARD_SECT}" Binding="{Binding forward_sect}"/>
 
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
 
     </Grid>
-</UserControl>
+</local:HistoryBaseControl>
