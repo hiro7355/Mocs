@@ -49,6 +49,10 @@ namespace Mocs.Controls
         /// </summary>
         private void UpdateErrorForMu()
         {
+            m_errorInfo.ResetMuInfo();
+
+            DateTime updatedAt = DateTime.Now;
+
             string locale_code = CommonUtil.GetAppLocaleCode();
 
             MuStatus[] mu_statuses = BaseModel.GetRows<MuStatus>(m_db.Conn, "SELECT * FROM mu_status WHERE mu_stat_enable=1");
@@ -88,13 +92,10 @@ namespace Mocs.Controls
                         }
                     }
                 }
-                else
+                if (error_message != null)
                 {
-                    if (error_message != null)
-                    {
-                        //  エラーが発生している場合のみメッセージ追加
-                        do_update = true;
-                    }
+                    //  エラーが発生している場合のみメッセージ追加
+                    do_update = true;
                 }
 
 
@@ -114,8 +115,10 @@ namespace Mocs.Controls
                         this.m_mu_id_to_message_for_error[mu_id] = message;
 
 
+                        int muorder_status = mu_status.mu_stat_muorder_status;
+
                         //  異常情報ようにエラー情報設定 (正常に復帰したときはmessageはnull)
-                        m_errorInfo.UpdateMuError(mu_id, muMaster.mu_name, message);
+                        m_errorInfo.UpdateMuError(updatedAt, GetErrorBrush(muorder_status), mu_id, muMaster.mu_name, message);
                     }
 
                 }
@@ -138,6 +141,18 @@ namespace Mocs.Controls
             muList.DataContext = table;
 
             this.UpdateErrorForMu();
+        }
+
+        Brush GetErrorBrush(int muorder_status)
+        {
+            if (muorder_status == 13 || muorder_status == 20 || muorder_status == 21)
+            {
+                return Brushes.Orange;
+            } else
+            {
+                return Brushes.Red;
+            }
+        
         }
 
         void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)

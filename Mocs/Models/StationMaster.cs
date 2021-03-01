@@ -45,6 +45,10 @@ namespace Mocs.Models
         {
             return "SELECT station_name_" + localeCode + " FROM station_master WHERE station_id=" + id_field_name;
         }
+        internal static string SelectNameByPointSql(string localeCode, string id_field_name)
+        {
+            return "SELECT station_name_" + localeCode + " FROM station_master WHERE station_point_id1=" + id_field_name;
+        }
         /// <summary>
         /// 複数行の名前をカンマ区切りで取得するSQL。取得する行のidは配列で指定
         /// </summary>
@@ -56,6 +60,10 @@ namespace Mocs.Models
             return BaseModel.GetNamesSql("station_name_" + localeCode, "station_master", "station_id", ids);
         }
 
+        internal static string SelectNamesByPointSql(string localeCode, string ids)
+        {
+            return BaseModel.GetNamesSql("station_name_" + localeCode, "station_master", "station_point_id1", ids);
+        }
 
         public string station_kind1;    //  ステーション種別1   varchar
         public string station_kind2;    //   ステーション種別2 varchar

@@ -54,6 +54,11 @@ namespace Mocs.Controls
 
         private bool m_is_socket_connected;     //  コネクション確立チェック用（成功したらもう確認しないようにするため）
 
+
+        private Brush m_red;
+        private Brush m_orange;
+
+
         public int GetLastLevel()
         {
             return m_last_level;
@@ -83,6 +88,11 @@ namespace Mocs.Controls
         public SystemStatusControl()
         {
             InitializeComponent();
+
+
+            m_red = Brushes.Red;
+            m_orange = Brushes.Orange;
+
 
             m_last_level = 0;
             m_is_cell_stopped = false;
@@ -467,7 +477,7 @@ namespace Mocs.Controls
                 this.UpdateLedAndMessage(this.cell, INDEX_CELL, "White", "White", Properties.Resources.MSG_CELL_NOT_RUNNING, type);
 
                 //  異常情報用にCELLエラー情報を設定
-                m_errorInfo.UpdateCellError();
+                m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_NOT_RUNNING, Properties.Resources.START_CELL, m_orange);
 
 
             }
@@ -475,6 +485,10 @@ namespace Mocs.Controls
             {
                 //  システム停止（継続不可）しました。
                 this.UpdateLedAndMessage(this.cell, INDEX_CELL, "Red", "Red", Properties.Resources.MSG_CELL_SYSTEM_STOPPED, type);
+
+                //  異常情報用にCELLエラー情報を設定
+                m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_SYSTEM_STOPPED, Properties.Resources.START_CELL, m_red);
+
             }
             else if (status == 1)
             {
@@ -487,7 +501,7 @@ namespace Mocs.Controls
                     this.UpdateLedAndMessage(this.cell, INDEX_CELL, "Red", "Red", Properties.Resources.MSG_CELL_STOPPED, type);
 
                     //  異常情報用にCELLエラー情報を設定
-                    m_errorInfo.UpdateCellError();
+                    m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_STOPPED, Properties.Resources.START_CELL, m_red);
 
                 }
                 else
@@ -512,16 +526,26 @@ namespace Mocs.Controls
                     //  管制運転中（火災）です
                     this.UpdateLedAndMessage(this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_FIRE, type);
 
+                    //  異常情報用にCELLエラー情報を設定
+                    m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_FIRE, "", m_red);
+
                 }
                 else if (level == 3)
                 {
                     //  管制運転中（地震）です
                     this.UpdateLedAndMessage(this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_EARTHQUAKE, type);
+
+                    //  異常情報用にCELLエラー情報を設定
+                    m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_EARTHQUAKE, "", m_red);
+
                 }
                 else if (level == 4)
                 {
                     //  管制運転中（停電）です
                     this.UpdateLedAndMessage(this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_POWER_OUTAGE, type);
+
+                    //  異常情報用にCELLエラー情報を設定
+                    m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_POWER_OUTAGE, "", m_red);
                 }
                 else if (level == 10)
                 {

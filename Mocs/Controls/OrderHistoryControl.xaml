@@ -10,7 +10,7 @@
              d:DesignHeight="560" d:DesignWidth="1850">
     <Grid>
         <Grid.Resources>
-            <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
+            <converter:PointsToStationNamesConverter x:Key="pointsToStationNamesConverter"/>
             <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
         </Grid.Resources>
         <StackPanel >
@@ -31,7 +31,7 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.OHH_REQ_SECT}" Binding="{Binding req_sect}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OHH_REQ_STATION}" Binding="{Binding req_station}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OHH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  pointsToStationNamesConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OHH_CART_ID}" Binding="{Binding cart_id}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OHH_MU}" Binding="{Binding mu_id}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OHH_STATUS}" Binding="{Binding status}" />

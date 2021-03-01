@@ -84,7 +84,7 @@
                     <Controls:SystemStatusControl  x:Name="systemStatusControl" OnCellStatus="systemStatusControl_OnCellStatus" />
                     <Controls:MuListControl x:Name="muListControl"  />
                     <Controls:CartListControl x:Name="cartListControl"/>
-                    <Controls:ErrorInfoControl x:Name="errorInfoControl" />
+                    <Controls:ErrorInfoControl x:Name="errorInfoControl" OnCellStatus="errorInfoControl_OnCellStatus" />
                     <Controls:TabletListControl x:Name="tabletListControl"/>
                     <Controls:FloorListControl x:Name="floorListControl"/>
                     <Controls:StationListControl x:Name="stationListControl"/>

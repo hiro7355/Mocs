@@ -1019,4 +1019,7 @@ Please check the communication environment with CELL.</value>
   <data name="ABSENCE_1" xml:space="preserve">
     <value>Absence Yes</value>
   </data>
+  <data name="NORMAL" xml:space="preserve">
+    <value>Normal</value>
+  </data>
 </root>

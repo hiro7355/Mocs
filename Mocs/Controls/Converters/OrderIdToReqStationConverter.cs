@@ -49,7 +49,8 @@ namespace Mocs.Controls.Converters
                     //  ステーション名を取得
                     string valueFieldName = "station_name_" + localeCode;
 
-                    result_value = GetValue<string>(StationMaster.SelectNameSql(localeCode, order_status_log.order_log_from_pt.ToString()), valueFieldName);
+//                    result_value = GetValue<string>(StationMaster.SelectNameSql(localeCode, order_status_log.order_log_from_pt.ToString()), valueFieldName);
+                    result_value = GetValue<string>(StationMaster.SelectNameByPointSql(localeCode, order_status_log.order_log_from_pt.ToString()), valueFieldName);
 
                 }
 

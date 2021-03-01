@@ -47,7 +47,8 @@ namespace Mocs.Controls.Converters
 
                     string localeCode = CommonUtil.GetAppLocaleCode();
 
-                    result_value = GetValue<string>(StationMaster.SelectNamesSql(localeCode, order_status_log.order_log_stop_to_points), "value");
+//                    result_value = GetValue<string>(StationMaster.SelectNamesSql(localeCode, order_status_log.order_log_stop_to_points), "value");
+                    result_value = GetValue<string>(StationMaster.SelectNamesByPointSql(localeCode, order_status_log.order_log_stop_to_points), "value");
 
                 }
 

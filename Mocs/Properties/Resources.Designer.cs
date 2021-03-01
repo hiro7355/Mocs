@@ -1879,6 +1879,15 @@ namespace Mocs.Properties {
         }
         
         /// <summary>
+        ///   Normal に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NORMAL {
+            get {
+                return ResourceManager.GetString("NORMAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   not connected に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string NOT_CONNECTED {

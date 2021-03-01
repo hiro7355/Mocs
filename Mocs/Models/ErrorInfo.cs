@@ -5,62 +5,108 @@ using System.Text;
 using System.Threading.Tasks;
 using Mocs.Utils;
 using Mocs.Properties;
+using System.Windows.Media;
 
 namespace Mocs.Models
 {
     public class ErrorInfo
     {
-        private List<List<string>> m_cellInfo;      //  CELLエラー表示情報
-        private List<List<string>> m_commuInfo;     //  ソケット通信エラー表示情報
-        private Dictionary<int, List<List<string>>> m_muInfoByMu;//  MUごとのMUエラー表示情報
+//        private List<List<string>> m_cellInfo;      //  CELLエラー表示情報
+//        private List<List<string>> m_commuInfo;     //  ソケット通信エラー表示情報
+//        private Dictionary<int, List<List<string>>> m_muInfoByMu;//  MUごとのMUエラー表示情報
+
+        private List<ErrorInfoItem> m_cellInfos;      //  CELLエラー表示情報 （エラー発生時刻と）
+        private List<ErrorInfoItem> m_commuInfos;     //  ソケット通信エラー表示情報
+        private List<ErrorInfoItem> m_muInfos;//  MUごとのMUエラー表示情報
 
 
-        public List<List<string>> cellInfo { get { return m_cellInfo; } }
-        public List<List<string>> commuInfo { get { return m_commuInfo; } }
-        public Dictionary<int, List<List<string>>> muInfoByMu { get { return m_muInfoByMu; } }
+        public List<ErrorInfoItem> cellInfos { get { return m_cellInfos; } }
+        public List<ErrorInfoItem> commuInfos { get { return m_commuInfos; } }
+        public List<ErrorInfoItem> muInfos { get { return m_muInfos; } }
 
+        private Brush m_red;
         public ErrorInfo()
         {
             ResetCellAndCommuInfo();
             ResetMuInfo();
+
+            m_red = Brushes.Red;
+
         }
 
         public void ResetCellAndCommuInfo()
         {
-            m_cellInfo = new List<List<string>>();
-            m_commuInfo = new List<List<string>>();
+            m_cellInfos = new List<ErrorInfoItem>();
+            m_commuInfos = new List<ErrorInfoItem>();
         }
 
         public void ResetMuInfo()
         {
-            m_muInfoByMu = new Dictionary<int, List<List<string>>>();
+            m_muInfos = new List<ErrorInfoItem>();
         }
 
         /// <summary>
         /// CELLのエラーを設定
         /// CELLエラー発生時によびだされる
         /// </summary>
-        public void UpdateCellError()
+        public void UpdateCellError(DateTime dt, string message, string coping, Brush brush)
         {
-            CommonUtil.addTitleValueToList(m_cellInfo, "CELL", Resources.CELL_STOPPED);
-            CommonUtil.addTitleValueToList(m_cellInfo, Resources.DATETIME, DateTimeUtil.CurrentDateTimeString());
-            CommonUtil.addTitleValueToList(m_cellInfo, Resources.COPING, Resources.START_CELL);
+            ErrorInfoItem item = new ErrorInfoItem();
+            item.SetBrush(brush);
+            item.SetSortKey(dt);
+
+            item.AddTitleValue("CELL", message);
+            item.AddTitleValue(Resources.DATETIME, DateTimeUtil.FormatDateTimeString(dt));
+            item.AddTitleValue(Resources.COPING, coping);
+
+            m_cellInfos.Add(item);
 
         }
 
         /// <summary>
         /// socket通信エラーを設定
         /// </summary>
-        public void UpdateCommuError()
+        public void UpdateCommuError(DateTime dt)
         {
-            CommonUtil.addTitleValueToList(m_cellInfo, "CELL", Resources.SOCKET_ERROR);
-            CommonUtil.addTitleValueToList(m_cellInfo, Resources.DATETIME, DateTimeUtil.CurrentDateTimeString());
-            CommonUtil.addTitleValueToList(m_cellInfo, Resources.COPING, Resources.CHECK_CELL);
+            ErrorInfoItem item = new ErrorInfoItem();
+            item.SetBrush(m_red);
+            item.SetSortKey(dt);
+
+            string message = Resources.SOCKET_ERROR;
+            string coping = Resources.CHECK_CELL;
+
+            item.AddTitleValue("CELL", message);
+            item.AddTitleValue(Resources.DATETIME, DateTimeUtil.FormatDateTimeString(dt));
+            item.AddTitleValue(Resources.COPING, coping);
+
+            m_commuInfos.Add(item);
+
         }
 
 
-        public void UpdateMuError(int mu_id, string mu_name, string error_message)
+        public void UpdateMuError(DateTime dt, Brush brush, int mu_id, string mu_name, string error_message)
         {
+
+            ErrorInfoItem item = new ErrorInfoItem();
+            item.SetBrush(brush);
+            item.SetSortKey(dt);
+
+            string message = Resources.SOCKET_ERROR;
+            string coping = Resources.CHECK_CELL;
+
+            item.AddTitleValue(mu_name, error_message);
+            item.AddTitleValue(Resources.OCCURENCE_DATETIME, DateTimeUtil.FormatDateTimeString(dt));
+            //  TODO: 発部署
+
+            //  TODO: 棟名称-フロア
+
+            //  TODO:通過ポイント
+            string point_name = "";
+            item.AddTitleValue(Resources.PASSING_POINT, point_name);
+
+            m_muInfos.Add(item);
+
+            /*
             if (error_message == null)
             {
                 //  正常のとき
@@ -78,16 +124,21 @@ namespace Mocs.Models
 
 
                 CommonUtil.addTitleValueToList(muInfo, mu_name, error_message);
-                CommonUtil.addTitleValueToList(m_cellInfo, Resources.OCCURENCE_DATETIME, DateTimeUtil.CurrentDateTimeString());
+                CommonUtil.addTitleValueToList(muInfo, Resources.OCCURENCE_DATETIME, DateTimeUtil.CurrentDateTimeString());
                 //  TODO: 発部署
 
                 //  TODO: 棟名称-フロア
 
                 //  TODO:通過ポイント
                 string point_name = "";
-                CommonUtil.addTitleValueToList(m_cellInfo, Resources.PASSING_POINT, point_name);
+                CommonUtil.addTitleValueToList(muInfo, Resources.PASSING_POINT, point_name);
+
+
+                m_muInfoByMu.Add(mu_id, muInfo);
 
             }
+            */
+
         }
 
 

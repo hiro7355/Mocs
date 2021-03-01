@@ -26,36 +26,40 @@ namespace Mocs.Controls.Converters
         {
             string hospital_id;
             string floor_id;
-            string v = (string)value;
-            if (v.Contains("_"))
+            string v;
+            if (GetString(value, out v))
             {
 
-                string[] values = v.Split('_');
-                if (values.Length > 1)
+                if (v.Contains("_"))
                 {
-                    hospital_id = values[1];
-                    floor_id = values[2];
-                } 
-                else
-                {
-                    hospital_id = values[0];
-                    floor_id = values[1];
+
+                    string[] values = v.Split('_');
+                    if (values.Length > 1)
+                    {
+                        hospital_id = values[1];
+                        floor_id = values[2];
+                    }
+                    else
+                    {
+                        hospital_id = values[0];
+                        floor_id = values[1];
+
+                    }
+
+                    string localeCode = CommonUtil.GetAppLocaleCode();
+
+                    string valueFieldName = "hospital_name_" + localeCode;
+                    string name1 = GetValue<string>(HospitalMaster.SelectNameSql(localeCode, hospital_id), valueFieldName);
+                    valueFieldName = "floor_name_" + localeCode;
+                    string name2 = GetValue<string>(FloorMaster.SelectNameSql(localeCode, floor_id), valueFieldName);
+                    v = name1 + "," + name2;
 
                 }
+                else
+                {
 
-                string localeCode = CommonUtil.GetAppLocaleCode();
-
-                string valueFieldName = "hospital_name_" + localeCode;
-                string name1 = GetValue<string>(HospitalMaster.SelectNameSql(localeCode, hospital_id), valueFieldName);
-                valueFieldName = "floor_name_" + localeCode;
-                string name2 = GetValue<string>(FloorMaster.SelectNameSql(localeCode, floor_id), valueFieldName);
-                v = name1 + "," + name2;
-
-            }
-            else
-            {
-
-                v = "";
+                    v = "";
+                }
             }
             return v;
 

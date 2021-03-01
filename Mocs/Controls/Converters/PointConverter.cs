@@ -23,11 +23,15 @@ namespace Mocs.Controls.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string v = (string)value;
-            if (v.Contains("_"))
+            string v;
+            if (GetString(value,out v))
             {
-                string[] values = v.Split('_');
-                v = values[values.Length - 1];
+                if (v.Contains("_"))
+                {
+                    string[] values = v.Split('_');
+                    v = values[values.Length - 1];
+
+                }
 
             }
             return v;

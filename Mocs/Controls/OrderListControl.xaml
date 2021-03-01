@@ -10,7 +10,7 @@
              d:DesignHeight="350" d:DesignWidth="1920">
     <Grid>
         <Grid.Resources>
-            <converter:IdsToStationNamesConverter x:Key="idsToStationNamesConverter"/>
+            <converter:PointsToStationNamesConverter x:Key="pointsToStationNamesConverter"/>
             <converter:IdsToSectionNamesConverter x:Key="idsToSectionNamesConverter"/>
             <converter:MuOrderStatusConverter x:Key="muorderStatusConoverter"/>
             <converter:DatetimeConverter x:Key="datetimeConverter"/>
@@ -23,10 +23,12 @@
             <DockPanel Margin="5,0" Height="25">
 
                 <TextBlock Text="{x:Static properties:Resources.TITLE_ORDER_LIST}" HorizontalAlignment="Left" TextDecorations="Underline" FontWeight="Bold" VerticalAlignment="Center" />
-                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="100" Margin="20,0"  VerticalAlignment="Center" >
+                <ComboBox x:Name="selectBox" IsReadOnly="True"  SelectionChanged="selectBox_SelectionChanged" SelectedIndex="0" Width="120" Margin="20,0"  VerticalAlignment="Center" >
                     <ComboBoxItem Tag="all" Content="{x:Static properties:Resources.ALL}"></ComboBoxItem>
                     <ComboBoxItem Tag="0" Content="{x:Static properties:Resources.RESERVE}"></ComboBoxItem>
                     <ComboBoxItem Tag="1" Content="{x:Static properties:Resources.IN_ORDER}"></ComboBoxItem>
+                    <ComboBoxItem Tag="10" Content="{x:Static properties:Resources.DONE}"></ComboBoxItem>
+                    <ComboBoxItem Tag="20" Content="{x:Static properties:Resources.STOP_CANCEL}"></ComboBoxItem>
                     <ComboBoxItem Tag="100" Content="{x:Static properties:Resources.ERROR}"></ComboBoxItem>
                 </ComboBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -44,7 +46,7 @@
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_SECT}" Binding="{Binding req_sect}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_REQ_STATION}" Binding="{Binding req_station}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_SECT}" Binding="{Binding to_sect, Converter={StaticResource  idsToSectionNamesConverter}}" />
-                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  idsToStationNamesConverter}}" />
+                    <DataGridTextColumn Header="{x:Static properties:Resources.OLH_TO_STATION}" Binding="{Binding to_station, Converter={StaticResource  pointsToStationNamesConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_DATE}" Binding="{Binding start_datetime, Converter={StaticResource  dateConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_START_TIME}" Binding="{Binding start_datetime, Converter={StaticResource  timeConverter}}" />
                     <DataGridTextColumn Header="{x:Static properties:Resources.OLH_MU_NAME}" Binding="{Binding mu_name}" />

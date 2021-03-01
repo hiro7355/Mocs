@@ -24,18 +24,24 @@ namespace Mocs.Controls.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string datetime_value;
-            string v = (string)value;
-            if (v.Contains("_"))
+
+            string v;
+            if (GetString(value, out v))
             {
-                string[] values = v.Split('_');
-                datetime_value = values[0];
+                if (v.Contains("_"))
+                {
+                    string[] values = v.Split('_');
+                    datetime_value = values[0];
+
+                }
+                else
+                {
+                    datetime_value = v;
+                }
+                v = DateTimeUtil.FormatDateTimeStringFromString(datetime_value);
 
             }
-            else
-            {
-                datetime_value = v;
-            }
-            return DateTimeUtil.FormatDateTimeStringFromString(datetime_value);
+            return v;
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {

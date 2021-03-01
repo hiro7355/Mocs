@@ -15,6 +15,7 @@ namespace Mocs.Models
         public int mu_stat_errlevel;    //  MUエラーレベル  0:異常なし、<>0:エラーレベル
         public int mu_stat_errcode;     //  MUエラーコード 0:異常なし、<>0:エラーコード
         public Int16 mu_stat_ope_mode;  //  MU運転モード 0:不明 1:オフライン自動 2:オンライン自動 3:手動
+        public int mu_stat_muorder_status;
 
 
         public override void LoadProp(NpgsqlDataReader dr)
@@ -25,6 +26,8 @@ namespace Mocs.Models
             this.mu_stat_errlevel = this.getValue<int>(dr, "mu_stat_errlevel");
             this.mu_stat_errcode = this.getValue<int>(dr, "mu_stat_errcode");
             this.mu_stat_ope_mode = this.getValue<Int16>(dr, "mu_stat_ope_mode");
+            this.mu_stat_muorder_status = this.getValue<Int16>(dr, "mu_stat_muorder_status");
+
         }
     }
 }

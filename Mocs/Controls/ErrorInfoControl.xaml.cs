@@ -22,52 +22,85 @@ namespace Mocs.Controls
     /// </summary>
     public partial class ErrorInfoControl : TimerBaseControl
     {
+        // イベントを定義
+        public event EventHandler OnCellStatus;
+
+
+        private int m_errorLevel;
+
+        private Brush m_red;
+        private Brush m_black;
+        private Brush m_white;
+
         public ErrorInfoControl()
         {
             InitializeComponent();
+
+            m_red = Brushes.Red;
+            m_black = Brushes.Black;
+            m_white = Brushes.White;
+
+
+        }
+
+        private void UpdateErrorLevel(int level)
+        {
+            if (level > m_errorLevel)
+            {
+                m_errorLevel = level;
+            }
+        }
+
+        /// <summary>
+        /// エラー状態を取得
+        /// </summary>
+        /// <returns>0:エラーは発生していない。1:異常状態。2:警告状態
+        /// </returns>
+        public  int GetErrorLevel()
+        {
+            return m_errorLevel;
 
         }
 
         protected override void Update()
         {
+            m_errorLevel = 0;
+
             //  CELLエラーを更新
-            UpdateTreeViewItem(this.cellTreeViewItem, m_errorInfo.cellInfo);
+            UpdateTreeViewItems(this.cellTreeViewItem, m_errorInfo.cellInfos);
 
             //  通信エラーを更新
-            UpdateTreeViewItem(this.commuTreeViewItem, m_errorInfo.commuInfo);
+            UpdateTreeViewItems(this.commuTreeViewItem, m_errorInfo.commuInfos);
 
             //  MUエラーを更新
-            UpdateTreeViewItems(this.muTreeViewItem, m_errorInfo.muInfoByMu);
+            UpdateTreeViewItems(this.muTreeViewItem, m_errorInfo.muInfos);
+
+            //  親に通知
+            OnCellStatus(this, EventArgs.Empty);
+
         }
 
 
-        private void UpdateTreeViewItems(TreeViewItem parentItem, Dictionary<int, List<List<string>>> dict)
+        private void UpdateTreeViewItems(TreeViewItem parentItem, List<ErrorInfoItem> errorInfos)
         {
             //  いったんすべての子アイテムを削除
             RemoveAllItems(parentItem);
 
-            //  TODO: keyの順番でソート
-            foreach (List<List<string>> titleValues in dict.Values)
+            //  ソート
+            errorInfos.Sort((a, b) => a.GetSortKey().CompareTo(b.GetSortKey()));
+
+
+            foreach (ErrorInfoItem errorInfo in errorInfos)
             {
 
                 //  アイテムを追加
-                AddTreeViewItem(parentItem, titleValues);
+                AddTreeViewItem(parentItem, errorInfo);
 
             }
 
             ShowTreeViewItem(parentItem);
         }
 
-        private void UpdateTreeViewItem(TreeViewItem parentItem, List<List<string>> titleValues)
-        {
-            //  いったんすべての子アイテムを削除
-            RemoveAllItems(parentItem);
-
-            //  アイテムを追加
-            AddTreeViewItem(parentItem, titleValues);
-
-            ShowTreeViewItem(parentItem);
-        }
 
         private void ShowTreeViewItem(TreeViewItem parentItem)
         {
@@ -86,18 +119,37 @@ namespace Mocs.Controls
             }
         }
 
-        private void AddTreeViewItem(TreeViewItem parentItem, List<List<string>> titleValues)
+        private void AddTreeViewItem(TreeViewItem parentItem, ErrorInfoItem errorInfo)
         {
+            
+
+            List<List<string>> titleValues = errorInfo.GetTitleValues();
             if (titleValues.Count > 0)
             {
                 StackPanel errorInfoStack = createErrorInfoStack(titleValues);
 
                 TreeViewItem childItem = new TreeViewItem();
                 childItem.Header = errorInfoStack;
-//                childItem.Background = ColorUtil.brushFromColorName("Red");
-                childItem.Foreground = ColorUtil.brushFromColorName("Red");
+
+
+                Brush brush = errorInfo.GetBrush();
+                childItem.Background = brush;
+
+//                childItem.Foreground = m_white;
 
                 parentItem.Items.Add(childItem);
+
+                parentItem.Foreground = brush;
+
+
+                if (brush == Brushes.Orange)
+                {
+                    UpdateErrorLevel(1);
+                } 
+                else
+                {
+                    UpdateErrorLevel(2);
+                }
 
             }
 
@@ -110,6 +162,7 @@ namespace Mocs.Controls
             {
                 item.Items.RemoveAt(i-1);
             }
+            item.Foreground = m_black;
         }
 
         private StackPanel createErrorInfoStack(List<List<string>> titleValues)
@@ -125,7 +178,6 @@ namespace Mocs.Controls
                 string title = titleValue[0];
                 string value = titleValue[1];
 
-
                 ControlUtil.AddTextToStack(titleStack, title);
 
                 ControlUtil.AddTextToStack(valueStack, ":" + value);
@@ -134,6 +186,7 @@ namespace Mocs.Controls
 
             stack.Children.Add(titleStack);
             stack.Children.Add(valueStack);
+
 
             return stack;
 

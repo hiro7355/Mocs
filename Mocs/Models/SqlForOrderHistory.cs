@@ -22,7 +22,7 @@ namespace Mocs.Models
     ", to_char(order_result_datetime, '" + Properties.Resources.FORMAT_DATE + "') as result_date" +
     ", to_char(order_result_datetime, 'HH24:MI:SS') as result_time" +
     ", (" + SectionMaster.SelectNameSql(localeCode, "order_result_from_sect") + ") AS req_sect" +
-    ", (" + StationMaster.SelectNameSql(localeCode, "order_result_from_pt") + ") AS req_station" +
+    ", (" + StationMaster.SelectNameByPointSql(localeCode, "order_result_from_pt") + ") AS req_station" +
     ", CASE WHEN order_result_round_flg = 1 OR order_result_forward_list is NULL THEN order_result_stop_to_sects ELSE order_result_forward_list END AS to_sect" +
     ", order_result_stop_to_points AS to_station" +
     ", (" + CartMaster.SelectNameSql(localeCode, "order_result_cart_id") + ") AS cart_id" +

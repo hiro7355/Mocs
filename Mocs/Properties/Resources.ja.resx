@@ -999,4 +999,7 @@
   <data name="ABSENCE_1" xml:space="preserve">
     <value>不在有り</value>
   </data>
+  <data name="NORMAL" xml:space="preserve">
+    <value>通常</value>
+  </data>
 </root>

@@ -98,5 +98,25 @@ namespace Mocs.Controls.Converters
 
         }
 
+        protected bool GetString(object value, out string string_value)
+        {
+            bool bRet;
+            if (value is string)
+            {
+                string_value = (string)value;
+
+                bRet = true;
+            } 
+            else
+            {
+                string_value = "";
+                bRet = false;
+            }
+
+            return bRet;
+
+
+        }
+
     }
 }

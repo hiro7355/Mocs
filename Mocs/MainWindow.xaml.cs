@@ -40,6 +40,7 @@ namespace Mocs
         private bool bMonCtrlContinue = true;
         private Brush m_systemStatusButtonBackground;
         private Brush m_red;
+        private Brush m_orange;
         private Brush m_white;
         private Brush m_gray;
         private Brush m_green;
@@ -78,14 +79,15 @@ namespace Mocs
 
             //  ボタン背景色を保存
             m_systemStatusButtonBackground = systemStatusButton.Background;
-            m_red = Utils.ColorUtil.brushFromColorName("Red");
-            m_white = Utils.ColorUtil.brushFromColorName("White");
-            m_gray = Utils.ColorUtil.brushFromColorName("Gray");
-            m_green = Utils.ColorUtil.brushFromColorName("Green");
-            m_black = Utils.ColorUtil.brushFromColorName("Black");
-            m_yellow = Utils.ColorUtil.brushFromColorName("Yellow");
+            m_red = Brushes.Red;
+            m_orange = Brushes.Orange; ;
+            m_white = Brushes.White;
+            m_gray = Brushes.Gray;
+            m_green = Brushes.Green;
+            m_black = Brushes.Black;
+            m_yellow = Brushes.Yellow;
 
-            m_light_gray = Utils.ColorUtil.brushFromColorName("LightGray"); 
+            m_light_gray = Brushes.LightGray; 
 //            m_light_gray = Utils.ColorUtil.brushFromRgb(0xd1, 0xd1, 0xd1);
 
 
@@ -609,6 +611,18 @@ namespace Mocs
         }
 
         /// <summary>
+        /// 異常情報ボタンの背景を更新
+        /// </summary>
+        private void UpdateErrorInfoControlButton()
+        {
+
+            int errorLevel = this.errorInfoControl.GetErrorLevel();
+
+            Brush brush = errorLevel == 2 ? m_red : (errorLevel == 1 ? m_orange : m_systemStatusButtonBackground);
+            errorInfoButton.Background = brush;
+        }
+
+        /// <summary>
         /// 　運転ボタン有効：ボタン緑色・文字白
         /// 運転ボタン無効：ボタン灰色・文字黒
         /// </summary>
@@ -919,6 +933,12 @@ namespace Mocs
         private bool isSoundPlaying()
         {
             return m_wavePlayer != null ? true : false;
+        }
+
+        private void errorInfoControl_OnCellStatus(object sender, EventArgs e)
+        {
+            //  異常情報ボタンの背景を更新
+            UpdateErrorInfoControlButton();
         }
 
         /*
