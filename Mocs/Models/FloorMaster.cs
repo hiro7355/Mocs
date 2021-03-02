@@ -14,9 +14,18 @@ namespace Mocs.Models
         /// <param name="localeCode"></param>
         /// <param name="id_field_name"></param>
         /// <returns></returns>
-        internal static string SelectNameSql(string localeCode, string id_field_name)
+        internal static string SelectNameSql(string localeCode, string id_field_name, string other_name = null)
         {
-            return "SELECT floor_name_" + localeCode + " FROM floor_master WHERE floor_id=" + id_field_name;
+            if (other_name != null)
+            {
+                other_name = " AS " + other_name;
+            }
+            else
+            {
+                other_name = "";
+            }
+
+            return "SELECT floor_name_" + localeCode + other_name + " FROM floor_master WHERE floor_id=" + id_field_name;
         }
 
     }

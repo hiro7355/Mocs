@@ -27,16 +27,20 @@ namespace Mocs.Models
         private Brush m_red;
         public ErrorInfo()
         {
-            ResetCellAndCommuInfo();
+            ResetCellInfo();
+            ResetCommuInfo();
             ResetMuInfo();
 
             m_red = Brushes.Red;
 
         }
 
-        public void ResetCellAndCommuInfo()
+        public void ResetCellInfo()
         {
             m_cellInfos = new List<ErrorInfoItem>();
+        }
+        public void ResetCommuInfo()
+        {
             m_commuInfos = new List<ErrorInfoItem>();
         }
 
@@ -66,13 +70,14 @@ namespace Mocs.Models
         /// <summary>
         /// socket通信エラーを設定
         /// </summary>
-        public void UpdateCommuError(DateTime dt)
+        public void UpdateCommuError(DateTime dt, string message, int errorType)
         {
             ErrorInfoItem item = new ErrorInfoItem();
             item.SetBrush(m_red);
             item.SetSortKey(dt);
+            item.SetErrorType(errorType);
 
-            string message = Resources.SOCKET_ERROR;
+//            string message = Resources.SOCKET_ERROR;
             string coping = Resources.CHECK_CELL;
 
             item.AddTitleValue("CELL", message);
@@ -83,8 +88,30 @@ namespace Mocs.Models
 
         }
 
+        /// <summary>
+        /// タイプの一致するエラーを削除
+        /// </summary>
+        /// <param name="errorType"></param>
+        public void RemoveCommErrorByType(int errorType)
+        {
+            List<ErrorInfoItem> ar = new List<ErrorInfoItem>();
 
-        public void UpdateMuError(DateTime dt, Brush brush, int mu_id, string mu_name, string error_message)
+            foreach (ErrorInfoItem item in m_commuInfos)
+            {
+                if (item.GetErrorType() == errorType)
+                {
+                    ar.Add(item);
+                }
+            }
+
+            foreach(ErrorInfoItem item in ar)
+            {
+                m_commuInfos.Remove(item);
+            }
+        }
+
+
+        public void UpdateMuError(DateTime dt, Brush brush, int mu_id, string mu_name, string error_message, string fromSectNames, string toSectNames, string hospital_name, string floor_name, long mu_stat_pos_x, long mu_stat_pos_y, string point_name)
         {
 
             ErrorInfoItem item = new ErrorInfoItem();
@@ -96,13 +123,30 @@ namespace Mocs.Models
 
             item.AddTitleValue(mu_name, error_message);
             item.AddTitleValue(Resources.OCCURENCE_DATETIME, DateTimeUtil.FormatDateTimeString(dt));
-            //  TODO: 発部署
+            //  発部署
+            if (fromSectNames != null)
+            {
+                item.AddTitleValue(Resources.EHH_REQ_SECT, fromSectNames);
+            }
+            //  着部署
+            if (toSectNames != null)
+            {
+                item.AddTitleValue(Resources.EHH_TO_SECT, toSectNames);
+            }
 
-            //  TODO: 棟名称-フロア
+            //  棟名称-フロア
+            if (hospital_name != null && floor_name != null)
+            {
+                string title = hospital_name + "-" + floor_name;
+                string value = "X=" + mu_stat_pos_x + "," + "Y=" + mu_stat_pos_y;
+                item.AddTitleValue(title, value);
+            }
 
-            //  TODO:通過ポイント
-            string point_name = "";
-            item.AddTitleValue(Resources.PASSING_POINT, point_name);
+            //  通過ポイント
+            if (point_name != null)
+            {
+                item.AddTitleValue(Resources.PASSING_POINT, point_name);
+            }
 
             m_muInfos.Add(item);
 

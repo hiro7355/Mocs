@@ -47,12 +47,13 @@ namespace Mocs.CellMonTabNet
 		/// <summary>
 		/// メッセージ再送間隔
 		/// </summary>
-		private const int c_SendMessageRetryInterval = 5000;
+//		private const int c_SendMessageRetryInterval = 50000;
+		private  int c_SendMessageRetryInterval;
 
 		/// <summary>
 		/// メッセージ再送回数
 		/// </summary>
-		private const int c_SendMessageRetryNum = 3;
+		private const int c_SendMessageRetryNum =0;
 #endif
 
 		#endregion
@@ -232,12 +233,17 @@ namespace Mocs.CellMonTabNet
 
 		}
 
-		/// <summary>
-		/// コンストラクター
-		/// </summary>
-		/// <param name="com">監視モニタ、タブレット通信</param>
-		public CellMonTabMessageCtrl(CellMonTabCom com)
+	/// <summary>
+	/// コンストラクター
+	/// </summary>
+	/// <param name="com">監視モニタ、タブレット通信</param>
+	public CellMonTabMessageCtrl(CellMonTabCom com)
 		{
+			//  リトライ間隔を設定。設定ファイルの通信タイムアウト値を設定。リトライが0回なのでリトライ間隔がタイムアウト値になる
+			int cell_wait = Int32.Parse(Properties.Settings.Default.Cell_wait);
+			this.c_SendMessageRetryInterval = cell_wait * 1000;
+
+
 			this.comCl = com;
 
 			// メッセージ再送回数初期化

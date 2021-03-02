@@ -192,17 +192,17 @@ namespace Mocs.Controls
         /// </summary>
         private void UpdateError(CellStatus cellStatus)
         {
-
+            DateTime updatedAt = cellStatus.cellstat_stat_update_datetime;
             int mu_status = cellStatus.cellstat_mu_status;
 
             if (mu_status == 2 || mu_status == 4)
             {
                 // cellstat_mu_status = 2or4の場合はLEDのみ赤にする。
-                this.UpdateLedAndMessage(this.error, INDEX_ERROR_MU, "Red", "Red", mu_status == 2 ? Properties.Resources.MSG_ERROR_MU_STATUS_2 : Properties.Resources.MSG_ERROR_MU_STATUS_4);
+                this.UpdateLedAndMessage(updatedAt, this.error, INDEX_ERROR_MU, "Red", "Red", mu_status == 2 ? Properties.Resources.MSG_ERROR_MU_STATUS_2 : Properties.Resources.MSG_ERROR_MU_STATUS_4);
             } 
             else if (mu_status == 1 || mu_status == 3)
             {
-                this.UpdateLedAndMessage(this.error, INDEX_ERROR_MU, "Green", "White", mu_status == 1 ? Properties.Resources.MSG_ERROR_MU_STATUS_1 : Properties.Resources.MSG_ERROR_MU_STATUS_3);
+                this.UpdateLedAndMessage(updatedAt, this.error, INDEX_ERROR_MU, "Green", "White", mu_status == 1 ? Properties.Resources.MSG_ERROR_MU_STATUS_1 : Properties.Resources.MSG_ERROR_MU_STATUS_3);
 
                 this.ResetMuError();
             }
@@ -278,8 +278,10 @@ namespace Mocs.Controls
 
                     if (muMaster != null)
                     {
+                        DateTime updatedAt = MuStatus.GetDateTime(m_db.Conn, mu_status.mu_stat_id, mu_status.mu_stat_errcode);
+
                         //  メッセージを追加
-                        this.addMessage(is_success ? "White" : "Red", error_message, muMaster.mu_name);
+                        this.addMessage(updatedAt, is_success ? "White" : "Red", error_message, muMaster.mu_name);
 
                         
                         //  次回更新チェック用にメッセージを保存
@@ -298,19 +300,37 @@ namespace Mocs.Controls
         /// </summary>
         private void UpdateNetwork()
         {
+            //  エラー情報の通信情報をリセット
+            m_errorInfo.ResetCommuInfo();
+
+            int errorTypeDB = 1;
+            int errorTypeSocket = 2;
+
+
+
+            DateTime updatedAt = DateTime.Now;
+            string errorMessage = null;
             //  DBアクセス
             int lastError = CommonUtil.GetLastDBError();
             if (lastError != 0)
             {
+                errorMessage = Properties.Resources.DB_ACCESS_ERROR + " " + CommonUtil.DBErrorCodeFormat(lastError);
                 //  エラー内容に変化があるときのみメッセージを表示。LEDは常に表示
-                this.UpdateLedAndMessage(this.network, INDEX_DB, "Red", "Red", Properties.Resources.DB_ACCESS_ERROR + " " + CommonUtil.DBErrorCodeFormat(lastError));
+                this.UpdateLedAndMessage(updatedAt, this.network, INDEX_DB, "Red", "Red", errorMessage);
+
+                m_errorInfo.UpdateCommuError(updatedAt, errorMessage, errorTypeDB);
+
+
             }
             else
             {
                 //  変化があるとき（初期状態とエラーから復帰したとき）のみメッセージを表示。LEDは常に表示
-                this.UpdateLedAndMessage(this.network , INDEX_DB, "Green", "White", Properties.Resources.DB_ACCESS_OK);
+                this.UpdateLedAndMessage(updatedAt, this.network , INDEX_DB, "Green", "White", Properties.Resources.DB_ACCESS_OK);
+
             }
 
+
+            /*
 
             //  Socket通信コネクション接続
             if (!m_is_socket_connected)
@@ -326,28 +346,39 @@ namespace Mocs.Controls
                     new AsyncCallback(ConnectCallback), s);
 
             }
+            */
 
 
             //  SOCKET通信データ通信
             lastError = CommonUtil.GetLastSocketError();
             if (lastError != 0)
             {
-                this.UpdateLedAndMessage(this.network, INDEX_SOCKET_DATA, "Red", "Red",String.Format(Properties.Resources.CELL_SOCKET_ERROR, lastError));
+                errorMessage = String.Format(Properties.Resources.CELL_SOCKET_ERROR, lastError);
+                this.UpdateLedAndMessage(updatedAt, this.network, INDEX_SOCKET_DATA, "Red", "Red", errorMessage);
                 m_is_socket_error = true;
+
+                m_errorInfo.UpdateCommuError(updatedAt, errorMessage, errorTypeSocket);
+
+
             }
             else
             {
                 if (m_is_socket_error)
                 {
                     //  エラーから復帰したとき
-                    this.UpdateLedAndMessage(this.network, INDEX_SOCKET_DATA, "Green", "White", Properties.Resources.CELL_SOCKET_OK);
+
+                    this.UpdateLedAndMessage(updatedAt, this.network, INDEX_SOCKET_DATA, "Green", "White", Properties.Resources.CELL_SOCKET_OK);
                     m_is_socket_error = false;
+
 
                 }
             }
 
+
+
         }
 
+        /*
         public void ConnectCallback(IAsyncResult ar)
         {
 //            Console.WriteLine("ConnectCallback" + " ThreadID:" + Thread.CurrentThread.ManagedThreadId);
@@ -398,25 +429,8 @@ namespace Mocs.Controls
             }
         }
 
+        */
 
-
-
-
-        /// <summary>
-        /// TCPソケット接続完了イベント
-        /// </summary>
-        /// <param name="e"></param>
-        void tcpClient_OnConnected(EventArgs e)
-        {
-        }
-        /// <summary>
-        /// TCPソケット接続断イベント
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void tcpClient_OnDisconnected(object sender, EventArgs e)
-        {
-        }
 
 
         /// <summary>
@@ -426,8 +440,9 @@ namespace Mocs.Controls
         {
 
 
-            m_errorInfo.ResetCellAndCommuInfo();
+            m_errorInfo.ResetCellInfo();
 
+            DateTime updatedAt = cellStatus.cellstat_stat_update_datetime;
             int status = cellStatus.cellstat_status;
             int level = cellStatus.cellstat_level;
             m_last_level = level;
@@ -443,27 +458,27 @@ namespace Mocs.Controls
             if (mu_status == 0)
             {
                 //  MUの状態を確認しています。
-                this.UpdateLedAndMessage(this.cell, INDEX_MU,  null, "White", Properties.Resources.MSG_CELL_CHECK_MU);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_MU,  null, "White", Properties.Resources.MSG_CELL_CHECK_MU);
             }
             else if (mu_status == 1)
             {
                 //  オフラインMUがあります。
-                this.UpdateLedAndMessage(this.cell, INDEX_MU, null, "White", Properties.Resources.MSG_CELL_MU_OFF);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_MU, null, "White", Properties.Resources.MSG_CELL_MU_OFF);
             }
             else if (mu_status == 2)
             {
                 //  オフラインMUと異常のMUがあります。
-                this.UpdateLedAndMessage(this.cell, INDEX_MU, "Red", "Red", Properties.Resources.MSG_CELL_MU_OFF_ERROR);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_MU, "Red", "Red", Properties.Resources.MSG_CELL_MU_OFF_ERROR);
             }
             else if (mu_status == 3)
             {
                 //  MU全てオンライン正常です
-                this.UpdateLedAndMessage(this.cell, INDEX_MU, null, "White", Properties.Resources.MSG_CELL_MU_OK);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_MU, null, "White", Properties.Resources.MSG_CELL_MU_OK);
             }
             else if (mu_status == 4)
             {
                 //  MUで異常が発生しています。
-                this.UpdateLedAndMessage(this.cell, INDEX_MU, "Red", "Red", Properties.Resources.MSG_CELL_MU_ERROR);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_MU, "Red", "Red", Properties.Resources.MSG_CELL_MU_ERROR);
             }
 
 
@@ -474,7 +489,7 @@ namespace Mocs.Controls
                 m_is_cell_stopped = true;
 
                 //  CELLが起動していません
-                this.UpdateLedAndMessage(this.cell, INDEX_CELL, "White", "White", Properties.Resources.MSG_CELL_NOT_RUNNING, type);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_CELL, "White", "White", Properties.Resources.MSG_CELL_NOT_RUNNING, type);
 
                 //  異常情報用にCELLエラー情報を設定
                 m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_NOT_RUNNING, Properties.Resources.START_CELL, m_orange);
@@ -484,7 +499,7 @@ namespace Mocs.Controls
             else if (status == 9)
             {
                 //  システム停止（継続不可）しました。
-                this.UpdateLedAndMessage(this.cell, INDEX_CELL, "Red", "Red", Properties.Resources.MSG_CELL_SYSTEM_STOPPED, type);
+                this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_CELL, "Red", "Red", Properties.Resources.MSG_CELL_SYSTEM_STOPPED, type);
 
                 //  異常情報用にCELLエラー情報を設定
                 m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_SYSTEM_STOPPED, Properties.Resources.START_CELL, m_red);
@@ -498,7 +513,7 @@ namespace Mocs.Controls
                     //  CELLの動作が停止しています
                     m_is_cell_stopped = true;
 
-                    this.UpdateLedAndMessage(this.cell, INDEX_CELL, "Red", "Red", Properties.Resources.MSG_CELL_STOPPED, type);
+                    this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_CELL, "Red", "Red", Properties.Resources.MSG_CELL_STOPPED, type);
 
                     //  異常情報用にCELLエラー情報を設定
                     m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_STOPPED, Properties.Resources.START_CELL, m_red);
@@ -517,14 +532,14 @@ namespace Mocs.Controls
                     {
                         //  時間に変化がある　－＞　通常運転中です
 
-                        this.UpdateLedAndMessage(this.cell, INDEX_CELL, "Green", "White", Properties.Resources.MSG_CELL_RUNNING, type);
+                        this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_CELL, "Green", "White", Properties.Resources.MSG_CELL_RUNNING, type);
 
                     }
                 }
                 else if (level == 2)
                 {
                     //  管制運転中（火災）です
-                    this.UpdateLedAndMessage(this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_FIRE, type);
+                    this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_FIRE, type);
 
                     //  異常情報用にCELLエラー情報を設定
                     m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_FIRE, "", m_red);
@@ -533,7 +548,7 @@ namespace Mocs.Controls
                 else if (level == 3)
                 {
                     //  管制運転中（地震）です
-                    this.UpdateLedAndMessage(this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_EARTHQUAKE, type);
+                    this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_EARTHQUAKE, type);
 
                     //  異常情報用にCELLエラー情報を設定
                     m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_EARTHQUAKE, "", m_red);
@@ -542,7 +557,7 @@ namespace Mocs.Controls
                 else if (level == 4)
                 {
                     //  管制運転中（停電）です
-                    this.UpdateLedAndMessage(this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_POWER_OUTAGE, type);
+                    this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_ERROR, "Red", "Red", Properties.Resources.MSG_CELL_POWER_OUTAGE, type);
 
                     //  異常情報用にCELLエラー情報を設定
                     m_errorInfo.UpdateCellError(update_time, Properties.Resources.MSG_CELL_POWER_OUTAGE, "", m_red);
@@ -552,7 +567,7 @@ namespace Mocs.Controls
                     if (m_last_update_time != update_time)
                     {
                         //  CELLが正常に停止しています
-                        this.UpdateLedAndMessage(this.cell, INDEX_CELL, "Yellow", "White", Properties.Resources.MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY, type);
+                        this.UpdateLedAndMessage(updatedAt, this.cell, INDEX_CELL, "Yellow", "White", Properties.Resources.MSG_CELL_SYSTEM_STOPPED_SUCCESSFULLY, type);
                     }
                 }
 
@@ -573,12 +588,12 @@ namespace Mocs.Controls
         /// <param name="ledColorName">LED色</param>
         /// <param name="bgColorName">文字背景色</param>
         /// <param name="message">メッセージ</param>
-        private void UpdateLedAndMessage(LedControl led, int messageIndex, String ledColorName, String bgColorName, String message, String type = null)
+        private void UpdateLedAndMessage(DateTime dt, LedControl led, int messageIndex, String ledColorName, String bgColorName, String message, String type = null)
         {
 
             if (message != null && led.GetLastMessage(messageIndex) != message)
             {
-                addMessage(bgColorName, message, type);
+                addMessage(dt, bgColorName, message, type);
 
                 led.SetLastMessage(messageIndex, message);
             }
@@ -589,7 +604,7 @@ namespace Mocs.Controls
         }
 
 
-        private void addMessage(String bgColorName, String message, String type)
+        private void addMessage(DateTime dt, String bgColorName, String message, String type)
         {
             if (bgColorName == "White")
             {
@@ -597,7 +612,7 @@ namespace Mocs.Controls
             }
              
 //            m_messageList.Insert(0, new MessageInfo(ColorUtil.brushFromColorName(bgColorName), CommonUtil.MessageFormat(message, type)));
-            m_messageList.Insert(0, new MessageInfo(ColorUtil.brushFromColorName(bgColorName), message, type));
+            m_messageList.Insert(0, new MessageInfo(dt, ColorUtil.brushFromColorName(bgColorName), message, type));
         }
 
 

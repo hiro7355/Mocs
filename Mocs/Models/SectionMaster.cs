@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mocs.Utils;
+using Npgsql;
 
 namespace Mocs.Models
 {
@@ -40,5 +42,36 @@ namespace Mocs.Models
         {
             return BaseModel.GetNamesSql("section_name_" + localeCode, "section_master", "section_id", ids);
         }
+
+
+
+        public static string GetSectionNames(NpgsqlConnection conn, string ids)
+        {
+            string localeCode = CommonUtil.GetAppLocaleCode();
+
+            string result_value;
+            if (ids.Contains(":"))
+            {
+                string valueFieldName = "section_name_" + localeCode;
+                //  不在転送リストから部署名を取得
+                string[] values = ids.Split(':');
+                string name1 = BaseModel.GetFirstValue<string>(conn, SectionMaster.SelectNameSql(localeCode, values[0]), valueFieldName);
+                string name2 = BaseModel.GetFirstValue<string>(conn, SectionMaster.SelectNameSql(localeCode, values[1]), valueFieldName);
+                result_value = name1;
+                if (name2 != null)
+                {
+                    result_value += "(" + name2 + ")";
+                }
+
+            }
+            else
+            {
+                //  立ち寄り部署ID一覧から部署名をカンマ区切りで取得
+                result_value = BaseModel.GetFirstValue<string>(conn, SectionMaster.SelectNamesSql(localeCode, ids), "value");
+            }
+            return result_value;
+
+        }
+
     }
 }

@@ -67,12 +67,14 @@ namespace Mocs
             m_monitor.CellIpAddress = sys_main_tbl.cell_ip.Item1.ToString();
             m_monitor.CellPortNo = (ushort)sys_main_tbl.tab_port;
 
+            
             m_monitor.Id = 1;
             m_monitor.Name = "monitor";
+            //  monitoripaddressはcellとの通信には必要のない値だが、なにか設定しておかないとエラーになってしまうので設定する。
             m_monitor.MonitorIpAddress = "127.0.0.1";
+            //  CELLからのメッセージ受信用のモニターのポート番号を設定
             m_monitor.MonitorPortNo = (ushort)sys_main_tbl.tab_term_port;
-
-
+            //
 
 
             InitializeComponent();
@@ -88,9 +90,6 @@ namespace Mocs
             m_yellow = Brushes.Yellow;
 
             m_light_gray = Brushes.LightGray; 
-//            m_light_gray = Utils.ColorUtil.brushFromRgb(0xd1, 0xd1, 0xd1);
-
-
 
 
             //  CELL運転などを行うスレッド開始

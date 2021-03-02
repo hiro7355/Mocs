@@ -12,6 +12,7 @@ namespace Mocs.Models
         DateTime m_sort_key;
         List<List<string>> m_title_value_list;
         Brush m_brush;
+        int m_errorType;        //  通信エラー用。1:DBアクセスエラー。2:ソケットエラー
 
         public ErrorInfoItem()
         {
@@ -53,6 +54,15 @@ namespace Mocs.Models
         public Brush GetBrush()
         {
             return m_brush;
+        }
+
+        public int GetErrorType()
+        {
+            return m_errorType;
+        }
+        public void SetErrorType(int type)
+        {
+            m_errorType = type;
         }
     }
 }

@@ -87,7 +87,7 @@ namespace Mocs.Controls
             RemoveAllItems(parentItem);
 
             //  ソート
-            errorInfos.Sort((a, b) => a.GetSortKey().CompareTo(b.GetSortKey()));
+            errorInfos.Sort((a, b) => b.GetSortKey().CompareTo(a.GetSortKey()));
 
 
             foreach (ErrorInfoItem errorInfo in errorInfos)

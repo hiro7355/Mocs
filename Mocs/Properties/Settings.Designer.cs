@@ -125,9 +125,9 @@ namespace Mocs.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public string Cell_Interval {
+        public string Cell_interval {
             get {
-                return ((string)(this["Cell_Interval"]));
+                return ((string)(this["Cell_interval"]));
             }
         }
         
@@ -199,30 +199,6 @@ namespace Mocs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30000")]
-        public int SimProcMonTabComPortNoBase {
-            get {
-                return ((int)(this["SimProcMonTabComPortNoBase"]));
-            }
-            set {
-                this["SimProcMonTabComPortNoBase"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool UseSimProcCom {
-            get {
-                return ((bool)(this["UseSimProcCom"]));
-            }
-            set {
-                this["UseSimProcCom"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(".\\buzzer.wav")]
         public string rmelody_file {
             get {
@@ -266,6 +242,18 @@ namespace Mocs.Properties {
             }
             set {
                 this["help"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public string Cell_wait {
+            get {
+                return ((string)(this["Cell_wait"]));
+            }
+            set {
+                this["Cell_wait"] = value;
             }
         }
     }

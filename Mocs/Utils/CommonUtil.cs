@@ -168,7 +168,7 @@ namespace Mocs.Utils
         /// <param name="message"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static string MessageFormat(string message, string type = null)
+        public static string MessageFormat(DateTime dt, string message, string type = null)
         {
             if (type != null)
             {
@@ -178,13 +178,13 @@ namespace Mocs.Utils
             {
                 type = " ";
             }
-            return DateTimeUtil.CurrentDateTimeString() + type + message;
+            return DateTimeUtil.FormatDateTimeString(dt) + type + message;
         }
 
 
         public static string DBErrorCodeFormat(int error)
         {
-            return "Error:DB " + error.ToString();
+            return "Error:" + error.ToString();
         }
 
 

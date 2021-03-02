@@ -44,9 +44,17 @@ namespace Mocs.Models
         /// <param name="localeCode"></param>
         /// <param name="section_id_field_name"></param>
         /// <returns></returns>
-        internal static string SelectNameSql(string localeCode, string id_field_name)
+        internal static string SelectNameSql(string localeCode, string id_field_name, string other_name = null)
         {
-            return "SELECT hospital_name_" + localeCode + " FROM hospital_master WHERE hospital_id=" + id_field_name;
+            if (other_name != null)
+            {
+                other_name = " AS " + other_name;
+            } 
+            else
+            {
+                other_name = "";
+            }
+            return "SELECT hospital_name_" + localeCode + other_name + " FROM hospital_master WHERE hospital_id=" + id_field_name;
         }
 
         public Int16 hospital_id;   //  病棟ID    smallint

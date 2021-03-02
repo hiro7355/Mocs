@@ -185,7 +185,9 @@
     <Compile Include="Models\MuErrorInfoMaster.cs" />
     <Compile Include="Models\MuMaster.cs" />
     <Compile Include="Models\MuStatus.cs" />
+    <Compile Include="Models\OrderReserve.cs" />
     <Compile Include="Models\OrderStatusLog.cs" />
+    <Compile Include="Models\PointMaster.cs" />
     <Compile Include="Models\SectionMaster.cs" />
     <Compile Include="Models\SqlForAbsenceHistory.cs" />
     <Compile Include="Models\SqlForCancelHistory.cs" />

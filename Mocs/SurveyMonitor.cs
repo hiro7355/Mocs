@@ -374,6 +374,7 @@ namespace Mocs
 					int sendPortNo = 0;
 					int recvPortNo = 0;
 
+					/*
 					if (Properties.Settings.Default.UseSimProcCom == true)
 					{
 						string[] ipElements1 = this._MonitorIpAddress.Split('.');
@@ -385,6 +386,9 @@ namespace Mocs
 						sendPortNo = 0;
 						recvPortNo = this._MonitorPortNo;
 					}
+					*/
+					sendPortNo = this._CellPortNo;
+					recvPortNo = this._MonitorPortNo;
 
 					CellMonTabCom com = new CellMonTabCom(sendPortNo, recvPortNo);
 					if (true == com.Connect(this._CellIpAddress, (int)this._CellPortNo))

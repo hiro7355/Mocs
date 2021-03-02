@@ -51,7 +51,6 @@ namespace Mocs.Controls
         {
             m_errorInfo.ResetMuInfo();
 
-            DateTime updatedAt = DateTime.Now;
 
             string locale_code = CommonUtil.GetAppLocaleCode();
 
@@ -105,8 +104,29 @@ namespace Mocs.Controls
 
                     if (muMaster != null)
                     {
+                        //  エラー発生日時を取得
+                        DateTime updatedAt = MuStatus.GetDateTime(m_db.Conn, mu_status.mu_stat_id, mu_status.mu_stat_errcode);
+
+                        //  発部署、着部署
+                        // ①の mu_statusテーブルの同一レコードにあるmu_stat_order_id（搬送オーダID)がNULLの場合（搬送していない）は、発部署、着部署はブランク表示します。
+                        //  mu_stat_order_id<> NULLの場合は、このmu_stat_order_idの一致する搬送オーダテーブル（order_reserve)から該当するレコード情報から発部署、着部署（巡回、不在転送含む表示）を表示する。
+                        (string fromSectNames, string toSectNames)  = OrderReserve.GetSectNames(m_db.Conn, mu_status.mu_stat_order_id);
+
+                        string other_name = "value";
+                        //  棟名称
+                        string hospital_name = BaseModel.GetFirstValue<string>(m_db.Conn, HospitalMaster.SelectNameSql(locale_code, mu_status.mu_stat_hospital_id.ToString(), other_name));
+
+                        //  フロア名称
+                        string floor_name = BaseModel.GetFirstValue<string>(m_db.Conn, FloorMaster.SelectNameSql(locale_code, mu_status.mu_stat_floor_id.ToString(), other_name));
+
+
+                        //  ポイント名称
+                        string point_name = BaseModel.GetFirstValue<string>(m_db.Conn, PointMaster.SelectNameSql(locale_code, mu_status.mu_stat_point_last.ToString(), other_name));
+
+
+
                         //  メッセージを追加
-                        this.addMessage(is_success ? "Black" : "Red", error_message, muMaster.mu_name);
+                        this.addMessage(updatedAt, is_success ? "Black" : "Red", error_message, muMaster.mu_name);
 
 
                         string message = is_success ? null : error_message;
@@ -118,7 +138,7 @@ namespace Mocs.Controls
                         int muorder_status = mu_status.mu_stat_muorder_status;
 
                         //  異常情報ようにエラー情報設定 (正常に復帰したときはmessageはnull)
-                        m_errorInfo.UpdateMuError(updatedAt, GetErrorBrush(muorder_status), mu_id, muMaster.mu_name, message);
+                        m_errorInfo.UpdateMuError(updatedAt, GetErrorBrush(muorder_status), mu_id, muMaster.mu_name, message, fromSectNames, toSectNames, hospital_name, floor_name, mu_status.mu_stat_pos_x, mu_status.mu_stat_pos_y, point_name);
                     }
 
                 }
@@ -126,9 +146,9 @@ namespace Mocs.Controls
             }
 
         }
-        private void addMessage(String bgColorName, String message, String type)
+        private void addMessage(DateTime dt, String bgColorName, String message, String type)
         {
-            m_messageList.Insert(0, new MessageInfo(ColorUtil.brushFromColorName(bgColorName), message, type));
+            m_messageList.Insert(0, new MessageInfo(dt, ColorUtil.brushFromColorName(bgColorName), message, type));
         }
 
 

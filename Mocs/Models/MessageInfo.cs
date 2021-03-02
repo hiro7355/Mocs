@@ -16,14 +16,14 @@ namespace Mocs.Models
         private string m_raw_message;
         private string m_type;
 
-        public MessageInfo(Brush brush, string raw_message, string type)
+        public MessageInfo(DateTime dt, Brush brush, string raw_message, string type)
         {
             this.brush = brush;
             m_raw_message = raw_message;
             m_type = type;
 
 
-            this.message = CommonUtil.MessageFormat(raw_message, type);
+            this.message = CommonUtil.MessageFormat(dt, raw_message, type);
         }
 
 

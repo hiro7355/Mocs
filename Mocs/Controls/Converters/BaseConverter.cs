@@ -49,29 +49,7 @@ namespace Mocs.Controls.Converters
         /// <returns></returns>
         protected string GetSectionNames(string ids)
         {
-            string localeCode = CommonUtil.GetAppLocaleCode();
-
-            string result_value;
-            if (ids.Contains(":"))
-            {
-                string valueFieldName = "section_name_" + localeCode;
-                //  不在転送リストから部署名を取得
-                string[] values = ids.Split(':');
-                string name1 = GetValue<string>(SectionMaster.SelectNameSql(localeCode, values[0]), valueFieldName);
-                string name2 = GetValue<string>(SectionMaster.SelectNameSql(localeCode, values[1]), valueFieldName);
-                result_value = name1;
-                if (name2 != null)
-                {
-                    result_value += "(" + name2 + ")";
-                }
-
-            }
-            else
-            {
-                //  立ち寄り部署ID一覧から部署名をカンマ区切りで取得
-                result_value = GetValue<string>(SectionMaster.SelectNamesSql(localeCode, ids), "value");
-            }
-            return result_value;
+            return SectionMaster.GetSectionNames(GetDBAccess().Conn, ids);
 
         }
 

@@ -19,7 +19,7 @@ namespace Mocs.Models
                 " mu_name_" + localeCode + " AS name" +
                 ",concat_ws(',', mu_stat_com, mu_stat_ope_mode) AS ope_mode" +
                 ", CASE WHEN (mu_stat_com = 0 OR mu_stat_ope_mode = 0) THEN '' ELSE hospital_name_" + localeCode + " || ',' || floor_name_" + localeCode + " END AS floor" +
-                ", CASE WHEN (mu_stat_com = 0 OR mu_stat_ope_mode = 0) THEN '' ELSE point_name END AS point_name" +
+                ", CASE WHEN (mu_stat_com = 0 OR mu_stat_ope_mode = 0) THEN '' ELSE point_name_" + localeCode + " END AS point_name" +
                 ", CASE WHEN (mu_stat_com = 0 OR mu_stat_ope_mode = 0) THEN '' ELSE CAST(mu_stat_pos_x AS text) END AS point_x" +
                 ", CASE WHEN (mu_stat_com = 0 OR mu_stat_ope_mode = 0) THEN '' ELSE  CAST(mu_stat_pos_y AS text) END AS point_y" +
                 ",  CASE WHEN (mu_stat_com = 0 OR mu_stat_ope_mode = 0) THEN '' ELSE  mu_stat_battery_cap || '%' END AS charge" +
