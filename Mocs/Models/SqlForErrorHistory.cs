@@ -86,7 +86,6 @@ namespace Mocs.Models
         /// <returns></returns>
         private static string GetMuErrorSql(string localeCode)
         {
-      //      string order_sql = "(SELECT {0} FROM order_status_log WHERE order_log_id=mu_log_order_id LIMIT 1)";
             string sql =
     "SELECT" +
  " to_char(mu_log_datetime, 'yyyy-MM-dd') AS date" +

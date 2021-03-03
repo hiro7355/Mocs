@@ -78,6 +78,8 @@ namespace Mocs.Controls
 
                 //  タイマーを再設定
                 StopTimer();
+
+
                 //  ２回目からは設定ファイルにしたがって一定間隔で処理する
                 SetupTimer(Int32.Parse(Properties.Settings.Default.Cell_interval));
 

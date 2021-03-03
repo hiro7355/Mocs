@@ -30,7 +30,7 @@ namespace Mocs
 
         SoundPlayer m_wavePlayer;
 
-        MessageInfo m_lastMessageInfo;
+        string m_lastErrorMessage;
 
         SurveyMonitor m_monitor = new SurveyMonitor();
 
@@ -48,6 +48,10 @@ namespace Mocs
         private Brush m_yellow;
         private Brush m_light_gray;
 
+        private static Button g_currentButtonForCell;        //  ソケット通信処理中アクションに対応するボタン
+
+        private static MainWindow g_this;
+
 
         /// <summary>
         /// converterからDBへアクセスできるようにするため
@@ -60,6 +64,8 @@ namespace Mocs
 
         public MainWindow(DBAccess db)
         {
+            g_this = this;
+
             m_db = db;
 
             SysMainTbl sys_main_tbl = m_db.sys_main_tbl;
@@ -76,6 +82,8 @@ namespace Mocs
             m_monitor.MonitorPortNo = (ushort)sys_main_tbl.tab_term_port;
             //
 
+            //  CELLとの通信完了のコールバック設定
+            Utils.CommonUtil.SetCallbackCellRequestDone(CellRequestDone);
 
             InitializeComponent();
 
@@ -100,7 +108,7 @@ namespace Mocs
             InitSystemButton();
 
             //  最後のメッセージ情報を取得（ここではnullがかえる）
-            m_lastMessageInfo = this.systemStatusControl.GetLastMessageInfo();;
+            m_lastErrorMessage = this.systemStatusControl.GetLastErrorMessage();
 
 
         }
@@ -340,6 +348,7 @@ namespace Mocs
             */
         }
 
+
         /// <summary>
         /// 運転ボタンクリック
         /// </summary>
@@ -349,17 +358,8 @@ namespace Mocs
         {
             if (IsRunButtonEnabled())
             {
-
                 //  CELLの起動リクエスト
-                if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Start))
-                {
-                   MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
-                } 
-                else
-                {
-                    //  起動ボタンの背景を灰色にする
-                    UpdateButtonColor(runButton, null, m_gray);
-                }
+                RequestCell(CellOperationType.eType.Start, runButton);
             }
 
         }
@@ -376,16 +376,8 @@ namespace Mocs
                 //  停止ボタンが有効のとき
 
                 //  CELLの停止リクエスト
-                if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Stop))
-                {
-                    //                MessageBox.Show(Properties.Resources.ERROR_STOP);
-                    MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
-                } 
-                else
-                {
-                    //  起動ボタンの背景を灰色にする
-                    UpdateButtonColor(stopButton, null, m_gray);
-                }
+                RequestCell(CellOperationType.eType.Stop, stopButton);
+
             }
 
         }
@@ -413,7 +405,12 @@ namespace Mocs
             if (IsEarthquakeButtonEnabled())
             {
                 //  ボタンが有効なとき復帰処理
-                doRecover();
+                if (RequestCell(CellOperationType.eType.Recovery, this.earthquakeButton) )
+                {
+                    //  ボタンを無効にする
+                    this.SetEarthquakeButtonEnabled(false);
+                }
+
             }
         }
 
@@ -427,7 +424,11 @@ namespace Mocs
             if (IsFireButtonEnabled())
             {
                 //  ボタンが有効なとき復帰処理
-                doRecover();
+                if (RequestCell(CellOperationType.eType.Recovery, this.fireButton))
+                {
+                    //  ボタンを無効にする
+                    this.SetFireButtonEnabled(false);
+                }
             }
 
         }
@@ -442,18 +443,13 @@ namespace Mocs
             if (IsPowerButtonEnabled())
             {
                 //  ボタンが有効なとき復帰処理
-                doRecover();
-            }
-        }
+                if (RequestCell(CellOperationType.eType.Recovery, this.powerButton))
+                {
+                    //  ボタンを無効にする
+                    this.SetPowerButtonEnabled(false);
+                }
 
-        private void doRecover()
-        {
-            if (true != this.m_monitor.ReqOperation(CellOperationType.eType.Recovery))
-            {
-//                MessageBox.Show(Properties.Resources.ERROR_RECOVER);
-                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
             }
-
         }
 
 
@@ -547,13 +543,12 @@ namespace Mocs
                     //  異常発生しているとき
 
                     //  エラー情報を取得
-                    MessageInfo messageInfo = this.systemStatusControl.GetLastMessageInfo(); ;
+                    string lastMessage = this.systemStatusControl.GetLastErrorMessage();
 
 
-                    if (messageInfo != null && !messageInfo.isSame(m_lastMessageInfo))
+                    if (lastMessage != null && lastMessage != m_lastErrorMessage)
                     {
                         //  前回と違うエラーのとき
-
                         if (Properties.Settings.Default.rmelody == "ON")
                         {
                             //  設定が有効のときは、ブザーを鳴らす
@@ -584,9 +579,14 @@ namespace Mocs
 
 
                     //  エラー情報を更新
-                    m_lastMessageInfo = messageInfo;
+                    m_lastErrorMessage = lastMessage;
 
                 }
+                else
+                {
+                    m_lastErrorMessage = null;
+                }
+
 
 
             }
@@ -974,6 +974,85 @@ namespace Mocs
             powerImage_d.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
         }
         */
+
+        /// <summary>
+        /// CELLとの通信リクエスト
+        /// 通信完了（応答受信またはタイムアウト）でCellRequestDoneコールバックが呼び出される
+        /// </summary>
+        /// <param name="opeType"></param>
+        /// <param name="button"></param>
+        private bool RequestCell(CellOperationType.eType opeType, Button button)
+        {
+            bool bRet;
+            //  CELLとの通信開始
+            if (true != this.m_monitor.ReqOperation(opeType))
+            {
+                bRet = false;
+                MessageBox.Show(Properties.Resources.ERROR_IN_PROGRESS);
+            }
+            else
+            {
+                bRet = true;
+
+                //  処理中設定
+                g_currentButtonForCell = button;
+
+                //  ボタンの背景を灰色にする
+                UpdateButtonColor(button, null, m_gray);
+            }
+            return bRet;
+
+        }
+
+
+
+        /// <summary>
+        /// CELLとの通信完了（応答またはタイムアウト）時によびだされるコールバック
+        /// 別のスレッドから呼び出されるので注意
+        /// 
+        /// ボタンの文字色を黒にする
+        /// </summary>
+        static void CellRequestDone()
+        {
+            g_this.Dispatcher.Invoke((Action)(() =>
+            {
+                //  コントロールの操作
+                
+                if (g_currentButtonForCell != null)
+                {
+                    g_this.CellRequestDone(g_currentButtonForCell);
+
+                    g_currentButtonForCell = null;
+
+                }
+
+
+
+            }));
+
+        }
+
+        void CellRequestDone(Button button)
+        {
+            //  ボタンの文字色を黒にする
+            Brush brush = Brushes.Black;
+            button.Foreground = brush;
+
+            if (button == this.earthquakeButton)
+            {
+                this.eathquakeText.Foreground = brush;
+            } 
+            else if(button == this.powerButton)
+            {
+                this.powerText.Foreground = brush;
+            }
+            else if (button == this.fireButton)
+            {
+                this.fireText.Foreground = brush;
+            }
+        }
+
+
 
     }
 }

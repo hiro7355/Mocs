@@ -16,7 +16,9 @@ namespace Mocs.Utils
     {
         private static int m_LastDBError = 0;
         private static int m_LastSocketError = 0;
-        private static int m_LastSocketConnectionStatus = 0;
+        private static DateTime m_lastSocekErrorDateTime;
+
+        private static Action m_callbackCellRequestDone = null;     //  CELLとの通信完了（応答受信またはタイムアウト）時のコールバック
 
         private static string m_cell_name = "";      //  CELL + cell_statusのcellstat_id
         public static int GetLastDBError()
@@ -29,19 +31,31 @@ namespace Mocs.Utils
             m_LastDBError = hResult;
         }
 
+        public static void SetCallbackCellRequestDone(Action callback)
+        {
+            m_callbackCellRequestDone = callback;
+        }
+            
+
         public static int GetLastSocketError()
         {
             return m_LastSocketError;
         }
 
-        internal static void SetLastSocketError(int hResult)
+        public static void SetLastSocketError(int hResult)
         {
             m_LastSocketError = hResult;
-        }
+            m_lastSocekErrorDateTime = DateTime.Now;
 
-        public static int GetLastSocketConnectionStatus()
+            if (m_callbackCellRequestDone != null)
+            {
+                //  通信完了をコールバック
+                m_callbackCellRequestDone();
+            }
+        }
+        public static DateTime GetLastSocketErrorDateTime()
         {
-            return m_LastSocketConnectionStatus;
+            return m_lastSocekErrorDateTime;
         }
 
         /// <summary>
@@ -66,14 +80,6 @@ namespace Mocs.Utils
 
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="status">0:未接続、1:接続成功、-1:接続失敗</param>
-        internal static void SetLastSocketConnectionStatus(int status)
-        {
-            m_LastSocketConnectionStatus = status;
-        }
 
 
         /// <summary>

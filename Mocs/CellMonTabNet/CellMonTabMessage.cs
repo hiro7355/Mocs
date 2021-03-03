@@ -140,24 +140,24 @@ namespace Mocs.CellMonTabNet
 		/// <summary>
 		/// 送信リトライ回数
 		/// </summary>
-		private int sendRetryNum = 3;
+//		private int sendRetryNum = 3;
 
 		/// <summary>
 		/// 送信タイムアウト時間[msec]
 		/// </summary>
-		private int sendTimeOut = 5000;
+//		private int sendTimeOut = 5000;
 
 		/// <summary>
 		/// メッセージ受信イベント
 		/// </summary>
 		public delegate void MessageRecvMonTabent();
-		public event MessageRecvMonTabent MsgRecvMonTabent;
+//		public event MessageRecvMonTabent MsgRecvMonTabent;
 
 		/// <summary>
 		/// メッセージ送信完了イベント
 		/// </summary>
 		public delegate void MessageSentMonTabent();
-		public event MessageSentMonTabent MsgSentMonTabent;
+//		public event MessageSentMonTabent MsgSentMonTabent;
 
 		#endregion
 

@@ -150,38 +150,6 @@ namespace Mocs.Models
 
             m_muInfos.Add(item);
 
-            /*
-            if (error_message == null)
-            {
-                //  正常のとき
-
-                if (m_muInfoByMu.ContainsKey(mu_id))
-                {
-                    //  muを削除
-                    m_muInfoByMu.Remove(mu_id);
-                }
-            }
-            else
-            {
-                //  エラー発生
-                List<List<string>> muInfo = new List<List<string>>();
-
-
-                CommonUtil.addTitleValueToList(muInfo, mu_name, error_message);
-                CommonUtil.addTitleValueToList(muInfo, Resources.OCCURENCE_DATETIME, DateTimeUtil.CurrentDateTimeString());
-                //  TODO: 発部署
-
-                //  TODO: 棟名称-フロア
-
-                //  TODO:通過ポイント
-                string point_name = "";
-                CommonUtil.addTitleValueToList(muInfo, Resources.PASSING_POINT, point_name);
-
-
-                m_muInfoByMu.Add(mu_id, muInfo);
-
-            }
-            */
 
         }
 

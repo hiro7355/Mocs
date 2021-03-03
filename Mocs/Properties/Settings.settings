@@ -69,7 +69,7 @@
       <Value Profile="(Default)">.\help.pdf</Value>
     </Setting>
     <Setting Name="Cell_wait" Type="System.String" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -450,7 +450,7 @@ namespace Mocs.CellMonTabNet
 		public bool RecvMessage(out string recvPacket)
 		{
 			bool ret = false;
-			int res = -1;
+//			int res = -1;
 			recvPacket = "";
 
 			try

@@ -268,7 +268,8 @@ namespace Mocs
 		/// <summary>
 		/// 通信接続フラグ（メッセージ応答による判定）
 		/// </summary>
-		private bool IsMsgConnected;
+//		private bool IsMsgConnected;
+
 
 		/// <summary>
 		/// 監視モニタータブレット通信メッセージ制御
@@ -278,7 +279,7 @@ namespace Mocs
 		/// <summary>
 		/// 監視モニタータブレット通信ローカルポートオフセット
 		/// </summary>
-		private int monTabConnPortOffset = 0;
+//		private int monTabConnPortOffset = 0;
 
 		/// <summary>
 		/// 定期処理実行、Cell,監視モニタータブレット通信ロックオブジェクト
@@ -368,7 +369,7 @@ namespace Mocs
 				// メッセージ制御、通信設定
 				if (this._cellMonTabMsgCtrl == null)
 				{
-					this.IsMsgConnected = false;
+//					this.IsMsgConnected = false;
 
 					Console.WriteLine("tryCon:{0}", this._Id);
 					int sendPortNo = 0;
@@ -408,7 +409,7 @@ namespace Mocs
 					this._cellMonTabMsgCtrl.Stop();
 					this._cellMonTabMsgCtrl.Dispose();
 					this._cellMonTabMsgCtrl = null;
-					this.IsMsgConnected = false;
+//					this.IsMsgConnected = false;
 				}
 				else
 				{
@@ -671,33 +672,15 @@ namespace Mocs
 					break;
 				case OperationNotifyCtrl.eStatus.Complete:
 
-					if (this._operationNotifyCtrl.opeType == CellOperationType.eType.Start)
-                    {
-						//  CELLとの接続が確立しました　と表示されるようにステータスを設定
-						Mocs.Utils.CommonUtil.SetLastSocketConnectionStatus(1);
-                    } 
-					else
-                    {
-						//  ソケット通信エラー（正常）を設定
-						Mocs.Utils.CommonUtil.SetLastSocketError(0);
-					}
-
+					//  ソケット通信エラー（正常）を設定
+					Mocs.Utils.CommonUtil.SetLastSocketError(0);
 					// Cell運転操作要求完了
 					this._operationNotifyCtrl = null;
 					break;
 				case OperationNotifyCtrl.eStatus.Error:
 
-					if (this._operationNotifyCtrl.opeType == CellOperationType.eType.Start)
-					{
-						//  CELLとの接続ができません。　と表示されるようにステータスを設定
-						Mocs.Utils.CommonUtil.SetLastSocketConnectionStatus(-1);
-					}
-					else
-					{
-						//  ソケット通信エラーを設定
-						Mocs.Utils.CommonUtil.SetLastSocketError((int)this._operationNotifyCtrl.notifyStatus);
-					}
-
+					//  ソケット通信エラーを設定
+					Mocs.Utils.CommonUtil.SetLastSocketError((int)this._operationNotifyCtrl.notifyStatus);
 					// Cell運転操作要求異常
 					this._operationNotifyCtrl = null;
 					break;
@@ -973,7 +956,7 @@ namespace Mocs
 					Console.WriteLine("MU解除要求応答受信");
 				}
 
-				this.IsMsgConnected = true;
+//				this.IsMsgConnected = true;
 			}
 		}
 
@@ -985,7 +968,7 @@ namespace Mocs
 		{
 			lock (lockObjExecAndCom)
 			{
-				this.IsMsgConnected = false;
+//				this.IsMsgConnected = false;
 			}
 		}
 
@@ -1009,7 +992,7 @@ namespace Mocs
 						RecvMsgPutUpdateDbResult((CellMonTabMsgPutUpdateDbResult)recvdMsg);
 					}
 
-					this.IsMsgConnected = true;
+//					this.IsMsgConnected = true;
 				}
 			}
 		}

@@ -52,7 +52,7 @@ namespace Mocs.Controls
         private int m_last_status;
         private bool m_is_cell_stopped;
 
-        private bool m_is_socket_connected;     //  コネクション確立チェック用（成功したらもう確認しないようにするため）
+//        private bool m_is_socket_connected;     //  コネクション確立チェック用（成功したらもう確認しないようにするため）
 
 
         private Brush m_red;
@@ -96,7 +96,7 @@ namespace Mocs.Controls
 
             m_last_level = 0;
             m_is_cell_stopped = false;
-            m_is_socket_connected = false;
+//            m_is_socket_connected = false;
 
 
             // 変更通知してくれるObservableCollectionを使用すると、コレクションに要素を追加・削除すると、自動的にListBoxにも反映します
@@ -351,6 +351,7 @@ namespace Mocs.Controls
 
             //  SOCKET通信データ通信
             lastError = CommonUtil.GetLastSocketError();
+            updatedAt = CommonUtil.GetLastSocketErrorDateTime();
             if (lastError != 0)
             {
                 errorMessage = String.Format(Properties.Resources.CELL_SOCKET_ERROR, lastError);
@@ -611,23 +612,18 @@ namespace Mocs.Controls
                 bgColorName = "Black";
             }
              
-//            m_messageList.Insert(0, new MessageInfo(ColorUtil.brushFromColorName(bgColorName), CommonUtil.MessageFormat(message, type)));
             m_messageList.Insert(0, new MessageInfo(dt, ColorUtil.brushFromColorName(bgColorName), message, type));
         }
 
 
+
         /// <summary>
-        /// 最後のメッセージを取得
+        /// CELLの最後のメッセージを取得
         /// </summary>
         /// <returns></returns>
-        public MessageInfo GetLastMessageInfo()
+        public string GetLastErrorMessage()
         {
-            MessageInfo info = null;
-            if (m_messageList.Count > 0)
-            {
-                info = m_messageList[0];
-            }
-            return info;
+            return this.cell.GetLastMessage(INDEX_ERROR);
         }
     }
 
